@@ -17,6 +17,7 @@ namespace DungeonFinal
     /// <summary>
     /// Interaction logic for BattleWindow.xaml
     /// </summary>
+    /// 
     public partial class BattleWindow : Window
     {
 
