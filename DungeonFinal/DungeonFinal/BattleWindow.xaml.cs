@@ -121,6 +121,7 @@ namespace DungeonFinal
                 MessageBox.Show(theHeros[1].getName() + " used item");
             }
 
+
             if (rBtn_Hero3Attack.IsChecked == true)
             {
                 MessageBox.Show(theHeros[2].getName() + " used basic attack");
