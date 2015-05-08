@@ -37,11 +37,11 @@ namespace DungeonFinal
 
 
             //the following is for debug only, it sets heros and monsters health to 100 for testing display
-            prgBar_Hero1.Value = 100;
-            prgBar_Hero2.Value = 100;
-            prgBar_Hero3.Value = 100;
-            prgBar_Hero4.Value = 100;
-            prgBar_Monster.Value = 100;
+            //prgBar_Hero1.Value = 100;
+            //prgBar_Hero2.Value = 100;
+            //prgBar_Hero3.Value = 100;
+            //prgBar_Hero4.Value = 100;
+            //prgBar_Monster.Value = 100;
             monster = new Monster(1);
 
             
