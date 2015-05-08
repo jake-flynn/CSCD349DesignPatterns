@@ -33,6 +33,7 @@ namespace DungeonFinal
             health = 100;
         }
 
+    /*---------------------------------------------------------------------------------------*/
         public string getName()
         {
             return this._name;
