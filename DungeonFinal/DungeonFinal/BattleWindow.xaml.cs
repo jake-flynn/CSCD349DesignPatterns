@@ -43,7 +43,9 @@ namespace DungeonFinal
             prgBar_Hero3.Value = 100;
             prgBar_Hero4.Value = 100;
             prgBar_Monster.Value = 100;
-            _monster = new Monster(1);
+
+            _monster = new Shade();
+
 
             
         }
@@ -56,11 +58,14 @@ namespace DungeonFinal
             _monster = mon;
 
 
-            prgBar_Hero1.Value = _theHeros[0].getHealth();
-            prgBar_Hero2.Value = _theHeros[1].getHealth();
-            prgBar_Hero3.Value = _theHeros[2].getHealth();
-            prgBar_Hero4.Value = _theHeros[3].getHealth();
-            prgBar_Monster.Value = _monster.getHealth();
+
+            prgBar_Hero1.Value = _theHeros[0].getModHealth();
+            prgBar_Hero2.Value = _theHeros[1].getModHealth();
+            prgBar_Hero3.Value = _theHeros[2].getModHealth();
+            prgBar_Hero4.Value = _theHeros[3].getModHealth();
+            prgBar_Monster.Value = _monster.getModHealth();
+
+
 
             tb_monster.Text = _monster.getName();
             tb_hero1.Text = _theHeros[0].getName();
@@ -73,7 +78,8 @@ namespace DungeonFinal
         //Start Methods
         public void checkForDefeatedMonster()
         {
-            if(_monster.getHealth() <= 0)
+
+            if(_monster.getModHealth() <= 0)
             {
                 MessageBox.Show(_monster.getName() + " was defeated!!!");
                 this.Close();
@@ -84,9 +90,9 @@ namespace DungeonFinal
         {
             int heroDamage = 15; //get damage from hero class
 
-            _monster.setHealth(_monster.getHealth() - heroDamage);
+            _monster.setModHealth(_monster.getModHealth() - heroDamage);
 
-            prgBar_Monster.Value = _monster.getHealth();
+            prgBar_Monster.Value = _monster.getModHealth();
             checkForDefeatedMonster();
         }
         //End Methods
@@ -182,7 +188,8 @@ namespace DungeonFinal
             if (curHealth > 0)
             {
                 curHealth -= 10;
-                _monster.setHealth(_monster.getHealth() - 10);
+
+                _monster.setModHealth(_monster.getModHealth() - 10);
                 prgBar_Hero1.Value = curHealth;
                 prgBar_Hero2.Value = curHealth;
                 prgBar_Hero3.Value = curHealth;

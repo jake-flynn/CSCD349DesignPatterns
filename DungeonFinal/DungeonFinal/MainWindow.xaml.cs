@@ -135,23 +135,23 @@ namespace DungeonFinal
                     randomNumber = randomGeneratedNumber.Next(10);
                     if(randomNumber <= 2)
                     {
-                        monsterToAdd = new Monster(1);
+                        monsterToAdd = new Shade();
                         settingMonstersInRooms[i, j].setMonster(monsterToAdd);
                     }
                     else if(randomNumber <= 4)
                     {
-                        monsterToAdd = new Monster(2);
+                        monsterToAdd = new Shade();
                         settingMonstersInRooms[i, j].setMonster(monsterToAdd);
                     }
                     else if (randomNumber <= 6)
                     {
-                        monsterToAdd = new Monster(3);
+                        monsterToAdd = new Shade();
                         settingMonstersInRooms[i, j].setMonster(monsterToAdd);
                     }
 
                 }
             }
-            monsterToAdd = new Monster(4);
+            monsterToAdd = new Shade();
             settingMonstersInRooms[difficulty-1, difficulty-1].setMonster(monsterToAdd);
             maze.SetRooms(settingMonstersInRooms);
 

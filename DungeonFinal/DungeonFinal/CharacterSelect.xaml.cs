@@ -65,75 +65,75 @@ namespace DungeonFinal
             
             if(rbtn_Hero1_Swordsman.IsChecked == true)
             {
-                party.addHero(new Hero(1));
+                party.addHero(new Swordsman());
             }
             else if(rbtn_Hero1_Paladin.IsChecked == true)
             {
-                party.addHero(new Hero(2));
+                party.addHero(new Swordsman());
             }
             else if(rbtn_Hero1_Priest.IsChecked == true)
             {
-                party.addHero(new Hero(3));
+                party.addHero(new Swordsman());
             }
             else if(rbtn_Hero1_Rogue.IsChecked == true)
             {
-                party.addHero(new Hero(4));
+                party.addHero(new Swordsman());
             }
 
 
             if (rbtn_Hero2_Swordsman.IsChecked == true)
             {
-                party.addHero(new Hero(1));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero2_Paladin.IsChecked == true)
             {
-                party.addHero(new Hero(2));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero2_Priest.IsChecked == true)
             {
-                party.addHero(new Hero(3));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero2_Rogue.IsChecked == true)
             {
-                party.addHero(new Hero(4));
+                party.addHero(new Swordsman());
             }
 
 
 
             if (rbtn_Hero3_Swordsman.IsChecked == true)
             {
-                party.addHero(new Hero(1));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero3_Paladin.IsChecked == true)
             {
-                party.addHero(new Hero(2));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero3_Priest.IsChecked == true)
             {
-                party.addHero(new Hero(3));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero3_Rogue.IsChecked == true)
             {
-                party.addHero(new Hero(4));
+                party.addHero(new Swordsman());
             }
 
 
 
             if (rbtn_Hero4_Swordsman.IsChecked == true)
             {
-                party.addHero(new Hero(1));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero4_Paladin.IsChecked == true)
             {
-                party.addHero(new Hero(2));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero4_Priest.IsChecked == true)
             {
-                party.addHero(new Hero(3));
+                party.addHero(new Swordsman());
             }
             else if (rbtn_Hero4_Rogue.IsChecked == true)
             {
-                party.addHero(new Hero(4));
+                party.addHero(new Swordsman());
             }
 
             this.Close();
