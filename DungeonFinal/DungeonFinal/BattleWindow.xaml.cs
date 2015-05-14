@@ -95,6 +95,11 @@ namespace DungeonFinal
             prgBar_Monster.Value = _monster.getModHealth();
             checkForDefeatedMonster();
         }
+
+        private void defend()
+        {
+
+        }
         //End Methods
 
 
