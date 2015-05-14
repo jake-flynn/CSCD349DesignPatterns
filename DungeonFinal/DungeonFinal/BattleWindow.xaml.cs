@@ -57,7 +57,7 @@ namespace DungeonFinal
             _theHeros = _theParty.getHeros();
             _monster = mon;
 
-
+            //ProgressBar [] prgBar_array = new ProgressBar 
 
             prgBar_Hero1.Value = _theHeros[0].getModHealth();
             prgBar_Hero2.Value = _theHeros[1].getModHealth();
@@ -86,20 +86,44 @@ namespace DungeonFinal
             }
         }
 
-        private void normalAttack(Hero hero, Monster mon)
+        public void checkForDefeatedHero(Hero hero)
+        {
+
+            if (hero.getModHealth() <= 0)
+            {
+                MessageBox.Show(hero.getName() + " was killed!!!");
+                this.Close();
+            }
+        }
+
+        private void normalAttack(Hero hero, Monster mon) //Hero attacks!
         {
             int heroDamage = 15; //get damage from hero class
 
-            _monster.setModHealth(_monster.getModHealth() - heroDamage);
+            mon.setModHealth(mon.getModHealth() - heroDamage);
 
-            prgBar_Monster.Value = _monster.getModHealth();
+            prgBar_Monster.Value = mon.getModHealth();
             checkForDefeatedMonster();
         }
 
         private void defend()
         {
-
+            //set a defending state that interacts with the monsterAttack method.
         }
+
+        private void monsterAttack(Hero hero, Monster mon) //Monster
+        {
+            int monsterDamage = 15; //get damage from hero class
+
+
+            hero.setModHealth(hero.getModHealth() - monsterDamage);
+
+            
+            prgBar_Hero1.Value = mon.getModHealth();
+            checkForDefeatedMonster();
+        }
+
+
         //End Methods
 
 
@@ -182,7 +206,9 @@ namespace DungeonFinal
             {
                 MessageBox.Show(_theHeros[3].getName() + " used item");
             }
+            //-----------------------------Hero's have had their say... IT'S MONSTA TIME.----------------------//
 
+            monsterAttack(_theHeros[0], _monster);
 
             checkForDefeatedMonster();
         }
