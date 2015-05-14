@@ -6,52 +6,34 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Shade : GameCharacter
+    class Shade : Monster
     {
         private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC
         public Shade()
         {
-            base.setHealth(100);
+            base.setName("Shade");
+            base.setModHealth(100);
             base.setMana(100);
             base.setStrength(5);
             base.setMagic(5);
             base.setDefense(5);
             base.setResistance(5);
+
+            base.setIsPhysical(false);
+            this._SpecialAttack = new Curse();
+            base.setSpecialAttack(this._SpecialAttack);
             
             base.setIsDefending(false);
             base.setDefendingDefense(this.getDefendingDefense());
             base.setDefendingResistance(this.getDefendingResistance());
-
-            this._SpecialAttack = new Curse();
-            base.setSpecialAttack(this._SpecialAttack);
         }
 
-       //EVC
-        public Shade(int h, int ma, int s, int mg, int d, int r)
-        {
-            base.setHealth(h);
-            base.setMana(ma);
-            base.setStrength(s);
-            base.setMagic(mg);
-            base.setDefense(d);
-            base.setResistance(r);
 
-            base.setIsDefending(false);
-            base.setDefendingDefense(this.getDefendingDefense());
-            base.setDefendingResistance(this.getDefendingResistance());
-
-            this._SpecialAttack = new Curse();
-            base.setSpecialAttack(this._SpecialAttack);
-        }
-
+        /*---------------------------------------------------------------------------------------*/
        /*Battle - Attack*/
         /*BasicAttack returns an int based on the attack stat of that character type.*/
-        public override string getName()
-        {
-            return "Shade";
-        }
 
         public override int BasicAttack()
         {
@@ -59,10 +41,10 @@ namespace DungeonFinal
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override GameCharacter FindTarget(GameCharacter[] party)
+        public override Hero FindTarget(Hero[] party)
         {
             int rnd = new Random().Next(1, party.Length);
-            GameCharacter target = party[rnd];
+            Hero target = party[rnd];
 
             return target;
         }

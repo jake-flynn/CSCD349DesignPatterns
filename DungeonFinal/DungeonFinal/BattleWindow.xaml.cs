@@ -42,7 +42,7 @@ namespace DungeonFinal
             prgBar_Hero3.Value = 100;
             prgBar_Hero4.Value = 100;
             prgBar_Monster.Value = 100;
-            monster = new Monster(1);
+            monster = new Shade();
 
             
         }
@@ -55,11 +55,11 @@ namespace DungeonFinal
             monster = mon;
 
 
-            prgBar_Hero1.Value = theHeros[0].getHealth();
-            prgBar_Hero2.Value = theHeros[1].getHealth();
-            prgBar_Hero3.Value = theHeros[2].getHealth();
-            prgBar_Hero4.Value = theHeros[3].getHealth();
-            prgBar_Monster.Value = monster.getHealth();
+            prgBar_Hero1.Value = theHeros[0].getModHealth();
+            prgBar_Hero2.Value = theHeros[1].getModHealth();
+            prgBar_Hero3.Value = theHeros[2].getModHealth();
+            prgBar_Hero4.Value = theHeros[3].getModHealth();
+            prgBar_Monster.Value = monster.getModHealth();
 
             tb_monster.Text = monster.getName();
             tb_hero1.Text = theHeros[0].getName();
@@ -72,7 +72,7 @@ namespace DungeonFinal
         //Start Methods
         public void checkForDefeatedMonster()
         {
-            if(monster.getHealth() <= 0)
+            if(monster.getModHealth() <= 0)
             {
                 MessageBox.Show(monster.getName() + " was defeated!!!");
                 this.Close();
@@ -167,7 +167,7 @@ namespace DungeonFinal
             if (curHealth > 0)
             {
                 curHealth -= 10;
-                monster.setHealth(monster.getHealth() - 10);
+                monster.setModHealth(monster.getModHealth() - 10);
                 prgBar_Hero1.Value = curHealth;
                 prgBar_Hero2.Value = curHealth;
                 prgBar_Hero3.Value = curHealth;
