@@ -82,6 +82,7 @@ namespace DungeonFinal
             if(_monster.getModHealth() <= 0)
             {
                 MessageBox.Show(_monster.getName() + " was defeated!!!");
+
                 this.Close();
             }
         }
@@ -96,9 +97,18 @@ namespace DungeonFinal
             checkForDefeatedMonster();
         }
 
-        private void defend()
+        private void defend(Hero hero)
         {
+            hero.setIsDefending(true);
+        }
 
+        private void incrementEffects()//This method will process all effects and time based moves
+        {
+            for(Hero h: _theHeros)
+            {
+                h.setIsDefending(false);
+            }
+            
         }
         //End Methods
 
@@ -183,7 +193,7 @@ namespace DungeonFinal
                 MessageBox.Show(_theHeros[3].getName() + " used item");
             }
 
-
+            incrementEffects();
             checkForDefeatedMonster();
         }
 
