@@ -16,6 +16,8 @@ namespace DungeonFinal
             base.setName("Paladin");
             base.setModHealth(100);
             base.setMana(100);
+
+            //Main stats are out of 40 points
             base.setStrength(10);
             base.setMagic(10);
             base.setDefense(10);

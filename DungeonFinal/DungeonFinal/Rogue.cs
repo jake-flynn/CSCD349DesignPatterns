@@ -16,8 +16,10 @@ namespace DungeonFinal
             base.setName("Rogue");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(10);
-            base.setMagic(10);
+
+            //Main stats are out of 40 points
+            base.setStrength(20);
+            base.setMagic(0);
             base.setDefense(10);
             base.setResistance(10);
 

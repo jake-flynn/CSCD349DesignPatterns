@@ -16,10 +16,12 @@ namespace DungeonFinal
             base.setName("Imp");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
-            base.setResistance(5);
+
+            //Main stats are out of 20 points
+            base.setStrength(0);
+            base.setMagic(10);
+            base.setDefense(10);
+            base.setResistance(0);
 
             base.setIsPhysical(false);
             this._SpecialAttack = new Curse();
@@ -41,8 +43,10 @@ namespace DungeonFinal
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Hero[] party)
+        public override Hero FindTarget(Party p)
         {
+            Hero[] party = p.getHeros();
+
             int rnd = new Random().Next(1, party.Length);
             Hero target = party[rnd];
 

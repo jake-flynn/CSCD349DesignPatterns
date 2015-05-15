@@ -16,10 +16,12 @@ namespace DungeonFinal
             base.setName("Swordsman");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(10);
-            base.setMagic(10);
-            base.setDefense(10);
-            base.setResistance(10);
+
+            //Main stats are out of 40 points
+            base.setStrength(15);
+            base.setMagic(5);
+            base.setDefense(15);
+            base.setResistance(5);
 
             base.setIsPhysical(true);
             this._SpecialAttack = new BladeSlash();

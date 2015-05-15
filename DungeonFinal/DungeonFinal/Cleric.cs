@@ -16,12 +16,14 @@ namespace DungeonFinal
             base.setName("Cleric");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(10);
-            base.setMagic(10);
-            base.setDefense(10);
-            base.setResistance(10);
 
-            base.setIsPhysical(true);
+            //Main stats are out of 40 points
+            base.setStrength(0);
+            base.setMagic(20);
+            base.setDefense(0);
+            base.setResistance(20);
+
+            base.setIsPhysical(false);
             this._SpecialAttack = new HealingLight();
             base.setSpecialAttack(this._SpecialAttack);
 
