@@ -57,10 +57,13 @@
     <Compile Include="BattleWindow.xaml.cs">
       <DependentUpon>BattleWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Beast.cs" />
     <Compile Include="BladeSlash.cs" />
+    <Compile Include="Centaur.cs" />
     <Compile Include="CharacterSelect.xaml.cs">
       <DependentUpon>CharacterSelect.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Consumable.cs" />
     <Compile Include="Curse.cs" />
     <Compile Include="Effect.cs" />
@@ -69,17 +72,44 @@
     <Compile Include="HealthPotion.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Item.cs" />
+=======
+    <Compile Include="Chimera.cs" />
+    <Compile Include="Cleric.cs" />
+    <Compile Include="Cockatrice.cs" />
+    <Compile Include="Curse.cs" />
+    <Compile Include="Cyclops.cs" />
+    <Compile Include="DemonWarrior.cs" />
+    <Compile Include="Dragon.cs" />
+    <Compile Include="FullGuard.cs" />
+    <Compile Include="GameCharacter.cs" />
+    <Compile Include="Harpy.cs" />
+    <Compile Include="HealingLight.cs" />
+    <Compile Include="Hellhound.cs" />
+    <Compile Include="Hero.cs" />
+    <Compile Include="Hydra.cs" />
+    <Compile Include="Imp.cs" />
+    <Compile Include="Insect.cs" />
+>>>>>>> ee895b477f83675fdd2fdda0af1e75eb45602141
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="Maze.cs" />
     <Compile Include="MazeMaker.cs" />
+    <Compile Include="Minotaur.cs" />
+    <Compile Include="Paladin.cs" />
     <Compile Include="Party.cs" />
+    <Compile Include="Rogue.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RustedSword.cs" />
     <Compile Include="Shade.cs" />
+    <Compile Include="Skeleton.cs" />
+    <Compile Include="Slime.cs" />
     <Compile Include="SpecialAttackBehavior.cs" />
+    <Compile Include="Sphynx.cs" />
     <Compile Include="Swordsman.cs" />
+    <Compile Include="ThrowKnives.cs" />
+    <Compile Include="VampireBat.cs" />
+    <Compile Include="Werewolf.cs" />
     <Page Include="BattleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
