@@ -63,25 +63,20 @@
     <Compile Include="CharacterSelect.xaml.cs">
       <DependentUpon>CharacterSelect.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Consumable.cs" />
     <Compile Include="Curse.cs" />
     <Compile Include="Effect.cs" />
     <Compile Include="Equippable.cs" />
     <Compile Include="GameCharacter.cs" />
     <Compile Include="HealthPotion.cs" />
-    <Compile Include="Hero.cs" />
     <Compile Include="Item.cs" />
-=======
     <Compile Include="Chimera.cs" />
     <Compile Include="Cleric.cs" />
     <Compile Include="Cockatrice.cs" />
-    <Compile Include="Curse.cs" />
     <Compile Include="Cyclops.cs" />
     <Compile Include="DemonWarrior.cs" />
     <Compile Include="Dragon.cs" />
     <Compile Include="FullGuard.cs" />
-    <Compile Include="GameCharacter.cs" />
     <Compile Include="Harpy.cs" />
     <Compile Include="HealingLight.cs" />
     <Compile Include="Hellhound.cs" />
@@ -89,7 +84,6 @@
     <Compile Include="Hydra.cs" />
     <Compile Include="Imp.cs" />
     <Compile Include="Insect.cs" />
->>>>>>> ee895b477f83675fdd2fdda0af1e75eb45602141
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
