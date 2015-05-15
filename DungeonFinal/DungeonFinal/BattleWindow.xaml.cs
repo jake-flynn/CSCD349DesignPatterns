@@ -38,13 +38,13 @@ namespace DungeonFinal
 
 
             //the following is for debug only, it sets heros and monsters health to 100 for testing display
-            prgBar_Hero1.Value = 100;
-            prgBar_Hero2.Value = 100;
-            prgBar_Hero3.Value = 100;
-            prgBar_Hero4.Value = 100;
-            prgBar_Monster.Value = 100;
+            //prgBar_Hero1.Value = 100;
+            //prgBar_Hero2.Value = 100;
+            //prgBar_Hero3.Value = 100;
+            //prgBar_Hero4.Value = 100;
+            //prgBar_Monster.Value = 100;
 
-            _monster = new Shade();
+            //_monster = new Shade();
 
 
             
@@ -116,7 +116,7 @@ namespace DungeonFinal
             hero.setModHealth(hero.getModHealth() - monsterDamage);
 
 
-            prgBar_Hero1.Value = mon.getModHealth();
+            prgBar_Hero1.Value = hero.getModHealth();
             checkForDefeatedMonster();
         }
 
@@ -127,7 +127,7 @@ namespace DungeonFinal
 
         private void incrementEffects()//This method will process all effects and time based moves
         {
-            for(Hero h: _theHeros)
+            foreach(Hero h in _theHeros)
             {
                 h.setIsDefending(false);
             }
@@ -218,12 +218,10 @@ namespace DungeonFinal
             }
             //-----------------------------Hero's have had their say... IT'S MONSTA TIME.----------------------//
 
-<<<<<<< HEAD
-            monsterAttack(_theHeros[0], _monster);
 
-=======
+            MessageBox.Show("Monster Attacked!");
+            monsterAttack(_theHeros[0], _monster);
             incrementEffects();
->>>>>>> 0ea3c3e52207855ba00ebf96861584db35d59f8a
             checkForDefeatedMonster();
         }
 
