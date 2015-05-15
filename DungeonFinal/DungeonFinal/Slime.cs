@@ -16,10 +16,12 @@ namespace DungeonFinal
             base.setName("Slime");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
-            base.setResistance(5);
+
+            //Main stats are out of 20 points
+            base.setStrength(4);
+            base.setMagic(0);
+            base.setDefense(8);
+            base.setResistance(8);
 
             base.setIsPhysical(false);
             this._SpecialAttack = new Curse();

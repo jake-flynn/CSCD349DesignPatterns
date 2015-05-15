@@ -16,12 +16,14 @@ namespace DungeonFinal
             base.setName("Insect");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
-            base.setResistance(5);
 
-            base.setIsPhysical(false);
+            //Main stats are out of 20 points
+            base.setStrength(7);
+            base.setMagic(0);
+            base.setDefense(7);
+            base.setResistance(6);
+
+            base.setIsPhysical(true);
             this._SpecialAttack = new Curse();
             base.setSpecialAttack(this._SpecialAttack);
             

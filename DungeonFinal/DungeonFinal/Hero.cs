@@ -29,6 +29,10 @@ namespace DungeonFinal
 
         public Hero(){}
 
+
+        /*
+         * Heroes: Swordsman, Paladin, Cleric, Rogue                    40 points stats
+         */
         public Hero(int i)
         {
             if (i == 1)
@@ -38,17 +42,17 @@ namespace DungeonFinal
             else if (i == 2)
             {
                 //_Name = "Paladin";
-                new Swordsman();
+                new Paladin();
             }
             else if (i == 3)
             {
-                //_Name = "Priest";
-                new Swordsman();
+                //_Name = "Cleric";
+                new Cleric();
             }
             else if(i == 4)
             {
                 //_Name = "Rogue";
-                new Swordsman();
+                new Rogue();
             }
 
             _BaseHealth = 100;

@@ -28,6 +28,13 @@ namespace DungeonFinal
 
         public Monster(){}
 
+        /*
+         * Tier 1 Monster: Shade, Skeleton, Insect, VampireBat, Slime, Imp              20 points stats
+         * Tier 2 Monster: Beast, Werewolf, Harpy, Hellhound, Cockatrice, Sphynx        40 points stats
+         * Tier 3 Monster: Centaur, DemonWarrior, Cyclops                               60 points stats
+         * Boss Monster: Dragon, Minotaur, Chimera, Hydra                               80 points stats
+         */
+
         public Monster(int i)
         {
             int rnd = 1;
