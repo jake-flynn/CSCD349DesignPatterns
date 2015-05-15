@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Shade : Monster
+    class Insect : Monster
     {
         private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC
-        public Shade()
+        public Insect()
         {
-            base.setName("Shade");
+            base.setName("Insect");
             base.setModHealth(100);
             base.setMana(100);
 
             //Main stats are out of 20 points
-            base.setStrength(0);
-            base.setMagic(10);
-            base.setDefense(0);
-            base.setResistance(10);
+            base.setStrength(7);
+            base.setMagic(0);
+            base.setDefense(7);
+            base.setResistance(6);
 
-            base.setIsPhysical(false);
+            base.setIsPhysical(true);
             this._SpecialAttack = new Curse();
             base.setSpecialAttack(this._SpecialAttack);
             

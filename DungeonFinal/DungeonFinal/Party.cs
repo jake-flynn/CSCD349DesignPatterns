@@ -36,5 +36,10 @@ namespace DungeonFinal
             dungeonParty = newParty;
             currentPartyMembers = 4;
         }
+
+        public int getCurrentPartyMembers()
+        {
+            return currentPartyMembers;
+        }
     }
 }

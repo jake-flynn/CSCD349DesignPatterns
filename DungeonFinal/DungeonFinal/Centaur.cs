@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Shade : Monster
+    class Centaur : Monster
     {
         private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC
-        public Shade()
+        public Centaur()
         {
-            base.setName("Shade");
+            base.setName("Centaur");
             base.setModHealth(100);
             base.setMana(100);
 
-            //Main stats are out of 20 points
-            base.setStrength(0);
-            base.setMagic(10);
-            base.setDefense(0);
-            base.setResistance(10);
+            //Main stats are out of 60 points
+            base.setStrength(30);
+            base.setMagic(0);
+            base.setDefense(15);
+            base.setResistance(15);
 
-            base.setIsPhysical(false);
+            base.setIsPhysical(true);
             this._SpecialAttack = new Curse();
             base.setSpecialAttack(this._SpecialAttack);
             
@@ -46,9 +46,20 @@ namespace DungeonFinal
         public override Hero FindTarget(Party p)
         {
             Hero[] party = p.getHeros();
+            Hero target = party[0];
 
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
+            if (p.getCurrentPartyMembers() == 1)
+            {
+                return target;
+            }
+
+            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            {
+                if (party[i + 1].getDefense() < party[i].getDefense())
+                {
+                    target = party[i + 1];
+                }
+            }
 
             return target;
         }

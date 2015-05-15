@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Shade : Monster
+    class Cleric : Hero
     {
         private SpecialAttackBehavior _SpecialAttack = null;
 
-       //DVC
-        public Shade()
+        //DVC
+        public Cleric()
         {
-            base.setName("Shade");
+            base.setName("Cleric");
             base.setModHealth(100);
             base.setMana(100);
 
-            //Main stats are out of 20 points
+            //Main stats are out of 40 points
             base.setStrength(0);
-            base.setMagic(10);
+            base.setMagic(20);
             base.setDefense(0);
-            base.setResistance(10);
+            base.setResistance(20);
 
             base.setIsPhysical(false);
-            this._SpecialAttack = new Curse();
+            this._SpecialAttack = new HealingLight();
             base.setSpecialAttack(this._SpecialAttack);
-            
+
             base.setIsDefending(false);
             base.setDefendingDefense(this.getDefendingDefense());
             base.setDefendingResistance(this.getDefendingResistance());
@@ -34,30 +34,20 @@ namespace DungeonFinal
 
 
         /*---------------------------------------------------------------------------------------*/
-       /*Battle - Attack*/
-        /*BasicAttack returns an int based on the attack stat of that character type.*/
+        /*Battle - Attack*/
+        /*This method returns an int based on the attack stat of that character type.*/
 
         public override int BasicAttack()
         {
-            int m = base.getMagic();
-            return m;
-        }
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getHeros();
-
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
-
-            return target;
+            int s = base.getStrength();
+            return s;
         }
 
-       /*Battle - Defend*/
+        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = base.getDefense() * 1;
+            int dd = base.getDefense() * 2;
             base.setDefendingDefense(dd);
 
             return dd;
@@ -65,7 +55,7 @@ namespace DungeonFinal
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = base.getResistance() * 1;
+            int dr = base.getResistance() * 2;
             base.setDefendingDefense(dr);
 
             return dr;

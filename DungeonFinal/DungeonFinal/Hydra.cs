@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Shade : Monster
+    class Hydra : Monster
     {
         private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC
-        public Shade()
+        public Hydra()
         {
-            base.setName("Shade");
+            base.setName("Hydra");
             base.setModHealth(100);
             base.setMana(100);
 
-            //Main stats are out of 20 points
-            base.setStrength(0);
-            base.setMagic(10);
-            base.setDefense(0);
+            //Main stats are out of 80 points
+            base.setStrength(35);
+            base.setMagic(0);
+            base.setDefense(35);
             base.setResistance(10);
 
-            base.setIsPhysical(false);
+            base.setIsPhysical(true);
             this._SpecialAttack = new Curse();
             base.setSpecialAttack(this._SpecialAttack);
             
@@ -46,9 +46,46 @@ namespace DungeonFinal
         public override Hero FindTarget(Party p)
         {
             Hero[] party = p.getHeros();
+            int rnd1 = new Random().Next(1, 3);
+            Hero target = party[0];
 
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
+            if (rnd1 == 1)
+            {
+                int rnd2 = new Random().Next(1, party.Length);
+                target = party[rnd2];
+            }
+
+            else if (rnd1 == 2)
+            {
+                if (p.getCurrentPartyMembers() == 1)
+                {
+                    return target;
+                }
+
+                for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+                {
+                    if (party[i + 1].getModHealth() < party[i].getModHealth())
+                    {
+                        target = party[i + 1];
+                    }
+                }
+            }
+
+            else if (rnd1 == 3)
+            {
+                if (p.getCurrentPartyMembers() == 1)
+                {
+                    return target;
+                }
+
+                for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+                {
+                    if (party[i + 1].getDefense() < party[i].getDefense())
+                    {
+                        target = party[i + 1];
+                    }
+                }
+            }
 
             return target;
         }
