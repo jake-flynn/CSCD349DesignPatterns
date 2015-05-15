@@ -43,10 +43,23 @@ namespace DungeonFinal
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Hero[] party)
+        public override Hero FindTarget(Party p)
         {
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
+            Hero[] party = p.getHeros();
+            Hero target = party[0];
+
+            if (p.getCurrentPartyMembers() == 1)
+            {
+                return target;
+            }
+
+            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            {
+                if(party[i + 1].getModHealth() < party[i].getModHealth())
+                {
+                    target = party[i + 1];
+                }
+            }
 
             return target;
         }

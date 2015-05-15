@@ -29,10 +29,10 @@ namespace DungeonFinal
         public Monster(){}
 
         /*
-         * Tier 1 Monster: Shade, Skeleton, Insect, VampireBat, Slime, Imp              20 points stats
-         * Tier 2 Monster: Beast, Werewolf, Harpy, Hellhound, Cockatrice, Sphynx        40 points stats
-         * Tier 3 Monster: Centaur, DemonWarrior, Cyclops                               60 points stats
-         * Boss Monster: Dragon, Minotaur, Chimera, Hydra                               80 points stats
+         * Tier 1 Monster: Shade, Skeleton, Insect, VampireBat, Slime, Imp              20 points stats; Random attack target
+         * Tier 2 Monster: Beast, Werewolf, Harpy, Hellhound, Cockatrice, Sphynx        40 points stats; Attack lowest health target
+         * Tier 3 Monster: Centaur, DemonWarrior, Cyclops                               60 points stats; Target has highest weakness to monster
+         * Boss Monster: Dragon, Minotaur, Chimera, Hydra                               80 points stats; Any of the three target methods
          */
 
         public Monster(int i)
@@ -235,7 +235,7 @@ namespace DungeonFinal
         {
             this._IsPhysical = iP;
         }
-        public abstract Hero FindTarget(Hero[] party);
+        public abstract Hero FindTarget(Party p);
         public void SpecialAttack()
         {
             this._SpecialAttack.PerformSpecialAttack();
