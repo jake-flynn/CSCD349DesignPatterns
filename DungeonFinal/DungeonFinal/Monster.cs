@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    abstract public class Monster
+    public class Monster
     {
 
         private string _Name;

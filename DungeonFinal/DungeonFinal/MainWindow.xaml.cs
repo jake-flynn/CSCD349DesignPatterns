@@ -135,7 +135,7 @@ namespace DungeonFinal
                     randomNumber = randomGeneratedNumber.Next(10);
                     if(randomNumber <= 2)
                     {
-                        monsterToAdd = new Shade();
+                        monsterToAdd = new Monster(1);
                         settingMonstersInRooms[i, j].setMonster(monsterToAdd);
                     }
                     else if(randomNumber <= 4)
