@@ -82,6 +82,7 @@ namespace DungeonFinal
             if(_monster.getModHealth() <= 0)
             {
                 MessageBox.Show(_monster.getName() + " was defeated!!!");
+
                 this.Close();
             }
         }
@@ -106,10 +107,6 @@ namespace DungeonFinal
             checkForDefeatedMonster();
         }
 
-        private void defend()
-        {
-            //set a defending state that interacts with the monsterAttack method.
-        }
 
         private void monsterAttack(Hero hero, Monster mon) //Monster
         {
@@ -118,9 +115,22 @@ namespace DungeonFinal
 
             hero.setModHealth(hero.getModHealth() - monsterDamage);
 
-            
+
             prgBar_Hero1.Value = mon.getModHealth();
             checkForDefeatedMonster();
+        }
+
+        private void defend(Hero hero)
+        {
+            hero.setIsDefending(true);
+        }
+
+        private void incrementEffects()//This method will process all effects and time based moves
+        {
+            for(Hero h: _theHeros)
+            {
+                h.setIsDefending(false);
+            }
         }
 
 
@@ -208,8 +218,12 @@ namespace DungeonFinal
             }
             //-----------------------------Hero's have had their say... IT'S MONSTA TIME.----------------------//
 
+<<<<<<< HEAD
             monsterAttack(_theHeros[0], _monster);
 
+=======
+            incrementEffects();
+>>>>>>> 0ea3c3e52207855ba00ebf96861584db35d59f8a
             checkForDefeatedMonster();
         }
 

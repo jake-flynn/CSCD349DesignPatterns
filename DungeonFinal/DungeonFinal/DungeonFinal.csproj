@@ -61,9 +61,14 @@
     <Compile Include="CharacterSelect.xaml.cs">
       <DependentUpon>CharacterSelect.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Consumable.cs" />
     <Compile Include="Curse.cs" />
+    <Compile Include="Effect.cs" />
+    <Compile Include="Equippable.cs" />
     <Compile Include="GameCharacter.cs" />
+    <Compile Include="HealthPotion.cs" />
     <Compile Include="Hero.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
@@ -71,6 +76,7 @@
     <Compile Include="MazeMaker.cs" />
     <Compile Include="Party.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="RustedSword.cs" />
     <Compile Include="Shade.cs" />
     <Compile Include="SpecialAttackBehavior.cs" />
     <Compile Include="Swordsman.cs" />
