@@ -16,10 +16,12 @@ namespace DungeonFinal
             base.setName("DemonWarrior");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
-            base.setResistance(5);
+
+            //Main stats are out of 60 points
+            base.setStrength(0);
+            base.setMagic(35);
+            base.setDefense(10);
+            base.setResistance(15);
 
             base.setIsPhysical(false);
             this._SpecialAttack = new Curse();

@@ -16,12 +16,14 @@ namespace DungeonFinal
             base.setName("Minotaur");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
+
+            //Main stats are out of 80 points
+            base.setStrength(55);
+            base.setMagic(0);
+            base.setDefense(20);
             base.setResistance(5);
 
-            base.setIsPhysical(false);
+            base.setIsPhysical(true);
             this._SpecialAttack = new Curse();
             base.setSpecialAttack(this._SpecialAttack);
             

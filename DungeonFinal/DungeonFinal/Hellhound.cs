@@ -16,12 +16,14 @@ namespace DungeonFinal
             base.setName("Hellhound");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
+
+            //Main stats are out of 40 points
+            base.setStrength(25);
+            base.setMagic(0);
+            base.setDefense(10);
             base.setResistance(5);
 
-            base.setIsPhysical(false);
+            base.setIsPhysical(true);
             this._SpecialAttack = new Curse();
             base.setSpecialAttack(this._SpecialAttack);
             

@@ -16,10 +16,12 @@ namespace DungeonFinal
             base.setName("Harpy");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
-            base.setResistance(5);
+
+            //Main stats are out of 40 points
+            base.setStrength(0);
+            base.setMagic(20);
+            base.setDefense(0);
+            base.setResistance(20);
 
             base.setIsPhysical(false);
             this._SpecialAttack = new Curse();

@@ -16,12 +16,14 @@ namespace DungeonFinal
             base.setName("Cyclops");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
-            base.setResistance(5);
 
-            base.setIsPhysical(false);
+            //Main stats are out of 60 points
+            base.setStrength(25);
+            base.setMagic(0);
+            base.setDefense(25);
+            base.setResistance(10);
+
+            base.setIsPhysical(true);
             this._SpecialAttack = new Curse();
             base.setSpecialAttack(this._SpecialAttack);
             

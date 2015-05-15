@@ -16,10 +16,12 @@ namespace DungeonFinal
             base.setName("Cockatrice");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
-            base.setResistance(5);
+
+            //Main stats are out of 40 points
+            base.setStrength(0);
+            base.setMagic(16);
+            base.setDefense(12);
+            base.setResistance(12);
 
             base.setIsPhysical(false);
             this._SpecialAttack = new Curse();

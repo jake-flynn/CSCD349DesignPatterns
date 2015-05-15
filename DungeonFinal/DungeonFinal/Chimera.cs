@@ -16,10 +16,12 @@ namespace DungeonFinal
             base.setName("Chimera");
             base.setModHealth(100);
             base.setMana(100);
-            base.setStrength(5);
-            base.setMagic(5);
-            base.setDefense(5);
-            base.setResistance(5);
+
+            //Main stats are out of 80 points
+            base.setStrength(0);
+            base.setMagic(40);
+            base.setDefense(15);
+            base.setResistance(25);
 
             base.setIsPhysical(false);
             this._SpecialAttack = new Curse();
