@@ -127,7 +127,7 @@ namespace DungeonFinal
             int randomNumber = randomGeneratedNumber.Next(10);
             Room[,] settingMonstersInRooms = maze.GetRooms();
             Monster monsterToAdd;
-
+            MonsterFactory mazePopulator = new MonsterFactory();
             for(int i = 0; i < difficulty; i++)
             {
                 for(int j = 1; j < difficulty; j++)
@@ -135,17 +135,17 @@ namespace DungeonFinal
                     randomNumber = randomGeneratedNumber.Next(10);
                     if(randomNumber <= 2)
                     {
-                        monsterToAdd = new Monster(1);
+                        monsterToAdd = mazePopulator.createMonster(1);
                         settingMonstersInRooms[i, j].setMonster(monsterToAdd);
                     }
                     else if(randomNumber <= 4)
                     {
-                        monsterToAdd = new Shade();
+                        monsterToAdd = mazePopulator.createMonster(2);
                         settingMonstersInRooms[i, j].setMonster(monsterToAdd);
                     }
                     else if (randomNumber <= 6)
                     {
-                        monsterToAdd = new Shade();
+                        monsterToAdd = mazePopulator.createMonster(3);
                         settingMonstersInRooms[i, j].setMonster(monsterToAdd);
                     }
 

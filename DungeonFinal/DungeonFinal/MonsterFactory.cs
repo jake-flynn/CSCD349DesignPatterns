@@ -3,19 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class MonsterFactory
+    public class MonsterFactory
     {
+       public MonsterFactory()
+       {
 
+       }
         
 	public Monster createMonster(int level) {
 		Monster newMonster = null;
-        
+        var randomGeneratedNumber = new Random();
 		if (level == 1) //Level one monster
         {
-			int rnd = new Random().Next(1, 6);
+            int rnd = randomGeneratedNumber.Next(5);
             if(rnd == 1)
             {
                 newMonster = new Shade();
@@ -48,7 +60,7 @@ namespace DungeonFinal
 		}
         else if (level == 2) //Level two monster
         {
-            int rnd = new Random().Next(1, 6);
+            int rnd = randomGeneratedNumber.Next(5);
 			if (rnd == 1)
             {
                 newMonster = new Beast();
@@ -81,7 +93,7 @@ namespace DungeonFinal
 		}
         else if (level == 3) //Level three monster
         {
-            int rnd = new Random().Next(1, 3);
+            int rnd = randomGeneratedNumber.Next(2);
             if (rnd == 1)
             {
                 newMonster = new Centaur();
