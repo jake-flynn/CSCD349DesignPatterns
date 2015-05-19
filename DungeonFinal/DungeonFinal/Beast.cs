@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Beast : Monster
+    class StuBeast : Monster
     {
         private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC
-        public Beast()
+        public StuBeast()
         {
-            base.setName("Beast");
+            base.setName("Stu, the OS Abomination");
             base.setModHealth(100);
             base.setMana(100);
 

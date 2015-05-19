@@ -63,7 +63,7 @@ namespace DungeonFinal
             int rnd = randomGeneratedNumber.Next(5);
 			if (rnd == 1)
             {
-                newMonster = new Beast();
+                newMonster = new StuBeast();
             }
 
             else if (rnd == 2)
