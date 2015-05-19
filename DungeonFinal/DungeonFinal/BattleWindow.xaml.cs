@@ -24,7 +24,7 @@ namespace DungeonFinal
 
         Monster _monster;
         Party _theParty;
-        Hero[] _theHeros;
+        Hero[] _theHeroes;
  
         
         //test values for health bars
@@ -41,34 +41,35 @@ namespace DungeonFinal
         {
             InitializeComponent();
             _theParty = heros;
-            _theHeros = _theParty.getHeros();
+            _theHeroes = _theParty.getHeros();
             _monster = mon;
 
             //ProgressBar [] prgBar_array = new ProgressBar 
 
-            prgBar_Hero1.Value = _theHeros[0].getModHealth();
-            prgBar_Hero2.Value = _theHeros[1].getModHealth();
-            prgBar_Hero3.Value = _theHeros[2].getModHealth();
-            prgBar_Hero4.Value = _theHeros[3].getModHealth();
+            prgBar_Hero1.Value = _theHeroes[0].getModHealth();
+            prgBar_Hero2.Value = _theHeroes[1].getModHealth();
+            prgBar_Hero3.Value = _theHeroes[2].getModHealth();
+            prgBar_Hero4.Value = _theHeroes[3].getModHealth();
             prgBar_Monster.Value = _monster.getModHealth();
 
 
 
             tb_monster.Text = _monster.getName();
-            tb_hero1.Text = _theHeros[0].getName();
-            tb_hero2.Text = _theHeros[1].getName();
-            tb_hero3.Text = _theHeros[2].getName();
-            tb_hero4.Text = _theHeros[3].getName();
+            tb_hero1.Text = _theHeroes[0].getName();
+            tb_hero2.Text = _theHeroes[1].getName();
+            tb_hero3.Text = _theHeroes[2].getName();
+            tb_hero4.Text = _theHeroes[3].getName();
 
         }
-
+        
+        //==========================================================================================================//
         //Start Methods
+        //==========================================================================================================//
         public void checkForDefeatedMonster()
         {
             if(_monster.getModHealth() <= 0)
             {
                 MessageBox.Show(_monster.getName() + " was defeated!!!");
-
                 this.Close();
             }
         }
@@ -90,15 +91,15 @@ namespace DungeonFinal
             mon.setModHealth(mon.getModHealth() - heroDamage);
 
             prgBar_Monster.Value = mon.getModHealth();
-            checkForDefeatedMonster();
         }
 
         private void specialMove(Hero hero, int whichHero)
         {
             hero.PerformSpecialAttack(_theParty, whichHero);
+            //updatevisuals
         }
 
-        private void monsterAttack(Hero hero, Monster mon) //Monster
+        private void monsterAttack(Hero hero, Monster mon) //Monster attacks!
         {
             int monsterDamage = 15; //get damage from hero class
 
@@ -107,7 +108,6 @@ namespace DungeonFinal
 
 
             prgBar_Hero1.Value = hero.getModHealth();
-            checkForDefeatedMonster();
         }
 
         private void defend(Hero hero)
@@ -117,7 +117,7 @@ namespace DungeonFinal
 
         private void incrementEffects()//This method will process all effects and time based moves
         {
-            foreach(Hero h in _theHeros)
+            foreach(Hero h in _theHeroes)
             {
                 h.setIsDefending(false);
             }
@@ -126,116 +126,122 @@ namespace DungeonFinal
 
         //End Methods
 
-
+        //==========================================================================================================//
         //Start Event Handlers
-        private void btn_Ready_Click(object sender, RoutedEventArgs e) //refactor out the repeated steps of this event, FOOL!
+        //==========================================================================================================//
+
+        private void btn_Ready_Click(object sender, RoutedEventArgs e) 
         {
-            if (rBtn_Hero1Attack.IsChecked == true)
+            if (rBtn_Hero1Attack.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[0].getName() + " used basic attack");
-                normalAttack(_theHeros[0], _monster);
+                MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
+                normalAttack(_theHeroes[0], _monster);
                 checkForDefeatedMonster();
             }
-            else if (rBtn_Hero1Defend.IsChecked == true)
+            else if (rBtn_Hero1Defend.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[0].getName() + " used defend");
-                defend(_theHeros[0]);
+                MessageBox.Show(_theHeroes[0].getName() + " used defend and is taking reduced damage this turn.");
+                defend(_theHeroes[0]);
                 checkForDefeatedMonster();
                 
             }
-            else if (rBtn_Hero1Special.IsChecked == true)
+            else if (rBtn_Hero1Special.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[0].getName() + " used special attack");
-                specialMove(_theHeros[0], 0);
+                MessageBox.Show(_theHeroes[0].getName() + " used special attack");
+                specialMove(_theHeroes[0], 0);
                 checkForDefeatedMonster();
             }
-            else if (rBtn_Hero1Item.IsChecked == true)
+            else if (rBtn_Hero1Item.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[0].getName() + " used item");
+                MessageBox.Show(_theHeroes[0].getName() + " used item");
                 checkForDefeatedMonster();
             }
+            //----------------------------------------//
 
-
-            if (rBtn_Hero2Attack.IsChecked == true)
+            if (rBtn_Hero2Attack.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[1].getName() + " used basic attack");
-                normalAttack(_theHeros[1], _monster);
+                MessageBox.Show(_theHeroes[1].getName() + " used basic attack");
+                normalAttack(_theHeroes[1], _monster);
                 checkForDefeatedMonster();
             }
-            else if (rBtn_Hero2Defend.IsChecked == true)
+            else if (rBtn_Hero2Defend.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[1].getName() + " used defend");
-                defend(_theHeros[1]);
-                checkForDefeatedMonster();
-
-            }
-            else if (rBtn_Hero2Special.IsChecked == true)
-            {
-                MessageBox.Show(_theHeros[1].getName() + " used special attack");
-                specialMove(_theHeros[1], 1);
-                checkForDefeatedMonster();
-            }
-            else if (rBtn_Hero2Item.IsChecked == true)
-            {
-                MessageBox.Show(_theHeros[1].getName() + " used item");
-                checkForDefeatedMonster();
-            }
-
-            if (rBtn_Hero3Attack.IsChecked == true)
-            {
-                MessageBox.Show(_theHeros[2].getName() + " used basic attack");
-                normalAttack(_theHeros[2], _monster);
-                checkForDefeatedMonster();
-            }
-            else if (rBtn_Hero3Defend.IsChecked == true)
-            {
-                MessageBox.Show(_theHeros[2].getName() + " used defend");
-                defend(_theHeros[2]);
+                MessageBox.Show(_theHeroes[1].getName() + " used defend");
+                defend(_theHeroes[1]);
                 checkForDefeatedMonster();
 
             }
-            else if (rBtn_Hero3Special.IsChecked == true)
+            else if (rBtn_Hero2Special.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[2].getName() + " used special attack");
-                specialMove(_theHeros[2], 2);
+                MessageBox.Show(_theHeroes[1].getName() + " used special attack");
+                specialMove(_theHeroes[1], 1);
                 checkForDefeatedMonster();
             }
-            else if (rBtn_Hero3Item.IsChecked == true)
+            else if (rBtn_Hero2Item.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[2].getName() + " used item");
+                MessageBox.Show(_theHeroes[1].getName() + " used item");
                 checkForDefeatedMonster();
             }
+            //----------------------------------------//
 
-            if (rBtn_Hero4Attack.IsChecked == true)
+            if (rBtn_Hero3Attack.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[3].getName() + " used basic attack");
-                normalAttack(_theHeros[3], _monster);
+                MessageBox.Show(_theHeroes[2].getName() + " used basic attack");
+                normalAttack(_theHeroes[2], _monster);
                 checkForDefeatedMonster();
             }
-            else if (rBtn_Hero4Defend.IsChecked == true)
+            else if (rBtn_Hero3Defend.IsChecked == true && _monster.getModHealth() > 0)
             {
-                MessageBox.Show(_theHeros[3].getName() + " used defend");
-                defend(_theHeros[3]);
+                MessageBox.Show(_theHeroes[2].getName() + " used defend");
+                defend(_theHeroes[2]);
                 checkForDefeatedMonster();
-            }
-            else if (rBtn_Hero4Special.IsChecked == true)
-            {
-                MessageBox.Show(_theHeros[3].getName() + " used special attack");
-                specialMove(_theHeros[3], 3);
-                checkForDefeatedMonster();
-            }
-            else if (rBtn_Hero4Item.IsChecked == true)
-            {
-                MessageBox.Show(_theHeros[3].getName() + " used item");
-                checkForDefeatedMonster();
-            }
-            //-----------------------------Hero's have had their say... IT'S MONSTA TIME.----------------------//
 
+            }
+            else if (rBtn_Hero3Special.IsChecked == true && _monster.getModHealth() > 0)
+            {
+                MessageBox.Show(_theHeroes[2].getName() + " used special attack");
+                specialMove(_theHeroes[2], 2);
+                checkForDefeatedMonster();
+            }
+            else if (rBtn_Hero3Item.IsChecked == true && _monster.getModHealth() > 0)
+            {
+                MessageBox.Show(_theHeroes[2].getName() + " used item");
+                checkForDefeatedMonster();
+            }
+            //----------------------------------------//
 
-            MessageBox.Show("Monster Attacked!");
-            monsterAttack(_theHeros[0], _monster);
-            incrementEffects();
-            checkForDefeatedMonster();
+            if (rBtn_Hero4Attack.IsChecked == true && _monster.getModHealth() > 0)
+            {
+                MessageBox.Show(_theHeroes[3].getName() + " used basic attack");
+                normalAttack(_theHeroes[3], _monster);
+                checkForDefeatedMonster();
+            }
+            else if (rBtn_Hero4Defend.IsChecked == true && _monster.getModHealth() > 0)
+            {
+                MessageBox.Show(_theHeroes[3].getName() + " used defend");
+                defend(_theHeroes[3]);
+                checkForDefeatedMonster();
+            }
+            else if (rBtn_Hero4Special.IsChecked == true && _monster.getModHealth() > 0)
+            {
+                MessageBox.Show(_theHeroes[3].getName() + " used special attack");
+                specialMove(_theHeroes[3], 3);
+                checkForDefeatedMonster();
+            }
+            else if (rBtn_Hero4Item.IsChecked == true && _monster.getModHealth() > 0)
+            {
+                MessageBox.Show(_theHeroes[3].getName() + " used item");
+                checkForDefeatedMonster();
+            }
+            //--------------Hero's have had their say... IT'S MONSTA TIME.---------------//
+
+            if (_monster.getModHealth() > 0)
+            {
+                MessageBox.Show("Monster Attacked!");
+                monsterAttack(_theHeroes[0], _monster);
+                incrementEffects();
+                checkForDefeatedMonster();
+            }
         }
 
         private void btn_testHealth_Click(object sender, RoutedEventArgs e)
@@ -254,10 +260,6 @@ namespace DungeonFinal
             }
             checkForDefeatedMonster();
         }
-
-        
-
-
 
         //End Event Handlers
     }
