@@ -93,10 +93,10 @@ namespace DungeonFinal
             checkForDefeatedMonster();
         }
 
-        //private void specialMove(Hero hero, int whichHero)
-        //{
-        //   hero.performSpecialAttack(_theParty, whichHero);
-        //}
+        private void specialMove(Hero hero, int whichHero)
+        {
+            hero.PerformSpecialAttack(_theParty, whichHero);
+        }
 
         private void monsterAttack(Hero hero, Monster mon) //Monster
         {
@@ -128,7 +128,7 @@ namespace DungeonFinal
 
 
         //Start Event Handlers
-        private void btn_Ready_Click(object sender, RoutedEventArgs e)
+        private void btn_Ready_Click(object sender, RoutedEventArgs e) //refactor out the repeated steps of this event, FOOL!
         {
             if (rBtn_Hero1Attack.IsChecked == true)
             {
@@ -139,12 +139,14 @@ namespace DungeonFinal
             else if (rBtn_Hero1Defend.IsChecked == true)
             {
                 MessageBox.Show(_theHeros[0].getName() + " used defend");
+                defend(_theHeros[0]);
                 checkForDefeatedMonster();
                 
             }
             else if (rBtn_Hero1Special.IsChecked == true)
             {
                 MessageBox.Show(_theHeros[0].getName() + " used special attack");
+                specialMove(_theHeros[0], 0);
                 checkForDefeatedMonster();
             }
             else if (rBtn_Hero1Item.IsChecked == true)
@@ -163,12 +165,14 @@ namespace DungeonFinal
             else if (rBtn_Hero2Defend.IsChecked == true)
             {
                 MessageBox.Show(_theHeros[1].getName() + " used defend");
+                defend(_theHeros[1]);
                 checkForDefeatedMonster();
 
             }
             else if (rBtn_Hero2Special.IsChecked == true)
             {
                 MessageBox.Show(_theHeros[1].getName() + " used special attack");
+                specialMove(_theHeros[1], 1);
                 checkForDefeatedMonster();
             }
             else if (rBtn_Hero2Item.IsChecked == true)
@@ -186,12 +190,14 @@ namespace DungeonFinal
             else if (rBtn_Hero3Defend.IsChecked == true)
             {
                 MessageBox.Show(_theHeros[2].getName() + " used defend");
+                defend(_theHeros[2]);
                 checkForDefeatedMonster();
 
             }
             else if (rBtn_Hero3Special.IsChecked == true)
             {
                 MessageBox.Show(_theHeros[2].getName() + " used special attack");
+                specialMove(_theHeros[2], 2);
                 checkForDefeatedMonster();
             }
             else if (rBtn_Hero3Item.IsChecked == true)
@@ -209,11 +215,13 @@ namespace DungeonFinal
             else if (rBtn_Hero4Defend.IsChecked == true)
             {
                 MessageBox.Show(_theHeros[3].getName() + " used defend");
+                defend(_theHeros[3]);
                 checkForDefeatedMonster();
             }
             else if (rBtn_Hero4Special.IsChecked == true)
             {
                 MessageBox.Show(_theHeros[3].getName() + " used special attack");
+                specialMove(_theHeros[3], 3);
                 checkForDefeatedMonster();
             }
             else if (rBtn_Hero4Item.IsChecked == true)
