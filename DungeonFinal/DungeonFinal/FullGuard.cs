@@ -8,7 +8,7 @@ namespace DungeonFinal
 {
     class FullGuard : SpecialAttackBehavior
     {
-        public void PerformSpecialAttack()
+        public void PerformSpecialAttack(Party theParty, int whichHero)
         {
             Console.WriteLine("Performed Full Guard!");
         }

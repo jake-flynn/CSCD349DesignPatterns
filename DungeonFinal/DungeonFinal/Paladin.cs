@@ -25,7 +25,7 @@ namespace DungeonFinal
 
             base.setIsPhysical(true);
             this._SpecialAttack = new FullGuard();
-            base.setSpecialAttack(this._SpecialAttack);
+            //base.setSpecialAttack(this._SpecialAttack);
 
             base.setIsDefending(false);
             base.setDefendingDefense(this.getDefendingDefense());
@@ -41,6 +41,11 @@ namespace DungeonFinal
         {
             int s = base.getStrength();
             return s;
+        }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero)
+        {
+
         }
 
         /*Battle - Defend*/

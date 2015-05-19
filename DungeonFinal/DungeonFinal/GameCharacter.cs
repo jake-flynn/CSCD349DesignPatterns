@@ -98,10 +98,10 @@ namespace DungeonFinal
         //Battle Attack
         public abstract int BasicAttack();
         public abstract GameCharacter FindTarget(GameCharacter[] party);
-        public void SpecialAttack()
-        {
-            this._SpecialAttack.PerformSpecialAttack();
-        }
+        //public void SpecialAttack()
+        //{
+        //    this._SpecialAttack.PerformSpecialAttack();
+        //}
         public void setSpecialAttack(SpecialAttackBehavior sa)
         {
             this._SpecialAttack = sa;

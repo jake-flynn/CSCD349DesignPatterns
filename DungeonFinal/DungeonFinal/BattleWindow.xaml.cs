@@ -93,6 +93,10 @@ namespace DungeonFinal
             checkForDefeatedMonster();
         }
 
+        //private void specialMove(Hero hero, int whichHero)
+        //{
+        //   hero.performSpecialAttack(_theParty, whichHero);
+        //}
 
         private void monsterAttack(Hero hero, Monster mon) //Monster
         {

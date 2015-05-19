@@ -7,7 +7,7 @@ namespace DungeonFinal
 {
     class HealingLight : SpecialAttackBehavior
     {
-        public void PerformSpecialAttack()
+        public void PerformSpecialAttack(Party theParty, int whichHero)
         {
             Console.WriteLine("Performed Healing Light!");
         }

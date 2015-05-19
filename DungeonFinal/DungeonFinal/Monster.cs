@@ -236,10 +236,10 @@ namespace DungeonFinal
             this._IsPhysical = iP;
         }
         public abstract Hero FindTarget(Party p);
-        public void SpecialAttack()
-        {
-            this._SpecialAttack.PerformSpecialAttack();
-        }
+        //public void SpecialAttack()
+        //{
+        //    this._SpecialAttack.PerformSpecialAttack();
+        //}
         public void setSpecialAttack(SpecialAttackBehavior sa)
         {
             this._SpecialAttack = sa;

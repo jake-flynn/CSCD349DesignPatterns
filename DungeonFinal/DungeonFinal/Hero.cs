@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    abstract public class Hero
+    abstract public class Hero : SpecialAttackBehavior
     {
         private string _Name;
         private int _BaseHealth = 100;
@@ -18,7 +18,7 @@ namespace DungeonFinal
         private int _Resistance = 1;
 
         private Boolean _IsPhysical;
-        private SpecialAttackBehavior _SpecialAttack;
+        //private SpecialAttackBehavior _SpecialAttack;
 
         private Boolean _IsDefending;
         private int _DefendingDefense;
@@ -125,6 +125,9 @@ namespace DungeonFinal
             this._Resistance = r;
         }
 
+       //Special attack reference here
+        public abstract void PerformSpecialAttack(Party theParty, int whichHero);
+
        //Battle Attack
         public abstract int BasicAttack();
         public Boolean getIsPhysical()
@@ -135,14 +138,14 @@ namespace DungeonFinal
         {
             this._IsPhysical = iP;
         }
-        public void SpecialAttack()
-        {
-            this._SpecialAttack.PerformSpecialAttack();
-        }
-        public void setSpecialAttack(SpecialAttackBehavior sa)
-        {
-            this._SpecialAttack = sa;
-        }
+        //public void SpecialAttack()
+        //{
+        //    this._SpecialAttack.PerformSpecialAttack();
+        //}
+        //public void setSpecialAttack(SpecialAttackBehavior sa)
+        //{
+        //    this._SpecialAttack = sa;
+        //}
 
        //Battle Defend
         public Boolean getIsDefending()

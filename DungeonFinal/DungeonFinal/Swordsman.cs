@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Swordsman : Hero
+    class Swordsman : Hero, SpecialAttackBehavior
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
+        //private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC
         public Swordsman()
@@ -24,8 +24,8 @@ namespace DungeonFinal
             base.setResistance(5);
 
             base.setIsPhysical(true);
-            this._SpecialAttack = new BladeSlash();
-            base.setSpecialAttack(this._SpecialAttack);
+            //this._SpecialAttack = new BladeSlash();
+            //base.setSpecialAttack(this._SpecialAttack);
             
             base.setIsDefending(false);
             base.setDefendingDefense(this.getDefendingDefense());
@@ -41,6 +41,11 @@ namespace DungeonFinal
         {
             int s = base.getStrength();
             return s;
+        }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero)
+        {
+            
         }
 
        /*Battle - Defend*/

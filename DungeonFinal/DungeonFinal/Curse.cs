@@ -7,7 +7,7 @@ namespace DungeonFinal
 {
     class Curse : SpecialAttackBehavior
     {
-        public void PerformSpecialAttack()
+        public void PerformSpecialAttack(Party theParty, int whichHero)
         {
             Console.WriteLine("Performed a Curse!");
         }

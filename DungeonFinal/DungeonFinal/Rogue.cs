@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Rogue : Hero
+    class Rogue : Hero, SpecialAttackBehavior
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
+        //private SpecialAttackBehavior _SpecialAttack = null;
 
         //DVC
         public Rogue()
@@ -24,8 +24,8 @@ namespace DungeonFinal
             base.setResistance(10);
 
             base.setIsPhysical(true);
-            this._SpecialAttack = new ThrowKnives();
-            base.setSpecialAttack(this._SpecialAttack);
+            //this._SpecialAttack = new ThrowKnives();
+            //base.setSpecialAttack(this._SpecialAttack);
 
             base.setIsDefending(false);
             base.setDefendingDefense(this.getDefendingDefense());
@@ -59,6 +59,11 @@ namespace DungeonFinal
             base.setDefendingDefense(dr);
 
             return dr;
+        }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero)
+        {
+
         }
     }
 }
