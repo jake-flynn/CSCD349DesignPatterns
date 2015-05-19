@@ -49,7 +49,6 @@ namespace DungeonFinal
             var builder = new MazeMaker(runDifficulty);
             maze = builder.Build();
             visited = new int[runDifficulty, runDifficulty];
-            //updateDoors();
             newVisitArray();
             visit(maze.GetPosition()[0], maze.GetPosition()[1]);
             MonstersSeen = 0;
@@ -289,6 +288,28 @@ namespace DungeonFinal
             charSelect.ShowDialog();
             HerosParty = charSelect.getPartyFromSelect();
 
+        }
+
+        private void btn_newGameNoSelect_Click(object sender, RoutedEventArgs e)
+        {
+
+            Party party = new Party();
+            party.addHero(new Swordsman());
+            party.addHero(new Paladin());
+            party.addHero(new Rogue());
+            party.addHero(new Cleric());
+            HerosParty = party;
+
+            runDifficulty = difficulty;
+            var builder = new MazeMaker(runDifficulty);
+            maze = builder.Build();
+            visited = new int[runDifficulty, runDifficulty];
+            newVisitArray();
+            visit(maze.GetPosition()[0], maze.GetPosition()[1]);
+            MonstersSeen = 0;
+            populateMonsters();
+
+            updateButtonsVisibility();
         }
 
 
