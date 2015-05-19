@@ -3,7 +3,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="500" Width="700">
-        
+
     <Grid>
         <Button x:Name="btn_newGame" Content="New Game" HorizontalAlignment="Left" Margin="90,75,0,0" VerticalAlignment="Top" Width="76" Click="btn_newGame_Click"/>
         <Button x:Name="btn_moveNorth" Content="Go North" HorizontalAlignment="Left" Margin="314,198,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_moveNorth_Click"/>
@@ -19,6 +19,7 @@
         <Button x:Name="btn_viewMap" Content="View Map" HorizontalAlignment="Left" Margin="91,151,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_viewMap_Click"/>
         <Button x:Name="btn_Battle" Content="Start Battle" HorizontalAlignment="Left" Margin="91,198,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_Battle_Click"/>
         <Button x:Name="btn_characterSelect" Content="Character Select" HorizontalAlignment="Left" Margin="90,118,0,0" VerticalAlignment="Top" Width="108" IsEnabled="False" Click="btn_characterSelect_Click"/>
+        <Button x:Name="btn_newGameNoSelect" Content="New Game no char select" HorizontalAlignment="Left" Margin="26,307,0,0" VerticalAlignment="Top" Width="315" Height="134" Click="btn_newGameNoSelect_Click"/>
 
     </Grid>
 </Window>
