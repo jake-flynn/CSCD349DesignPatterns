@@ -81,7 +81,7 @@ namespace DungeonFinal
                 _Name = "Level 2 Monster";
                 if (rnd == 1)
                 {
-                    new Beast();
+                    new StuBeast();
                 }
 
                 else if (rnd == 2)
