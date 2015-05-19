@@ -135,18 +135,15 @@ namespace DungeonFinal
                     randomNumber = randomGeneratedNumber.Next(10);
                     if(randomNumber <= 2)
                     {
-                        monsterToAdd = mazePopulator.createMonster(1);
-                        settingMonstersInRooms[i, j].setMonster(monsterToAdd);
+                        settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(1));
                     }
                     else if(randomNumber <= 4)
                     {
-                        monsterToAdd = mazePopulator.createMonster(2);
-                        settingMonstersInRooms[i, j].setMonster(monsterToAdd);
+                        settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(2));
                     }
                     else if (randomNumber <= 6)
                     {
-                        monsterToAdd = mazePopulator.createMonster(3);
-                        settingMonstersInRooms[i, j].setMonster(monsterToAdd);
+                        settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(3));
                     }
 
                 }
