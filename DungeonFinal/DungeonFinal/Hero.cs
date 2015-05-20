@@ -19,8 +19,6 @@ namespace DungeonFinal
         
         
         private Boolean _IsPhysical;
-        //private SpecialAttackBehavior _SpecialAttack;
-
         private Boolean _IsDefeated;
         private Boolean _IsDefending;
         private int _DefendingDefense;
@@ -64,12 +62,12 @@ namespace DungeonFinal
        //Get Set Methods
         public string getName()
         {
-            return this._Name;
+            return _Name;
         }
 
         public void setName(String n)
         {
-            this._Name = n;
+            _Name = n;
         }
 
         public int getBaseHealth()
@@ -80,51 +78,51 @@ namespace DungeonFinal
        //Get Set Methods
         public int getModHealth()
         {
-            return this._ModHealth;
+            return _ModHealth;
         }
         public void setModHealth(int h)
         {
-            this._ModHealth = h;
+            _ModHealth = h;
         }
         public int getMana()
         {
-            return this._Mana;
+            return _Mana;
         }
         public void setMana(int m)
         {
-            this._Mana = m;
+            _Mana = m;
         }
         public int getStrength()
         {
-            return this._Strength;
+            return _Strength;
         }
         public void setStrength(int s)
         {
-            this._Strength = s;
+            _Strength = s;
         }
         public int getMagic()
         {
-            return this._Magic;
+            return _Magic;
         }
         public void setMagic(int m)
         {
-            this._Magic = m;
+            _Magic = m;
         }
         public int getDefense()
         {
-            return this._Defense;
+            return _Defense;
         }
         public void setDefense(int d)
         {
-            this._Defense = d;
+            _Defense = d;
         }
         public int getResistance()
         {
-            return this._Resistance;
+            return _Resistance;
         }
         public void setResistance(int r)
         {
-            this._Resistance = r;
+            _Resistance = r;
         }
 
        //Special attack reference here
@@ -134,49 +132,40 @@ namespace DungeonFinal
         public abstract int BasicAttack();
         public Boolean getIsPhysical()
         {
-            return this._IsPhysical;
+            return _IsPhysical;
         }
         public void setIsPhysical(Boolean iP)
         {
-            this._IsPhysical = iP;
+            _IsPhysical = iP;
         }
 
         public Boolean getIsDefeated()
         {
-            return this._IsDefeated;
+            return _IsDefeated;
         }
         public void setIsDefeated(Boolean iD)
         {
-            this._IsDefeated = iD;
+            _IsDefeated = iD;
         }
-
-        //public void SpecialAttack()
-        //{
-        //    this._SpecialAttack.PerformSpecialAttack();
-        //}
-        //public void setSpecialAttack(SpecialAttackBehavior sa)
-        //{
-        //    this._SpecialAttack = sa;
-        //}
 
        //Battle Defend
         public Boolean getIsDefending()
         {
-            return this._IsDefending;
+            return _IsDefending;
         }
         public void setIsDefending(Boolean iD)
         {
-            this._IsDefending = iD;
+            _IsDefending = iD;
         }
         public abstract int getDefendingDefense();
         public void setDefendingDefense(int dd)
         {
-            this._DefendingDefense = dd;
+            _DefendingDefense = dd;
         }
         public abstract int getDefendingResistance();
         public void setDefendingResistance(int dr)
         {
-            this._DefendingResistance = dr;
+            _DefendingResistance = dr;
         }
 
         //Items
@@ -217,7 +206,7 @@ namespace DungeonFinal
 
         public string toString()
         {
-            return this._Name;
+            return _Name;
         }
 
 

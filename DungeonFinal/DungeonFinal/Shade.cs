@@ -8,12 +8,12 @@ namespace DungeonFinal
 {
     class Shade : Monster
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
+        //this is a Shade monster, it is a tier 1 level, there are 20 points assigned to main stats
 
        //DVC
         public Shade()
         {
-            base.setName("Shade");
+            setName("Shade");
             base.setModHealth(100);
             base.setMana(100);
 
