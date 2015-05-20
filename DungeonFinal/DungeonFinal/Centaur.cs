@@ -8,28 +8,25 @@ namespace DungeonFinal
 {
     class Centaur : Monster
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
+        //this is a Centaur monster, it is a tier 3 level. there are 60 points assigned to main stats
 
        //DVC
         public Centaur()
         {
-            base.setName("Centaur");
-            base.setModHealth(100);
-            base.setMana(100);
+            setName("Centaur");
+            setModHealth(100);
+            setMana(100);
 
             //Main stats are out of 60 points
-            base.setStrength(30);
-            base.setMagic(0);
-            base.setDefense(15);
-            base.setResistance(15);
+            setStrength(30);
+            setMagic(0);
+            setDefense(15);
+            setResistance(15);
 
-            base.setIsPhysical(true);
-            this._SpecialAttack = new Curse();
-            base.setSpecialAttack(this._SpecialAttack);
-            
-            base.setIsDefending(false);
-            base.setDefendingDefense(this.getDefendingDefense());
-            base.setDefendingResistance(this.getDefendingResistance());
+            setIsPhysical(true);
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
         }
 
 
@@ -39,7 +36,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = base.getMagic();
+            int m = base.getStrength();
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

@@ -8,28 +8,25 @@ namespace DungeonFinal
 {
     class Cyclops : Monster
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
+        //this is a Cyclops monster, it is a tier 3 level, there are 60 points assigned to main stats
 
-       //DVC
+       
         public Cyclops()
         {
-            base.setName("Cyclops");
-            base.setModHealth(100);
-            base.setMana(100);
+            setName("Cyclops");
+            setModHealth(100);
+            setMana(100);
 
             //Main stats are out of 60 points
-            base.setStrength(25);
-            base.setMagic(0);
-            base.setDefense(25);
-            base.setResistance(10);
+            setStrength(25);
+            setMagic(0);
+            setDefense(25);
+            setResistance(10);
 
-            base.setIsPhysical(true);
-            this._SpecialAttack = new Curse();
-            base.setSpecialAttack(this._SpecialAttack);
-            
-            base.setIsDefending(false);
-            base.setDefendingDefense(this.getDefendingDefense());
-            base.setDefendingResistance(this.getDefendingResistance());
+            setIsPhysical(true);
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
         }
 
 
@@ -39,7 +36,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = base.getMagic();
+            int m = getStrength();
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -68,16 +65,16 @@ namespace DungeonFinal
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = base.getDefense() * 1;
-            base.setDefendingDefense(dd);
+            int dd = getDefense() * 1;
+            setDefendingDefense(dd);
 
             return dd;
         }
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = base.getResistance() * 1;
-            base.setDefendingDefense(dr);
+            int dr = getResistance() * 1;
+            setDefendingDefense(dr);
 
             return dr;
         }
