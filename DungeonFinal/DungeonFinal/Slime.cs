@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
@@ -10,26 +18,35 @@ namespace DungeonFinal
     {
         private SpecialAttackBehavior _SpecialAttack = null;
 
-       //DVC
+       //DVC - Level 1
         public Slime()
         {
-            base.setName("Slime");
-            base.setModHealth(100);
-            base.setMana(100);
+            setName("Slime");
+            setBaseHealth(100);
+            setCurHealth(100);
+            setMaxHealth(100);
+            setBaseMana(100);
+            setCurMana(100);
+            setMaxMana(100);
 
             //Main stats are out of 20 points
-            base.setStrength(4);
-            base.setMagic(0);
-            base.setDefense(8);
-            base.setResistance(8);
+            setBaseStrength(4);
+            setModStrength(4);
+            setBaseMagic(0);
+            setModMagic(0);
+            setBaseDefense(8);
+            setModDefense(8);
+            setBaseResistance(8);
+            setModResistance(8);
 
-            base.setIsPhysical(false);
-            this._SpecialAttack = new Curse();
-            base.setSpecialAttack(this._SpecialAttack);
-            
-            base.setIsDefending(false);
-            base.setDefendingDefense(this.getDefendingDefense());
-            base.setDefendingResistance(this.getDefendingResistance());
+            //this._SpecialAttack = new Curse();
+            //base.setSpecialAttack(this._SpecialAttack);
+
+            setIsPhysical(false);
+            setIsDefeated(false);
+            setIsDefending(false);
+            setDefendingDefense(this.getDefendingDefense());
+            setDefendingResistance(this.getDefendingResistance());
         }
 
 
@@ -39,7 +56,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = base.getMagic();
+            int m = base.getModMagic();
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -57,7 +74,7 @@ namespace DungeonFinal
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = base.getDefense() * 1;
+            int dd = base.getModDefense() * 1;
             base.setDefendingDefense(dd);
 
             return dd;
@@ -65,7 +82,7 @@ namespace DungeonFinal
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = base.getResistance() * 1;
+            int dr = base.getModResistance() * 1;
             base.setDefendingDefense(dr);
 
             return dr;

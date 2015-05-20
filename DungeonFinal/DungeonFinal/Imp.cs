@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
@@ -10,20 +18,29 @@ namespace DungeonFinal
     {
         //this is a Imp monster, it is a tier 1 level, there are 20 points assigned to main stats
 
-       
+      //DVC - Level 1
         public Imp()
         {
             setName("Imp");
-            setModHealth(100);
-            setMana(100);
+            setBaseHealth(100);
+            setCurHealth(100);
+            setMaxHealth(100);
+            setBaseMana(100);
+            setCurMana(100);
+            setMaxMana(100);
 
             //Main stats are out of 20 points
-            setStrength(0);
-            setMagic(10);
-            setDefense(10);
-            setResistance(0);
+            setBaseStrength(0);
+            setModStrength(0);
+            setBaseMagic(10);
+            setModMagic(10);
+            setBaseDefense(10);
+            setModDefense(10);
+            setBaseResistance(0);
+            setModResistance(0);
 
             setIsPhysical(false);
+            setIsDefeated(false);
             setIsDefending(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
@@ -36,7 +53,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = getMagic();
+            int m = getModMagic();
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -54,7 +71,7 @@ namespace DungeonFinal
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = getDefense() * 1;
+            int dd = getModDefense() * 1;
             setDefendingDefense(dd);
 
             return dd;
@@ -62,7 +79,7 @@ namespace DungeonFinal
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = getResistance() * 1;
+            int dr = getModResistance() * 1;
             setDefendingDefense(dr);
 
             return dr;

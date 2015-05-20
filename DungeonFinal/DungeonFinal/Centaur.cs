@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
@@ -10,20 +18,29 @@ namespace DungeonFinal
     {
         //this is a Centaur monster, it is a tier 3 level. there are 60 points assigned to main stats
 
-       //DVC
+       //DVC - Level 3
         public Centaur()
         {
             setName("Centaur");
-            setModHealth(100);
-            setMana(100);
+            setBaseHealth(300);
+            setCurHealth(300);
+            setMaxHealth(300);
+            setBaseMana(300);
+            setCurMana(300);
+            setMaxMana(300);
 
             //Main stats are out of 60 points
-            setStrength(30);
-            setMagic(0);
-            setDefense(15);
-            setResistance(15);
+            setBaseStrength(30);
+            setModStrength(30);
+            setBaseMagic(0);
+            setModMagic(0);
+            setBaseDefense(15);
+            setModDefense(15);
+            setBaseResistance(15);
+            setModResistance(15);
 
             setIsPhysical(true);
+            setIsDefeated(false);
             setIsDefending(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
@@ -36,9 +53,10 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = base.getBasicAttack();
+            int m = getModStrength();
             return m;
         }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
@@ -52,7 +70,7 @@ namespace DungeonFinal
 
             for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
             {
-                if (party[i + 1].getDefense() < party[i].getDefense())
+                if (party[i + 1].getModDefense() < party[i].getModDefense())
                 {
                     target = party[i + 1];
                 }
@@ -65,7 +83,7 @@ namespace DungeonFinal
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = base.getDefense() * 1;
+            int dd = base.getModDefense() * 1;
             base.setDefendingDefense(dd);
 
             return dd;
@@ -73,7 +91,7 @@ namespace DungeonFinal
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = base.getResistance() * 1;
+            int dr = base.getModResistance() * 1;
             base.setDefendingDefense(dr);
 
             return dr;
