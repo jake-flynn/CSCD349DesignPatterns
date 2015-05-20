@@ -51,7 +51,7 @@ namespace DungeonFinal
             return s;
         }
 
-        public override void PerformSpecialAttack(Party theParty, int whichHero)
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             MessageBox.Show("Performed a Blade Slash!");
         }

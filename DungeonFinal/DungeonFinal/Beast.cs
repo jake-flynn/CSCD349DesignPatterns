@@ -36,7 +36,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = getStrength();
+            int m = getBasicAttack();
             return m;
         }
 

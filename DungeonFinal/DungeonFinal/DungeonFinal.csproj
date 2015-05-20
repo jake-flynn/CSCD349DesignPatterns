@@ -57,6 +57,9 @@
     <Compile Include="BattleWindow.xaml.cs">
       <DependentUpon>BattleWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BattleWindow_Swarm.xaml.cs">
+      <DependentUpon>BattleWindow_Swarm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Beast.cs" />
     <Compile Include="BladeSlash.cs" />
     <Compile Include="Centaur.cs" />
@@ -106,6 +109,10 @@
     <Compile Include="VampireBat.cs" />
     <Compile Include="Werewolf.cs" />
     <Page Include="BattleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BattleWindow_Swarm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

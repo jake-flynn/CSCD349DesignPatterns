@@ -43,6 +43,11 @@ namespace DungeonFinal
             return s;
         }
 
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+
+        }
+
         /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
@@ -59,11 +64,6 @@ namespace DungeonFinal
             base.setDefendingDefense(dr);
 
             return dr;
-        }
-
-        public override void PerformSpecialAttack(Party theParty, int whichHero)
-        {
-
         }
     }
 }
