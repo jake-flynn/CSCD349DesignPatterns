@@ -36,13 +36,13 @@ namespace DungeonFinal
         {
             ready = false;
 
-            if(rbtn_Hero1_Swordsman.IsChecked == true || rbtn_Hero1_Paladin.IsChecked == true || rbtn_Hero1_Priest.IsChecked == true || rbtn_Hero1_Rogue.IsChecked == true)
+            if(rbtn_Hero1_Swordsman.IsChecked == true || rbtn_Hero1_Paladin.IsChecked == true || rbtn_Hero1_Cleric.IsChecked == true || rbtn_Hero1_Rogue.IsChecked == true)
             {
-                if(rbtn_Hero2_Swordsman.IsChecked == true || rbtn_Hero2_Paladin.IsChecked == true || rbtn_Hero2_Priest.IsChecked == true || rbtn_Hero2_Rogue.IsChecked == true)
+                if(rbtn_Hero2_Swordsman.IsChecked == true || rbtn_Hero2_Paladin.IsChecked == true || rbtn_Hero2_Cleric.IsChecked == true || rbtn_Hero2_Rogue.IsChecked == true)
                 {
-                    if(rbtn_Hero3_Swordsman.IsChecked == true || rbtn_Hero3_Paladin.IsChecked == true || rbtn_Hero3_Priest.IsChecked == true || rbtn_Hero3_Rogue.IsChecked == true)
+                    if(rbtn_Hero3_Swordsman.IsChecked == true || rbtn_Hero3_Paladin.IsChecked == true || rbtn_Hero3_Cleric.IsChecked == true || rbtn_Hero3_Rogue.IsChecked == true)
                     {
-                        if(rbtn_Hero4_Swordsman.IsChecked == true || rbtn_Hero4_Paladin.IsChecked == true || rbtn_Hero4_Priest.IsChecked == true || rbtn_Hero4_Rogue.IsChecked == true)
+                        if(rbtn_Hero4_Swordsman.IsChecked == true || rbtn_Hero4_Paladin.IsChecked == true || rbtn_Hero4_Cleric.IsChecked == true || rbtn_Hero4_Rogue.IsChecked == true)
                         {
                             ready = true;
                         }
@@ -69,15 +69,15 @@ namespace DungeonFinal
             }
             else if(rbtn_Hero1_Paladin.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Paladin());
             }
-            else if(rbtn_Hero1_Priest.IsChecked == true)
+            else if(rbtn_Hero1_Cleric.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Cleric());
             }
             else if(rbtn_Hero1_Rogue.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Rogue());
             }
 
 
@@ -87,15 +87,15 @@ namespace DungeonFinal
             }
             else if (rbtn_Hero2_Paladin.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Paladin());
             }
-            else if (rbtn_Hero2_Priest.IsChecked == true)
+            else if (rbtn_Hero2_Cleric.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Cleric());
             }
             else if (rbtn_Hero2_Rogue.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Rogue());
             }
 
 
@@ -106,15 +106,15 @@ namespace DungeonFinal
             }
             else if (rbtn_Hero3_Paladin.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Paladin());
             }
-            else if (rbtn_Hero3_Priest.IsChecked == true)
+            else if (rbtn_Hero3_Cleric.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Cleric());
             }
             else if (rbtn_Hero3_Rogue.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Rogue());
             }
 
 
@@ -125,15 +125,15 @@ namespace DungeonFinal
             }
             else if (rbtn_Hero4_Paladin.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Paladin());
             }
-            else if (rbtn_Hero4_Priest.IsChecked == true)
+            else if (rbtn_Hero4_Cleric.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Cleric());
             }
             else if (rbtn_Hero4_Rogue.IsChecked == true)
             {
-                party.addHero(new Swordsman());
+                party.addHero(new Rogue());
             }
 
             this.Close();

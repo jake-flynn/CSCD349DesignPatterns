@@ -147,7 +147,7 @@ namespace DungeonFinal
 
                 }
             }
-            monsterToAdd = new Shade();
+            monsterToAdd = new Hydra();
             settingMonstersInRooms[difficulty-1, difficulty-1].setMonster(monsterToAdd);
             maze.SetRooms(settingMonstersInRooms);
 
