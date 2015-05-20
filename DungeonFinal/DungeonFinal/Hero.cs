@@ -128,7 +128,7 @@ namespace DungeonFinal
         }
 
        //Special attack reference here
-        public abstract void PerformSpecialAttack(Party theParty, int whichHero);
+        public abstract void PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
 
        //Battle Attack
         public abstract int BasicAttack();

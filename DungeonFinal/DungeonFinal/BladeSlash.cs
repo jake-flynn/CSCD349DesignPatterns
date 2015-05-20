@@ -8,7 +8,7 @@ namespace DungeonFinal
 {
     class BladeSlash : SpecialAttackBehavior
     {
-        public void PerformSpecialAttack(Party theParty, int whichHero)
+        public void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Console.WriteLine("Performed a Blade Slash!");
         }

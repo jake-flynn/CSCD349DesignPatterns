@@ -8,6 +8,6 @@ namespace DungeonFinal
 {
     public interface SpecialAttackBehavior
     {
-        void PerformSpecialAttack(Party theParty, int whichHero);
+        void PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
     }
 }

@@ -15,27 +15,17 @@ using System.Windows.Shapes;
 namespace DungeonFinal
 {
     /// <summary>
-    /// Interaction logic for BattleWindow.xaml
+    /// Interaction logic for BattleWindow_Swarm.xaml
     /// </summary>
-    /// 
-    public partial class BattleWindow : Window
+    public partial class BattleWindow_Swarm : Window
     {
-        Monster _monster;
-        Party _theParty;
-        Hero[] _theHeroes;
- 
-        public BattleWindow()
-        {
-            InitializeComponent();
-        }
-
-        public BattleWindow(Monster mon, Party heros)
+        public BattleWindow_Swarm()
         {
             InitializeComponent();
             _theParty = heros;
             _theHeroes = _theParty.getHeros();
             _monster = mon;
- 
+
 
             prgBar_Hero1.Value = _theHeroes[0].getModHealth();
             prgBar_Hero2.Value = _theHeroes[1].getModHealth();
@@ -54,87 +44,12 @@ namespace DungeonFinal
             tb_hero3.Text = _theHeroes[2].getName();
             tb_hero4.Text = _theHeroes[3].getName();
         }
-        
-        //==========================================================================================================//
-        //Start Methods
-        //==========================================================================================================//
-        
-        
-        public void checkForDefeatedUnit() //Checks to see if a hero or monster has been slain
-        {
-            if (_monster.getModHealth() <= 0)
-            {
-                MessageBox.Show(_monster.getName() + " was slain!!!");
-                this.Close();
-            }
-            
-            foreach (Hero h in _theHeroes)
-            {
-                if (h.getModHealth() <= 0 && h.getIsDefeated() != true)
-                {
-                    h.setIsDefeated(true);
-                    MessageBox.Show(h.getName() + " gasps a final ragged breath, then falls.");
-                    //disable the hero who was killed. Ask jake how to do this at a gui level.
-                }
-            }
-            
-        }
-
-        private void normalAttack(Hero hero, Monster mon) //Hero attacks!
-        {
-            int heroDamage = hero.getStrength() - mon.getDefense();
-            if (heroDamage < 0)
-                heroDamage = 0;
-            mon.setModHealth(mon.getModHealth() - heroDamage);
-            prgBar_Monster.Value = mon.getModHealth();
-
-            checkForDefeatedUnit();
-        }
-
-        private void specialMove(Hero hero, int whichHero)
-        {
-            hero.PerformSpecialAttack(_theParty, whichHero, _monster);
-            //updatevisuals
-        }
-
-        private void monsterAttack(Hero hero, Monster mon) //Monster attacks!
-        {
-            int monsterDamage; //This integer and the following block calculates the damage the monster will do,
-            if(hero.getIsDefending()){//based on the attack of the monster - the defense of the hero. A greater value is used for defending heroes
-                monsterDamage = mon.BasicAttack() - hero.getDefendingDefense();
-            }
-            else{
-                monsterDamage = mon.BasicAttack() - hero.getDefense();
-            }
-            if (monsterDamage < 0)
-                monsterDamage = 0;
-
-            hero.setModHealth(hero.getModHealth() - monsterDamage); //actual damgae is applied
-            prgBar_Hero1.Value = hero.getModHealth();//health bar updated
-            checkForDefeatedUnit();
-        }
-
-        private void defend(Hero hero)
-        {
-            hero.setIsDefending(true);
-        }
-
-        private void incrementEffects()//This method will process all effects and time based moves
-        {
-            foreach(Hero h in _theHeroes)
-            {
-                h.setIsDefending(false);
-            }
-        }
-
-
-        //End Methods
 
         //==========================================================================================================//
         //Start Event Handlers
         //==========================================================================================================//
 
-        private void btn_Ready_Click(object sender, RoutedEventArgs e) 
+        private void btn_Ready_Click(object sender, RoutedEventArgs e)
         {
             if (_monster.getModHealth() > 0 && _theHeroes[0].getModHealth() > 0)
             {
@@ -241,10 +156,5 @@ namespace DungeonFinal
             }
         }
 
-        private void btn_testHealth_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        //End Event Handlers
     }
 }

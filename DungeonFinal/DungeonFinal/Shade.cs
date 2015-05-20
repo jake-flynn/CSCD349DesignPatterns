@@ -42,6 +42,11 @@ namespace DungeonFinal
             int m = base.getMagic();
             return m;
         }
+
+        //public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        //{
+        //    MessageBox.Show("Cast a dark chill!");
+        //}
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {

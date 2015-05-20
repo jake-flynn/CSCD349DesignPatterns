@@ -36,7 +36,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = getStrength();
+            int m = getBasicAttack();
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

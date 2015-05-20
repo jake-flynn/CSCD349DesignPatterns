@@ -68,7 +68,7 @@ namespace DungeonFinal
         {
             this._Mana = m;
         }
-        public int getStrength()
+        public int getBasicAttack()
         {
             return this._Strength;
         }
