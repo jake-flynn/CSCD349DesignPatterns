@@ -276,19 +276,7 @@ namespace DungeonFinal
 
         }
 
-        private void btn_Battle_Click(object sender, RoutedEventArgs e)
-        {
-            var bw = new BattleWindow();
-            bw.ShowDialog();
-        }
 
-        private void btn_characterSelect_Click(object sender, RoutedEventArgs e)
-        {
-            var charSelect = new CharacterSelect();
-            charSelect.ShowDialog();
-            HerosParty = charSelect.getPartyFromSelect();
-
-        }
 
         private void btn_newGameNoSelect_Click(object sender, RoutedEventArgs e)
         {

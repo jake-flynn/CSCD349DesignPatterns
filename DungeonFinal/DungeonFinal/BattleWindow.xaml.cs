@@ -43,6 +43,11 @@ namespace DungeonFinal
             prgBar_Hero4.Value = _theHeroes[3].getModHealth();
             prgBar_Monster.Value = _monster.getModHealth();
 
+            prgBar_Hero1_Mana.Value = 100;
+            prgBar_Hero2_Mana.Value = 100;
+            prgBar_Hero3_Mana.Value = 100;
+            prgBar_Hero4_Mana.Value = 100;
+
             tb_monster.Text = _monster.getName();
             tb_hero1.Text = _theHeroes[0].getName();
             tb_hero2.Text = _theHeroes[1].getName();

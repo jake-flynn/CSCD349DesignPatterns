@@ -1,4 +1,5 @@
 ﻿<Window x:Class="DungeonFinal.Map"
+        WindowStartupLocation="CenterScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Map" Height="600" Width="700">
@@ -132,7 +133,7 @@
         <Label x:Name="lbl_nonVistedRoom" Content="Unknown Room -&gt;" HorizontalAlignment="Left" Margin="496,162,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_openPath" Content="Open Path -&gt;" HorizontalAlignment="Left" Margin="509,283,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_ClosedDoor" Content="Closed Path -&gt;" HorizontalAlignment="Left" Margin="502,314,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_back" Content="Back to Room" HorizontalAlignment="Left" Margin="54,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_back_Click"/>
+        <Button x:Name="btn_back" Content="Back to Room" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" Width="403" Click="btn_back_Click" Height="46"/>
         <Rectangle x:Name="rect_UnknownPath" Fill="Gray" HorizontalAlignment="Left" Height="10" Margin="611,347,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
         <Label x:Name="lbl_unknownPath" Content="Unknown Path -&gt;" HorizontalAlignment="Left" Margin="487,344,0,0" VerticalAlignment="Top"/>
         <Rectangle x:Name="rect_CurrentRoom" Fill="DarkGreen" HorizontalAlignment="Left" Height="50" Margin="612,218,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
