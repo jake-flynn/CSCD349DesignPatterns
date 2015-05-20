@@ -23,6 +23,7 @@ namespace DungeonFinal
         Monster[] _monster;
         Party _theParty;
         Hero[] _theHeroes;
+        Boolean _IsSwarmDefeated;
 
         public BattleWindow_Swarm()
         {
@@ -34,6 +35,7 @@ namespace DungeonFinal
             InitializeComponent();
             _theParty = heros;
             _theHeroes = _theParty.getHeros();
+            _IsSwarmDefeated = false;
 
 
             for (int x = 0; x < 4; x++)
@@ -69,12 +71,21 @@ namespace DungeonFinal
 
         public void checkForDefeatedUnit() //Checks to see if a hero or monster has been slain
         {
-            if (_monster[1].getModHealth() <= 0)
+            if(_monster[0].getIsDefeated() && _monster[1].getIsDefeated() && _monster[2].getIsDefeated() && _monster[3].getIsDefeated())
             {
-                MessageBox.Show(_monster[1].getName() + " was slain!!!");
+                MessageBox.Show("The " + _monster[0].getName() + " swarm was defeated!!!");
+                _IsSwarmDefeated = true;
                 this.Close();
             }
-
+            foreach(Monster m in _monster)
+            {
+                if (m.getModHealth() <= 0 && m.getIsDefeated())
+                {
+                    MessageBox.Show(m.getName() + " was slain!!!");
+                    m.setIsDefeated(true);
+                }
+            }
+            
             foreach (Hero h in _theHeroes)
             {
                 if (h.getModHealth() <= 0 && h.getIsDefeated() != true)
@@ -84,7 +95,6 @@ namespace DungeonFinal
                     //disable the hero who was killed. Ask jake how to do this at a gui level.
                 }
             }
-
         }
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
@@ -142,7 +152,7 @@ namespace DungeonFinal
 
         private void btn_Ready_Click(object sender, RoutedEventArgs e)
         {
-            if (_monster[1].getModHealth() > 0 && _theHeroes[0].getModHealth() > 0)
+            if (_IsSwarmDefeated && _theHeroes[0].getModHealth() > 0)
             {
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
@@ -166,7 +176,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_monster[1].getModHealth() > 0 && _theHeroes[1].getModHealth() > 0)
+            if (_IsSwarmDefeated && _theHeroes[1].getModHealth() > 0)
             {
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
@@ -190,7 +200,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_monster[1].getModHealth() > 0 && _theHeroes[2].getModHealth() > 0)
+            if (_IsSwarmDefeated && _theHeroes[2].getModHealth() > 0)
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
@@ -214,7 +224,7 @@ namespace DungeonFinal
                 }
             }
             //----------------------------------------//
-            if (_monster[1].getModHealth() > 0 && _theHeroes[3].getModHealth() > 0)
+            if (_IsSwarmDefeated && _theHeroes[3].getModHealth() > 0)
             {
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {
@@ -237,14 +247,18 @@ namespace DungeonFinal
                 }
             }
             //--------------Hero's have had their say... IT'S MONSTA TIME.---------------//
-
-            if (_monster[1].getModHealth() > 0)
+            int monstCtr = 0;
+            foreach(Monster m in _monster)
             {
-                MessageBox.Show("Monster Attacked!");
-                monsterAttack(_theHeroes[0], _monster[1]);
-                incrementEffects();
-                checkForDefeatedUnit();
+                monstCtr++;
+                if (m.getIsDefeated() != true)
+                {
+                    MessageBox.Show("Monster " + monstCtr +" Attacked!");
+                    monsterAttack(_theHeroes[0], _monster[1]);
+                    checkForDefeatedUnit();
+                }
             }
+            incrementEffects();
         }
 
     }

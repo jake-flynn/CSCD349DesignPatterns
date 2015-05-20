@@ -8,7 +8,6 @@ namespace DungeonFinal
 {
     public abstract class Monster
     {
-
         private string _Name;
         private int _BaseHealth;
         private int _ModHealth;
@@ -18,11 +17,11 @@ namespace DungeonFinal
         private int _Defense;
         private int _Resistance;
         private Boolean _IsPhysical;
+        private Boolean _IsDefeated;
         private Boolean _IsDefending;
         private int _DefendingDefense;
         private int _DefendingResistance;
-
-
+        
         public Monster(){}
 
         /*
@@ -111,11 +110,21 @@ namespace DungeonFinal
         {
             _IsPhysical = iP;
         }
+
         public abstract Hero FindTarget(Party p);
 
         public void setSpecialAttack(SpecialAttackBehavior sa)
         {
             
+        }
+
+        public Boolean getIsDefeated()
+        {
+            return _IsDefeated;
+        }
+        public void setIsDefeated(Boolean iD)
+        {
+            _IsDefeated = iD;
         }
 
        //Battle Defend

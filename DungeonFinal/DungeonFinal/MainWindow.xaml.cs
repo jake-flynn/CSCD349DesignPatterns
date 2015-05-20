@@ -158,7 +158,7 @@ namespace DungeonFinal
             MessageBox.Show("Your Party enters the room...\r\n" +
                             "Only to see a " + m.getName() + " awaiting your arival...\r\n" +
                             "Prepare for the battle that is about to take place......");
-            var bw = new BattleWindow(m, heros);
+            var bw = new BattleWindow_Swarm(m, heros);
             bw.ShowDialog();
             MonstersSeen++;
             updateButtonsVisibility();

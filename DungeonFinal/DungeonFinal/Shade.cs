@@ -10,26 +10,25 @@ namespace DungeonFinal
     {
         //this is a Shade monster, it is a tier 1 level, there are 20 points assigned to main stats
 
-       //DVC
+       
         public Shade()
         {
             setName("Shade");
-            base.setModHealth(100);
-            base.setMana(100);
+            setModHealth(100);
+            setMana(100);
 
             //Main stats are out of 20 points
-            base.setStrength(0);
-            base.setMagic(10);
-            base.setDefense(0);
-            base.setResistance(10);
+            setStrength(0);
+            setMagic(10);
+            setDefense(0);
+            setResistance(10);
 
-            base.setIsPhysical(false);
-            this._SpecialAttack = new Curse();
-            base.setSpecialAttack(this._SpecialAttack);
+            setIsPhysical(false);
+
             
-            base.setIsDefending(false);
-            base.setDefendingDefense(this.getDefendingDefense());
-            base.setDefendingResistance(this.getDefendingResistance());
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
         }
 
 
@@ -39,7 +38,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = base.getMagic();
+            int m = getMagic();
             return m;
         }
 
@@ -62,16 +61,16 @@ namespace DungeonFinal
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = base.getDefense() * 1;
-            base.setDefendingDefense(dd);
+            int dd = getDefense() * 1;
+            setDefendingDefense(dd);
 
             return dd;
         }
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = base.getResistance() * 1;
-            base.setDefendingDefense(dr);
+            int dr = getResistance() * 1;
+            setDefendingDefense(dr);
 
             return dr;
         }

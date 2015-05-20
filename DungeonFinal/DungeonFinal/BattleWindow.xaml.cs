@@ -81,9 +81,18 @@ namespace DungeonFinal
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
         {
-            int heroDamage = hero.getStrength() - mon.getDefense();
+            int heroDamage;
+            if(hero.getIsPhysical())
+            {
+                heroDamage = hero.BasicAttack() - mon.getDefense();
+            }
+            else
+            {
+                heroDamage = hero.BasicAttack() - mon.getResistance();
+            }
             if (heroDamage < 0)
                 heroDamage = 0;
+
             mon.setModHealth(mon.getModHealth() - heroDamage);
             prgBar_Monster.Value = mon.getModHealth();
 
