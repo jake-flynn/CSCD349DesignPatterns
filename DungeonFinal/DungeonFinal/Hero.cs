@@ -16,10 +16,12 @@ namespace DungeonFinal
         private int _Magic = 1;
         private int _Defense = 1;
         private int _Resistance = 1;
-
+        
+        
         private Boolean _IsPhysical;
         //private SpecialAttackBehavior _SpecialAttack;
 
+        private Boolean _IsDefeated;
         private Boolean _IsDefending;
         private int _DefendingDefense;
         private int _DefendingResistance;
@@ -138,6 +140,16 @@ namespace DungeonFinal
         {
             this._IsPhysical = iP;
         }
+
+        public Boolean getIsDefeated()
+        {
+            return this._IsDefeated;
+        }
+        public void setIsDefeated(Boolean iD)
+        {
+            this._IsDefeated = iD;
+        }
+
         //public void SpecialAttack()
         //{
         //    this._SpecialAttack.PerformSpecialAttack();
