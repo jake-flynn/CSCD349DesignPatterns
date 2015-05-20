@@ -77,7 +77,6 @@ namespace DungeonFinal
                     //disable the hero who was killed. Ask jake how to do this at a gui level.
                 }
             }
-            
         }
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
