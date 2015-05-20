@@ -8,28 +8,25 @@ namespace DungeonFinal
 {
     class Paladin : Hero
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
+        //this is a Paladin Hero, it is a strength based hero with high magic resistance, there are 40 points assigned to main stats
 
         //DVC
         public Paladin()
         {
-            base.setName("Paladin");
-            base.setModHealth(100);
-            base.setMana(100);
+            setName("Paladin");
+            setModHealth(100);
+            setMana(100);
 
             //Main stats are out of 40 points
-            base.setStrength(10);
-            base.setMagic(10);
-            base.setDefense(10);
-            base.setResistance(10);
+            setStrength(10);
+            setMagic(10);
+            setDefense(10);
+            setResistance(10);
 
-            base.setIsPhysical(true);
-            this._SpecialAttack = new FullGuard();
-            //base.setSpecialAttack(this._SpecialAttack);
-
-            base.setIsDefending(false);
-            base.setDefendingDefense(this.getDefendingDefense());
-            base.setDefendingResistance(this.getDefendingResistance());
+            setIsPhysical(true);
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
         }
 
 
@@ -39,7 +36,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int s = base.getStrength();
+            int s = getStrength();
             return s;
         }
 
@@ -52,16 +49,16 @@ namespace DungeonFinal
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = base.getDefense() * 2;
-            base.setDefendingDefense(dd);
+            int dd = getDefense() * 2;
+            setDefendingDefense(dd);
 
             return dd;
         }
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = base.getResistance() * 2;
-            base.setDefendingDefense(dr);
+            int dr = getResistance() * 2;
+            setDefendingDefense(dr);
 
             return dr;
         }

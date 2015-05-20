@@ -8,28 +8,25 @@ namespace DungeonFinal
 {
     class Minotaur : Monster
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
+        //this is a Minotaur monster, it is a boss(tier4) level, there are 80 points assigned to main stats
 
-       //DVC
+       
         public Minotaur()
         {
-            base.setName("Minotaur");
-            base.setModHealth(100);
-            base.setMana(100);
+            setName("Minotaur");
+            setModHealth(100);
+            setMana(100);
 
             //Main stats are out of 80 points
-            base.setStrength(55);
-            base.setMagic(0);
-            base.setDefense(20);
-            base.setResistance(5);
+            setStrength(55);
+            setMagic(0);
+            setDefense(20);
+            setResistance(5);
 
-            base.setIsPhysical(true);
-            this._SpecialAttack = new Curse();
-            base.setSpecialAttack(this._SpecialAttack);
-            
-            base.setIsDefending(false);
-            base.setDefendingDefense(this.getDefendingDefense());
-            base.setDefendingResistance(this.getDefendingResistance());
+            setIsPhysical(true);      
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
         }
 
 
@@ -39,7 +36,7 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = base.getMagic();
+            int m = getMagic();
             return m;
         }
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -94,16 +91,16 @@ namespace DungeonFinal
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = base.getDefense() * 1;
-            base.setDefendingDefense(dd);
+            int dd = getDefense() * 1;
+            setDefendingDefense(dd);
 
             return dd;
         }
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = base.getResistance() * 1;
-            base.setDefendingDefense(dr);
+            int dr = getResistance() * 1;
+            setDefendingDefense(dr);
 
             return dr;
         }
