@@ -62,7 +62,7 @@ namespace DungeonFinal
 
             foreach (Hero h in party)
             {
-                h.setCurHealth(h.getCurHealth() + 5);
+                h.setCurHealth(h.getCurHealth() + 20);
                 h.setModStrength(h.getBaseStrength());
                 h.setModMagic(h.getBaseMagic());
                 h.setModDefense(h.getBaseDefense());

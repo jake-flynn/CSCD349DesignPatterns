@@ -64,6 +64,7 @@ namespace DungeonFinal
             if (_monster.getCurHealth() <= 0)
             {
                 MessageBox.Show(_monster.getName() + " was slain!!!");
+                tb_eventFeed.Text += _monster.getName() + " was slain!!!";
                 this.Close();
             }
             
@@ -163,6 +164,8 @@ namespace DungeonFinal
                 monsterDamage = 0;
 
             MessageBox.Show("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage);
+            tb_eventFeed.Text += "The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage;
+
             hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damgae is applied
             updateVisuals();//health bar updated
             checkForDefeatedUnit();
@@ -220,21 +223,25 @@ namespace DungeonFinal
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
                     MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
+                    tb_eventFeed.Text += _theHeroes[0].getName() + " used basic attack\r\n";
                     normalAttack(_theHeroes[0], _monster);
                 }
                 else if (rBtn_Hero1Defend.IsChecked == true)
                 {
                     MessageBox.Show(_theHeroes[0].getName() + " used defend and is taking reduced damage this turn.");
+                    tb_eventFeed.Text += _theHeroes[0].getName() + " used defend and is taking reduced damage this turn.\r\n";
                     defend(_theHeroes[0]);
                 }
                 else if (rBtn_Hero1Special.IsChecked == true)
                 {
                     MessageBox.Show(_theHeroes[0].getName() + " used special attack");
+                    tb_eventFeed.Text += _theHeroes[0].getName() + " used special attack\r\n";
                     specialMove(_theHeroes[0], 0);
                 }
                 else if (rBtn_Hero1Item.IsChecked == true)
                 {
                     MessageBox.Show(_theHeroes[0].getName() + " used item");
+                    tb_eventFeed.Text += _theHeroes[0].getName() + " used item\r\n";
                     //useItem(_theHero);
                 }
             }
