@@ -106,7 +106,20 @@ namespace DungeonFinal
         }
         public void setCurHealth(int h)
         {
-            _CurHealth = h;
+            if(h < 0)
+            {
+                _CurHealth = 0;
+            }
+
+            else if (h > getMaxHealth())
+            {
+                _CurHealth = getMaxHealth();
+            }
+
+            else
+            {
+                _CurHealth = h;
+            }
         }
 
         public void setMaxHealth(int h)
@@ -132,7 +145,20 @@ namespace DungeonFinal
         }
         public void setCurMana(int m)
         {
-            _CurMana = m;
+            if (m < 0)
+            {
+                _CurMana = 0;
+            }
+
+            else if(m > getMaxMana())
+            {
+                _CurMana = getMaxMana();
+            }
+
+            else
+            {
+                _CurMana = m;
+            }
         }
         public int getMaxMana()
         {
@@ -157,7 +183,15 @@ namespace DungeonFinal
         }
         public void setModStrength(int s)
         {
-            _ModStrength = s;
+            if(s < 0)
+            {
+                _ModStrength = 0;
+            }
+
+            else 
+            {
+                _ModStrength = s;
+            }
         }
         //------------------------------- Magic -------------------------------
         public int getBaseMagic()

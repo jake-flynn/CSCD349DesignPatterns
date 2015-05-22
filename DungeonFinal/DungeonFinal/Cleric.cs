@@ -58,8 +58,18 @@ namespace DungeonFinal
 
         public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            int dmg = 0;
-            MessageBox.Show("Performed Healing Light for " + dmg + " healing!");
+            Hero[] party = theParty.getHeros();
+
+            foreach (Hero h in party)
+            {
+                h.setCurHealth(h.getCurHealth() + 5);
+                h.setModStrength(h.getBaseStrength());
+                h.setModMagic(h.getBaseMagic());
+                h.setModDefense(h.getBaseDefense());
+                h.setModResistance(h.getBaseResistance());
+            }
+
+            MessageBox.Show("Performed Healing Light for 20 healing accross whole party and reset all stats!");
         }
 
         /*Battle - Defend*/

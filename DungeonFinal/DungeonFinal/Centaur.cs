@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Centaur : Monster
     {
-        //this is a Centaur monster, it is a tier 3 level. there are 60 points assigned to main stats
+        //this is a Centaur monster, it is a tier 3 level. there are 70 points assigned to main stats
 
        //DVC - Level 3
         public Centaur()
@@ -29,9 +29,9 @@ namespace DungeonFinal
             setCurMana(300);
             setMaxMana(300);
 
-            //Main stats are out of 60 points
-            setBaseStrength(30);
-            setModStrength(30);
+            //Main stats are out of 70 points
+            setBaseStrength(40);
+            setModStrength(40);
             setBaseMagic(0);
             setModMagic(0);
             setBaseDefense(15);
@@ -42,6 +42,7 @@ namespace DungeonFinal
             setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
         }
@@ -55,6 +56,17 @@ namespace DungeonFinal
         {
             int m = getModStrength();
             return m;
+        }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

@@ -16,9 +16,7 @@ namespace DungeonFinal
 {
     class Shade : Monster
     {
-        //this is a Shade monster, it is a tier 1 level, there are 20 points assigned to main stats
-
-
+        //this is a Shade monster, it is a tier 1 level, there are 30 points assigned to main stats
 
        //DVC - Level 1
         public Shade()
@@ -31,11 +29,11 @@ namespace DungeonFinal
             setCurMana(100);
             setMaxMana(100);
 
-            //Main stats are out of 20 points
+            //Main stats are out of 30 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(10);
-            setModMagic(10);
+            setBaseMagic(20);
+            setModMagic(20);
             setBaseDefense(0);
             setModDefense(0);
             setBaseResistance(10);
@@ -44,6 +42,7 @@ namespace DungeonFinal
             setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(false);
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
 
@@ -62,10 +61,17 @@ namespace DungeonFinal
             return m;
         }
 
-        //public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
-        //{
-        //    MessageBox.Show("Cast a dark chill!");
-        //}
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+        }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {

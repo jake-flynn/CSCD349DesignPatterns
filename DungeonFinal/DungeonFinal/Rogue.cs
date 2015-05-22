@@ -58,7 +58,7 @@ namespace DungeonFinal
 
         public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            int dmg = 0;
+            int dmg = (int)(getModStrength() * 2.5);
             MessageBox.Show("Performed Throw Knives for " + dmg + " damage!");
         }
 

@@ -58,8 +58,15 @@ namespace DungeonFinal
 
         public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            int def = 0;
-            MessageBox.Show("Performed Full Guard for " + def + " defense!");
+            Hero[] party = theParty.getHeros();
+
+            foreach(Hero h in party)
+            {
+                h.setModDefense(h.getModDefense() + 5);
+                h.setModResistance(h.getModResistance() + 5);
+            }
+
+            MessageBox.Show("Performed Full Guard for 5 defense and resistance accross whole party!");
         }
 
         /*Battle - Defend*/
