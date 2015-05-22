@@ -83,6 +83,11 @@ namespace DungeonFinal
             }
         }
 
+        public void updateVisuals()
+        {
+            lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
+        }
+
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
         {
             int heroDamage;
