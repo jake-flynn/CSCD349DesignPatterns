@@ -29,8 +29,7 @@ namespace DungeonFinal
         {
             var randomGeneratedNumber1 = new Random();
             int rnd1 = randomGeneratedNumber1.Next(6)+1;
-            rnd1 = randomGeneratedNumber1.Next(6);
-            rnd1 = rnd1 + 1;
+       
             
 
             if(rnd1 == 1)
@@ -67,8 +66,7 @@ namespace DungeonFinal
         {
             var randomGeneratedNumber = new Random();
             int rnd = randomGeneratedNumber.Next(6) + 1;
-            rnd = randomGeneratedNumber.Next(6);
-            rnd = rnd + 1;
+           
 			if (rnd == 1)
             {
                 newMonster = new StuBeast();
@@ -103,8 +101,7 @@ namespace DungeonFinal
         {
             var randomGeneratedNumber = new Random();
             int rnd = randomGeneratedNumber.Next(3) + 1;
-            rnd = randomGeneratedNumber.Next(3);
-            rnd = rnd + 1;
+
             if (rnd == 1)
             {
                 newMonster = new Centaur();
