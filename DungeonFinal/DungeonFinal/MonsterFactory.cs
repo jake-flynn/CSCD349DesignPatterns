@@ -109,6 +109,28 @@ namespace DungeonFinal
                 newMonster = new Cyclops();
             }
 		}
+        else if (level == 4) //Level three monster
+        {
+            int rnd = randomGeneratedNumber.Next(4) + 1;
+            if (rnd == 1)
+            {
+                newMonster = new Minotaur();
+            }
+
+            else if (rnd == 2)
+            {
+                newMonster = new Hydra();
+            }
+
+            else if (rnd == 3)
+            {
+                newMonster = new Dragon();
+            }
+            else if (rnd == 4)
+            {
+                newMonster = new Chimera();
+            }
+        }
 		return newMonster;
 }
 

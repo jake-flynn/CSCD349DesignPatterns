@@ -21,6 +21,7 @@ namespace DungeonFinal
     {
 
         Monster[] _monster;
+        Monster _testMonster;
         Party _theParty;
         Hero[] _theHeroes;
         Boolean _IsSwarmDefeated;
@@ -38,9 +39,10 @@ namespace DungeonFinal
             _IsSwarmDefeated = false;
 
 
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < 1; x++)
             {
-                _monster[x] = mon;
+                //_monster[x] = mon;
+                _testMonster = mon;
             }
 
             prgBar_Hero1.Value = _theHeroes[0].getModHealth();

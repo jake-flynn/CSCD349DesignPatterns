@@ -147,7 +147,7 @@ namespace DungeonFinal
 
                 }
             }
-            monsterToAdd = new Hydra();
+            monsterToAdd = mazePopulator.createMonster(4); //Random boss created
             settingMonstersInRooms[difficulty-1, difficulty-1].setMonster(monsterToAdd);
             maze.SetRooms(settingMonstersInRooms);
 
@@ -158,7 +158,7 @@ namespace DungeonFinal
             MessageBox.Show("Your Party enters the room...\r\n" +
                             "Only to see a " + m.getName() + " awaiting your arival...\r\n" +
                             "Prepare for the battle that is about to take place......");
-            var bw = new BattleWindow_Swarm(m, heros);
+            var bw = new BattleWindow(m, heros);
             bw.ShowDialog();
             MonstersSeen++;
             updateButtonsVisibility();
@@ -187,7 +187,7 @@ namespace DungeonFinal
                 }
                 if (maze.GetCurrentRoom().IsExit())
                 {
-                    MessageBox.Show("You have reached the exit!!!\r\nYou may wonder the maze or start a new game!");
+                    MessageBox.Show("You have reached the exit!!!\r\nYou may wander the maze or start a new game!");
                 }
 
             }
@@ -211,7 +211,7 @@ namespace DungeonFinal
                 }
                 if (maze.GetCurrentRoom().IsExit())
                 {
-                    MessageBox.Show("You have reached the exit!!!\r\nYou may wonder the maze or start a new game!");
+                    MessageBox.Show("You have reached the exit!!!\r\nYou may wander the maze or start a new game!");
                 }
             }
             else 
@@ -234,7 +234,7 @@ namespace DungeonFinal
                 }
                 if (maze.GetCurrentRoom().IsExit())
                 {
-                    MessageBox.Show("You have reached the exit!!!\r\nYou may wonder the maze or start a new game!");
+                    MessageBox.Show("You have reached the exit!!!\r\nYou may wander the maze or start a new game!");
                 }
 
             }
@@ -258,7 +258,7 @@ namespace DungeonFinal
                 }
                 if (maze.GetCurrentRoom().IsExit())
                 {
-                    MessageBox.Show("You have reached the exit!!!\r\nYou may wonder the maze or start a new game!");
+                    MessageBox.Show("You have reached the exit!!!\r\nYou may wander the maze or start a new game!");
                 }
 
             }
