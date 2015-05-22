@@ -45,7 +45,10 @@ namespace DungeonFinal
 
             prgBar_Monster.Value = _monster.getCurHealth();
             lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
-
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[0].getModHealth() + "/" + _theHeroes[0].getBaseHealth();
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[1].getModHealth() + "/" + _theHeroes[1].getBaseHealth();
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[2].getModHealth() + "/" + _theHeroes[2].getBaseHealth();
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[3].getModHealth() + "/" + _theHeroes[3].getBaseHealth();
 
             prgBar_Hero1_Mana.Value = 100;
             prgBar_Hero2_Mana.Value = 100;
