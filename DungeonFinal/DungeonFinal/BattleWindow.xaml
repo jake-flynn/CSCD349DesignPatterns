@@ -51,9 +51,6 @@
         <ProgressBar x:Name="prgBar_Hero3" HorizontalAlignment="Left" Height="10" Margin="355,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Yellow"/>
         <ProgressBar x:Name="prgBar_Hero4" HorizontalAlignment="Left" Height="10" Margin="491,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkGray"/>
         <ProgressBar x:Name="prgBar_Monster" HorizontalAlignment="Left" Height="10" Margin="592,55,0,0" VerticalAlignment="Top" Width="200" Background="Crimson" Foreground="HotPink"/>
-
-
-        <Button x:Name="btn_testHealth" Content="Reduce all healths by 10" HorizontalAlignment="Left" Margin="24,140,0,0" VerticalAlignment="Top" Width="151" Height="42" Click="btn_testHealth_Click"/>
         <Label x:Name="lbl_health" Content="Health:" HorizontalAlignment="Left" Margin="24,320,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_mana" Content="Mana:" HorizontalAlignment="Left" Margin="29,359,0,0" VerticalAlignment="Top"/>
 

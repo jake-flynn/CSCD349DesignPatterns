@@ -253,10 +253,7 @@ namespace DungeonFinal
             }
         }
 
-        private void btn_testHealth_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
         //End Event Handlers
     }
 }
