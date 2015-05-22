@@ -4,7 +4,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="500" Width="700">
 
-    <Grid>
+    <Grid Background="LightBlue">
+        
         <Button x:Name="btn_newGame" Content="New Game" HorizontalAlignment="Left" Margin="66,49,0,0" VerticalAlignment="Top" Width="122" Click="btn_newGame_Click" Height="35"/>
         <Button x:Name="btn_moveNorth" Content="Go North" HorizontalAlignment="Left" Margin="314,198,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_moveNorth_Click"/>
         <Button x:Name="btn_moveSouth" Content="Go South" HorizontalAlignment="Left" Margin="314,259,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_moveSouth_Click"/>

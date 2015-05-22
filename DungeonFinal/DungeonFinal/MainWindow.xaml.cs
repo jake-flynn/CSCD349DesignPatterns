@@ -33,6 +33,9 @@ namespace DungeonFinal
         public MainWindow()
         {
             InitializeComponent();
+            
+
+
             HerosParty = new Party();
             MessageBox.Show("Hello, and welcome to OFOM!");
             //newGame();
