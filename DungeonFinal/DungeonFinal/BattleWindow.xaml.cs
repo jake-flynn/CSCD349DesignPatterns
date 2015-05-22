@@ -429,7 +429,7 @@ namespace DungeonFinal
 
         private void tb_eventFeed_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            tb_eventFeed.ScrollToEnd();
         }
 
 
