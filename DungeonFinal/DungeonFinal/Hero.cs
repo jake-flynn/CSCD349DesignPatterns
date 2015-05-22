@@ -11,11 +11,16 @@ namespace DungeonFinal
         private string _Name;
         private int _BaseHealth = 100;
         private int _ModHealth = 100;
-        private int _Mana = 100;
-        private int _Strength = 1;
-        private int _Magic = 1;
-        private int _Defense = 1;
-        private int _Resistance = 1;
+        private int _BaseMana = 100;
+        private int _ModMana = 100;
+        private int _BaseStrength = 1;
+        private int _ModStrength = 1;
+        private int _BaseMagic = 1;
+        private int _ModMagic = 1;
+        private int _BaseDefense = 1;
+        private int _ModDefense = 1;
+        private int _BaseResistance = 1;
+        private int _ModResistance = 1;
         
         
         private Boolean _IsPhysical;
@@ -59,7 +64,9 @@ namespace DungeonFinal
         }
 
     /*---------------------------------------------------------------------------------------*/
-       //Get Set Methods
+    /*                              Get/Set Methods                                          */
+    /*---------------------------------------------------------------------------------------*/
+        //------------------------------- Name -------------------------------
         public string getName()
         {
             return _Name;
@@ -70,12 +77,17 @@ namespace DungeonFinal
             _Name = n;
         }
 
+        //------------------------------- Health -------------------------------
         public int getBaseHealth()
         {
             return _BaseHealth;
         }
 
-       //Get Set Methods
+        public void setBaseHealth(int h)
+        {
+            _BaseHealth = h;
+        }
+
         public int getModHealth()
         {
             return _ModHealth;
@@ -84,45 +96,90 @@ namespace DungeonFinal
         {
             _ModHealth = h;
         }
-        public int getMana()
+        //------------------------------- Mana -------------------------------
+        public int getBaseMana()
         {
-            return _Mana;
+            return _BaseMana;
         }
-        public void setMana(int m)
+        public void setBaseMana(int m)
         {
-            _Mana = m;
+            _BaseMana = m;
         }
-        public int getStrength()
+        public int getModMana()
         {
-            return _Strength;
+            return _ModMana;
         }
-        public void setStrength(int s)
+        public void setModMana(int m)
         {
-            _Strength = s;
+            _ModMana = m;
         }
-        public int getMagic()
+        //------------------------------- Strength -------------------------------
+        public int getBaseStrength()
         {
-            return _Magic;
+            return _BaseStrength;
         }
-        public void setMagic(int m)
+        public void setBaseStrength(int s)
         {
-            _Magic = m;
+            _BaseStrength = s;
         }
-        public int getDefense()
+        public int getModStrength()
         {
-            return _Defense;
+            return _ModStrength;
         }
-        public void setDefense(int d)
+        public void setModStrength(int s)
         {
-            _Defense = d;
+            _ModStrength = s;
         }
-        public int getResistance()
+        //------------------------------- Magic -------------------------------
+        public int getBaseMagic()
         {
-            return _Resistance;
+            return _BaseMagic;
         }
-        public void setResistance(int r)
+        public void setBaseMagic(int m)
         {
-            _Resistance = r;
+            _BaseMagic = m;
+        }
+        public int getModMagic()
+        {
+            return _ModMagic;
+        }
+        public void setModMagic(int m)
+        {
+            _ModMagic = m;
+        }
+        //------------------------------- Defense -------------------------------
+        public int getBaseDefense()
+        {
+            return _BaseDefense;
+        }
+        public void setBaseDefense(int d)
+        {
+            _BaseDefense = d;
+        }
+        public int getModDefense()
+        {
+            return _ModDefense;
+        }
+        public void setModDefense(int d)
+        {
+            _ModDefense = d;
+        }
+        //------------------------------- Resistance -------------------------------
+        public int getBaseResistance()
+        {
+            return _BaseResistance;
+        }
+        public void setBaseResistance(int r)
+        {
+            _BaseResistance = r;
+        }
+        public int getModResistance()
+        {
+            return _ModResistance;
+        }
+        public void setModResistance(int r)
+        {
+            _ModResistance = r;
         }
 
        //Special attack reference here

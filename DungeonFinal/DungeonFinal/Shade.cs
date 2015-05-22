@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
@@ -10,25 +18,35 @@ namespace DungeonFinal
     {
         //this is a Shade monster, it is a tier 1 level, there are 20 points assigned to main stats
 
-       
+
+
+       //DVC - Level 1
         public Shade()
         {
             setName("Shade");
-            setModHealth(100);
-            setMana(100);
+            setBaseHealth(100);
+            setCurHealth(100);
+            setMaxHealth(100);
+            setBaseMana(100);
+            setCurMana(100);
+            setMaxMana(100);
 
             //Main stats are out of 20 points
-            setStrength(0);
-            setMagic(10);
-            setDefense(0);
-            setResistance(10);
+            setBaseStrength(0);
+            setModStrength(0);
+            setBaseMagic(10);
+            setModMagic(10);
+            setBaseDefense(0);
+            setModDefense(0);
+            setBaseResistance(10);
+            setModResistance(10);
 
-            setIsPhysical(false);
-
-            
+            setIsPhysical(true);
+            setIsDefeated(false);
             setIsDefending(false);
-            setDefendingDefense(getDefendingDefense());
-            setDefendingResistance(getDefendingResistance());
+            setDefendingDefense(this.getDefendingDefense());
+            setDefendingResistance(this.getDefendingResistance());
+
         }
 
 
@@ -38,7 +56,9 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int m = getMagic();
+
+            int m = base.getModMagic();
+
             return m;
         }
 
@@ -61,16 +81,20 @@ namespace DungeonFinal
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = getDefense() * 1;
-            setDefendingDefense(dd);
+
+            int dd = base.getModDefense() * 1;
+            base.setDefendingDefense(dd);
+
 
             return dd;
         }
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = getResistance() * 1;
-            setDefendingDefense(dr);
+
+            int dr = base.getModResistance() * 1;
+            base.setDefendingDefense(dr);
+
 
             return dr;
         }

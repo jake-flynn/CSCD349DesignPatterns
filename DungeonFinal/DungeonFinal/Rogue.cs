@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
@@ -14,16 +22,23 @@ namespace DungeonFinal
         public Rogue()
         {
             setName("Rogue");
+            setBaseHealth(100);
             setModHealth(100);
-            setMana(100);
+            setBaseMana(100);
+            setModMana(100);
 
             //Main stats are out of 40 points
-            setStrength(20);
-            setMagic(0);
-            setDefense(10);
-            setResistance(10);
+            setBaseStrength(20);
+            setModStrength(20);
+            setBaseMagic(0);
+            setModMagic(0);
+            setBaseDefense(10);
+            setModDefense(10);
+            setBaseResistance(10);
+            setModResistance(10);
 
             setIsPhysical(true);
+            setIsDefeated(false);
             setIsDefending(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
@@ -36,20 +51,21 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int s = getStrength();
+            int s = getModStrength();
             return s;
         }
 
         public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-
+            int dmg = 0;
+            MessageBox.Show("Performed Throw Knives for " + dmg + " damage!");
         }
 
         /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = getDefense() * 2;
+            int dd = getModDefense() * 2;
             setDefendingDefense(dd);
 
             return dd;
@@ -57,7 +73,7 @@ namespace DungeonFinal
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = getResistance() * 2;
+            int dr = getModResistance() * 2;
             setDefendingDefense(dr);
 
             return dr;

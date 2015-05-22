@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
@@ -10,12 +18,21 @@ namespace DungeonFinal
     {
         private string _Name;
         private int _BaseHealth;
-        private int _ModHealth;
-        private int _Mana;
-        private int _Strength;
-        private int _Magic;
-        private int _Defense;
-        private int _Resistance;
+        private int _CurHealth;
+        private int _MaxHealth;
+        private int _BaseMana;
+        private int _CurMana;
+        private int _MaxMana;
+
+        private int _BaseStrength;
+        private int _ModStrength;
+        private int _BaseMagic;
+        private int _ModMagic;
+        private int _BaseDefense;
+        private int _ModDefense;
+        private int _BaseResistance;
+        private int _ModResistance;
+
         private Boolean _IsPhysical;
         private Boolean _IsDefeated;
         private Boolean _IsDefending;
@@ -34,7 +51,9 @@ namespace DungeonFinal
 
 
         /*---------------------------------------------------------------------------------------*/
-       //Get Set Methods
+        /*                              Get/Set Methods                                          */
+        /*---------------------------------------------------------------------------------------*/
+        //------------------------------- Name -------------------------------
         public string getName()
         {
             return _Name;
@@ -45,59 +64,125 @@ namespace DungeonFinal
             _Name = n;
         }
 
+        //------------------------------- Health -------------------------------
         public int getBaseHealth()
         {
             return _BaseHealth;
         }
 
-       //Get Set Methods
-        public int getModHealth()
+        public void setBaseHealth(int h)
         {
-            return _ModHealth;
+            _BaseHealth = h;
         }
-        public void setModHealth(int h)
+
+        public int getCurHealth()
         {
-            _ModHealth = h;
+            return _CurHealth;
         }
-        public int getMana()
+        public void setCurHealth(int h)
         {
-            return _Mana;
+            _CurHealth = h;
         }
-        public void setMana(int m)
+        public int getMaxHealth()
         {
-            _Mana = m;
+            return _MaxHealth;
         }
-        public int getBasicAttack()
+        public void setMaxHealth(int h)
         {
-            return _Strength;
+            _MaxHealth = h;
         }
-        public void setStrength(int s)
+        //------------------------------- Mana -------------------------------
+        public int getBaseMana()
         {
-            _Strength = s;
+            return _BaseMana;
         }
-        public int getMagic()
+        public void setBaseMana(int m)
         {
-            return _Magic;
+            _BaseMana = m;
         }
-        public void setMagic(int m)
+        public int getCurMana()
         {
-            _Magic = m;
+            return _CurMana;
         }
-        public int getDefense()
+        public void setCurMana(int m)
         {
-            return _Defense;
+            _CurMana = m;
         }
-        public void setDefense(int d)
+        public int getMaxMana()
         {
-            _Defense = d;
+            return _MaxMana;
         }
-        public int getResistance()
+        public void setMaxMana(int m)
         {
-            return _Resistance;
+            _MaxMana = m;
         }
-        public void setResistance(int r)
+        //------------------------------- Strength -------------------------------
+        public int getBaseStrength()
         {
-            _Resistance = r;
+            return _BaseStrength;
+        }
+        public void setBaseStrength(int s)
+        {
+            _BaseStrength = s;
+        }
+        public int getModStrength()
+        {
+            return _ModStrength;
+        }
+        public void setModStrength(int s)
+        {
+            _ModStrength = s;
+        }
+        //------------------------------- Magic -------------------------------
+        public int getBaseMagic()
+        {
+            return _BaseMagic;
+        }
+        public void setBaseMagic(int m)
+        {
+            _BaseMagic = m;
+        }
+        public int getModMagic()
+        {
+            return _ModMagic;
+        }
+        public void setModMagic(int m)
+        {
+            _ModMagic = m;
+        }
+        //------------------------------- Defense -------------------------------
+        public int getBaseDefense()
+        {
+            return _BaseDefense;
+        }
+        public void setBaseDefense(int d)
+        {
+            _BaseDefense = d;
+        }
+        public int getModDefense()
+        {
+            return _ModDefense;
+        }
+        public void setModDefense(int d)
+        {
+            _ModDefense = d;
+        }
+        //------------------------------- Resistance -------------------------------
+        public int getBaseResistance()
+        {
+            return _BaseResistance;
+        }
+        public void setBaseResistance(int r)
+        {
+            _BaseResistance = r;
+        }
+        public int getModResistance()
+        {
+            return _ModResistance;
+        }
+        public void setModResistance(int r)
+        {
+            _ModResistance = r;
         }
 
        //Battle Attack
@@ -111,12 +196,10 @@ namespace DungeonFinal
             _IsPhysical = iP;
         }
 
+
         public abstract Hero FindTarget(Party p);
 
-        public void setSpecialAttack(SpecialAttackBehavior sa)
-        {
-            
-        }
+
 
         public Boolean getIsDefeated()
         {
@@ -126,6 +209,8 @@ namespace DungeonFinal
         {
             _IsDefeated = iD;
         }
+
+
 
        //Battle Defend
         public Boolean getIsDefending()

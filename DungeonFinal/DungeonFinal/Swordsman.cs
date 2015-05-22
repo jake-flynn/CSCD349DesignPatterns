@@ -21,23 +21,27 @@ namespace DungeonFinal
        //DVC
         public Swordsman()
         {
-            base.setName("Swordsman");
-            base.setModHealth(100);
-            base.setMana(100);
+            setName("Swordsman");
+            setBaseHealth(100);
+            setModHealth(100);
+            setBaseMana(100);
+            setModMana(100);
 
             //Main stats are out of 40 points
-            base.setStrength(15);
-            base.setMagic(5);
-            base.setDefense(15);
-            base.setResistance(5);
+            setBaseStrength(15);
+            setModStrength(15);
+            setBaseMagic(5);
+            setModMagic(5);
+            setBaseDefense(15);
+            setModDefense(15);
+            setBaseResistance(5);
+            setModResistance(5);
 
-            base.setIsPhysical(true);
-            //this._SpecialAttack = new BladeSlash();
-            //base.setSpecialAttack(this._SpecialAttack);
-            
-            base.setIsDefending(false);
-            base.setDefendingDefense(this.getDefendingDefense());
-            base.setDefendingResistance(this.getDefendingResistance());
+            setIsPhysical(true);
+            setIsDefeated(false);
+            setIsDefending(false);
+            setDefendingDefense(this.getDefendingDefense());
+            setDefendingResistance(this.getDefendingResistance());
         }
 
 
@@ -47,20 +51,21 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-            int s = base.getStrength();
+            int s = base.getModStrength();
             return s;
         }
 
         public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            MessageBox.Show("Performed a Blade Slash!");
+            int dmg = 0;
+            MessageBox.Show("Performed a Blade Slash for " + dmg + " damage!");
         }
 
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
         {
-            int dd = base.getDefense() * 2;
+            int dd = base.getModDefense() * 2;
             base.setDefendingDefense(dd);
 
             return dd;
@@ -68,7 +73,7 @@ namespace DungeonFinal
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
-            int dr = base.getResistance() * 2;
+            int dr = base.getModResistance() * 2;
             base.setDefendingDefense(dr);
 
             return dr;
