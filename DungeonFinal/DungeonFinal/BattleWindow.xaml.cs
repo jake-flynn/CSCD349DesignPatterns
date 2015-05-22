@@ -32,28 +32,13 @@ namespace DungeonFinal
         public BattleWindow(Monster mon, Party heros)
         {
             InitializeComponent();
+
             _theParty = heros;
             _theHeroes = _theParty.getHeros();
             _monster = mon;
- 
 
-            prgBar_Hero1.Value = _theHeroes[0].getCurHealth();
-            prgBar_Hero2.Value = _theHeroes[1].getCurHealth();
-            prgBar_Hero3.Value = _theHeroes[2].getCurHealth();
-            prgBar_Hero4.Value = _theHeroes[3].getCurHealth();
-
-
-            prgBar_Monster.Value = _monster.getCurHealth();
-            lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
-            lbl_heroHealthNumbers1.Content = "" + _theHeroes[0].getCurHealth() + "/" + _theHeroes[0].getBaseHealth();
-            lbl_heroHealthNumbers1.Content = "" + _theHeroes[1].getCurHealth() + "/" + _theHeroes[1].getBaseHealth();
-            lbl_heroHealthNumbers1.Content = "" + _theHeroes[2].getCurHealth() + "/" + _theHeroes[2].getBaseHealth();
-            lbl_heroHealthNumbers1.Content = "" + _theHeroes[3].getCurHealth() + "/" + _theHeroes[3].getBaseHealth();
-
-            prgBar_Hero1_Mana.Value = 100;
-            prgBar_Hero2_Mana.Value = 100;
-            prgBar_Hero3_Mana.Value = 100;
-            prgBar_Hero4_Mana.Value = 100;
+            updateVisuals();
+            
 
             tb_monster.Text = _monster.getName();
             tb_hero1.Text = _theHeroes[0].getName();
@@ -93,14 +78,29 @@ namespace DungeonFinal
             }
         }
 
-        public void updateVisuals(Hero hero, Monster mon)
+        public void updateVisuals()
         {
-            lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
+            prgBar_Hero1.Value = ((double)_theHeroes[0].getCurHealth()) / ((double)_theHeroes[0].getMaxHealth()) * 100;
+            prgBar_Hero2.Value = ((double)_theHeroes[1].getCurHealth()) / ((double)_theHeroes[1].getMaxHealth()) * 100;
+            prgBar_Hero3.Value = ((double)_theHeroes[2].getCurHealth()) / ((double)_theHeroes[2].getMaxHealth()) * 100;
+            prgBar_Hero4.Value = ((double)_theHeroes[3].getCurHealth()) / ((double)_theHeroes[3].getMaxHealth()) * 100;
             prgBar_Monster.Value = ((double)_monster.getCurHealth()) / ((double)_monster.getBaseHealth()) * 100;
-            prgBar_Hero1.Value = _theHeroes[0].getCurHealth();
-            prgBar_Hero2.Value = _theHeroes[1].getCurHealth();
-            prgBar_Hero3.Value = _theHeroes[2].getCurHealth();
-            prgBar_Hero4.Value = _theHeroes[3].getCurHealth();
+
+            lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[0].getCurHealth() + "/" + _theHeroes[0].getMaxHealth();
+            lbl_heroHealthNumbers2.Content = "" + _theHeroes[1].getCurHealth() + "/" + _theHeroes[1].getMaxHealth();
+            lbl_heroHealthNumbers3.Content = "" + _theHeroes[2].getCurHealth() + "/" + _theHeroes[2].getMaxHealth();
+            lbl_heroHealthNumbers4.Content = "" + _theHeroes[3].getCurHealth() + "/" + _theHeroes[3].getMaxHealth();
+
+            lbl_heroManaNumbers1.Content = "" + _theHeroes[0].getCurMana() + "/" + _theHeroes[0].getMaxMana();
+            lbl_heroManaNumbers2.Content = "" + _theHeroes[1].getCurMana() + "/" + _theHeroes[1].getMaxMana();
+            lbl_heroManaNumbers3.Content = "" + _theHeroes[2].getCurMana() + "/" + _theHeroes[2].getMaxMana();
+            lbl_heroManaNumbers4.Content = "" + _theHeroes[3].getCurMana() + "/" + _theHeroes[3].getMaxMana();
+
+            prgBar_Hero1_Mana.Value = ((double)_theHeroes[0].getCurMana()) / ((double)_theHeroes[0].getMaxMana()) * 100;
+            prgBar_Hero2_Mana.Value = ((double)_theHeroes[1].getCurMana()) / ((double)_theHeroes[1].getMaxMana()) * 100;
+            prgBar_Hero3_Mana.Value = ((double)_theHeroes[2].getCurMana()) / ((double)_theHeroes[2].getMaxMana()) * 100;
+            prgBar_Hero4_Mana.Value = ((double)_theHeroes[3].getCurMana()) / ((double)_theHeroes[3].getMaxMana()) * 100;
         }
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
@@ -118,7 +118,7 @@ namespace DungeonFinal
                 heroDamage = 0;
 
             mon.setCurHealth(mon.getCurHealth() - heroDamage);
-            updateVisuals(hero, mon);
+            updateVisuals();
 
             checkForDefeatedUnit();
         }
@@ -126,7 +126,7 @@ namespace DungeonFinal
         private void specialMove(Hero hero, int whichHero)
         {
             hero.PerformSpecialAttack(_theParty, whichHero, _monster);
-            updateVisuals(hero, _monster);
+            updateVisuals();
         }
 
         private void monsterAttack(Hero hero, Monster mon) //Monster attacks!
@@ -142,7 +142,7 @@ namespace DungeonFinal
                 monsterDamage = 0;
 
             hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damgae is applied
-            updateVisuals(hero, mon);//health bar updated
+            updateVisuals();//health bar updated
             checkForDefeatedUnit();
         }
 
@@ -156,6 +156,31 @@ namespace DungeonFinal
             foreach(Hero h in _theHeroes)
             {
                 h.setIsDefending(false);
+            }
+        }
+
+
+        public void checkReady()
+        {
+            bool ready = false;
+
+            if (rBtn_Hero1Attack.IsChecked == true || rBtn_Hero1Defend.IsChecked == true || rBtn_Hero1Special.IsChecked == true || rBtn_Hero1Item.IsChecked == true)
+            {
+                if (rBtn_Hero2Attack.IsChecked == true || rBtn_Hero2Defend.IsChecked == true || rBtn_Hero2Special.IsChecked == true || rBtn_Hero2Item.IsChecked == true)
+                {
+                    if (rBtn_Hero3Attack.IsChecked == true || rBtn_Hero3Defend.IsChecked == true || rBtn_Hero3Special.IsChecked == true || rBtn_Hero3Item.IsChecked == true)
+                    {
+                        if (rBtn_Hero4Attack.IsChecked == true || rBtn_Hero4Defend.IsChecked == true || rBtn_Hero4Special.IsChecked == true || rBtn_Hero4Item.IsChecked == true)
+                        {
+                            ready = true;
+                        }
+                    }
+                }
+            }
+
+            if (ready == true)
+            {
+                btn_Ready.IsEnabled = true;
             }
         }
 
@@ -271,6 +296,86 @@ namespace DungeonFinal
                 incrementEffects();
                 checkForDefeatedUnit();
             }
+        }
+
+        private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
         }
 
 

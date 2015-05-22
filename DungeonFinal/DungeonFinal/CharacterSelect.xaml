@@ -2,44 +2,44 @@
         WindowStartupLocation="CenterScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CharacterSelect" Height="500" Width="500">
+        Title="CharacterSelect" Height="700" Width="700">
     <Grid>
-        <Rectangle x:Name="rect_Swordsman" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="78,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="60"/>
-        <Rectangle x:Name="rect_Paladin" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="180,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="60"/>
-        <Rectangle x:Name="rect_Priest" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="286,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="60"/>
-        <Rectangle x:Name="rect_Rogue" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Margin="394,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="60"/>
+        <Rectangle x:Name="rect_Swordsman" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="78,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" ToolTip="Swordsman, Low physical damge, high armor"/>
+        <Rectangle x:Name="rect_Paladin" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="218,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" ToolTip="Paladin, low magic damage, high magic resistance"/>
+        <Rectangle x:Name="rect_Cleric" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="380,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" ToolTip="Cleric, low magic damge, armor, can heal party members"/>
+        <Rectangle x:Name="rect_Rogue" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="544,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" ToolTip="Rogue, high damage, low armor/resistance" AllowDrop="True"/>
 
-        <Label x:Name="lbl_hero1Select" Content="Hero 1" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="50"/>
-        <Label x:Name="lbl_hero2Select" Content="Hero 2" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" Width="50"/>
-        <Label x:Name="lbl_hero3Select" Content="Hero 3" HorizontalAlignment="Left" Margin="10,275,0,0" VerticalAlignment="Top" Width="50"/>
-        <Label x:Name="lbl_hero4Select" Content="Hero 4" HorizontalAlignment="Left" Margin="10,342,0,0" VerticalAlignment="Top" Width="50"/>
-
-
-        <RadioButton x:Name="rbtn_Hero1_Swordsman" GroupName="Hero1" Content="Swordsman" HorizontalAlignment="Left" Margin="78,165,0,0" VerticalAlignment="Top" Click="rbtn_Hero1_Swordsman_Click"/>
-        <RadioButton x:Name="rbtn_Hero1_Paladin" GroupName="Hero1" Content="Paladin" HorizontalAlignment="Left" Margin="180,165,0,0" VerticalAlignment="Top" Click="rbtn_Hero1_Paladin_Click"/>
-        <RadioButton x:Name="rbtn_Hero1_Cleric" GroupName="Hero1" Content="Cleric" HorizontalAlignment="Left" Margin="286,165,0,0" VerticalAlignment="Top" Click="rbtn_Hero1_Priest_Click"/>
-        <RadioButton x:Name="rbtn_Hero1_Rogue" GroupName="Hero1" Content="Rogue" HorizontalAlignment="Left" Margin="394,165,0,0" VerticalAlignment="Top" Click="rbtn_Hero1_Rogue_Click"/>
+        <Label x:Name="lbl_hero1Select" Content="Hero 1" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="lbl_hero2Select" Content="Hero 2" HorizontalAlignment="Left" Margin="10,345,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="lbl_hero3Select" Content="Hero 3" HorizontalAlignment="Left" Margin="10,404,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="lbl_hero4Select" Content="Hero 4" HorizontalAlignment="Left" Margin="10,471,0,0" VerticalAlignment="Top" Width="50"/>
 
 
-        <RadioButton x:Name="rbtn_Hero2_Swordsman" GroupName="Hero2" Content="Swordsman" HorizontalAlignment="Left" Margin="78,221,0,0" VerticalAlignment="Top" Click="rbtn_Hero2_Swordsman_Click"/>
-        <RadioButton x:Name="rbtn_Hero2_Paladin" GroupName="Hero2" Content="Paladin" HorizontalAlignment="Left" Margin="180,224,0,0" VerticalAlignment="Top" Click="rbtn_Hero2_Paladin_Click"/>
-        <RadioButton x:Name="rbtn_Hero2_Cleric" GroupName="Hero2" Content="Cleric" HorizontalAlignment="Left" Margin="286,224,0,0" VerticalAlignment="Top" Click="rbtn_Hero2_Priest_Click"/>
-        <RadioButton x:Name="rbtn_Hero2_Rogue" GroupName="Hero2" Content="Rogue" HorizontalAlignment="Left" Margin="394,224,0,0" VerticalAlignment="Top" Click="rbtn_Hero2_Rogue_Click"/>
+        <RadioButton x:Name="rbtn_Hero1_Swordsman" GroupName="Hero1" Content="Swordsman" HorizontalAlignment="Left" Margin="78,294,0,0" VerticalAlignment="Top" Click="rbtn_Hero1_Swordsman_Click"/>
+        <RadioButton x:Name="rbtn_Hero1_Paladin" GroupName="Hero1" Content="Paladin" HorizontalAlignment="Left" Margin="238,294,0,0" VerticalAlignment="Top" Click="rbtn_Hero1_Paladin_Click"/>
+        <RadioButton x:Name="rbtn_Hero1_Cleric" GroupName="Hero1" Content="Cleric" HorizontalAlignment="Left" Margin="402,294,0,0" VerticalAlignment="Top" Click="rbtn_Hero1_Priest_Click"/>
+        <RadioButton x:Name="rbtn_Hero1_Rogue" GroupName="Hero1" Content="Rogue" HorizontalAlignment="Left" Margin="565,294,0,0" VerticalAlignment="Top" Click="rbtn_Hero1_Rogue_Click"/>
 
 
-        <RadioButton x:Name="rbtn_Hero3_Swordsman" GroupName="Hero3" Content="Swordsman" HorizontalAlignment="Left" Margin="78,285,0,0" VerticalAlignment="Top" Click="rbtn_Hero3_Swordsman_Click"/>
-        <RadioButton x:Name="rbtn_Hero3_Paladin" GroupName="Hero3" Content="Paladin" HorizontalAlignment="Left" Margin="180,288,0,0" VerticalAlignment="Top" Click="rbtn_Hero3_Paladin_Click"/>
-        <RadioButton x:Name="rbtn_Hero3_Cleric" GroupName="Hero3" Content="Cleric" HorizontalAlignment="Left" Margin="286,288,0,0" VerticalAlignment="Top" Click="rbtn_Hero3_Priest_Click"/>
-        <RadioButton x:Name="rbtn_Hero3_Rogue" GroupName="Hero3" Content="Rogue" HorizontalAlignment="Left" Margin="394,285,0,0" VerticalAlignment="Top" Click="rbtn_Hero3_Rogue_Click"/>
+        <RadioButton x:Name="rbtn_Hero2_Swordsman" GroupName="Hero2" Content="Swordsman" HorizontalAlignment="Left" Margin="78,350,0,0" VerticalAlignment="Top" Click="rbtn_Hero2_Swordsman_Click"/>
+        <RadioButton x:Name="rbtn_Hero2_Paladin" GroupName="Hero2" Content="Paladin" HorizontalAlignment="Left" Margin="238,353,0,0" VerticalAlignment="Top" Click="rbtn_Hero2_Paladin_Click"/>
+        <RadioButton x:Name="rbtn_Hero2_Cleric" GroupName="Hero2" Content="Cleric" HorizontalAlignment="Left" Margin="402,353,0,0" VerticalAlignment="Top" Click="rbtn_Hero2_Priest_Click"/>
+        <RadioButton x:Name="rbtn_Hero2_Rogue" GroupName="Hero2" Content="Rogue" HorizontalAlignment="Left" Margin="565,353,0,0" VerticalAlignment="Top" Click="rbtn_Hero2_Rogue_Click"/>
 
 
-        <RadioButton x:Name="rbtn_Hero4_Swordsman" GroupName="Hero4" Content="Swordsman" HorizontalAlignment="Left" Margin="78,347,0,0" VerticalAlignment="Top" Click="rbtn_Hero4_Swordsman_Click"/>
-        <RadioButton x:Name="rbtn_Hero4_Paladin" GroupName="Hero4" Content="Paladin" HorizontalAlignment="Left" Margin="180,347,0,0" VerticalAlignment="Top" Click="rbtn_Hero4_Paladin_Click"/>
-        <RadioButton x:Name="rbtn_Hero4_Cleric" GroupName="Hero4" Content="Cleric" HorizontalAlignment="Left" Margin="286,347,0,0" VerticalAlignment="Top" Click="rbtn_Hero4_Priest_Click"/>
-        <RadioButton x:Name="rbtn_Hero4_Rogue" GroupName="Hero4" Content="Rogue" HorizontalAlignment="Left" Margin="394,347,0,0" VerticalAlignment="Top" Click="rbtn_Hero4_Rogue_Click"/>
+        <RadioButton x:Name="rbtn_Hero3_Swordsman" GroupName="Hero3" Content="Swordsman" HorizontalAlignment="Left" Margin="78,414,0,0" VerticalAlignment="Top" Click="rbtn_Hero3_Swordsman_Click"/>
+        <RadioButton x:Name="rbtn_Hero3_Paladin" GroupName="Hero3" Content="Paladin" HorizontalAlignment="Left" Margin="238,417,0,0" VerticalAlignment="Top" Click="rbtn_Hero3_Paladin_Click"/>
+        <RadioButton x:Name="rbtn_Hero3_Cleric" GroupName="Hero3" Content="Cleric" HorizontalAlignment="Left" Margin="402,417,0,0" VerticalAlignment="Top" Click="rbtn_Hero3_Priest_Click"/>
+        <RadioButton x:Name="rbtn_Hero3_Rogue" GroupName="Hero3" Content="Rogue" HorizontalAlignment="Left" Margin="565,414,0,0" VerticalAlignment="Top" Click="rbtn_Hero3_Rogue_Click"/>
 
 
-        <Button x:Name="btn_PartyReady" Content="Party is Ready" HorizontalAlignment="Left" Margin="194,398,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btn_PartyReady_Click" />
+        <RadioButton x:Name="rbtn_Hero4_Swordsman" GroupName="Hero4" Content="Swordsman" HorizontalAlignment="Left" Margin="78,476,0,0" VerticalAlignment="Top" Click="rbtn_Hero4_Swordsman_Click"/>
+        <RadioButton x:Name="rbtn_Hero4_Paladin" GroupName="Hero4" Content="Paladin" HorizontalAlignment="Left" Margin="238,476,0,0" VerticalAlignment="Top" Click="rbtn_Hero4_Paladin_Click"/>
+        <RadioButton x:Name="rbtn_Hero4_Cleric" GroupName="Hero4" Content="Cleric" HorizontalAlignment="Left" Margin="402,476,0,0" VerticalAlignment="Top" Click="rbtn_Hero4_Priest_Click"/>
+        <RadioButton x:Name="rbtn_Hero4_Rogue" GroupName="Hero4" Content="Rogue" HorizontalAlignment="Left" Margin="565,476,0,0" VerticalAlignment="Top" Click="rbtn_Hero4_Rogue_Click"/>
+
+
+        <Button x:Name="btn_PartyReady" Content="Party is Ready" HorizontalAlignment="Left" Margin="238,561,0,0" VerticalAlignment="Top" Width="242" Height="79" Click="btn_PartyReady_Click" />
 
 
 

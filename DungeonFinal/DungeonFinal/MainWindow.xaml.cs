@@ -135,17 +135,17 @@ namespace DungeonFinal
                 for(int j = 1; j < difficulty; j++)
                 {
                     randomNumber = randomGeneratedNumber.Next(10);
-                    if(randomNumber <= 2)
+                    if( i < 3 && j < 3)
                     {
                         await Task.Delay(100);
                         settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(1));
                     }
-                    else if(randomNumber <= 4)
+                    else if(i < 3 && j > 2 || i > 2 && j < 3)
                     {
                         await Task.Delay(100);
                         settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(2));
                     }
-                    else if (randomNumber <= 6)
+                    else if (i>2 && j>2)
                     {
                         await Task.Delay(100);
                         settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(3));
@@ -168,7 +168,27 @@ namespace DungeonFinal
             bw.ShowDialog();
             MonstersSeen++;
             updateButtonsVisibility();
+            //upgradeStats(heros);
         }
+
+        public void upgradeStats(Party party)
+        {
+            Hero[] Heroes = party.getHeros();
+            for (int i = 0; i < Heroes.Length; i++ )
+            {
+                Heroes[i].setMaxHealth(Heroes[i].getMaxHealth() + 5);
+                Heroes[i].setCurHealth(Heroes[i].getCurHealth() + 4);
+                Heroes[i].setMaxMana(Heroes[i].getMaxMana() + 5);
+                Heroes[i].setCurMana(Heroes[i].getCurMana() + 4);
+
+                Heroes[i].setModStrength(Heroes[i].getModStrength() + 1);
+                Heroes[i].setModMagic(Heroes[i].getModMagic() + 1);
+                Heroes[i].setModDefense(Heroes[i].getModDefense() + 1);
+                Heroes[i].setModResistance(Heroes[i].getModResistance() + 1);
+                
+            }
+        }
+
 
         //---END ALL METHODS---
 

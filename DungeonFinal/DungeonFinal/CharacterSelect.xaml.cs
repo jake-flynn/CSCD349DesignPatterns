@@ -30,7 +30,33 @@ namespace DungeonFinal
                             "indicating which character you would like to assign to each hero slot");
             btn_PartyReady.IsEnabled = false;
             party = new Party();
+            paintRectanglesWithHeroImages();
         }
+
+
+        public void paintRectanglesWithHeroImages()
+        {
+            ImageBrush imgBrushSwordsman = new ImageBrush();
+            BitmapImage imageSwordsman = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-jwP2jq5N8vk/VV7qG6mhNWI/AAAAAAAAA1Q/MCdr_HdAZnw/w506-h731/Swordsman.jpg"));
+            imgBrushSwordsman.ImageSource = imageSwordsman;
+            rect_Swordsman.Fill = imgBrushSwordsman;
+
+            ImageBrush imgBrushPaladin = new ImageBrush();
+            BitmapImage imagePaladin = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-9PZ0hjpgspI/VV7p99bG62I/AAAAAAAAAzg/Ejq9YL1hAtM/w506-h764/Paladin.jpg"));
+            imgBrushPaladin.ImageSource = imagePaladin;
+            rect_Paladin.Fill = imgBrushPaladin;
+
+            ImageBrush imgBrushCleric = new ImageBrush();
+            BitmapImage imageCleric = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-J6UohVY0-2Y/VV7poKYTrEI/AAAAAAAAAws/Xmdq1-qREdI/w506-h900/Cleric.jpg"));
+            imgBrushCleric.ImageSource = imageCleric;
+            rect_Cleric.Fill = imgBrushCleric;
+
+            ImageBrush imgBrushRogue = new ImageBrush();
+            BitmapImage imageRogue = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-GqQ6Ja-aahk/VV7qAx0PD8I/AAAAAAAAA0E/tguBh4geous/w506-h647/Rogue.jpg"));
+            imgBrushRogue.ImageSource = imageRogue;
+            rect_Rogue.Fill = imgBrushRogue;
+        }
+
 
         public bool checkReady()
         {
