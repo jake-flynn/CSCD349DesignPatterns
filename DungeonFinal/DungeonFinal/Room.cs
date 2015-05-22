@@ -25,6 +25,7 @@ namespace DungeonFinal
             this.M = newMon;
             this.hasAMonster = true;
             this.monsterDefeated = false;
+          
         }
 
         public Monster getMonster()

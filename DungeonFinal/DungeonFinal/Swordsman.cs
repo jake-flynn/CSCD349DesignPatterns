@@ -78,5 +78,14 @@ namespace DungeonFinal
 
             return dr;
         }
+
+
+        public override ImageBrush getBrush()
+        {
+            ImageBrush imgBrush = new ImageBrush();
+            BitmapImage image = new BitmapImage(new Uri(@""));
+            imgBrush.ImageSource = image;
+            return imgBrush;
+        }
     }
 }

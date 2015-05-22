@@ -24,43 +24,51 @@ namespace DungeonFinal
         
 	public Monster createMonster(int level) {
 		Monster newMonster = null;
-        var randomGeneratedNumber = new Random();
+        
 		if (level == 1) //Level one monster
         {
-            int rnd = randomGeneratedNumber.Next(6)+1;
-            if(rnd == 1)
+            var randomGeneratedNumber1 = new Random();
+            int rnd1 = randomGeneratedNumber1.Next(6)+1;
+            rnd1 = randomGeneratedNumber1.Next(6);
+            rnd1 = rnd1 + 1;
+            
+
+            if(rnd1 == 1)
             {
-                newMonster = new Shade();
+                return new Shade();
             }
 
-            else if(rnd == 2)
+            else if(rnd1 == 2)
             {
-                newMonster = new Skeleton();
+                return new Skeleton();
             }
 
-            else if (rnd == 3)
+            else if (rnd1 == 3)
             {
-                newMonster = new Insect();
+                return new Insect();
             }
 
-            else if (rnd == 4)
+            else if (rnd1 == 4)
             {
-                newMonster = new VampireBat();
+                return new VampireBat();
             }
 
-            else if (rnd == 5)
+            else if (rnd1 == 5)
             {
-                newMonster = new Slime();
+                return new Slime();
             }
 
-            else if (rnd == 6)
+            else if (rnd1 == 6)
             {
-                newMonster = new Imp();
+                return new Imp();
             }
 		}
         else if (level == 2) //Level two monster
         {
-            int rnd = randomGeneratedNumber.Next(6)+1;
+            var randomGeneratedNumber = new Random();
+            int rnd = randomGeneratedNumber.Next(6) + 1;
+            rnd = randomGeneratedNumber.Next(6);
+            rnd = rnd + 1;
 			if (rnd == 1)
             {
                 newMonster = new StuBeast();
@@ -93,7 +101,10 @@ namespace DungeonFinal
 		}
         else if (level == 3) //Level three monster
         {
-            int rnd = randomGeneratedNumber.Next(3)+1;
+            var randomGeneratedNumber = new Random();
+            int rnd = randomGeneratedNumber.Next(3) + 1;
+            rnd = randomGeneratedNumber.Next(3);
+            rnd = rnd + 1;
             if (rnd == 1)
             {
                 newMonster = new Centaur();
@@ -111,6 +122,7 @@ namespace DungeonFinal
 		}
         else if (level == 4) //Level three monster
         {
+            var randomGeneratedNumber = new Random();
             int rnd = randomGeneratedNumber.Next(4) + 1;
             if (rnd == 1)
             {

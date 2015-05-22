@@ -123,7 +123,7 @@ namespace DungeonFinal
             tb_numberOfMonsters.Text = MonstersSeen + "";
         }
 
-        public void populateMonsters()
+        public async void populateMonsters()
         {
             var randomGeneratedNumber = new Random();
             int randomNumber = randomGeneratedNumber.Next(10);
@@ -137,14 +137,17 @@ namespace DungeonFinal
                     randomNumber = randomGeneratedNumber.Next(10);
                     if(randomNumber <= 2)
                     {
+                        await Task.Delay(5);
                         settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(1));
                     }
                     else if(randomNumber <= 4)
                     {
+                        await Task.Delay(5);
                         settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(2));
                     }
                     else if (randomNumber <= 6)
                     {
+                        await Task.Delay(5);
                         settingMonstersInRooms[i, j].setMonster(mazePopulator.createMonster(3));
                     }
 
