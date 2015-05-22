@@ -69,32 +69,32 @@ namespace DungeonFinal
            
 			if (rnd == 1)
             {
-                newMonster = new StuBeast();
+                return new StuBeast();
             }
 
             else if (rnd == 2)
             {
-                newMonster = new Werewolf();
+                return new Werewolf();
             }
 
             else if (rnd == 3)
             {
-                newMonster = new Harpy();
+                return new Harpy();
             }
 
             else if (rnd == 4)
             {
-                newMonster = new Hellhound();
+                return new Hellhound();
             }
 
             else if (rnd == 5)
             {
-                newMonster = new Cockatrice();
+                return new Cockatrice();
             }
 
             else if (rnd == 6)
             {
-                newMonster = new Sphynx();
+                return new Sphynx();
             }
 		}
         else if (level == 3) //Level three monster
@@ -104,17 +104,17 @@ namespace DungeonFinal
 
             if (rnd == 1)
             {
-                newMonster = new Centaur();
+                return new Centaur();
             }
 
             else if (rnd == 2)
             {
-                newMonster = new DemonWarrior();
+                return new DemonWarrior();
             }
 
             else if (rnd == 3)
             {
-                newMonster = new Cyclops();
+                return new Cyclops();
             }
 		}
         else if (level == 4) //Level three monster
@@ -123,21 +123,21 @@ namespace DungeonFinal
             int rnd = randomGeneratedNumber.Next(4) + 1;
             if (rnd == 1)
             {
-                newMonster = new Minotaur();
+                return new Minotaur();
             }
 
             else if (rnd == 2)
             {
-                newMonster = new Hydra();
+                return new Hydra();
             }
 
             else if (rnd == 3)
             {
-                newMonster = new Dragon();
+                return new Dragon();
             }
             else if (rnd == 4)
             {
-                newMonster = new Chimera();
+                return new Chimera();
             }
         }
 		return newMonster;

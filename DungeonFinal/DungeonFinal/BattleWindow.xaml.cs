@@ -134,39 +134,48 @@ namespace DungeonFinal
         {  
             Monster mon = _monster;
             Hero hero = mon.FindTarget(_theParty);
-            int monsterDamage; 
-            if(mon.getIsPhysical())
+            int monsterDamage;
+
+            var randomGeneratedNumber = new Random();
+            int randSpecial = randomGeneratedNumber.Next(10) + 1;
+
+            if (randSpecial == 1 || randSpecial == 2)
             {
-                if (hero.getIsDefending())
-                {//based on the attack of the monster - the defense of the hero. A greater value is used for defending heroes
-                    monsterDamage = mon.BasicAttack() - hero.getDefendingDefense();
-                }
-                else
-                {
-                    
-                    monsterDamage = mon.BasicAttack() - hero.getModDefense();
-                }
+                MessageBox.Show("The monster used its special attack! Let me know how this runs.");
+                _monster.PerformSpecialAttack(_theParty, 0, _monster);
             }
             else
             {
-                if (hero.getIsDefending())
+                if(mon.getIsPhysical())
                 {
-                    monsterDamage = mon.BasicAttack() - hero.getDefendingResistance();
+                    if (hero.getIsDefending())
+                    {//based on the attack of the monster - the defense of the hero. A greater value is used for defending heroes
+                        monsterDamage = mon.BasicAttack() - hero.getDefendingDefense();
+                    }
+                    else
+                    {
+                    
+                        monsterDamage = mon.BasicAttack() - hero.getModDefense();
+                    }
                 }
                 else
                 {
+                    if (hero.getIsDefending())
+                    {
+                        monsterDamage = mon.BasicAttack() - hero.getDefendingResistance();
+                    }
+                    else
+                    {
                     
-                    monsterDamage = mon.BasicAttack() - hero.getModResistance();
+                        monsterDamage = mon.BasicAttack() - hero.getModResistance();
+                    }
                 }
+                if (monsterDamage < 0)
+                    monsterDamage = 0;
+
+                MessageBox.Show("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage);
+                hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damage is applied
             }
-            MessageBox.Show("Damage from monster: " + monsterDamage);
-            if (monsterDamage < 0)
-                monsterDamage = 0;
-
-            MessageBox.Show("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage);
-            tb_eventFeed.Text += "The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage + "\r\n";
-
-            hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damgae is applied
             updateVisuals();//health bar updated
             checkForDefeatedUnit();
         }
