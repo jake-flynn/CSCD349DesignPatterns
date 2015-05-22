@@ -97,5 +97,10 @@ namespace DungeonFinal
 
             return dr;
         }
+
+        public ImageBrush getBrush()
+        {
+
+        }
     }
 }

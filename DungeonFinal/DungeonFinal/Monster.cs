@@ -231,5 +231,8 @@ namespace DungeonFinal
         {
             _DefendingResistance = dr;
         }
+
+
+        public abstract ImageBrush getBrush();
     }
 }
