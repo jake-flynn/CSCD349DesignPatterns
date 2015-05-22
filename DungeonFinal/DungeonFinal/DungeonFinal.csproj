@@ -83,6 +83,8 @@
     <Compile Include="Hydra.cs" />
     <Compile Include="Imp.cs" />
     <Compile Include="Insect.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemsEffect.cs" />
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
@@ -92,6 +94,8 @@
     <Compile Include="MonsterFactory.cs" />
     <Compile Include="Paladin.cs" />
     <Compile Include="Party.cs" />
+    <Compile Include="PotionOfHealth.cs" />
+    <Compile Include="PotionOfMana.cs" />
     <Compile Include="Rogue.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Shade.cs" />
