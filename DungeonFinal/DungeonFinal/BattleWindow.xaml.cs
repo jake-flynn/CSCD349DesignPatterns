@@ -83,9 +83,14 @@ namespace DungeonFinal
             }
         }
 
-        public void updateVisuals()
+        public void updateVisuals(Hero hero, Monster mon)
         {
             lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
+            prgBar_Monster.Value = ((double)_monster.getCurHealth()) / ((double)_monster.getBaseHealth()) * 100;
+            prgBar_Hero1.Value = _theHeroes[0].getModHealth();
+            prgBar_Hero2.Value = _theHeroes[1].getModHealth();
+            prgBar_Hero3.Value = _theHeroes[2].getModHealth();
+            prgBar_Hero4.Value = _theHeroes[3].getModHealth();
         }
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
@@ -103,7 +108,7 @@ namespace DungeonFinal
                 heroDamage = 0;
 
             mon.setCurHealth(mon.getCurHealth() - heroDamage);
-            prgBar_Monster.Value = mon.getCurHealth();
+            updateVisuals(hero, mon);
 
             checkForDefeatedUnit();
         }
@@ -111,7 +116,7 @@ namespace DungeonFinal
         private void specialMove(Hero hero, int whichHero)
         {
             hero.PerformSpecialAttack(_theParty, whichHero, _monster);
-            //updatevisuals
+            updateVisuals(hero, _monster);
         }
 
         private void monsterAttack(Hero hero, Monster mon) //Monster attacks!
@@ -127,7 +132,7 @@ namespace DungeonFinal
                 monsterDamage = 0;
 
             hero.setModHealth(hero.getModHealth() - monsterDamage); //actual damgae is applied
-            prgBar_Hero1.Value = hero.getModHealth();//health bar updated
+            updateVisuals(hero, mon);//health bar updated
             checkForDefeatedUnit();
         }
 
