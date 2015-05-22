@@ -92,7 +92,7 @@ namespace DungeonFinal
         public override ImageBrush getBrush()
         {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@""));
+            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-BeewHlzndVE/VV7tPlDwlOI/AAAAAAAAA7I/NoEQR8Yt7P4/w506-h431/vamp%2Bbat.jpg"));
             imgBrush.ImageSource = image;
             return imgBrush;
         }

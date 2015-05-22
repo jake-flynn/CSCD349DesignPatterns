@@ -83,7 +83,7 @@ namespace DungeonFinal
         public override ImageBrush getBrush()
         {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@""));
+            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-jwP2jq5N8vk/VV7qG6mhNWI/AAAAAAAAA1Q/MCdr_HdAZnw/w506-h731/Swordsman.jpg"));
             imgBrush.ImageSource = image;
             return imgBrush;
         }

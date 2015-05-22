@@ -57,6 +57,13 @@ namespace DungeonFinal
             tb_hero2.Text = _theHeroes[1].getName();
             tb_hero3.Text = _theHeroes[2].getName();
             tb_hero4.Text = _theHeroes[3].getName();
+
+
+            rect_hero1.Fill = _theHeroes[0].getBrush();
+            rect_hero2.Fill = _theHeroes[1].getBrush();
+            rect_hero3.Fill = _theHeroes[2].getBrush();
+            rect_hero4.Fill = _theHeroes[3].getBrush();
+            rect_Monster.Fill = _monster.getBrush();
         }
         
         //==========================================================================================================//

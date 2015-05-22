@@ -1,67 +1,67 @@
 ﻿<Window x:Class="DungeonFinal.BattleWindow"
         WindowStartupLocation="CenterScreen"
-
+        BorderBrush="Black"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BattleWindow" Height="650" Width="900"
+        Title="BattleWindow" Height="750" Width="1000"
         >
     <Grid Background="SlateGray">
-        <Rectangle x:Name="rect_hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="92,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" />
-        <Rectangle x:Name="rect_hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="222,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Rectangle x:Name="rect_hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="354,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Rectangle x:Name="rect_hero4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="490,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Rectangle x:Name="rect_Monster" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="369,11,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" />
+        <Rectangle x:Name="rect_hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="86,413,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" />
+        <Rectangle x:Name="rect_hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="263,428,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle x:Name="rect_hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="673,428,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle x:Name="rect_hero4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="841,413,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle x:Name="rect_Monster" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="299" Margin="316,38,0,0" Stroke="Black" VerticalAlignment="Top" Width="396" />
 
 
-        <TextBox x:Name="tb_monster" HorizontalAlignment="Left" Height="23" Margin="592,11,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
-        <TextBox x:Name="tb_hero1" HorizontalAlignment="Left" Height="24" Margin="93,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
-        <TextBox x:Name="tb_hero2" HorizontalAlignment="Left" Height="24" Margin="223,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
-        <TextBox x:Name="tb_hero3" HorizontalAlignment="Left" Height="24" Margin="355,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
-        <TextBox x:Name="tb_hero4" HorizontalAlignment="Left" Height="24" Margin="491,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
+        <TextBox x:Name="tb_monster" HorizontalAlignment="Left" Height="23" Margin="735,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
+        <TextBox x:Name="tb_hero1" HorizontalAlignment="Left" Height="24" Margin="86,343,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
+        <TextBox x:Name="tb_hero2" HorizontalAlignment="Left" Height="24" Margin="262,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
+        <TextBox x:Name="tb_hero3" HorizontalAlignment="Left" Height="24" Margin="673,358,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
+        <TextBox x:Name="tb_hero4" HorizontalAlignment="Left" Height="24" Margin="841,343,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
 
 
-        <RadioButton x:Name="rBtn_Hero1Attack" GroupName="Hero1" Content="Attack" HorizontalAlignment="Left" Margin="92,510,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero1Defend" GroupName="Hero1" Content="Defend" HorizontalAlignment="Left" Margin="92,531,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero1Special" GroupName="Hero1" Content="Special" HorizontalAlignment="Left" Margin="92,552,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero1Item" GroupName="Hero1" Content="Item" HorizontalAlignment="Left" Margin="92,573,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero1Attack" GroupName="Hero1" Content="Attack" HorizontalAlignment="Left" Margin="86,568,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero1Defend" GroupName="Hero1" Content="Defend" HorizontalAlignment="Left" Margin="86,589,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero1Special" GroupName="Hero1" Content="Special" HorizontalAlignment="Left" Margin="86,610,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero1Item" GroupName="Hero1" Content="Item" HorizontalAlignment="Left" Margin="86,631,0,0" VerticalAlignment="Top"/>
 
 
-        <RadioButton x:Name="rBtn_Hero2Attack" GroupName="Hero2" Content="Attack" HorizontalAlignment="Left" Margin="222,510,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero2Defend" GroupName="Hero2" Content="Defend" HorizontalAlignment="Left" Margin="222,531,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero2Special" GroupName="Hero2" Content="Special" HorizontalAlignment="Left" Margin="222,552,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero2Item" GroupName="Hero2" Content="Item" HorizontalAlignment="Left" Margin="222,573,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero2Attack" GroupName="Hero2" Content="Attack" HorizontalAlignment="Left" Margin="262,583,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero2Defend" GroupName="Hero2" Content="Defend" HorizontalAlignment="Left" Margin="262,604,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero2Special" GroupName="Hero2" Content="Special" HorizontalAlignment="Left" Margin="262,625,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero2Item" GroupName="Hero2" Content="Item" HorizontalAlignment="Left" Margin="262,646,0,0" VerticalAlignment="Top"/>
 
 
-        <Button x:Name="btn_Ready" Content="Ready!" HorizontalAlignment="Left" Margin="58,80,0,0" VerticalAlignment="Top" Width="75" Click="btn_Ready_Click"/>
+        <Button x:Name="btn_Ready" Content="Ready!" HorizontalAlignment="Left" Margin="434,452,0,0" VerticalAlignment="Top" Width="174" Click="btn_Ready_Click" Height="111"/>
 
 
-        <RadioButton x:Name="rBtn_Hero3Attack" GroupName="Hero3" Content="Attack" HorizontalAlignment="Left" Margin="378,510,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero3Defend" GroupName="Hero3" Content="Defend" HorizontalAlignment="Left" Margin="378,531,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero3Special" GroupName="Hero3" Content="Special" HorizontalAlignment="Left" Margin="378,552,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero3Item" GroupName="Hero3" Content="Item" HorizontalAlignment="Left" Margin="378,573,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero3Attack" GroupName="Hero3" Content="Attack" HorizontalAlignment="Left" Margin="697,583,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero3Defend" GroupName="Hero3" Content="Defend" HorizontalAlignment="Left" Margin="697,604,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero3Special" GroupName="Hero3" Content="Special" HorizontalAlignment="Left" Margin="697,625,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero3Item" GroupName="Hero3" Content="Item" HorizontalAlignment="Left" Margin="697,646,0,0" VerticalAlignment="Top"/>
 
 
-        <RadioButton x:Name="rBtn_Hero4Attack" GroupName="Hero4" Content="Attack" HorizontalAlignment="Left" Margin="511,510,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero4Defend" GroupName="Hero4" Content="Defend" HorizontalAlignment="Left" Margin="511,531,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero4Special" GroupName="Hero4" Content="Special" HorizontalAlignment="Left" Margin="511,552,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rBtn_Hero4Item" GroupName="Hero4" Content="Item" HorizontalAlignment="Left" Margin="511,573,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero4Attack" GroupName="Hero4" Content="Attack" HorizontalAlignment="Left" Margin="862,568,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero4Defend" GroupName="Hero4" Content="Defend" HorizontalAlignment="Left" Margin="862,589,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero4Special" GroupName="Hero4" Content="Special" HorizontalAlignment="Left" Margin="862,610,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rBtn_Hero4Item" GroupName="Hero4" Content="Item" HorizontalAlignment="Left" Margin="862,631,0,0" VerticalAlignment="Top"/>
 
 
-        <ProgressBar x:Name="prgBar_Hero1" HorizontalAlignment="Left" Height="10" Margin="93,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="PapayaWhip"/>
-        <ProgressBar x:Name="prgBar_Hero2" HorizontalAlignment="Left" Height="10" Margin="223,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Aqua"/>
-        <ProgressBar x:Name="prgBar_Hero3" HorizontalAlignment="Left" Height="10" Margin="355,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Yellow"/>
-        <ProgressBar x:Name="prgBar_Hero4" HorizontalAlignment="Left" Height="10" Margin="491,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkGray"/>
-        <ProgressBar x:Name="prgBar_Monster" HorizontalAlignment="Left" Height="10" Margin="592,55,0,0" VerticalAlignment="Top" Width="200" Background="Crimson" Foreground="HotPink"/>
-        <Label x:Name="lbl_health" Content="Health:" HorizontalAlignment="Left" Margin="24,320,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_mana" Content="Mana:" HorizontalAlignment="Left" Margin="29,359,0,0" VerticalAlignment="Top"/>
+        <ProgressBar x:Name="prgBar_Hero1" HorizontalAlignment="Left" Height="10" Margin="86,372,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="PapayaWhip"/>
+        <ProgressBar x:Name="prgBar_Hero2" HorizontalAlignment="Left" Height="10" Margin="262,387,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Aqua"/>
+        <ProgressBar x:Name="prgBar_Hero3" HorizontalAlignment="Left" Height="10" Margin="673,387,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Yellow"/>
+        <ProgressBar x:Name="prgBar_Hero4" HorizontalAlignment="Left" Height="10" Margin="841,372,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkGray"/>
+        <ProgressBar x:Name="prgBar_Monster" HorizontalAlignment="Left" Height="10" Margin="735,93,0,0" VerticalAlignment="Top" Width="200" Background="Crimson" Foreground="HotPink"/>
+        <Label x:Name="lbl_health" Content="Health:" HorizontalAlignment="Left" Margin="17,359,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_mana" Content="Mana:" HorizontalAlignment="Left" Margin="22,390,0,0" VerticalAlignment="Top"/>
 
-        <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="93,367,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="223,367,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="355,367,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="491,367,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
-       
-        
-        <Label x:Name="lbl_monsterHealthNumbers" Content="500/500" HorizontalAlignment="Left" Margin="592,84,0,0" VerticalAlignment="Top" Width="68"/>
+        <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="86,398,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="262,413,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="673,413,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="841,398,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
+
+
+        <Label x:Name="lbl_monsterHealthNumbers" Content="500/500" HorizontalAlignment="Left" Margin="735,122,0,0" VerticalAlignment="Top" Width="68"/>
 
 
 

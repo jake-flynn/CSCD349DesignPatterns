@@ -128,7 +128,7 @@ namespace DungeonFinal
         public override ImageBrush getBrush()
         {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@""));
+            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-XRLJnocoYoo/VV7phpd8YyI/AAAAAAAAAwM/shtg5O-nCZU/w506-h378/Chimera.jpg"));
             imgBrush.ImageSource = image;
             return imgBrush;
         }
