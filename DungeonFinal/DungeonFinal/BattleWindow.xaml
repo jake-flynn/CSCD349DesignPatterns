@@ -89,8 +89,8 @@
         <Label x:Name="lbl_Hero4_health" Content="Health:" HorizontalAlignment="Left" Margin="664,219,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Hero4_mana" Content="Mana:" HorizontalAlignment="Left" Margin="668,235,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Monster_health" Content="Monster Health:" HorizontalAlignment="Left" Margin="230,350,0,0" VerticalAlignment="Top"/>
-       
-        <TextBox x:Name="tb_eventFeed" HorizontalAlignment="Left" Height="95" Margin="664,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="168" ScrollViewer.CanContentScroll="True"/>
+
+        <TextBox x:Name="tb_eventFeed" HorizontalAlignment="Left" Height="163" Margin="604,18,0,0" TextWrapping="Wrap" Text="Battle log:" VerticalAlignment="Top" Width="258" ScrollViewer.CanContentScroll="True"/>
 
 
 
