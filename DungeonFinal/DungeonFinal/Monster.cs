@@ -88,20 +88,20 @@ namespace DungeonFinal
         }
         public void setCurHealth(int h)
         {
-            if (h < 0)
-            {
-                _CurHealth = 0;
-            }
+            //if (h < 0)
+            //{
+            //    _CurHealth = 0;
+            //}
+            
+            //else if (h > getMaxHealth())
+            //{
+            //    _CurHealth = getMaxHealth();
+            //}
 
-            else if (h > getMaxHealth())
-            {
-                _CurHealth = getMaxHealth();
-            }
-
-            else
-            {
-                _CurHealth = h;
-            }
+            //else
+            //{
+            _CurHealth = h;
+            //}
         }
         public int getMaxHealth()
         {
