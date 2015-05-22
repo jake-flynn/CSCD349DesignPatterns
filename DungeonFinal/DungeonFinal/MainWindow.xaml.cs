@@ -306,10 +306,7 @@ namespace DungeonFinal
             updateButtonsVisibility();
         }
 
-        private void btn_button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+    
 
 
     }
