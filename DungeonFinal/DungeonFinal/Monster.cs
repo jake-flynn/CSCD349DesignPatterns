@@ -41,6 +41,7 @@ namespace DungeonFinal
         private Boolean _IsPhysical;
         private Boolean _IsDefeated;
         private Boolean _IsDefending;
+        private Boolean _IsSwarm;
 
         private int _DefendingDefense;
         private int _DefendingResistance;
@@ -87,7 +88,20 @@ namespace DungeonFinal
         }
         public void setCurHealth(int h)
         {
-            _CurHealth = h;
+            if (h < 0)
+            {
+                _CurHealth = 0;
+            }
+
+            else if (h > getMaxHealth())
+            {
+                _CurHealth = getMaxHealth();
+            }
+
+            else
+            {
+                _CurHealth = h;
+            }
         }
         public int getMaxHealth()
         {
@@ -112,7 +126,20 @@ namespace DungeonFinal
         }
         public void setCurMana(int m)
         {
-            _CurMana = m;
+            if (m < 0)
+            {
+                _CurMana = 0;
+            }
+
+            else if (m > getMaxMana())
+            {
+                _CurMana = getMaxMana();
+            }
+
+            else
+            {
+                _CurMana = m;
+            }
         }
         public int getMaxMana()
         {
@@ -229,9 +256,20 @@ namespace DungeonFinal
             _DefendingResistance = dr;
         }
 
+        public Boolean getIsSwarm()
+        {
+            return _IsSwarm;
+        }
+
+        public void setIsSwarm(Boolean iS)
+        {
+            _IsSwarm = iS;
+        }
+
 
         //-------------------------------Abstract Methods -------------------------------
         public abstract int BasicAttack();
+        public abstract void PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
         public abstract Hero FindTarget(Party p);
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();

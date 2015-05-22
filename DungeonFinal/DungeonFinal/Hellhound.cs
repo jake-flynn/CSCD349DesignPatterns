@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Hellhound : Monster
     {
-        //this is a Hellhound monster, it is a tier 2 level, there are 40 points assigned to main stats
+        //this is a Hellhound monster, it is a tier 2 level, there are 50 points assigned to main stats
 
        //DVC - Level 2
         public Hellhound()
@@ -29,9 +29,9 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 40 points
-            setBaseStrength(25);
-            setModStrength(25);
+            //Main stats are out of 50 points
+            setBaseStrength(35);
+            setModStrength(35);
             setBaseMagic(0);
             setModMagic(0);
             setBaseDefense(10);
@@ -42,6 +42,7 @@ namespace DungeonFinal
             setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(true);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
         }
@@ -56,6 +57,18 @@ namespace DungeonFinal
             int m = getModStrength();
             return m;
         }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+        }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {

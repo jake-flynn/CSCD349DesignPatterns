@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Harpy : Monster
     {
-        //this is a Harpy monster, it is a tier 2 level, there are 40 points assigned to main stats
+        //this is a Harpy monster, it is a tier 2 level, there are 50 points assigned to main stats
 
        //DVC - Level 2
         public Harpy()
@@ -29,11 +29,11 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 40 points
+            //Main stats are out of 50 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(20);
-            setModMagic(20);
+            setBaseMagic(30);
+            setModMagic(30);
             setBaseDefense(0);
             setModDefense(0);
             setBaseResistance(20);
@@ -42,6 +42,7 @@ namespace DungeonFinal
             setIsPhysical(false);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
         }
@@ -56,6 +57,18 @@ namespace DungeonFinal
             int m = getModMagic();
             return m;
         }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+        }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {

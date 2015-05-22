@@ -16,7 +16,6 @@ namespace DungeonFinal
 {
     class Slime : Monster
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC - Level 1
         public Slime()
@@ -29,22 +28,20 @@ namespace DungeonFinal
             setCurMana(100);
             setMaxMana(100);
 
-            //Main stats are out of 20 points
+            //Main stats are out of 30 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(4);
-            setModMagic(4);
+            setBaseMagic(14);
+            setModMagic(14);
             setBaseDefense(8);
             setModDefense(8);
             setBaseResistance(8);
             setModResistance(8);
 
-            //this._SpecialAttack = new Curse();
-            //base.setSpecialAttack(this._SpecialAttack);
-
             setIsPhysical(false);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(true);
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
         }
@@ -59,6 +56,18 @@ namespace DungeonFinal
             int m = base.getModMagic();
             return m;
         }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+        }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {

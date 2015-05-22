@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class DemonWarrior : Monster
     {
-        //this is a Demon Warrior monster, it is a tier 3 level, there are 60 points assigned to main stats
+        //this is a Demon Warrior monster, it is a tier 3 level, there are 70 points assigned to main stats
 
       //DVC - Level 3
         public DemonWarrior()
@@ -29,11 +29,11 @@ namespace DungeonFinal
             setCurMana(300);
             setMaxMana(300);
 
-            //Main stats are out of 60 points
+            //Main stats are out of 70 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(35);
-            setModMagic(35);
+            setBaseMagic(45);
+            setModMagic(45);
             setBaseDefense(10);
             setModDefense(10);
             setBaseResistance(15);
@@ -42,6 +42,7 @@ namespace DungeonFinal
             setIsPhysical(false);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
         }
@@ -55,6 +56,17 @@ namespace DungeonFinal
         {
             int m = getModMagic();
             return m;
+        }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

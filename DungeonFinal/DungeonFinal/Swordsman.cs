@@ -58,8 +58,15 @@ namespace DungeonFinal
 
         public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            int dmg = 0;
-            MessageBox.Show("Performed a Blade Slash for " + dmg + " damage!");
+            //Buff Strength and Defense
+            setModDefense(getModDefense() + 5);
+            setModStrength(getModStrength() + 5);
+
+            //Damage Monster
+            int dmg = (int)(getModStrength() * 1.5);
+            mon.setCurHealth(mon.getCurHealth() - dmg);
+
+            MessageBox.Show("Buffed defense and strength by 5! Performed a Blade Slash for " + dmg + " damage!");
         }
 
        /*Battle - Defend*/

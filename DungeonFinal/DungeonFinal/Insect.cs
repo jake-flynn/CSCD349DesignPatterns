@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Insect : Monster
     {
-        //this is a Insect monster, it is a tier 1 level, there are 20 points assigned to main stats
+        //this is a Insect monster, it is a tier 1 level, there are 30 points assigned to main stats
 
        //DVC - Level 1
         public Insect()
@@ -29,9 +29,9 @@ namespace DungeonFinal
             setCurMana(100);
             setMaxMana(100);
 
-            //Main stats are out of 20 points
-            setBaseStrength(7);
-            setModStrength(7);
+            //Main stats are out of 30 points
+            setBaseStrength(17);
+            setModStrength(17);
             setBaseMagic(0);
             setModMagic(0);
             setBaseDefense(7);
@@ -42,6 +42,7 @@ namespace DungeonFinal
             setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(true);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
         }
@@ -53,13 +54,22 @@ namespace DungeonFinal
 
         public override int BasicAttack()
         {
-
-           
-
             int m = getModStrength();
 
             return m;
         }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+        }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {

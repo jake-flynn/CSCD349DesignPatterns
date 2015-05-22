@@ -16,7 +16,6 @@ namespace DungeonFinal
 {
     class Werewolf : Monster
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC - Level 2
         public Werewolf()
@@ -29,9 +28,9 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 40 points
-            setBaseStrength(30);
-            setModStrength(30);
+            //Main stats are out of 50 points
+            setBaseStrength(40);
+            setModStrength(40);
             setBaseMagic(0);
             setModMagic(0);
             setBaseDefense(10);
@@ -39,12 +38,10 @@ namespace DungeonFinal
             setBaseResistance(0);
             setModResistance(0);
 
-            //this._SpecialAttack = new Curse();
-            //base.setSpecialAttack(this._SpecialAttack);
-
             setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(false);
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
         }
@@ -59,6 +56,18 @@ namespace DungeonFinal
             int m = base.getModStrength();
             return m;
         }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+        }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {

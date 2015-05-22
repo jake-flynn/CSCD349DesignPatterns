@@ -16,7 +16,6 @@ namespace DungeonFinal
 {
     class Sphynx : Monster
     {
-        private SpecialAttackBehavior _SpecialAttack = null;
 
        //DVC - Level 2
         public Sphynx()
@@ -29,22 +28,20 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 40 points
+            //Main stats are out of 50 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(10);
-            setModMagic(10);
+            setBaseMagic(20);
+            setModMagic(20);
             setBaseDefense(15);
             setModDefense(15);
             setBaseResistance(15);
             setModResistance(15);
 
-            //this._SpecialAttack = new Curse();
-            //base.setSpecialAttack(this._SpecialAttack);
-
             setIsPhysical(false);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(false);
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
         }
@@ -59,6 +56,18 @@ namespace DungeonFinal
             int m = base.getModMagic();
             return m;
         }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+        }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {

@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Hydra : Monster
     {
-        //this is a Hydra monster, it is a boss(tier4) level, there are 80 points assigned to main stats
+        //this is a Hydra monster, it is a boss(tier4) level, there are 90 points assigned to main stats
 
        //DVC - Boss Level
         public Hydra()
@@ -29,9 +29,9 @@ namespace DungeonFinal
             setCurMana(400);
             setMaxMana(400);
 
-            //Main stats are out of 80 points
-            setBaseStrength(35);
-            setModStrength(35);
+            //Main stats are out of 90 points
+            setBaseStrength(45);
+            setModStrength(45);
             setBaseMagic(0);
             setModMagic(0);
             setBaseDefense(35);
@@ -42,6 +42,7 @@ namespace DungeonFinal
             setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);
+            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
         }
@@ -56,6 +57,18 @@ namespace DungeonFinal
             int m = getModStrength();
             return m;
         }
+
+        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        {
+            Hero[] party = theParty.getHeros();
+
+            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            party[rnd].setModStrength(getModStrength() - 1);
+            party[rnd].setModMagic(getModStrength() - 1);
+
+            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+        }
+
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
