@@ -185,6 +185,16 @@ namespace DungeonFinal
                 Heroes[i].setModMagic(Heroes[i].getModMagic() + 1);
                 Heroes[i].setModDefense(Heroes[i].getModDefense() + 1);
                 Heroes[i].setModResistance(Heroes[i].getModResistance() + 1);
+
+                MessageBox.Show("" + Heroes[i].getName() + "Stats have increased!!!\r\n"
+                                + "Max Health increased by 5\r\n"
+                                + "Current Health increased by 4\r\n"
+                                + "Max Mana increased by 5\r\n"
+                                + "Current Mana Increased by 4\r\n"
+                                + "Strength increased by 1\r\n"
+                                + "Magic increased by 1\r\n"
+                                + "Defense increased by 1\r\n"
+                                + "Resistance increased by 1");
                 
             }
         }
