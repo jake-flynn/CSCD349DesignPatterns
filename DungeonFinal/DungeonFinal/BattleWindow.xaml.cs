@@ -71,7 +71,7 @@ namespace DungeonFinal
             {
                 if (h.getCurHealth() <= 0 && h.getIsDefeated() != true)
                 {
-                    h.setIsDefeated(true);
+                    h.setIsDefeated(true);//make sure monsters do proper damage, then find targets
                     MessageBox.Show(h.getName() + " gasps a final ragged breath, then falls.");
                     //disable the hero who was killed. Ask jake how to do this at a gui level.
                 }
@@ -131,13 +131,32 @@ namespace DungeonFinal
 
         private void monsterAttack(Hero hero, Monster mon) //Monster attacks!
         {
-            int monsterDamage; //This integer and the following block calculates the damage the monster will do,
-            if(hero.getIsDefending()){//based on the attack of the monster - the defense of the hero. A greater value is used for defending heroes
-                monsterDamage = mon.BasicAttack() - hero.getDefendingDefense();
+            int monsterDamage; 
+            if(mon.getIsPhysical())
+            {
+                if (hero.getIsDefending())
+                {//based on the attack of the monster - the defense of the hero. A greater value is used for defending heroes
+                    monsterDamage = mon.BasicAttack() - hero.getDefendingDefense();
+                }
+                else
+                {
+                    MessageBox.Show("A normal damage calculation is happening.5");
+                    monsterDamage = mon.BasicAttack() - hero.getModDefense();
+                }
             }
-            else{
-                monsterDamage = mon.BasicAttack() - hero.getModDefense();
+            else
+            {
+                if (hero.getIsDefending())
+                {
+                    monsterDamage = mon.BasicAttack() - hero.getDefendingResistance();
+                }
+                else
+                {
+                    MessageBox.Show("A normal damage calculation is happening.5");
+                    monsterDamage = mon.BasicAttack() - hero.getModResistance();
+                }
             }
+            MessageBox.Show("Damage from monster: " + monsterDamage);
             if (monsterDamage < 0)
                 monsterDamage = 0;
 
