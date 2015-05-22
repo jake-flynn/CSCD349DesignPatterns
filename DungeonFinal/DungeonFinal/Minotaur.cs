@@ -78,7 +78,7 @@ namespace DungeonFinal
 
                 for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
                 {
-                    if (party[i + 1].getModHealth() < party[i].getModHealth())
+                    if (party[i + 1].getCurHealth() < party[i].getCurHealth())
                     {
                         target = party[i + 1];
                     }

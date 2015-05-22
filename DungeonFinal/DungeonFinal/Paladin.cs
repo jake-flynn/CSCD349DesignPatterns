@@ -23,9 +23,10 @@ namespace DungeonFinal
         {
             setName("Paladin");
             setBaseHealth(100);
-            setModHealth(100);
+            setCurHealth(100);
+            setMaxHealth(100);
             setBaseMana(100);
-            setModMana(100);
+            setCurMana(100);
 
             //Main stats are out of 40 points
             setBaseStrength(10);

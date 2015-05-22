@@ -45,10 +45,10 @@ namespace DungeonFinal
                 _testMonster = mon;
             }
 
-            prgBar_Hero1.Value = _theHeroes[0].getModHealth();
-            prgBar_Hero2.Value = _theHeroes[1].getModHealth();
-            prgBar_Hero3.Value = _theHeroes[2].getModHealth();
-            prgBar_Hero4.Value = _theHeroes[3].getModHealth();
+            prgBar_Hero1.Value = _theHeroes[0].getCurHealth();
+            prgBar_Hero2.Value = _theHeroes[1].getCurHealth();
+            prgBar_Hero3.Value = _theHeroes[2].getCurHealth();
+            prgBar_Hero4.Value = _theHeroes[3].getCurHealth();
             prgBar_monster1.Value = _monster[0].getCurHealth();
             prgBar_monster2.Value = _monster[1].getCurHealth();
             prgBar_monster3.Value = _monster[2].getCurHealth();
@@ -90,7 +90,7 @@ namespace DungeonFinal
             
             foreach (Hero h in _theHeroes)
             {
-                if (h.getModHealth() <= 0 && h.getIsDefeated() != true)
+                if (h.getCurHealth() <= 0 && h.getIsDefeated() != true)
                 {
                     h.setIsDefeated(true);
                     MessageBox.Show(h.getName() + " gasps a final ragged breath, then falls.");
@@ -130,8 +130,8 @@ namespace DungeonFinal
             if (monsterDamage < 0)
                 monsterDamage = 0;
 
-            hero.setModHealth(hero.getModHealth() - monsterDamage); //actual damgae is applied
-            prgBar_Hero1.Value = hero.getModHealth();//health bar updated
+            hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damgae is applied
+            prgBar_Hero1.Value = hero.getCurHealth();//health bar updated
             checkForDefeatedUnit();
         }
 
@@ -154,7 +154,7 @@ namespace DungeonFinal
 
         private void btn_Ready_Click(object sender, RoutedEventArgs e)
         {
-            if (_IsSwarmDefeated && _theHeroes[0].getModHealth() > 0)
+            if (_IsSwarmDefeated && _theHeroes[0].getCurHealth() > 0)
             {
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
@@ -178,7 +178,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[1].getModHealth() > 0)
+            if (_IsSwarmDefeated && _theHeroes[1].getCurHealth() > 0)
             {
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
@@ -202,7 +202,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[2].getModHealth() > 0)
+            if (_IsSwarmDefeated && _theHeroes[2].getCurHealth() > 0)
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
@@ -226,7 +226,7 @@ namespace DungeonFinal
                 }
             }
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[3].getModHealth() > 0)
+            if (_IsSwarmDefeated && _theHeroes[3].getCurHealth() > 0)
             {
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {

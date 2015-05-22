@@ -17,25 +17,31 @@ namespace DungeonFinal
     public abstract class Monster
     {
         private string _Name;
+
         private int _BaseHealth;
         private int _CurHealth;
         private int _MaxHealth;
+
         private int _BaseMana;
         private int _CurMana;
         private int _MaxMana;
 
         private int _BaseStrength;
         private int _ModStrength;
+
         private int _BaseMagic;
         private int _ModMagic;
+
         private int _BaseDefense;
         private int _ModDefense;
+
         private int _BaseResistance;
         private int _ModResistance;
 
         private Boolean _IsPhysical;
         private Boolean _IsDefeated;
         private Boolean _IsDefending;
+
         private int _DefendingDefense;
         private int _DefendingResistance;
         
@@ -184,9 +190,7 @@ namespace DungeonFinal
         {
             _ModResistance = r;
         }
-
-       //Battle Attack
-        public abstract int BasicAttack();
+      
         public Boolean getIsPhysical()
         {
             return _IsPhysical;
@@ -195,11 +199,6 @@ namespace DungeonFinal
         {
             _IsPhysical = iP;
         }
-
-
-        public abstract Hero FindTarget(Party p);
-
-
 
         public Boolean getIsDefeated()
         {
@@ -210,8 +209,6 @@ namespace DungeonFinal
             _IsDefeated = iD;
         }
 
-
-
        //Battle Defend
         public Boolean getIsDefending()
         {
@@ -221,18 +218,23 @@ namespace DungeonFinal
         {
             _IsDefending = iD;
         }
-        public abstract int getDefendingDefense();
+        
         public void setDefendingDefense(int dd)
         {
             _DefendingDefense = dd;
         }
-        public abstract int getDefendingResistance();
+       
         public void setDefendingResistance(int dr)
         {
             _DefendingResistance = dr;
         }
 
 
+        //-------------------------------Abstract Methods -------------------------------
+        public abstract int BasicAttack();
+        public abstract Hero FindTarget(Party p);
+        public abstract int getDefendingDefense();
+        public abstract int getDefendingResistance();
         public abstract ImageBrush getBrush();
     }
 }

@@ -37,18 +37,18 @@ namespace DungeonFinal
             _monster = mon;
  
 
-            prgBar_Hero1.Value = _theHeroes[0].getModHealth();
-            prgBar_Hero2.Value = _theHeroes[1].getModHealth();
-            prgBar_Hero3.Value = _theHeroes[2].getModHealth();
-            prgBar_Hero4.Value = _theHeroes[3].getModHealth();
+            prgBar_Hero1.Value = _theHeroes[0].getCurHealth();
+            prgBar_Hero2.Value = _theHeroes[1].getCurHealth();
+            prgBar_Hero3.Value = _theHeroes[2].getCurHealth();
+            prgBar_Hero4.Value = _theHeroes[3].getCurHealth();
 
 
             prgBar_Monster.Value = _monster.getCurHealth();
             lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
-            lbl_heroHealthNumbers1.Content = "" + _theHeroes[0].getModHealth() + "/" + _theHeroes[0].getBaseHealth();
-            lbl_heroHealthNumbers1.Content = "" + _theHeroes[1].getModHealth() + "/" + _theHeroes[1].getBaseHealth();
-            lbl_heroHealthNumbers1.Content = "" + _theHeroes[2].getModHealth() + "/" + _theHeroes[2].getBaseHealth();
-            lbl_heroHealthNumbers1.Content = "" + _theHeroes[3].getModHealth() + "/" + _theHeroes[3].getBaseHealth();
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[0].getCurHealth() + "/" + _theHeroes[0].getBaseHealth();
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[1].getCurHealth() + "/" + _theHeroes[1].getBaseHealth();
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[2].getCurHealth() + "/" + _theHeroes[2].getBaseHealth();
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[3].getCurHealth() + "/" + _theHeroes[3].getBaseHealth();
 
             prgBar_Hero1_Mana.Value = 100;
             prgBar_Hero2_Mana.Value = 100;
@@ -84,7 +84,7 @@ namespace DungeonFinal
             
             foreach (Hero h in _theHeroes)
             {
-                if (h.getModHealth() <= 0 && h.getIsDefeated() != true)
+                if (h.getCurHealth() <= 0 && h.getIsDefeated() != true)
                 {
                     h.setIsDefeated(true);
                     MessageBox.Show(h.getName() + " gasps a final ragged breath, then falls.");
@@ -97,10 +97,10 @@ namespace DungeonFinal
         {
             lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
             prgBar_Monster.Value = ((double)_monster.getCurHealth()) / ((double)_monster.getBaseHealth()) * 100;
-            prgBar_Hero1.Value = _theHeroes[0].getModHealth();
-            prgBar_Hero2.Value = _theHeroes[1].getModHealth();
-            prgBar_Hero3.Value = _theHeroes[2].getModHealth();
-            prgBar_Hero4.Value = _theHeroes[3].getModHealth();
+            prgBar_Hero1.Value = _theHeroes[0].getCurHealth();
+            prgBar_Hero2.Value = _theHeroes[1].getCurHealth();
+            prgBar_Hero3.Value = _theHeroes[2].getCurHealth();
+            prgBar_Hero4.Value = _theHeroes[3].getCurHealth();
         }
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
@@ -141,7 +141,7 @@ namespace DungeonFinal
             if (monsterDamage < 0)
                 monsterDamage = 0;
 
-            hero.setModHealth(hero.getModHealth() - monsterDamage); //actual damgae is applied
+            hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damgae is applied
             updateVisuals(hero, mon);//health bar updated
             checkForDefeatedUnit();
         }
@@ -168,7 +168,7 @@ namespace DungeonFinal
 
         private void btn_Ready_Click(object sender, RoutedEventArgs e) 
         {
-            if (_monster.getCurHealth() > 0 && _theHeroes[0].getModHealth() > 0)
+            if (_monster.getCurHealth() > 0 && _theHeroes[0].getCurHealth() > 0)
             {
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
@@ -192,7 +192,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_monster.getCurHealth() > 0 && _theHeroes[1].getModHealth() > 0)
+            if (_monster.getCurHealth() > 0 && _theHeroes[1].getCurHealth() > 0)
             {
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
@@ -216,7 +216,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_monster.getCurHealth() > 0 && _theHeroes[2].getModHealth() > 0)
+            if (_monster.getCurHealth() > 0 && _theHeroes[2].getCurHealth() > 0)
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
@@ -240,7 +240,7 @@ namespace DungeonFinal
                 }
             }
             //----------------------------------------//
-            if (_monster.getCurHealth() > 0 && _theHeroes[3].getModHealth() > 0)
+            if (_monster.getCurHealth() > 0 && _theHeroes[3].getCurHealth() > 0)
             {
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {
