@@ -2,17 +2,17 @@
         WindowStartupLocation="CenterScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="BattleWindow" Height="650" Width="700
-        ">
+        Title="BattleWindow" Height="650" Width="900"
+        >
     <Grid>
         <Rectangle x:Name="rect_hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="92,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" />
         <Rectangle x:Name="rect_hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="222,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Rectangle x:Name="rect_hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="354,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Rectangle x:Name="rect_hero4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="490,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
-        <Rectangle x:Name="rect_Monster" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="234,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" />
+        <Rectangle x:Name="rect_Monster" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="369,11,0,0" Stroke="Black" VerticalAlignment="Top" Width="200" />
 
 
-        <TextBox x:Name="tb_monster" HorizontalAlignment="Left" Height="23" Margin="271,241,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="tb_monster" HorizontalAlignment="Left" Height="23" Margin="592,11,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="200" IsReadOnly="True"/>
         <TextBox x:Name="tb_hero1" HorizontalAlignment="Left" Height="24" Margin="93,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
         <TextBox x:Name="tb_hero2" HorizontalAlignment="Left" Height="24" Margin="223,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
         <TextBox x:Name="tb_hero3" HorizontalAlignment="Left" Height="24" Margin="355,291,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
@@ -50,17 +50,20 @@
         <ProgressBar x:Name="prgBar_Hero2" HorizontalAlignment="Left" Height="10" Margin="223,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Aqua"/>
         <ProgressBar x:Name="prgBar_Hero3" HorizontalAlignment="Left" Height="10" Margin="355,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Yellow"/>
         <ProgressBar x:Name="prgBar_Hero4" HorizontalAlignment="Left" Height="10" Margin="491,333,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkGray"/>
-        <ProgressBar x:Name="prgBar_Monster" HorizontalAlignment="Left" Height="10" Margin="231,222,0,0" VerticalAlignment="Top" Width="200" Background="Crimson" Foreground="HotPink"/>
+        <ProgressBar x:Name="prgBar_Monster" HorizontalAlignment="Left" Height="10" Margin="592,55,0,0" VerticalAlignment="Top" Width="200" Background="Crimson" Foreground="HotPink"/>
 
 
         <Button x:Name="btn_testHealth" Content="Reduce all healths by 10" HorizontalAlignment="Left" Margin="24,140,0,0" VerticalAlignment="Top" Width="151" Height="42" Click="btn_testHealth_Click"/>
         <Label x:Name="lbl_health" Content="Health:" HorizontalAlignment="Left" Margin="24,320,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_mana" Content="Mana:" HorizontalAlignment="Left" Margin="29,359,0,0" VerticalAlignment="Top"/>
-       
+
         <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="93,367,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
         <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="223,367,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
         <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="355,367,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
         <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="491,367,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
+       
+        
+        <Label x:Name="lbl_monsterHealthNumbers" Content="500/500" HorizontalAlignment="Left" Margin="592,84,0,0" VerticalAlignment="Top" Width="68"/>
 
 
 
