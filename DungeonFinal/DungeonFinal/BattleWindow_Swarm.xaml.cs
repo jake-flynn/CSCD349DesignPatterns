@@ -49,10 +49,10 @@ namespace DungeonFinal
             prgBar_Hero2.Value = _theHeroes[1].getModHealth();
             prgBar_Hero3.Value = _theHeroes[2].getModHealth();
             prgBar_Hero4.Value = _theHeroes[3].getModHealth();
-            prgBar_monster1.Value = _monster[0].getModHealth();
-            prgBar_monster2.Value = _monster[1].getModHealth();
-            prgBar_monster3.Value = _monster[2].getModHealth();
-            prgBar_monster4.Value = _monster[3].getModHealth();
+            prgBar_monster1.Value = _monster[0].getCurHealth();
+            prgBar_monster2.Value = _monster[1].getCurHealth();
+            prgBar_monster3.Value = _monster[2].getCurHealth();
+            prgBar_monster4.Value = _monster[3].getCurHealth();
 
             prgBar_Hero1_Mana.Value = 100;
             prgBar_Hero2_Mana.Value = 100;
@@ -81,7 +81,7 @@ namespace DungeonFinal
             }
             foreach(Monster m in _monster)
             {
-                if (m.getModHealth() <= 0 && m.getIsDefeated())
+                if (m.getCurHealth() <= 0 && m.getIsDefeated())
                 {
                     MessageBox.Show(m.getName() + " was slain!!!");
                     m.setIsDefeated(true);
@@ -101,11 +101,11 @@ namespace DungeonFinal
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
         {
-            int heroDamage = hero.getStrength() - mon.getDefense();
+            int heroDamage = hero.getModStrength() - mon.getModDefense();
             if (heroDamage < 0)
                 heroDamage = 0;
-            mon.setModHealth(mon.getModHealth() - heroDamage);
-            prgBar_monster1.Value = mon.getModHealth();
+            mon.setCurHealth(mon.getCurHealth() - heroDamage);
+            prgBar_monster1.Value = mon.getCurHealth();
 
             checkForDefeatedUnit();
         }
@@ -125,7 +125,7 @@ namespace DungeonFinal
             }
             else
             {
-                monsterDamage = mon.BasicAttack() - hero.getDefense();
+                monsterDamage = mon.BasicAttack() - hero.getModDefense();
             }
             if (monsterDamage < 0)
                 monsterDamage = 0;

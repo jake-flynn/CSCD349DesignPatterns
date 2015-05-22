@@ -43,8 +43,8 @@ namespace DungeonFinal
             prgBar_Hero4.Value = _theHeroes[3].getModHealth();
 
 
-            prgBar_Monster.Value = _monster.getModHealth();
-            lbl_monsterHealthNumbers.Content = "" + _monster.getModHealth() + "/" + _monster.getBaseHealth();
+            prgBar_Monster.Value = _monster.getCurHealth();
+            lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
 
 
             prgBar_Hero1_Mana.Value = 100;
@@ -66,7 +66,7 @@ namespace DungeonFinal
         
         public void checkForDefeatedUnit() //Checks to see if a hero or monster has been slain
         {
-            if (_monster.getModHealth() <= 0)
+            if (_monster.getCurHealth() <= 0)
             {
                 MessageBox.Show(_monster.getName() + " was slain!!!");
                 this.Close();
@@ -88,17 +88,17 @@ namespace DungeonFinal
             int heroDamage;
             if(hero.getIsPhysical())
             {
-                heroDamage = hero.BasicAttack() - mon.getDefense();
+                heroDamage = hero.BasicAttack() - mon.getModDefense();
             }
             else
             {
-                heroDamage = hero.BasicAttack() - mon.getResistance();
+                heroDamage = hero.BasicAttack() - mon.getModResistance();
             }
             if (heroDamage < 0)
                 heroDamage = 0;
 
-            mon.setModHealth(mon.getModHealth() - heroDamage);
-            prgBar_Monster.Value = mon.getModHealth();
+            mon.setCurHealth(mon.getCurHealth() - heroDamage);
+            prgBar_Monster.Value = mon.getCurHealth();
 
             checkForDefeatedUnit();
         }
@@ -116,7 +116,7 @@ namespace DungeonFinal
                 monsterDamage = mon.BasicAttack() - hero.getDefendingDefense();
             }
             else{
-                monsterDamage = mon.BasicAttack() - hero.getDefense();
+                monsterDamage = mon.BasicAttack() - hero.getModDefense();
             }
             if (monsterDamage < 0)
                 monsterDamage = 0;
@@ -148,7 +148,7 @@ namespace DungeonFinal
 
         private void btn_Ready_Click(object sender, RoutedEventArgs e) 
         {
-            if (_monster.getModHealth() > 0 && _theHeroes[0].getModHealth() > 0)
+            if (_monster.getCurHealth() > 0 && _theHeroes[0].getModHealth() > 0)
             {
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
@@ -172,7 +172,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_monster.getModHealth() > 0 && _theHeroes[1].getModHealth() > 0)
+            if (_monster.getCurHealth() > 0 && _theHeroes[1].getModHealth() > 0)
             {
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
@@ -196,7 +196,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_monster.getModHealth() > 0 && _theHeroes[2].getModHealth() > 0)
+            if (_monster.getCurHealth() > 0 && _theHeroes[2].getModHealth() > 0)
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
@@ -220,7 +220,7 @@ namespace DungeonFinal
                 }
             }
             //----------------------------------------//
-            if (_monster.getModHealth() > 0 && _theHeroes[3].getModHealth() > 0)
+            if (_monster.getCurHealth() > 0 && _theHeroes[3].getModHealth() > 0)
             {
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {
@@ -244,7 +244,7 @@ namespace DungeonFinal
             }
             //--------------Hero's have had their say... IT'S MONSTA TIME.---------------//
 
-            if (_monster.getModHealth() > 0)
+            if (_monster.getCurHealth() > 0)
             {
                 MessageBox.Show("Monster Attacked!");
                 monsterAttack(_theHeroes[0], _monster);
