@@ -86,11 +86,11 @@ namespace DungeonFinal
         public void updateVisuals(Hero hero, Monster mon)
         {
             lbl_monsterHealthNumbers.Content = "" + _monster.getCurHealth() + "/" + _monster.getBaseHealth();
-            prgBar_Monster.Value = _monster.getCurHealth();
+            prgBar_Monster.Value = ((double)_monster.getCurHealth()) / ((double)_monster.getBaseHealth()) * 100;
             prgBar_Hero1.Value = _theHeroes[0].getModHealth();
-            prgBar_Hero1.Value = _theHeroes[1].getModHealth();
-            prgBar_Hero1.Value = _theHeroes[2].getModHealth();
-            prgBar_Hero1.Value = _theHeroes[3].getModHealth();
+            prgBar_Hero2.Value = _theHeroes[1].getModHealth();
+            prgBar_Hero3.Value = _theHeroes[2].getModHealth();
+            prgBar_Hero4.Value = _theHeroes[3].getModHealth();
         }
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
