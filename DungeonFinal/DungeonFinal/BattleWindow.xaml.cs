@@ -129,8 +129,10 @@ namespace DungeonFinal
             updateVisuals();
         }
 
-        private void monsterAttack(Hero hero, Monster mon) //Monster attacks!
-        {
+        private void monsterAttack() //Monster attacks!
+        {  
+            Monster mon = _monster;
+            Hero hero = mon.FindTarget(_theParty);
             int monsterDamage; 
             if(mon.getIsPhysical())
             {
@@ -140,7 +142,7 @@ namespace DungeonFinal
                 }
                 else
                 {
-                    MessageBox.Show("A normal damage calculation is happening.5");
+                    
                     monsterDamage = mon.BasicAttack() - hero.getModDefense();
                 }
             }
@@ -152,7 +154,7 @@ namespace DungeonFinal
                 }
                 else
                 {
-                    MessageBox.Show("A normal damage calculation is happening.5");
+                    
                     monsterDamage = mon.BasicAttack() - hero.getModResistance();
                 }
             }
@@ -160,6 +162,7 @@ namespace DungeonFinal
             if (monsterDamage < 0)
                 monsterDamage = 0;
 
+            MessageBox.Show("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage);
             hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damgae is applied
             updateVisuals();//health bar updated
             checkForDefeatedUnit();
@@ -232,6 +235,7 @@ namespace DungeonFinal
                 else if (rBtn_Hero1Item.IsChecked == true)
                 {
                     MessageBox.Show(_theHeroes[0].getName() + " used item");
+                    //useItem(_theHero);
                 }
             }
 
@@ -311,7 +315,7 @@ namespace DungeonFinal
             if (_monster.getCurHealth() > 0)
             {
                 MessageBox.Show("Monster Attacked!");
-                monsterAttack(_theHeroes[0], _monster);
+                monsterAttack();
                 incrementEffects();
                 checkForDefeatedUnit();
             }
