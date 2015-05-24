@@ -123,6 +123,31 @@ namespace DungeonFinal
                 {
                     MessageBox.Show(m.getName() + " was slain!!!");
                     m.setIsDefeated(true);
+
+                    if (_TheSwarm[0].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[1].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[2].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[3].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[4].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[5].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
                 }
             }
             
@@ -133,6 +158,23 @@ namespace DungeonFinal
                     h.setIsDefeated(true);
                     MessageBox.Show(h.getName() + " gasps a final ragged breath, then falls.");
                     //disable the hero who was killed. Ask jake how to do this at a gui level.
+
+                    if (_theHeroes[0].getIsDefeated())
+                    {
+                        rect_hero1.Opacity = 0.4;
+                    }
+                    if (_theHeroes[1].getIsDefeated())
+                    {
+                        rect_hero2.Opacity = 0.4;
+                    }
+                    if (_theHeroes[2].getIsDefeated())
+                    {
+                        rect_hero3.Opacity = 0.4;
+                    }
+                    if (_theHeroes[3].getIsDefeated())
+                    {
+                        rect_hero4.Opacity = 0.4;
+                    }
                 }
             }
         }
@@ -216,12 +258,16 @@ namespace DungeonFinal
 
         private void btn_Ready_Click(object sender, RoutedEventArgs e)
         {
-            if (_IsSwarmDefeated && _theHeroes[0].getCurHealth() > 0)
+            if (! _IsSwarmDefeated && _theHeroes[0].getCurHealth() > 0)
             {
+                
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
+                    var cw = new ChoiceWindow(_TheSwarm);
+                    cw.ShowDialog();
+                    int attackTarget = cw.getChoiceFromSelect();
                     MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
-                    normalAttack(_theHeroes[0], _TheSwarm[1]);
+                    normalAttack(_theHeroes[0], _TheSwarm[attackTarget]);
                 }
                 else if (rBtn_Hero1Defend.IsChecked == true)
                 {
@@ -240,7 +286,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[1].getCurHealth() > 0)
+            if (! _IsSwarmDefeated && _theHeroes[1].getCurHealth() > 0)
             {
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
@@ -264,7 +310,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[2].getCurHealth() > 0)
+            if (! _IsSwarmDefeated && _theHeroes[2].getCurHealth() > 0)
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
@@ -288,7 +334,7 @@ namespace DungeonFinal
                 }
             }
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[3].getCurHealth() > 0)
+            if (! _IsSwarmDefeated && _theHeroes[3].getCurHealth() > 0)
             {
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {

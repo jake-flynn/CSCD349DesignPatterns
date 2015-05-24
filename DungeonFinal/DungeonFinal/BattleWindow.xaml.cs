@@ -92,7 +92,7 @@ namespace DungeonFinal
                     {
                         rect_hero4.Opacity = 0.4;
                     }
-                    //disable the hero who was killed. Ask jake how to do this at a gui level.
+                    //disable  who was killed. Ask jake how to do this at a gui level.
                 }
             }
         }
@@ -178,7 +178,6 @@ namespace DungeonFinal
                     }
                     else
                     {
-                    
                         monsterDamage = mon.BasicAttack() - hero.getModDefense();
                     }
                 }
@@ -189,8 +188,7 @@ namespace DungeonFinal
                         monsterDamage = mon.BasicAttack() - hero.getDefendingResistance();
                     }
                     else
-                    {
-                    
+                    {                    
                         monsterDamage = mon.BasicAttack() - hero.getModResistance();
                     }
                 }
