@@ -87,11 +87,11 @@ namespace DungeonFinal
             prgBar_monster6.Value = ((double)_TheSwarm[5].getCurHealth()) / ((double)_TheSwarm[5].getBaseHealth()) * 100;
 
             lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[0].getCurHealth() + "/" + _TheSwarm[0].getBaseHealth();
-            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[1].getCurHealth() + "/" + _TheSwarm[1].getBaseHealth();
-            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[2].getCurHealth() + "/" + _TheSwarm[2].getBaseHealth();
-            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[3].getCurHealth() + "/" + _TheSwarm[3].getBaseHealth();
-            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[4].getCurHealth() + "/" + _TheSwarm[4].getBaseHealth();
-            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[5].getCurHealth() + "/" + _TheSwarm[5].getBaseHealth();
+            lbl_monsterHealthNumbers2.Content = "" + _TheSwarm[1].getCurHealth() + "/" + _TheSwarm[1].getBaseHealth();
+            lbl_monsterHealthNumbers3.Content = "" + _TheSwarm[2].getCurHealth() + "/" + _TheSwarm[2].getBaseHealth();
+            lbl_monsterHealthNumbers4.Content = "" + _TheSwarm[3].getCurHealth() + "/" + _TheSwarm[3].getBaseHealth();
+            lbl_monsterHealthNumbers5.Content = "" + _TheSwarm[4].getCurHealth() + "/" + _TheSwarm[4].getBaseHealth();
+            lbl_monsterHealthNumbers6.Content = "" + _TheSwarm[5].getCurHealth() + "/" + _TheSwarm[5].getBaseHealth();
             
             lbl_heroHealthNumbers1.Content = "" + _theHeroes[0].getCurHealth() + "/" + _theHeroes[0].getMaxHealth();
             lbl_heroHealthNumbers2.Content = "" + _theHeroes[1].getCurHealth() + "/" + _theHeroes[1].getMaxHealth();
@@ -265,7 +265,9 @@ namespace DungeonFinal
                 {
                     var cw = new ChoiceWindow(_TheSwarm);
                     cw.ShowDialog();
+                    
                     int attackTarget = cw.getChoiceFromSelect();
+                    MessageBox.Show(attackTarget + "");
                     MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
                     normalAttack(_theHeroes[0], _TheSwarm[attackTarget]);
                 }

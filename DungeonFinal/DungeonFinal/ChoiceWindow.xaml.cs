@@ -49,6 +49,7 @@ namespace DungeonFinal
         {
             _choice = 0;
             this.Close();
+            
         }
 
         private void btn_SelectHero2_Click(object sender, RoutedEventArgs e)
