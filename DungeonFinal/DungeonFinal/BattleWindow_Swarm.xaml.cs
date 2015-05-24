@@ -123,6 +123,31 @@ namespace DungeonFinal
                 {
                     MessageBox.Show(m.getName() + " was slain!!!");
                     m.setIsDefeated(true);
+
+                    if (_TheSwarm[0].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[1].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[2].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[3].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[4].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
+                    if (_TheSwarm[5].getIsDefeated())
+                    {
+                        rect_monster1.Opacity = 0.4;
+                    }
                 }
             }
             
@@ -133,6 +158,23 @@ namespace DungeonFinal
                     h.setIsDefeated(true);
                     MessageBox.Show(h.getName() + " gasps a final ragged breath, then falls.");
                     //disable the hero who was killed. Ask jake how to do this at a gui level.
+
+                    if (_theHeroes[0].getIsDefeated())
+                    {
+                        rect_hero1.Opacity = 0.4;
+                    }
+                    if (_theHeroes[1].getIsDefeated())
+                    {
+                        rect_hero2.Opacity = 0.4;
+                    }
+                    if (_theHeroes[2].getIsDefeated())
+                    {
+                        rect_hero3.Opacity = 0.4;
+                    }
+                    if (_theHeroes[3].getIsDefeated())
+                    {
+                        rect_hero4.Opacity = 0.4;
+                    }
                 }
             }
         }
@@ -186,18 +228,46 @@ namespace DungeonFinal
             }
         }
 
+        public void checkReady()
+        {
+            bool ready = false;
+
+            if (rBtn_Hero1Attack.IsChecked == true || rBtn_Hero1Defend.IsChecked == true || rBtn_Hero1Special.IsChecked == true || rBtn_Hero1Item.IsChecked == true)
+            {
+                if (rBtn_Hero2Attack.IsChecked == true || rBtn_Hero2Defend.IsChecked == true || rBtn_Hero2Special.IsChecked == true || rBtn_Hero2Item.IsChecked == true)
+                {
+                    if (rBtn_Hero3Attack.IsChecked == true || rBtn_Hero3Defend.IsChecked == true || rBtn_Hero3Special.IsChecked == true || rBtn_Hero3Item.IsChecked == true)
+                    {
+                        if (rBtn_Hero4Attack.IsChecked == true || rBtn_Hero4Defend.IsChecked == true || rBtn_Hero4Special.IsChecked == true || rBtn_Hero4Item.IsChecked == true)
+                        {
+                            ready = true;
+                        }
+                    }
+                }
+            }
+
+            if (ready == true)
+            {
+                btn_Ready.IsEnabled = true;
+            }
+        }
+
         //==========================================================================================================//
         //Start Event Handlers
         //==========================================================================================================//
 
         private void btn_Ready_Click(object sender, RoutedEventArgs e)
         {
-            if (_IsSwarmDefeated && _theHeroes[0].getCurHealth() > 0)
+            if (! _IsSwarmDefeated && _theHeroes[0].getCurHealth() > 0)
             {
+                
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
+                    var cw = new ChoiceWindow(_TheSwarm);
+                    cw.ShowDialog();
+                    int attackTarget = cw.getChoiceFromSelect();
                     MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
-                    normalAttack(_theHeroes[0], _TheSwarm[1]);
+                    normalAttack(_theHeroes[0], _TheSwarm[attackTarget]);
                 }
                 else if (rBtn_Hero1Defend.IsChecked == true)
                 {
@@ -216,7 +286,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[1].getCurHealth() > 0)
+            if (! _IsSwarmDefeated && _theHeroes[1].getCurHealth() > 0)
             {
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
@@ -240,7 +310,7 @@ namespace DungeonFinal
             }
 
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[2].getCurHealth() > 0)
+            if (! _IsSwarmDefeated && _theHeroes[2].getCurHealth() > 0)
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
@@ -264,7 +334,7 @@ namespace DungeonFinal
                 }
             }
             //----------------------------------------//
-            if (_IsSwarmDefeated && _theHeroes[3].getCurHealth() > 0)
+            if (! _IsSwarmDefeated && _theHeroes[3].getCurHealth() > 0)
             {
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {
@@ -301,5 +371,92 @@ namespace DungeonFinal
             incrementEffects();
         }
 
+        private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void tb_eventFeed_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tb_eventFeed.ScrollToEnd();
+        }
+
+
+        //End Event Handlers
     }
 }
