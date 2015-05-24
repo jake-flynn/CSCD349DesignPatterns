@@ -11,20 +11,19 @@
         <Rectangle x:Name="rect_monster6" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="80" Margin="408,149,0,0" Stroke="Black" VerticalAlignment="Top" Width="80"/>
 
 
-        <ProgressBar x:Name="prgBar_monster1" HorizontalAlignment="Left" Height="10" Margin="199,122,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
-        <ProgressBar x:Name="prgBar_monster2" HorizontalAlignment="Left" Height="10" Margin="306,122,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
-        <ProgressBar x:Name="prgBar_monster3" HorizontalAlignment="Left" Height="10" Margin="408,122,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
-        <ProgressBar x:Name="prgBar_monster4" HorizontalAlignment="Left" Height="10" Margin="199,234,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
-        <ProgressBar x:Name="prgBar_monster5" HorizontalAlignment="Left" Height="10" Margin="306,234,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
-        <ProgressBar x:Name="prgBar_monster6" HorizontalAlignment="Left" Height="10" Margin="408,234,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
+        
+        
         <Rectangle x:Name="rect_hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="119,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" />
         <Rectangle x:Name="rect_hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="249,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Rectangle x:Name="rect_hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="381,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Rectangle x:Name="rect_hero4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="517,384,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        
+        
         <TextBox x:Name="tb_hero1" HorizontalAlignment="Left" Height="24" Margin="120,287,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
         <TextBox x:Name="tb_hero2" HorizontalAlignment="Left" Height="24" Margin="250,287,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
         <TextBox x:Name="tb_hero3" HorizontalAlignment="Left" Height="24" Margin="382,287,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
         <TextBox x:Name="tb_hero4" HorizontalAlignment="Left" Height="24" Margin="518,287,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
+        
         <RadioButton x:Name="rBtn_Hero1Attack" GroupName="Hero1" Content="Attack" HorizontalAlignment="Left" Margin="119,506,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rBtn_Hero1Defend" GroupName="Hero1" Content="Defend" HorizontalAlignment="Left" Margin="119,527,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rBtn_Hero1Special" GroupName="Hero1" Content="Special" HorizontalAlignment="Left" Margin="119,548,0,0" VerticalAlignment="Top"/>
@@ -41,16 +40,44 @@
         <RadioButton x:Name="rBtn_Hero4Defend" GroupName="Hero4" Content="Defend" HorizontalAlignment="Left" Margin="538,527,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rBtn_Hero4Special" GroupName="Hero4" Content="Special" HorizontalAlignment="Left" Margin="538,548,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rBtn_Hero4Item" GroupName="Hero4" Content="Item" HorizontalAlignment="Left" Margin="538,569,0,0" VerticalAlignment="Top"/>
+        
+        
         <ProgressBar x:Name="prgBar_Hero1" HorizontalAlignment="Left" Height="10" Margin="120,329,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="PapayaWhip"/>
         <ProgressBar x:Name="prgBar_Hero2" HorizontalAlignment="Left" Height="10" Margin="250,329,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Aqua"/>
         <ProgressBar x:Name="prgBar_Hero3" HorizontalAlignment="Left" Height="10" Margin="382,329,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="Yellow"/>
         <ProgressBar x:Name="prgBar_Hero4" HorizontalAlignment="Left" Height="10" Margin="518,329,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkGray"/>
+        
         <Label x:Name="lbl_health" Content="Health:" HorizontalAlignment="Left" Margin="51,316,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_mana" Content="Mana:" HorizontalAlignment="Left" Margin="56,355,0,0" VerticalAlignment="Top"/>
+        
         <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="120,363,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
         <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="250,363,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
         <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="382,363,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
         <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="518,363,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
+
+        <ProgressBar x:Name="prgBar_monster1" HorizontalAlignment="Left" Height="10" Margin="199,122,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
+        <ProgressBar x:Name="prgBar_monster2" HorizontalAlignment="Left" Height="10" Margin="306,122,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
+        <ProgressBar x:Name="prgBar_monster3" HorizontalAlignment="Left" Height="10" Margin="408,122,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
+        <ProgressBar x:Name="prgBar_monster4" HorizontalAlignment="Left" Height="10" Margin="199,234,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
+        <ProgressBar x:Name="prgBar_monster5" HorizontalAlignment="Left" Height="10" Margin="306,234,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
+        <ProgressBar x:Name="prgBar_monster6" HorizontalAlignment="Left" Height="10" Margin="408,234,0,0" VerticalAlignment="Top" Width="80" Background="Crimson" Foreground="PapayaWhip"/>
+
+        <Label x:Name="lbl_monsterHealthNumbers1" Content="500/500" HorizontalAlignment="Left" Margin="199,131,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="1.578,2.157"/>
+        <Label x:Name="lbl_monsterHealthNumbers2" Content="500/500" HorizontalAlignment="Left" Margin="306,131,0,0" VerticalAlignment="Top" Width="69"/>
+        <Label x:Name="lbl_monsterHealthNumbers3" Content="500/500" HorizontalAlignment="Left" Margin="412,131,0,0" VerticalAlignment="Top" Width="69"/>
+        <Label x:Name="lbl_monsterHealthNumbers4" Content="500/500" HorizontalAlignment="Left" Margin="199,244,0,0" VerticalAlignment="Top" Width="69"/>
+        <Label x:Name="lbl_monsterHealthNumbers5" Content="500/500" HorizontalAlignment="Left" Margin="306,244,0,0" VerticalAlignment="Top" Width="69"/>
+        <Label x:Name="lbl_monsterHealthNumbers6" Content="500/500" HorizontalAlignment="Left" Margin="413,244,0,0" VerticalAlignment="Top" Width="69"/>
+        
+        <Label x:Name="lbl_heroHealthNumbers1" Content="500/500" HorizontalAlignment="Left" Margin="120,339,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label x:Name="lbl_heroHealthNumbers2" Content="500/500" HorizontalAlignment="Left" Margin="250,339,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label x:Name="lbl_heroHealthNumbers3" Content="500/500" HorizontalAlignment="Left" Margin="385,339,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label x:Name="lbl_heroHealthNumbers4" Content="500/500" HorizontalAlignment="Left" Margin="517,337,0,0" VerticalAlignment="Top" Width="63"/>
+
+        <Label x:Name="lbl_heroManaNumbers1" Content="200/200" HorizontalAlignment="Left" Margin="124,373,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_heroManaNumbers2" Content="200/200" HorizontalAlignment="Left" Margin="252,370,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_heroManaNumbers3" Content="200/200" HorizontalAlignment="Left" Margin="385,370,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_heroManaNumbers4" Content="200/200" HorizontalAlignment="Left" Margin="518,370,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

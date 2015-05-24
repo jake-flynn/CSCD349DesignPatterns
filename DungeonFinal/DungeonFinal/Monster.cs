@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    public abstract class Monster
+    public abstract class Monster : ICloneable
     {
         private string _Name;
 
@@ -42,6 +42,7 @@ namespace DungeonFinal
         private Boolean _IsDefeated;
         private Boolean _IsDefending;
         private Boolean _IsSwarm;
+
 
         private int _DefendingDefense;
         private int _DefendingResistance;
@@ -274,5 +275,6 @@ namespace DungeonFinal
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
         public abstract ImageBrush getBrush();
+        public abstract Object Clone();
     }
 }

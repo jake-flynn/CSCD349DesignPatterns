@@ -106,5 +106,10 @@ namespace DungeonFinal
             imgBrush.ImageSource = image;
             return imgBrush;
         }
+
+        public override Object Clone()
+        {
+            return new Imp();
+        }
     }
 }

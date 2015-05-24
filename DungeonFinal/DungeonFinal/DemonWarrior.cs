@@ -21,7 +21,7 @@ namespace DungeonFinal
       //DVC - Level 3
         public DemonWarrior()
         {
-            setName("DemonWarrior");
+            setName("Demon Warrior");
             setBaseHealth(300);
             setCurHealth(300);
             setMaxHealth(300);
@@ -116,6 +116,11 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-FTexFDrdCJA/VV7tsSE9HTI/AAAAAAAAA70/1Yj6DCXT3fM/w506-h620/DemonWarrior.jpg"));
             imgBrush.ImageSource = image;
             return imgBrush;
+        }
+
+        public override Object Clone()
+        {
+            return new DemonWarrior();
         }
     }
 }

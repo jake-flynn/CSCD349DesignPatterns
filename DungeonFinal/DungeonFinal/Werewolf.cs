@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Werewolf : Monster
+    class Werewolf : Monster, ICloneable
     {
 
        //DVC - Level 2
@@ -115,6 +115,11 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-usr8K7gENyQ/VV7uGiaF6XI/AAAAAAAAA-I/tgOIuaxFa-w/w506-h475/werewolf.jpg"));
             imgBrush.ImageSource = image;
             return imgBrush;
+        }
+
+        public override Object Clone()
+        {
+            return new Werewolf();
         }
     }
 }

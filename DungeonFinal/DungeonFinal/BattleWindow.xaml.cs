@@ -64,6 +64,7 @@ namespace DungeonFinal
             if (_monster.getCurHealth() <= 0)
             {
                 MessageBox.Show(_monster.getName() + " was slain!!!");
+
                 tb_eventFeed.Text += _monster.getName() + " was slain!!!";
                 this.Close();
             }
@@ -104,6 +105,11 @@ namespace DungeonFinal
             prgBar_Hero4_Mana.Value = ((double)_theHeroes[3].getCurMana()) / ((double)_theHeroes[3].getMaxMana()) * 100;
         }
 
+        public void chooseTarget()// Not sure what this will return yet. Not sure how I want to make the hero choose its target either.
+        {
+
+        }
+
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
         {
             int heroDamage;
@@ -130,7 +136,7 @@ namespace DungeonFinal
             updateVisuals();
         }
 
-        private void monsterAttack() //Monster attacks!
+        private async void monsterAttack() //Monster attacks!
         {  
             Monster mon = _monster;
             Hero hero = mon.FindTarget(_theParty);
@@ -175,7 +181,18 @@ namespace DungeonFinal
 
                 MessageBox.Show("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage);
                 hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damage is applied
+
+                await Task.Delay(400);
+                tb_eventFeed.Text += "The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage + "\r\n";
+                tb_eventFeed.Text += "\r\n";
             }
+            //MessageBox.Show("Damage from monster: " + monsterDamage);
+            
+
+           // MessageBox.Show("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage);
+            
+
+            //sskhero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damgae is applied
             updateVisuals();//health bar updated
             checkForDefeatedUnit();
         }
@@ -225,31 +242,33 @@ namespace DungeonFinal
         //Start Event Handlers
         //==========================================================================================================//
 
-        private void btn_Ready_Click(object sender, RoutedEventArgs e) 
+        private async void btn_Ready_Click(object sender, RoutedEventArgs e) 
         {
             if (_monster.getCurHealth() > 0 && _theHeroes[0].getCurHealth() > 0)
             {
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
-                    MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
-                    tb_eventFeed.Text += _theHeroes[0].getName() + " used basic attack\r\n";
+                    //MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
+                    await Task.Delay(10);
+                    tb_eventFeed.Text += _theHeroes[0].getName() + " used basic attack for: " + _theHeroes[0].BasicAttack() + " damage\r\n";
                     normalAttack(_theHeroes[0], _monster);
                 }
                 else if (rBtn_Hero1Defend.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[0].getName() + " used defend and is taking reduced damage this turn.");
+                    //MessageBox.Show(_theHeroes[0].getName() + " used defend and is taking reduced damage this turn.");
                     tb_eventFeed.Text += _theHeroes[0].getName() + " used defend and is taking reduced damage this turn.\r\n";
                     defend(_theHeroes[0]);
                 }
                 else if (rBtn_Hero1Special.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[0].getName() + " used special attack");
+                    //MessageBox.Show(_theHeroes[0].getName() + " used special attack");
                     tb_eventFeed.Text += _theHeroes[0].getName() + " used special attack\r\n";
                     specialMove(_theHeroes[0], 0);
+                    MessageBox.Show(_theHeroes[1].getName());
                 }
                 else if (rBtn_Hero1Item.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[0].getName() + " used item");
+                    //MessageBox.Show(_theHeroes[0].getName() + " used item");
                     tb_eventFeed.Text += _theHeroes[0].getName() + " used item\r\n";
                     //useItem(_theHero);
                 }
@@ -260,25 +279,26 @@ namespace DungeonFinal
             {
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[1].getName() + " used basic attack");
-                    tb_eventFeed.Text += _theHeroes[1].getName() + " used basic attack\r\n";
+                    //MessageBox.Show(_theHeroes[1].getName() + " used basic attack");
+                    await Task.Delay(400);
+                    tb_eventFeed.Text += _theHeroes[1].getName() + " used basic attack for: " + _theHeroes[0].BasicAttack() + " damage\r\n";
                     normalAttack(_theHeroes[1], _monster);
                 }
                 else if (rBtn_Hero2Defend.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[1].getName() + " used defend");
+                    //MessageBox.Show(_theHeroes[1].getName() + " used defend");
                     tb_eventFeed.Text += _theHeroes[1].getName() + " used defend\r\n";
                     defend(_theHeroes[1]);
                 }
                 else if (rBtn_Hero2Special.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[1].getName() + " used special attack");
+                    //MessageBox.Show(_theHeroes[1].getName() + " used special attack");
                     tb_eventFeed.Text += _theHeroes[1].getName() + " used special attack\r\n";
                     specialMove(_theHeroes[1], 1);
                 }
                 else if (rBtn_Hero2Item.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[1].getName() + " used item");
+                    //MessageBox.Show(_theHeroes[1].getName() + " used item");
                     tb_eventFeed.Text += _theHeroes[1].getName() + " used item\r\n";
                 }
             }
@@ -288,26 +308,27 @@ namespace DungeonFinal
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[2].getName() + " used basic attack");
-                    tb_eventFeed.Text += _theHeroes[2].getName() + " used basic attack\r\n";
+                    //MessageBox.Show(_theHeroes[2].getName() + " used basic attack");
+                    await Task.Delay(400);
+                    tb_eventFeed.Text += _theHeroes[2].getName() + " used basic attack for: " + _theHeroes[0].BasicAttack() + " damage\r\n";
                     normalAttack(_theHeroes[2], _monster);
                 }
                 else if (rBtn_Hero3Defend.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[2].getName() + " used defend");
+                    //MessageBox.Show(_theHeroes[2].getName() + " used defend");
                     tb_eventFeed.Text += _theHeroes[2].getName() + " used defend\r\n";
                     defend(_theHeroes[2]);
 
                 }
                 else if (rBtn_Hero3Special.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[2].getName() + " used special attack");
+                    //MessageBox.Show(_theHeroes[2].getName() + " used special attack");
                     tb_eventFeed.Text += _theHeroes[2].getName() + " used special attack\r\n";
                     specialMove(_theHeroes[2], 2);
                 }
                 else if (rBtn_Hero3Item.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[2].getName() + " used item");
+                    //MessageBox.Show(_theHeroes[2].getName() + " used item");
                     tb_eventFeed.Text += _theHeroes[2].getName() + " used item\r\n";
                 }
             }
@@ -316,25 +337,26 @@ namespace DungeonFinal
             {
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[3].getName() + " used basic attack");
-                    tb_eventFeed.Text += _theHeroes[3].getName() + " used basic attack\r\n";
+                    //MessageBox.Show(_theHeroes[3].getName() + " used basic attack");
+                    await Task.Delay(400);
+                    tb_eventFeed.Text += _theHeroes[3].getName() + " used basic attack for: " + _theHeroes[0].BasicAttack() + " damage\r\n";
                     normalAttack(_theHeroes[3], _monster);
                 }
                 else if (rBtn_Hero4Defend.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[3].getName() + " used defend");
+                    //MessageBox.Show(_theHeroes[3].getName() + " used defend");
                     tb_eventFeed.Text += _theHeroes[3].getName() + " used defend\r\n";
                     defend(_theHeroes[3]);
                 }
                 else if (rBtn_Hero4Special.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[3].getName() + " used special attack");
+                    //MessageBox.Show(_theHeroes[3].getName() + " used special attack");
                     tb_eventFeed.Text += _theHeroes[3].getName() + " used special attack\r\n";
                     specialMove(_theHeroes[3], 3);
                 }
                 else if (rBtn_Hero4Item.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[3].getName() + " used item");
+                    //MessageBox.Show(_theHeroes[3].getName() + " used item");
                     tb_eventFeed.Text += _theHeroes[3].getName() + " used item\r\n";
                 }
             }
@@ -342,7 +364,7 @@ namespace DungeonFinal
 
             if (_monster.getCurHealth() > 0)
             {
-                MessageBox.Show("Monster Attacked!");
+               // MessageBox.Show("Monster Attacked!");
                 monsterAttack();
                 incrementEffects();
                 checkForDefeatedUnit();
@@ -427,6 +449,11 @@ namespace DungeonFinal
         private void rBtn_Hero4Item_Click(object sender, RoutedEventArgs e)
         {
             checkReady();
+        }
+
+        private void tb_eventFeed_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tb_eventFeed.ScrollToEnd();
         }
 
 

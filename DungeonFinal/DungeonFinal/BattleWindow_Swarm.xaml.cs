@@ -20,8 +20,8 @@ namespace DungeonFinal
     public partial class BattleWindow_Swarm : Window
     {
 
-        Monster[] _monster;
-        Monster _testMonster;
+        Monster _PrototypeMonster;
+        Monster[] _TheSwarm;
         Party _theParty;
         Hero[] _theHeroes;
         Boolean _IsSwarmDefeated;
@@ -36,50 +36,88 @@ namespace DungeonFinal
             InitializeComponent();
             _theParty = heros;
             _theHeroes = _theParty.getHeros();
+            _TheSwarm = new Monster[6];
             _IsSwarmDefeated = false;
 
+            _PrototypeMonster = mon;
+            
 
-            for (int x = 0; x < 1; x++)
+            for (int m = 0; m < 6; m++)
             {
-                //_monster[x] = mon;
-                _testMonster = mon;
+                _TheSwarm[m] = (Monster)_PrototypeMonster.Clone();
             }
-
-            prgBar_Hero1.Value = _theHeroes[0].getCurHealth();
-            prgBar_Hero2.Value = _theHeroes[1].getCurHealth();
-            prgBar_Hero3.Value = _theHeroes[2].getCurHealth();
-            prgBar_Hero4.Value = _theHeroes[3].getCurHealth();
-            prgBar_monster1.Value = _monster[0].getCurHealth();
-            prgBar_monster2.Value = _monster[1].getCurHealth();
-            prgBar_monster3.Value = _monster[2].getCurHealth();
-            prgBar_monster4.Value = _monster[3].getCurHealth();
-
-            prgBar_Hero1_Mana.Value = 100;
-            prgBar_Hero2_Mana.Value = 100;
-            prgBar_Hero3_Mana.Value = 100;
-            prgBar_Hero4_Mana.Value = 100;
 
             //tb_monster.Text = _monster.getName();
             tb_hero1.Text = _theHeroes[0].getName();
             tb_hero2.Text = _theHeroes[1].getName();
             tb_hero3.Text = _theHeroes[2].getName();
             tb_hero4.Text = _theHeroes[3].getName();
+
+            rect_hero1.Fill = _theHeroes[0].getBrush();
+            rect_hero2.Fill = _theHeroes[1].getBrush();
+            rect_hero3.Fill = _theHeroes[2].getBrush();
+            rect_hero4.Fill = _theHeroes[3].getBrush();
+            
+            rect_monster1.Fill = _TheSwarm[0].getBrush();
+            rect_monster2.Fill = _TheSwarm[1].getBrush();
+            rect_monster3.Fill = _TheSwarm[2].getBrush();
+            rect_monster4.Fill = _TheSwarm[3].getBrush();
+            rect_monster5.Fill = _TheSwarm[4].getBrush();
+            rect_monster6.Fill = _TheSwarm[5].getBrush();
+
+            updateVisuals();
         }
 
         //==========================================================================================================//
         //Start Methods
         //==========================================================================================================//
 
+        public void updateVisuals()
+        {
+            prgBar_Hero1.Value = ((double)_theHeroes[0].getCurHealth()) / ((double)_theHeroes[0].getMaxHealth()) * 100;
+            prgBar_Hero2.Value = ((double)_theHeroes[1].getCurHealth()) / ((double)_theHeroes[1].getMaxHealth()) * 100;
+            prgBar_Hero3.Value = ((double)_theHeroes[2].getCurHealth()) / ((double)_theHeroes[2].getMaxHealth()) * 100;
+            prgBar_Hero4.Value = ((double)_theHeroes[3].getCurHealth()) / ((double)_theHeroes[3].getMaxHealth()) * 100;
+            
+            prgBar_monster1.Value = ((double)_TheSwarm[0].getCurHealth()) / ((double)_TheSwarm[0].getBaseHealth()) * 100;
+            prgBar_monster2.Value = ((double)_TheSwarm[1].getCurHealth()) / ((double)_TheSwarm[1].getBaseHealth()) * 100;
+            prgBar_monster3.Value = ((double)_TheSwarm[2].getCurHealth()) / ((double)_TheSwarm[2].getBaseHealth()) * 100;
+            prgBar_monster4.Value = ((double)_TheSwarm[3].getCurHealth()) / ((double)_TheSwarm[3].getBaseHealth()) * 100;
+            prgBar_monster5.Value = ((double)_TheSwarm[4].getCurHealth()) / ((double)_TheSwarm[4].getBaseHealth()) * 100;
+            prgBar_monster6.Value = ((double)_TheSwarm[5].getCurHealth()) / ((double)_TheSwarm[5].getBaseHealth()) * 100;
+
+            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[0].getCurHealth() + "/" + _TheSwarm[0].getBaseHealth();
+            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[1].getCurHealth() + "/" + _TheSwarm[1].getBaseHealth();
+            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[2].getCurHealth() + "/" + _TheSwarm[2].getBaseHealth();
+            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[3].getCurHealth() + "/" + _TheSwarm[3].getBaseHealth();
+            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[4].getCurHealth() + "/" + _TheSwarm[4].getBaseHealth();
+            lbl_monsterHealthNumbers1.Content = "" + _TheSwarm[5].getCurHealth() + "/" + _TheSwarm[5].getBaseHealth();
+            
+            lbl_heroHealthNumbers1.Content = "" + _theHeroes[0].getCurHealth() + "/" + _theHeroes[0].getMaxHealth();
+            lbl_heroHealthNumbers2.Content = "" + _theHeroes[1].getCurHealth() + "/" + _theHeroes[1].getMaxHealth();
+            lbl_heroHealthNumbers3.Content = "" + _theHeroes[2].getCurHealth() + "/" + _theHeroes[2].getMaxHealth();
+            lbl_heroHealthNumbers4.Content = "" + _theHeroes[3].getCurHealth() + "/" + _theHeroes[3].getMaxHealth();
+
+            lbl_heroManaNumbers1.Content = "" + _theHeroes[0].getCurMana() + "/" + _theHeroes[0].getMaxMana();
+            lbl_heroManaNumbers2.Content = "" + _theHeroes[1].getCurMana() + "/" + _theHeroes[1].getMaxMana();
+            lbl_heroManaNumbers3.Content = "" + _theHeroes[2].getCurMana() + "/" + _theHeroes[2].getMaxMana();
+            lbl_heroManaNumbers4.Content = "" + _theHeroes[3].getCurMana() + "/" + _theHeroes[3].getMaxMana();
+
+            prgBar_Hero1_Mana.Value = ((double)_theHeroes[0].getCurMana()) / ((double)_theHeroes[0].getMaxMana()) * 100;
+            prgBar_Hero2_Mana.Value = ((double)_theHeroes[1].getCurMana()) / ((double)_theHeroes[1].getMaxMana()) * 100;
+            prgBar_Hero3_Mana.Value = ((double)_theHeroes[2].getCurMana()) / ((double)_theHeroes[2].getMaxMana()) * 100;
+            prgBar_Hero4_Mana.Value = ((double)_theHeroes[3].getCurMana()) / ((double)_theHeroes[3].getMaxMana()) * 100;
+        }
 
         public void checkForDefeatedUnit() //Checks to see if a hero or monster has been slain
         {
-            if(_monster[0].getIsDefeated() && _monster[1].getIsDefeated() && _monster[2].getIsDefeated() && _monster[3].getIsDefeated())
+            if(_TheSwarm[0].getIsDefeated() && _TheSwarm[1].getIsDefeated() && _TheSwarm[2].getIsDefeated() && _TheSwarm[3].getIsDefeated())
             {
-                MessageBox.Show("The " + _monster[0].getName() + " swarm was defeated!!!");
+                MessageBox.Show("The " + _TheSwarm[0].getName() + " swarm was defeated!!!");
                 _IsSwarmDefeated = true;
                 this.Close();
             }
-            foreach(Monster m in _monster)
+            foreach(Monster m in _TheSwarm)
             {
                 if (m.getCurHealth() <= 0 && m.getIsDefeated())
                 {
@@ -112,7 +150,7 @@ namespace DungeonFinal
 
         private void specialMove(Hero hero, int whichHero)
         {
-            hero.PerformSpecialAttack(_theParty, whichHero, _monster[1]);
+            hero.PerformSpecialAttack(_theParty, whichHero, _TheSwarm[1]);
             //updatevisuals
         }
 
@@ -159,7 +197,7 @@ namespace DungeonFinal
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
                 {
                     MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
-                    normalAttack(_theHeroes[0], _monster[1]);
+                    normalAttack(_theHeroes[0], _TheSwarm[1]);
                 }
                 else if (rBtn_Hero1Defend.IsChecked == true)
                 {
@@ -183,7 +221,7 @@ namespace DungeonFinal
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
                     MessageBox.Show(_theHeroes[1].getName() + " used basic attack");
-                    normalAttack(_theHeroes[1], _monster[1]);
+                    normalAttack(_theHeroes[1], _TheSwarm[1]);
                 }
                 else if (rBtn_Hero2Defend.IsChecked == true)
                 {
@@ -207,7 +245,7 @@ namespace DungeonFinal
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
                     MessageBox.Show(_theHeroes[2].getName() + " used basic attack");
-                    normalAttack(_theHeroes[2], _monster[1]);
+                    normalAttack(_theHeroes[2], _TheSwarm[1]);
                 }
                 else if (rBtn_Hero3Defend.IsChecked == true)
                 {
@@ -231,7 +269,7 @@ namespace DungeonFinal
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {
                     MessageBox.Show(_theHeroes[3].getName() + " used basic attack");
-                    normalAttack(_theHeroes[3], _monster[1]);
+                    normalAttack(_theHeroes[3], _TheSwarm[1]);
                 }
                 else if (rBtn_Hero4Defend.IsChecked == true)
                 {
@@ -250,13 +288,13 @@ namespace DungeonFinal
             }
             //--------------Hero's have had their say... IT'S MONSTA TIME.---------------//
             int monstCtr = 0;
-            foreach(Monster m in _monster)
+            foreach(Monster m in _TheSwarm)
             {
                 monstCtr++;
                 if (m.getIsDefeated() != true)
                 {
                     MessageBox.Show("Monster " + monstCtr +" Attacked!");
-                    monsterAttack(_theHeroes[0], _monster[1]);
+                    monsterAttack(_theHeroes[0], _TheSwarm[1]);
                     checkForDefeatedUnit();
                 }
             }

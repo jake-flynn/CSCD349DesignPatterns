@@ -161,14 +161,45 @@ namespace DungeonFinal
 
         public void startBattle(Monster m, Party heros)
         {
-            MessageBox.Show("Your Party enters the room...\r\n" +
-                            "Only to see a " + m.getName() + " awaiting your arival...\r\n" +
-                            "Prepare for the battle that is about to take place......");
-            var bw = new BattleWindow(m, heros);
-            bw.ShowDialog();
+            if(m.getIsSwarm())
+            {
+                int rndSwarm = new Random().Next(3) + 1;
+                if(rndSwarm == 1 || rndSwarm == 2)
+                {
+                    SwarmBattle(m, heros);
+                }
+                else
+                {
+                    NormalBattle(m, heros);
+                }
+            }
+            else
+            {
+                NormalBattle(m, heros);
+            }
             MonstersSeen++;
             updateButtonsVisibility();
             //upgradeStats(heros);
+        }
+
+        public void NormalBattle(Monster m, Party heros)
+        {
+            MessageBox.Show("Your Party enters the room...\r\n" +
+                            "Only to see a " + m.getName() + " awaiting your arival!\r\n" +
+                            "Prepare for the battle that is about to take place...");
+
+            var bw = new BattleWindow(m, heros);
+            bw.ShowDialog();
+        }
+
+        public void SwarmBattle(Monster m, Party heros)
+        {
+            MessageBox.Show("Your Party enters the room...\r\n" +
+                "And you are ambushed by a horde of " + m.getName() + " that fill the room!\r\n" +
+                "Completely surrounded, you party prepares for a hard fight...");
+
+            var bw = new BattleWindow_Swarm(m, heros);
+            bw.ShowDialog();
         }
 
         public void upgradeStats(Party party)
