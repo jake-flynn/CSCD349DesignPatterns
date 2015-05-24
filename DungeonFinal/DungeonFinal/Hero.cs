@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    abstract public class Hero : SpecialAttackBehavior
+    abstract public class Hero
     {
         private string _Name;
 
@@ -246,8 +246,7 @@ namespace DungeonFinal
         }
 
         
-       //Battle Attack
-        
+        //------------------------------- Battle Attack -------------------------------
         public Boolean getIsPhysical()
         {
             return _IsPhysical;
@@ -267,6 +266,7 @@ namespace DungeonFinal
         }
 
        //Battle Defend
+        //-------------------------------Abstract Methods -------------------------------
         public Boolean getIsDefending()
         {
             return _IsDefending;
@@ -293,14 +293,11 @@ namespace DungeonFinal
         }
 
 
-
-        //-------------------------------Abstract Methods -------------------------------
-        public abstract void PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
+        //------------------------------- Abstract Methods -------------------------------
+        public abstract String PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
         public abstract int BasicAttack();
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
         public abstract ImageBrush getBrush();
-
-
     }
 }

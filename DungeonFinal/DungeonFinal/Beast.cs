@@ -58,15 +58,17 @@ namespace DungeonFinal
             return m;
         }
 
-        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
+            int dmg = 25;
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            foreach (Hero h in party)
+            {
+                h.setCurHealth(h.getCurHealth() - dmg);
+            }
 
-            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            return ("Stubeast gave the whole party homework, it's due tomorrow! Did " + dmg + "accross whole party!");
         }
 
 

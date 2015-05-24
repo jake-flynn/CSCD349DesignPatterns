@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Rogue : Hero, SpecialAttackBehavior
+    class Rogue : Hero
     {
         //this is a Rogue Hero, it is a damage dealer, there are 40 points assigned to main stats
 
@@ -47,6 +47,7 @@ namespace DungeonFinal
 
 
         /*---------------------------------------------------------------------------------------*/
+
         /*Battle - Attack*/
         /*This method returns an int based on the attack stat of that character type.*/
 
@@ -56,10 +57,12 @@ namespace DungeonFinal
             return s;
         }
 
-        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        /*PerformSpecialAttack - attacks for 2.5 strength*/
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             int dmg = (int)(getModStrength() * 2.5);
-            MessageBox.Show("Performed Throw Knives for " + dmg + " damage!");
+            setCurMana(getCurMana() - 15);
+            return(getName() + " performed Throw Knives for " + dmg + " damage!");
         }
 
         /*Battle - Defend*/
@@ -71,6 +74,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -79,7 +83,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         public override ImageBrush getBrush()
         {

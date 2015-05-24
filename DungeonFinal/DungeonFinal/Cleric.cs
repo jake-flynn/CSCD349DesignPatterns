@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Cleric : Hero, SpecialAttackBehavior
+    class Cleric : Hero
     {
         //this is a Cleric Hero, considered a healer, there are 40 points assigned to main stats
 
@@ -47,29 +47,32 @@ namespace DungeonFinal
 
 
         /*---------------------------------------------------------------------------------------*/
+
         /*Battle - Attack*/
         /*This method returns an int based on the attack stat of that character type.*/
-
         public override int BasicAttack()
         {
             int s = getModMagic();
             return s;
         }
 
-        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        /*PerformSpecialAttack - heals whole party for magic stat and removes debuffs/buffs*/
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             foreach (Hero h in party)
             {
-                h.setCurHealth(h.getCurHealth() + 20);
+
+                h.setCurHealth(h.getCurHealth() + h.getModMagic());
                 h.setModStrength(h.getBaseStrength());
                 h.setModMagic(h.getBaseMagic());
                 h.setModDefense(h.getBaseDefense());
                 h.setModResistance(h.getBaseResistance());
             }
 
-            MessageBox.Show("Performed Healing Light for 20 healing accross whole party and reset all stats!");
+            setCurMana(getCurMana() - 15);
+            return(getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
         }
 
         /*Battle - Defend*/
@@ -81,6 +84,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -89,7 +93,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         public override ImageBrush getBrush()
         {
