@@ -261,7 +261,7 @@ namespace DungeonFinal
             if (! _IsSwarmDefeated && _theHeroes[0].getCurHealth() > 0)
             {
                 
-                if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
+                if (rBtn_Hero1Attack.IsChecked == true) 
                 {
                     var cw = new ChoiceWindow(_TheSwarm);
                     cw.ShowDialog();
