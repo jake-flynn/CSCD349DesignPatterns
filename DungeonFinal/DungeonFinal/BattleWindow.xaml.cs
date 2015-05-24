@@ -173,7 +173,13 @@ namespace DungeonFinal
 
             if (randSpecial == 1 || randSpecial == 2)
             {                
-                _monster.PerformSpecialAttack(_theParty, 0, _monster);
+                
+
+                paragraph.Inlines.Add(new Bold(new Run(_monster.PerformSpecialAttack(_theParty, 0, _monster)))
+                {
+                    Foreground = Brushes.Red
+                });
+                paragraph.Inlines.Add(new LineBreak());
             }
             else
             {
@@ -277,7 +283,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used basic attack for: " + _theHeroes[0].BasicAttack() + " damage"))
                     {
-                        Foreground = Brushes.Blue
+                        Foreground = _theHeroes[0].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                     
@@ -290,7 +296,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used defend and is taking reduced damage this turn."))
                     {
-                        Foreground = Brushes.Blue
+                        Foreground = _theHeroes[0].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                     
@@ -303,7 +309,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
                     {
-                        Foreground = Brushes.Blue
+                        Foreground = _theHeroes[0].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
 
@@ -317,7 +323,7 @@ namespace DungeonFinal
                     //testing rich text box
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used item"))
                     {
-                        Foreground = Brushes.Red
+                        Foreground = _theHeroes[0].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                     
@@ -333,7 +339,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[1].getName() + " used basic attack for: " + _theHeroes[1].BasicAttack() + " damage"))
                     {
-                        Foreground = Brushes.Green
+                        Foreground = _theHeroes[1].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                     
@@ -345,7 +351,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[1].getName() + " used defend and is taking reduced damage this turn."))
                     {
-                        Foreground = Brushes.Green
+                        Foreground = _theHeroes[1].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                     
@@ -357,7 +363,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[1], 1)))
                     {
-                        Foreground = Brushes.Green
+                        Foreground = _theHeroes[1].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
 
@@ -369,7 +375,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[1].getName() + " used item"))
                     {
-                        Foreground = Brushes.Blue
+                        Foreground = _theHeroes[1].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                 }
@@ -385,7 +391,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[2].getName() + " used basic attack for: " + _theHeroes[2].BasicAttack() + " damage"))
                     {
-                        Foreground = Brushes.Purple
+                        Foreground = _theHeroes[2].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                     
@@ -397,7 +403,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[2].getName() + " used defend and is taking reduced damage this turn."))
                     {
-                        Foreground = Brushes.Purple
+                        Foreground = _theHeroes[2].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
 
@@ -410,7 +416,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[2], 2)))
                     {
-                        Foreground = Brushes.Purple
+                        Foreground = _theHeroes[2].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
 
@@ -422,7 +428,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[2].getName() + " used item"))
                     {
-                        Foreground = Brushes.Purple
+                        Foreground = _theHeroes[2].getTextColor()
                     });
 
                     paragraph.Inlines.Add(new LineBreak());
@@ -438,7 +444,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[3].getName() + " used basic attack for: " + _theHeroes[3].BasicAttack() + " damage"))
                     {
-                        Foreground = Brushes.Teal
+                        Foreground = _theHeroes[3].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                     
@@ -450,7 +456,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[3].getName() + " used defend and is taking reduced damage this turn."))
                     {
-                        Foreground = Brushes.Teal
+                        Foreground = _theHeroes[3].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
 
@@ -462,7 +468,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[3], 3)))
                     {
-                        Foreground = Brushes.Teal
+                        Foreground = _theHeroes[3].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
 
@@ -474,7 +480,7 @@ namespace DungeonFinal
 
                     paragraph.Inlines.Add(new Bold(new Run(_theHeroes[3].getName() + " used item"))
                     {
-                        Foreground = Brushes.Teal
+                        Foreground = _theHeroes[3].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
                 }

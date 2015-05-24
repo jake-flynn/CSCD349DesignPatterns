@@ -101,5 +101,10 @@ namespace DungeonFinal
             imgBrush.ImageSource = image;
             return imgBrush;
         }
+
+        public override Brush getTextColor()
+        {
+            return Brushes.Purple;
+        }
     }
 }
