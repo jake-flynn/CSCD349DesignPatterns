@@ -103,6 +103,8 @@ namespace DungeonFinal
             prgBar_Hero2_Mana.Value = ((double)_theHeroes[1].getCurMana()) / ((double)_theHeroes[1].getMaxMana()) * 100;
             prgBar_Hero3_Mana.Value = ((double)_theHeroes[2].getCurMana()) / ((double)_theHeroes[2].getMaxMana()) * 100;
             prgBar_Hero4_Mana.Value = ((double)_theHeroes[3].getCurMana()) / ((double)_theHeroes[3].getMaxMana()) * 100;
+
+            rect_Monster.ToolTip = "checking to see if this works" + _monster.getCurHealth();
         }
 
         public void chooseTarget()// Not sure what this will return yet. Not sure how I want to make the hero choose its target either.
