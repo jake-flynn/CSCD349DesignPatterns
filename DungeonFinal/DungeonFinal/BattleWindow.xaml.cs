@@ -126,7 +126,7 @@ namespace DungeonFinal
 
         public void chooseTarget()// Not sure what this will return yet. Not sure how I want to make the hero choose its target either.
         {
-
+            
         }
 
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
