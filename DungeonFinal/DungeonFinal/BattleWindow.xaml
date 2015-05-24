@@ -55,10 +55,10 @@
         <ProgressBar x:Name="prgBar_Monster" HorizontalAlignment="Left" Height="10" Margin="325,358,0,0" VerticalAlignment="Top" Width="200" Background="Crimson" Foreground="DarkGreen"/>
 
 
-        <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="51,245,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="202,453,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="525,456,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="710,246,0,0" VerticalAlignment="Top" Width="100" Background="Crimson" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="51,245,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="202,453,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="525,456,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="710,246,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
 
 
 
@@ -91,7 +91,7 @@
         <Label x:Name="lbl_Hero4_mana" Content="Mana:" HorizontalAlignment="Left" Margin="668,235,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Monster_health" Content="Monster Health:" HorizontalAlignment="Left" Margin="230,350,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="tb_eventFeed" HorizontalAlignment="Left" Height="163" Margin="604,18,0,0" TextWrapping="Wrap" Text="Battle log:" VerticalAlignment="Top" Width="258" ScrollViewer.CanContentScroll="True" TextChanged="tb_eventFeed_TextChanged" />
+        <TextBox x:Name="tb_eventFeed" HorizontalAlignment="Left" Height="163" Margin="604,18,0,0" TextWrapping="Wrap" Text="Battle log:" VerticalAlignment="Top" Width="258" ScrollViewer.CanContentScroll="True" TextChanged="tb_eventFeed_TextChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" />
 
 
 
