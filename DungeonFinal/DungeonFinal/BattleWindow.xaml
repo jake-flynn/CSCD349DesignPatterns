@@ -61,12 +61,6 @@
         <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="710,246,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
 
 
-
-
-
-
-
-
         <Label x:Name="lbl_monsterHealthNumbers" Content="500/500" HorizontalAlignment="Left" Margin="525,350,0,0" VerticalAlignment="Top" Width="69"/>
         <Label x:Name="lbl_heroHealthNumbers1" Content="500/500" HorizontalAlignment="Left" Margin="151,219,0,0" VerticalAlignment="Top" Width="63"/>
         <Label x:Name="lbl_heroHealthNumbers2" Content="500/500" HorizontalAlignment="Left" Margin="302,419,0,0" VerticalAlignment="Top" Width="68"/>
@@ -77,8 +71,6 @@
         <Label x:Name="lbl_heroManaNumbers2" Content="200/200" HorizontalAlignment="Left" Margin="302,445,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_heroManaNumbers3" Content="200/200" HorizontalAlignment="Left" Margin="625,448,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_heroManaNumbers4" Content="200/200" HorizontalAlignment="Left" Margin="810,238,0,0" VerticalAlignment="Top"/>
-
-
 
 
         <Label x:Name="lbl_Hero1_health" Content="Health:" HorizontalAlignment="Left" Margin="4,219,0,0" VerticalAlignment="Top"/>

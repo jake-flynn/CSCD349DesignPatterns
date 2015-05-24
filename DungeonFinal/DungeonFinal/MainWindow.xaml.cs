@@ -153,6 +153,7 @@ namespace DungeonFinal
 
                 }
             }
+            
             monsterToAdd = mazePopulator.createMonster(4); //Random boss created
             settingMonstersInRooms[difficulty-1, difficulty-1].setMonster(monsterToAdd);
             maze.SetRooms(settingMonstersInRooms);
