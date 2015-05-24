@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Swordsman : Hero, SpecialAttackBehavior
+    class Swordsman : Hero
     {
         //private SpecialAttackBehavior _SpecialAttack = null;
 
@@ -47,6 +47,7 @@ namespace DungeonFinal
 
 
         /*---------------------------------------------------------------------------------------*/
+
        /*Battle - Attack*/
         /*This method returns an int based on the attack stat of that character type.*/
 
@@ -56,7 +57,8 @@ namespace DungeonFinal
             return s;
         }
 
-        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        /*PerformSpecialAttack - attacks for 1.5 strength and buffs strength and defense for 5*/
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             //Buff Strength and Defense
             setModDefense(getModDefense() + 5);
@@ -66,7 +68,7 @@ namespace DungeonFinal
             int dmg = (int)(getModStrength() * 1.5);
             mon.setCurHealth(mon.getCurHealth() - dmg);
 
-            MessageBox.Show("Buffed defense and strength by 5! Performed a Blade Slash for " + dmg + " damage!");
+            return(getName() + " buffed own defense and strength by 5! Performed a Blade Slash for " + dmg + " damage!");
         }
 
        /*Battle - Defend*/
@@ -78,6 +80,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -86,7 +89,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         public override ImageBrush getBrush()
         {

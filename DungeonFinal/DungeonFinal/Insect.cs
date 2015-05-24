@@ -59,7 +59,7 @@ namespace DungeonFinal
             return m;
         }
 
-        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
@@ -67,7 +67,7 @@ namespace DungeonFinal
             party[rnd].setModStrength(getModStrength() - 1);
             party[rnd].setModMagic(getModStrength() - 1);
 
-            MessageBox.Show("Cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

@@ -47,16 +47,17 @@ namespace DungeonFinal
 
 
         /*---------------------------------------------------------------------------------------*/
+
         /*Battle - Attack*/
         /*This method returns an int based on the attack stat of that character type.*/
-
         public override int BasicAttack()
         {
             int s = getModStrength();
             return s;
         }
 
-        public override void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        /*PerformSpecialAttack - buffs defense and resistance for 5 accross whole party*/
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
@@ -66,7 +67,7 @@ namespace DungeonFinal
                 h.setModResistance(h.getModResistance() + 5);
             }
 
-            MessageBox.Show("Performed Full Guard for 5 defense and resistance accross whole party!");
+            return(getName() + " performed Full Guard for 5 defense and resistance accross whole party!");
         }
 
         /*Battle - Defend*/
@@ -78,6 +79,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -86,7 +88,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         public override ImageBrush getBrush()
         {

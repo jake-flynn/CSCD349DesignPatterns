@@ -217,7 +217,9 @@ namespace DungeonFinal
         {
             _ModResistance = r;
         }
-      
+
+
+        //------------------------------- Battle Attack -------------------------------
         public Boolean getIsPhysical()
         {
             return _IsPhysical;
@@ -236,7 +238,8 @@ namespace DungeonFinal
             _IsDefeated = iD;
         }
 
-       //Battle Defend
+
+        //------------------------------- Battle Defend -------------------------------
         public Boolean getIsDefending()
         {
             return _IsDefending;
@@ -267,9 +270,9 @@ namespace DungeonFinal
         }
 
 
-        //-------------------------------Abstract Methods -------------------------------
+        //------------------------------- Abstract Methods -------------------------------
         public abstract int BasicAttack();
-        public abstract void PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
+        public abstract String PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
         public abstract Hero FindTarget(Party p);
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
