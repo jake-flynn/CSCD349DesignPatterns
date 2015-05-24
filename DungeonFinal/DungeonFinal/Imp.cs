@@ -73,10 +73,12 @@ namespace DungeonFinal
         public override Hero FindTarget(Party p)
         {
             Hero[] party = p.getHeros();
-
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
-
+            Hero target = null;
+            do
+            {
+                int rnd = new Random().Next(1, party.Length);
+                target = party[rnd];
+            } while (target.getIsDefeated());
             return target;
         }
 
