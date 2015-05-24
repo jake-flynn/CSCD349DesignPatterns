@@ -186,6 +186,30 @@ namespace DungeonFinal
             }
         }
 
+        public void checkReady()
+        {
+            bool ready = false;
+
+            if (rBtn_Hero1Attack.IsChecked == true || rBtn_Hero1Defend.IsChecked == true || rBtn_Hero1Special.IsChecked == true || rBtn_Hero1Item.IsChecked == true)
+            {
+                if (rBtn_Hero2Attack.IsChecked == true || rBtn_Hero2Defend.IsChecked == true || rBtn_Hero2Special.IsChecked == true || rBtn_Hero2Item.IsChecked == true)
+                {
+                    if (rBtn_Hero3Attack.IsChecked == true || rBtn_Hero3Defend.IsChecked == true || rBtn_Hero3Special.IsChecked == true || rBtn_Hero3Item.IsChecked == true)
+                    {
+                        if (rBtn_Hero4Attack.IsChecked == true || rBtn_Hero4Defend.IsChecked == true || rBtn_Hero4Special.IsChecked == true || rBtn_Hero4Item.IsChecked == true)
+                        {
+                            ready = true;
+                        }
+                    }
+                }
+            }
+
+            if (ready == true)
+            {
+                btn_Ready.IsEnabled = true;
+            }
+        }
+
         //==========================================================================================================//
         //Start Event Handlers
         //==========================================================================================================//
@@ -301,5 +325,92 @@ namespace DungeonFinal
             incrementEffects();
         }
 
+        private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero1Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero2Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero3Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Attack_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Defend_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Special_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void rBtn_Hero4Item_Click(object sender, RoutedEventArgs e)
+        {
+            checkReady();
+        }
+
+        private void tb_eventFeed_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tb_eventFeed.ScrollToEnd();
+        }
+
+
+        //End Event Handlers
     }
 }

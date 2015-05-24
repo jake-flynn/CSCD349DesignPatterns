@@ -75,6 +75,23 @@ namespace DungeonFinal
                 {
                     h.setIsDefeated(true);//make sure monsters do proper damage, then find targets
                     MessageBox.Show(h.getName() + " gasps a final ragged breath, then falls.");
+                    
+                    if (_theHeroes[0].getIsDefeated())
+                    {
+                        rect_hero1.Opacity = 0.4;
+                    }
+                    if (_theHeroes[1].getIsDefeated())
+                    {
+                        rect_hero2.Opacity = 0.4;
+                    }
+                    if (_theHeroes[2].getIsDefeated())
+                    {
+                        rect_hero3.Opacity = 0.4;
+                    }
+                    if (_theHeroes[3].getIsDefeated())
+                    {
+                        rect_hero4.Opacity = 0.4;
+                    }
                     //disable the hero who was killed. Ask jake how to do this at a gui level.
                 }
             }
