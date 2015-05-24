@@ -62,6 +62,7 @@ namespace DungeonFinal
         {
             int dmg = (int)(getModStrength() * 2.5);
             setCurMana(getCurMana() - 15);
+            mon.setCurHealth(mon.getCurHealth() - dmg);
             return(getName() + " performed Throw Knives for " + dmg + " damage!");
         }
 

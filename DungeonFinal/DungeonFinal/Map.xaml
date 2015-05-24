@@ -124,13 +124,11 @@
         <Rectangle x:Name="verticalDoor_row3col6" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="50" Margin="463,305,0,0" Stroke="Black" VerticalAlignment="Top" Width="10"/>
         <Rectangle x:Name="verticalDoor_row4col6" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="50" Margin="463,375,0,0" Stroke="Black" VerticalAlignment="Top" Width="10"/>
         <Rectangle x:Name="verticalDoor_row5col6" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="50" Margin="463,446,0,0" Stroke="Black" VerticalAlignment="Top" Width="10"/>
-        <Rectangle x:Name="rect_UnknownRoom" Fill="Blue" HorizontalAlignment="Left" Height="50" Margin="612,147,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
         <Rectangle x:Name="rect_OpenPath" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Margin="611,291,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
         <Rectangle x:Name="rect_ClosedPath" Fill="Black" HorizontalAlignment="Left" Height="10" Margin="611,322,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <GroupBox x:Name="grpbox_key" Header="Key" HorizontalAlignment="Left" Height="306" Margin="494,73,0,0" VerticalAlignment="Top" Width="188"/>
-        <Rectangle x:Name="rect_VisitedRoom" Fill="Red" HorizontalAlignment="Left" Height="50" Margin="612,91,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
-        <Label x:Name="lbl_visitedRoom" Content="Visited Room -&gt;" HorizontalAlignment="Left" Margin="510,100,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lbl_nonVistedRoom" Content="Unknown Room -&gt;" HorizontalAlignment="Left" Margin="496,162,0,0" VerticalAlignment="Top"/>
+        <GroupBox x:Name="grpbox_key" Header="Key" HorizontalAlignment="Left" Height="306" Margin="487,118,0,0" VerticalAlignment="Top" Width="188"/>
+        <Rectangle x:Name="rect_VisitedRoom" Fill="Red" HorizontalAlignment="Left" Height="50" Margin="611,147,0,0" Stroke="Black" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="lbl_visitedRoom" Content="Visited Room -&gt;" HorizontalAlignment="Left" Margin="502,163,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_openPath" Content="Open Path -&gt;" HorizontalAlignment="Left" Margin="509,283,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_ClosedDoor" Content="Closed Path -&gt;" HorizontalAlignment="Left" Margin="502,314,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btn_back" Content="Back to Room" HorizontalAlignment="Left" Margin="54,10,0,0" VerticalAlignment="Top" Width="403" Click="btn_back_Click" Height="46"/>

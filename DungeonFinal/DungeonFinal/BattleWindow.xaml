@@ -83,7 +83,13 @@
         <Label x:Name="lbl_Hero4_mana" Content="Mana:" HorizontalAlignment="Left" Margin="668,235,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Monster_health" Content="Monster Health:" HorizontalAlignment="Left" Margin="230,350,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="tb_eventFeed" HorizontalAlignment="Left" Height="163" Margin="604,18,0,0" TextWrapping="Wrap" Text="Battle log:" VerticalAlignment="Top" Width="258" ScrollViewer.CanContentScroll="True" TextChanged="tb_eventFeed_TextChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+        <RichTextBox x:Name="rtb_testBox" HorizontalAlignment="Left" Height="184" Margin="604,10,0,0" VerticalAlignment="Top" Width="258" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="rtb_testBox_TextChanged">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
 
 
 
