@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ad623382-0fc8-4d94-9aa6-6c2693737259"
+  name="Media"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="a492daeb-a0f9-4ea7-beee-d35fbca1c8c8"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem.Windows.Media"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="13a74df5-e0af-4c4d-8608-ab870b1bb3eb"
+        name="ImageBrush"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="fca5a445-4011-4164-af20-d9ded31c1c8d"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FPresentationCore.dll&quot; Namespace%3DSystem.Windows.Media Type%3DImageBrush"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="1b257feb-db58-417f-b1d3-319ea34340d1"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8dd785f2-ccb0-46e8-a88f-a281f6d89b02">
+                <propertyInstance
+                  Id="a187c9d2-cfac-4743-89a8-3de55b6e0594"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="aff19c85-181e-4747-b07c-0eab0bada21e">
+                <propertyInstance
+                  Id="d86f116a-d57a-4013-ab5e-3cdd6af0469e"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="60016483-99ae-49a6-9b02-cb16d3a9849f">
+                <propertyInstance
+                  Id="8a7458b4-d2d9-4840-8050-0c43ef80217e"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3d63d09a-df85-47c2-a25b-a65e494fa0a6">
+                <propertyInstance
+                  Id="7aa4efed-fbb7-431a-81ad-ef87311c85d4"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0ae5aaed-284b-467d-95e7-a57e7212a1f7">
+                <propertyInstance
+                  Id="64844170-299c-4c2a-84d9-9707b0c92330"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="de82e5b7-9558-47fe-8190-8efd58930b5a"
+        name="Brush"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="5e5d868f-0b07-4a24-9950-638d657dfb06"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FPresentationCore.dll&quot; Namespace%3DSystem.Windows.Media Type%3DBrush"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="53773164-7647-4cf3-9ed5-2b803aec3c8c"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c8a798e0-f013-49a1-b5c4-304376e0716e">
+                <propertyInstance
+                  Id="c8fb9aa8-e978-4b6d-ab08-5561d41f1d7c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2e9ec5e1-a9be-4949-a14b-c1d222cdb6f1">
+                <propertyInstance
+                  Id="b908b8cc-26fb-4f49-b1b6-8fde00ebf9ca"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="78ba8a4a-77b1-4cb8-893e-46a97434080e">
+                <propertyInstance
+                  Id="3d9f935e-b252-4ef0-83ca-c98540b69341"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="19661db6-1cfd-484a-b9bc-535c6f7029d5">
+                <propertyInstance
+                  Id="98110ccd-c494-4f3b-a80a-8cd88104ebb9"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dceaa8e2-c3a9-4f86-97fb-2aa529a359d5">
+                <propertyInstance
+                  Id="1ccce988-34cf-4102-bbf8-7405f23b778a"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
