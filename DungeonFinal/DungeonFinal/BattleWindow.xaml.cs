@@ -176,6 +176,7 @@ namespace DungeonFinal
         {
             string toReturn = hero.PerformSpecialAttack(_theParty, whichHero, _monster);
             updateVisuals();
+            checkForDefeatedUnit();
             return toReturn;
         }
 

@@ -25,6 +25,9 @@ namespace DungeonFinal
         Party _theParty;
         Hero[] _theHeroes;
         Boolean _IsSwarmDefeated;
+        Paragraph paragraph;
+
+        //In the swarm
 
         public BattleWindow_Swarm()
         {
@@ -40,12 +43,19 @@ namespace DungeonFinal
             _IsSwarmDefeated = false;
 
             _PrototypeMonster = mon;
-            
+
 
             for (int m = 0; m < 6; m++)
             {
                 _TheSwarm[m] = (Monster)_PrototypeMonster.Clone();
             }
+
+            //_TheSwarm[0] = new Insect();
+            //_TheSwarm[1] = new Insect();
+            //_TheSwarm[2] = new Insect();
+            //_TheSwarm[3] = new Insect();
+            //_TheSwarm[4] = new Insect();
+            //_TheSwarm[5] = new Insect();
 
             //tb_monster.Text = _monster.getName();
             tb_hero1.Text = _theHeroes[0].getName();
@@ -64,6 +74,18 @@ namespace DungeonFinal
             rect_monster4.Fill = _TheSwarm[3].getBrush();
             rect_monster5.Fill = _TheSwarm[4].getBrush();
             rect_monster6.Fill = _TheSwarm[5].getBrush();
+
+            paragraph = new Paragraph();
+            rtb_testBox.Document = new FlowDocument(paragraph);
+
+
+            paragraph.Inlines.Add(new Bold(new Run("Battle Log:"))
+            {
+                Foreground = Brushes.Black
+            });
+
+            paragraph.Inlines.Add(new LineBreak());
+            this.DataContext = this;
 
             updateVisuals();
         }
@@ -111,7 +133,7 @@ namespace DungeonFinal
 
         public void checkForDefeatedUnit() //Checks to see if a hero or monster has been slain
         {
-            if(_TheSwarm[0].getIsDefeated() && _TheSwarm[1].getIsDefeated() && _TheSwarm[2].getIsDefeated() && _TheSwarm[3].getIsDefeated())
+            if (_TheSwarm[0].getIsDefeated() && _TheSwarm[1].getIsDefeated() && _TheSwarm[2].getIsDefeated() && _TheSwarm[3].getIsDefeated() && _TheSwarm[4].getIsDefeated() && _TheSwarm[5].getIsDefeated())
             {
                 MessageBox.Show("The " + _TheSwarm[0].getName() + " swarm was defeated!!!");
                 _IsSwarmDefeated = true;
@@ -119,7 +141,7 @@ namespace DungeonFinal
             }
             foreach(Monster m in _TheSwarm)
             {
-                if (m.getCurHealth() <= 0 && m.getIsDefeated())
+                if (m.getCurHealth() <= 0 && ! m.getIsDefeated())
                 {
                     MessageBox.Show(m.getName() + " was slain!!!");
                     m.setIsDefeated(true);
@@ -179,45 +201,115 @@ namespace DungeonFinal
             }
         }
 
-        private void normalAttack(Hero hero, Monster mon) //Hero attacks!
+        private void normalAttack(Hero hero) //Hero attacks!
         {
-            int heroDamage = hero.getModStrength() - mon.getModDefense();
+            var cw = new ChoiceWindow(_TheSwarm);
+            cw.ShowDialog();
+            int attackTarget = cw.getChoiceFromSelect();
+            Monster mon = _TheSwarm[attackTarget];
+
+            int heroDamage;
+            if (hero.getIsPhysical())
+            {
+                heroDamage = hero.BasicAttack() - mon.getModDefense();
+            }
+            else
+            {
+                heroDamage = hero.BasicAttack() - mon.getModResistance();
+            }
             if (heroDamage < 0)
                 heroDamage = 0;
+
+            paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used basic attack for: " + heroDamage + " damage"))
+            {
+                Foreground = _theHeroes[0].getTextColor()
+            });
+            paragraph.Inlines.Add(new LineBreak());
+
             mon.setCurHealth(mon.getCurHealth() - heroDamage);
-            prgBar_monster1.Value = mon.getCurHealth();
+            updateVisuals();
 
             checkForDefeatedUnit();
         }
 
-        private void specialMove(Hero hero, int whichHero)
+        private string specialMove(Hero hero, int whichHero)
         {
-            hero.PerformSpecialAttack(_theParty, whichHero, _TheSwarm[1]);
-            //updatevisuals
+            var cw = new ChoiceWindow(_TheSwarm);
+            cw.ShowDialog();
+            int attackTarget = cw.getChoiceFromSelect();
+            Monster mon = _TheSwarm[attackTarget];
+            string toReturn = hero.PerformSpecialAttack(_theParty, whichHero, mon);
+            updateVisuals();
+            checkForDefeatedUnit();
+            return toReturn;
         }
 
-        private void monsterAttack(Hero hero, Monster mon) //Monster attacks!
+        private async void monsterAttack(Monster mon) //Monster attacks!
         {
-            int monsterDamage; //This integer and the following block calculates the damage the monster will do,
-            if (hero.getIsDefending())
-            {//based on the attack of the monster - the defense of the hero. A greater value is used for defending heroes
-                monsterDamage = mon.BasicAttack() - hero.getDefendingDefense();
+            
+            Hero hero = mon.FindTarget(_theParty);
+            int monsterDamage;
+
+            var randomGeneratedNumber = new Random();
+            int randSpecial = randomGeneratedNumber.Next(10) + 1;
+
+            if (randSpecial == 1 || randSpecial == 2)
+            {
+                
+                paragraph.Inlines.Add(new Bold(new Run(mon.PerformSpecialAttack(_theParty, 0, mon)))
+                {
+                    Foreground = Brushes.Red
+                });
+                paragraph.Inlines.Add(new LineBreak());
             }
             else
             {
-                monsterDamage = mon.BasicAttack() - hero.getModDefense();
-            }
-            if (monsterDamage < 0)
-                monsterDamage = 0;
+                if (mon.getIsPhysical())
+                {
+                    if (hero.getIsDefending())
+                    {//based on the attack of the monster - the defense of the hero. A greater value is used for defending heroes
+                        monsterDamage = mon.BasicAttack() - hero.getDefendingDefense();
+                    }
+                    else
+                    {
+                        monsterDamage = mon.BasicAttack() - hero.getModDefense();
+                    }
+                }
+                else
+                {
+                    if (hero.getIsDefending())
+                    {
+                        monsterDamage = mon.BasicAttack() - hero.getDefendingResistance();
+                    }
+                    else
+                    {
+                        monsterDamage = mon.BasicAttack() - hero.getModResistance();
+                    }
+                }
+                if (monsterDamage < 0)
+                    monsterDamage = 0;
 
-            hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damgae is applied
-            prgBar_Hero1.Value = hero.getCurHealth();//health bar updated
+                
+                hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damage is applied
+
+                paragraph.Inlines.Add(new Bold(new Run("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage + " damage."))
+                {
+                    Foreground = Brushes.Red
+                });
+                paragraph.Inlines.Add(new LineBreak());
+            }
+            updateVisuals();
             checkForDefeatedUnit();
         }
 
         private void defend(Hero hero)
         {
             hero.setIsDefending(true);
+            paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used defend and is taking reduced damage this turn."))
+            {
+                Foreground = _theHeroes[3].getTextColor()
+            });
+            paragraph.Inlines.Add(new LineBreak());
         }
 
         private void incrementEffects()//This method will process all effects and time based moves
@@ -256,34 +348,39 @@ namespace DungeonFinal
         //Start Event Handlers
         //==========================================================================================================//
 
-        private void btn_Ready_Click(object sender, RoutedEventArgs e)
+        private async void btn_Ready_Click(object sender, RoutedEventArgs e)
         {
             if (! _IsSwarmDefeated && _theHeroes[0].getCurHealth() > 0)
             {
                 
                 if (rBtn_Hero1Attack.IsChecked == true) 
                 {
-                    var cw = new ChoiceWindow(_TheSwarm);
-                    cw.ShowDialog();
-                    
-                    int attackTarget = cw.getChoiceFromSelect();
-                    MessageBox.Show(attackTarget + "");
-                    MessageBox.Show(_theHeroes[0].getName() + " used basic attack");
-                    normalAttack(_theHeroes[0], _TheSwarm[attackTarget]);
+                    await Task.Delay(10);                    
+                    normalAttack(_theHeroes[0]);
                 }
                 else if (rBtn_Hero1Defend.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[0].getName() + " used defend and is taking reduced damage this turn.");
+                    await Task.Delay(10);
                     defend(_theHeroes[0]);
                 }
                 else if (rBtn_Hero1Special.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[0].getName() + " used special attack");
-                    specialMove(_theHeroes[0], 0);
+                    await Task.Delay(10);
+                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
+                    {
+                        Foreground = _theHeroes[0].getTextColor()
+                    });
+                    paragraph.Inlines.Add(new LineBreak());
+                    
                 }
                 else if (rBtn_Hero1Item.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[0].getName() + " used item");
+                    await Task.Delay(10);
+                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used item"))
+                    {
+                        Foreground = _theHeroes[0].getTextColor()
+                    });
+                    paragraph.Inlines.Add(new LineBreak());
                 }
             }
 
@@ -292,22 +389,33 @@ namespace DungeonFinal
             {
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[1].getName() + " used basic attack");
-                    normalAttack(_theHeroes[1], _TheSwarm[1]);
+                    await Task.Delay(400);
+                    normalAttack(_theHeroes[1]);
                 }
                 else if (rBtn_Hero2Defend.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[1].getName() + " used defend");
+                    await Task.Delay(400);
                     defend(_theHeroes[1]);
                 }
                 else if (rBtn_Hero2Special.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[1].getName() + " used special attack");
-                    specialMove(_theHeroes[1], 1);
+                    await Task.Delay(400);
+
+                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[1], 1)))
+                    {
+                        Foreground = _theHeroes[1].getTextColor()
+                    });
+                    paragraph.Inlines.Add(new LineBreak());
                 }
                 else if (rBtn_Hero2Item.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[1].getName() + " used item");
+                    await Task.Delay(400);
+
+                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[1].getName() + " used item"))
+                    {
+                        Foreground = _theHeroes[1].getTextColor()
+                    });
+                    paragraph.Inlines.Add(new LineBreak());
                 }
             }
 
@@ -316,23 +424,36 @@ namespace DungeonFinal
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[2].getName() + " used basic attack");
-                    normalAttack(_theHeroes[2], _TheSwarm[1]);
+                    await Task.Delay(400);
+                    normalAttack(_theHeroes[2]);
                 }
                 else if (rBtn_Hero3Defend.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[2].getName() + " used defend");
+                    await Task.Delay(400);
                     defend(_theHeroes[2]);
 
                 }
                 else if (rBtn_Hero3Special.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[2].getName() + " used special attack");
-                    specialMove(_theHeroes[2], 2);
+
+                    await Task.Delay(400);
+
+                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[2], 2)))
+                    {
+                        Foreground = _theHeroes[2].getTextColor()
+                    });
+                    paragraph.Inlines.Add(new LineBreak());
                 }
                 else if (rBtn_Hero3Item.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[2].getName() + " used item");
+                    await Task.Delay(400);
+
+                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[2].getName() + " used item"))
+                    {
+                        Foreground = _theHeroes[2].getTextColor()
+                    });
+
+                    paragraph.Inlines.Add(new LineBreak());
                 }
             }
             //----------------------------------------//
@@ -340,22 +461,33 @@ namespace DungeonFinal
             {
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[3].getName() + " used basic attack");
-                    normalAttack(_theHeroes[3], _TheSwarm[1]);
+                    await Task.Delay(400);
+                    normalAttack(_theHeroes[3]);
                 }
                 else if (rBtn_Hero4Defend.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[3].getName() + " used defend");
+                    await Task.Delay(400);                    
                     defend(_theHeroes[3]);
                 }
                 else if (rBtn_Hero4Special.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[3].getName() + " used special attack");
-                    specialMove(_theHeroes[3], 3);
+                    await Task.Delay(400);
+
+                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[3], 3)))
+                    {
+                        Foreground = _theHeroes[3].getTextColor()
+                    });
+                    paragraph.Inlines.Add(new LineBreak());
                 }
                 else if (rBtn_Hero4Item.IsChecked == true)
                 {
-                    MessageBox.Show(_theHeroes[3].getName() + " used item");
+                    await Task.Delay(400);
+
+                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[3].getName() + " used item"))
+                    {
+                        Foreground = _theHeroes[3].getTextColor()
+                    });
+                    paragraph.Inlines.Add(new LineBreak());
                 }
             }
             //--------------Hero's have had their say... IT'S MONSTA TIME.---------------//
@@ -363,10 +495,13 @@ namespace DungeonFinal
             foreach(Monster m in _TheSwarm)
             {
                 monstCtr++;
+
+                await Task.Delay(400);
+
                 if (m.getIsDefeated() != true)
                 {
-                    MessageBox.Show("Monster " + monstCtr +" Attacked!");
-                    monsterAttack(_theHeroes[0], _TheSwarm[1]);
+                    
+                    monsterAttack(m);
                     checkForDefeatedUnit();
                 }
             }
@@ -453,11 +588,10 @@ namespace DungeonFinal
             checkReady();
         }
 
-        private void tb_eventFeed_TextChanged(object sender, TextChangedEventArgs e)
+        private void rtb_testBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            tb_eventFeed.ScrollToEnd();
+            rtb_testBox.ScrollToEnd();
         }
-
 
         //End Event Handlers
     }
