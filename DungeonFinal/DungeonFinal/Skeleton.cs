@@ -107,9 +107,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Skeleton();
+            Monster newMon = new Skeleton();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

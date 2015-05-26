@@ -20,7 +20,7 @@ namespace DungeonFinal
        //DVC - Level 1
         public VampireBat()
         {
-            setName("VampireBat");
+            setName("Vampire Bat");
             setBaseHealth(100);
             setCurHealth(100);
             setMaxHealth(100);
@@ -107,9 +107,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new VampireBat();
+            Monster newMon = new VampireBat();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

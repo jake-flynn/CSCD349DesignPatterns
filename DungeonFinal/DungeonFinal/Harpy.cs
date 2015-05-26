@@ -119,9 +119,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Harpy();
+            Monster newMon = new Harpy();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

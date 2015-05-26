@@ -47,8 +47,8 @@ namespace DungeonFinal
 
             for (int m = 0; m < 6; m++)
             {
-                _TheSwarm[m] = (Monster)_PrototypeMonster.Clone(); //PLANNED: I can get each monster to have its own name if I change clone so that it takes an int.  
-            }                                                      //Then I can just pass in what is currently m + 1 in this loop to give them appropriate numbers in their names.
+                _TheSwarm[m] = (Monster)_PrototypeMonster.Clone(m + 1);   
+            }                                                      
 
             //_TheSwarm[0] = new Insect();
             //_TheSwarm[1] = new Insect();

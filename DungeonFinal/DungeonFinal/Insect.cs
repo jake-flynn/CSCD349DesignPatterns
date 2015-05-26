@@ -109,9 +109,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Insect();
+            Monster newMon = new Insect();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

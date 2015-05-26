@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Werewolf : Monster, ICloneable
+    class Werewolf : Monster
     {
 
        //DVC - Level 2
@@ -118,9 +118,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Werewolf();
+            Monster newMon = new Werewolf();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

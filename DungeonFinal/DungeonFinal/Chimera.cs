@@ -146,9 +146,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Chimera();
+            Monster newMon = new Chimera();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }
