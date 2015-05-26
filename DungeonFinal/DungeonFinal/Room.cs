@@ -13,7 +13,7 @@ namespace DungeonFinal
         private bool _IsExit;
         private Monster M;
         private bool hasAMonster;
-        private bool monsterDefeated;
+        //private bool monsterDefeated;
 
         public bool hasMonster()
         {
@@ -24,7 +24,7 @@ namespace DungeonFinal
         {
             this.M = newMon;
             this.hasAMonster = true;
-            this.monsterDefeated = false;
+            //this.monsterDefeated = false;
           
         }
 
@@ -35,7 +35,7 @@ namespace DungeonFinal
 
         public void defeatedMonster()
         {
-            monsterDefeated = true;
+            //monsterDefeated = true;
             hasAMonster = false;
         }
 

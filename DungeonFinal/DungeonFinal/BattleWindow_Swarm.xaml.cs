@@ -152,23 +152,23 @@ namespace DungeonFinal
                     }
                     if (_TheSwarm[1].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster2.Opacity = 0.4;
                     }
                     if (_TheSwarm[2].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster3.Opacity = 0.4;
                     }
                     if (_TheSwarm[3].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster4.Opacity = 0.4;
                     }
                     if (_TheSwarm[4].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster5.Opacity = 0.4;
                     }
                     if (_TheSwarm[5].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster6.Opacity = 0.4;
                     }
                 }
             }
@@ -244,7 +244,7 @@ namespace DungeonFinal
             return toReturn;
         }
 
-        private async void monsterAttack(Monster mon) //Monster attacks!
+        private void monsterAttack(Monster mon) //Monster attacks!
         {
             
             Hero hero = mon.FindTarget(_theParty);

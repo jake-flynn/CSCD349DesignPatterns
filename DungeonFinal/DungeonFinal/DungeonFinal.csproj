@@ -56,7 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Battle.cs" />
     <Compile Include="BattleWindow.xaml.cs">
       <DependentUpon>BattleWindow.xaml</DependentUpon>
     </Compile>
@@ -73,7 +72,6 @@
       <DependentUpon>ChoiceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Curse.cs" />
-    <Compile Include="GameCharacter.cs" />
     <Compile Include="Chimera.cs" />
     <Compile Include="Cleric.cs" />
     <Compile Include="Cockatrice.cs" />
