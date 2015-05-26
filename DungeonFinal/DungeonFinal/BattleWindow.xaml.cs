@@ -166,6 +166,12 @@ namespace DungeonFinal
             if (heroDamage < 0)
                 heroDamage = 0;
 
+            paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used basic attack for: " + heroDamage + " damage"))//EVENTUALLY, I want to say which monster got attacked, in the swarm window.
+            {
+                Foreground = hero.getTextColor()
+            });
+            paragraph.Inlines.Add(new LineBreak());
+
             mon.setCurHealth(mon.getCurHealth() - heroDamage);
             updateVisuals();
 
@@ -189,7 +195,7 @@ namespace DungeonFinal
             var randomGeneratedNumber = new Random();
             int randSpecial = randomGeneratedNumber.Next(10) + 1;
 
-            if (randSpecial == 1 || randSpecial == 2)
+            if (randSpecial <= mon.getSpecialAttackFrequency())
             {                
                 
 
@@ -296,14 +302,6 @@ namespace DungeonFinal
                 {
                     
                     await Task.Delay(10);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used basic attack for: " + _theHeroes[0].BasicAttack() + " damage"))
-                    {
-                        Foreground = _theHeroes[0].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-                    
-
                     normalAttack(_theHeroes[0], _monster);
                 }
                 else if (rBtn_Hero1Defend.IsChecked == true)
@@ -352,13 +350,6 @@ namespace DungeonFinal
                 if (rBtn_Hero2Attack.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[1].getName() + " used basic attack for: " + _theHeroes[1].BasicAttack() + " damage"))
-                    {
-                        Foreground = _theHeroes[1].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-                    
                     normalAttack(_theHeroes[1], _monster);
                 }
                 else if (rBtn_Hero2Defend.IsChecked == true)
@@ -404,13 +395,6 @@ namespace DungeonFinal
                 {
                     
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[2].getName() + " used basic attack for: " + _theHeroes[2].BasicAttack() + " damage"))
-                    {
-                        Foreground = _theHeroes[2].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-                    
                     normalAttack(_theHeroes[2], _monster);
                 }
                 else if (rBtn_Hero3Defend.IsChecked == true)
@@ -457,13 +441,6 @@ namespace DungeonFinal
                 if (rBtn_Hero4Attack.IsChecked == true)
                 {                    
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[3].getName() + " used basic attack for: " + _theHeroes[3].BasicAttack() + " damage"))
-                    {
-                        Foreground = _theHeroes[3].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-                    
                     normalAttack(_theHeroes[3], _monster);
                 }
                 else if (rBtn_Hero4Defend.IsChecked == true)

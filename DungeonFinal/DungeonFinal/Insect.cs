@@ -38,6 +38,7 @@ namespace DungeonFinal
             setModDefense(7);
             setBaseResistance(6);
             setModResistance(6);
+            setSpecialAttackFrequency(3);
 
             setIsPhysical(true);
             setIsDefeated(false);
