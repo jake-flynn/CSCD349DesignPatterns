@@ -19,10 +19,33 @@ namespace DungeonFinal
     /// </summary>
     public partial class ConsumableWindow : Window
     {
-        public ConsumableWindow()
+        Inventory _Inventory;
+        public ConsumableWindow(Inventory CurrentInventory)
         {
             InitializeComponent();
+            _Inventory = CurrentInventory;
+            lbl_item1.Content = _Inventory.findItemByIndex(0).getItemName();
+            lbl_item2.Content = _Inventory.findItemByIndex(1).getItemName();
+            lbl_item3.Content = _Inventory.findItemByIndex(2).getItemName();
+            lbl_item4.Content = _Inventory.findItemByIndex(3).getItemName();
+            lbl_item5.Content = _Inventory.findItemByIndex(4).getItemName();
+            lbl_item6.Content = _Inventory.findItemByIndex(5).getItemName();
+            lbl_item7.Content = _Inventory.findItemByIndex(6).getItemName();
+            lbl_item8.Content = _Inventory.findItemByIndex(7).getItemName();
+            lbl_item9.Content = _Inventory.findItemByIndex(8).getItemName();
+            lbl_item10.Content = _Inventory.findItemByIndex(9).getItemName();
+            lbl_item11.Content = _Inventory.findItemByIndex(10).getItemName();
+            lbl_item12.Content = _Inventory.findItemByIndex(11).getItemName();
+            lbl_item13.Content = _Inventory.findItemByIndex(12).getItemName();
+            lbl_item14.Content = _Inventory.findItemByIndex(13).getItemName();
+            lbl_item15.Content = _Inventory.findItemByIndex(14).getItemName();
+            lbl_item16.Content = _Inventory.findItemByIndex(15).getItemName();
+            lbl_item17.Content = _Inventory.findItemByIndex(16).getItemName();
+            lbl_item18.Content = _Inventory.findItemByIndex(17).getItemName();
+            lbl_item19.Content = _Inventory.findItemByIndex(18).getItemName();
+            lbl_item20.Content = _Inventory.findItemByIndex(19).getItemName();
         }
+
 
         //start methods
         public void updateVisuals()
@@ -33,104 +56,104 @@ namespace DungeonFinal
 
         //end methods
 
-        private void btn_item1_Click(object sender, RoutedEventArgs e)
+        private int btn_item1_Click(object sender, RoutedEventArgs e)
         {
-
+            return 0;
         }
 
-        private void btn_item2_Click(object sender, RoutedEventArgs e)
+        private int btn_item2_Click(object sender, RoutedEventArgs e)
         {
-
+            return 1;
         }
 
-        private void btn_item3_Click(object sender, RoutedEventArgs e)
+        private int btn_item3_Click(object sender, RoutedEventArgs e)
         {
-
+            return 2;
         }
 
-        private void btn_item4_Click(object sender, RoutedEventArgs e)
+        private int btn_item4_Click(object sender, RoutedEventArgs e)
         {
-
+            return 3;
         }
 
-        private void btn_item5_Click(object sender, RoutedEventArgs e)
+        private int btn_item5_Click(object sender, RoutedEventArgs e)
         {
-
+            return 4;
         }
 
-        private void btn_item6_Click(object sender, RoutedEventArgs e)
+        private int btn_item6_Click(object sender, RoutedEventArgs e)
         {
-
+            return 5;
         }
 
-        private void btn_item7_Click(object sender, RoutedEventArgs e)
+        private int btn_item7_Click(object sender, RoutedEventArgs e)
         {
-
+            return 6;
         }
 
-        private void btn_item8_Click(object sender, RoutedEventArgs e)
+        private int btn_item8_Click(object sender, RoutedEventArgs e)
         {
-
+            return 7;
         }
 
-        private void btn_item9_Click(object sender, RoutedEventArgs e)
+        private int btn_item9_Click(object sender, RoutedEventArgs e)
         {
-
+            return 8;
         }
 
-        private void btn_item10_Click(object sender, RoutedEventArgs e)
+        private int btn_item10_Click(object sender, RoutedEventArgs e)
         {
-
+            return 9;
         }
 
-        private void btn_item11_Click(object sender, RoutedEventArgs e)
+        private int btn_item11_Click(object sender, RoutedEventArgs e)
         {
-
+            return 10;
         }
 
-        private void btn_item12_Click(object sender, RoutedEventArgs e)
+        private int btn_item12_Click(object sender, RoutedEventArgs e)
         {
-
+            return 11;
         }
 
-        private void btn_item13_Click(object sender, RoutedEventArgs e)
+        private int btn_item13_Click(object sender, RoutedEventArgs e)
         {
-
+            return 12;
         }
 
-        private void btn_item14_Click(object sender, RoutedEventArgs e)
+        private int btn_item14_Click(object sender, RoutedEventArgs e)
         {
-
+            return 13;
         }
 
-        private void btn_item15_Click(object sender, RoutedEventArgs e)
+        private int btn_item15_Click(object sender, RoutedEventArgs e)
         {
-
+            return 14;
         }
 
-        private void btn_item16_Click(object sender, RoutedEventArgs e)
+        private int btn_item16_Click(object sender, RoutedEventArgs e)
         {
-
+            return 15;
         }
 
-        private void btn_item17_Click(object sender, RoutedEventArgs e)
+        private int btn_item17_Click(object sender, RoutedEventArgs e)
         {
-
+            return 16;
         }
 
-        private void btn_item18_Click(object sender, RoutedEventArgs e)
+        private int btn_item18_Click(object sender, RoutedEventArgs e)
         {
-
+            return 17;
         }
 
-        private void btn_item19_Click(object sender, RoutedEventArgs e)
+        private int btn_item19_Click(object sender, RoutedEventArgs e)
         {
-
+            return 18;
         }
 
-        private void btn_item20_Click(object sender, RoutedEventArgs e)
+        private int btn_item20_Click(object sender, RoutedEventArgs e)
         {
-
+            return 19;
         }
     }
 }
