@@ -24,7 +24,7 @@ namespace DungeonFinal
             _hero.setModMagic(_hero.getModMagic() + _effect.getMagicValue());
             _hero.setModDefense(_hero.getModDefense() + _effect.getPhysicalDefenseValue());
             _hero.setModResistance(_hero.getModResistance() + _effect.getResistanceDefenseValue());
-            return _effect.getEffectName() + _hero.getName() + " by " +_effect.getEffectAmount();
+            return _hero.getName() + " used " + this.getItemName() + ", " + _effect.getEffectName() + _effect.getEffectAmount();
         }  
 
         public void unUse(Hero _hero)

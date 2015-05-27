@@ -15,7 +15,7 @@ namespace DungeonFinal
             _effect = new ItemsEffect();
             this.setItemName("Health Potion");
             this.setConsumable(true);
-            _effect.setEffectName("Heals a single character by");
+            _effect.setEffectName("Heals by ");
             _effect.setEffectAmount(20);
             _effect.setHealthValue(20);
             this.setEffect(_effect);
