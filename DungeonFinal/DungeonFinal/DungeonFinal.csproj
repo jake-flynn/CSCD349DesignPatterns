@@ -130,6 +130,10 @@
     <Compile Include="RuneOfHope.cs" />
     <Compile Include="RuneOfTranquility.cs" />
     <Compile Include="Shade.cs" />
+    <Compile Include="SimpleAxe.cs" />
+    <Compile Include="SimpleDagger.cs" />
+    <Compile Include="SimpleStaff.cs" />
+    <Compile Include="SimpleSword.cs" />
     <Compile Include="Skeleton.cs" />
     <Compile Include="Slime.cs" />
     <Compile Include="SpecialAttackBehavior.cs" />
