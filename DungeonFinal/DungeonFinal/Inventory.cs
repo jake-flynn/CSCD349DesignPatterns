@@ -8,8 +8,17 @@ namespace DungeonFinal
 {
     class Inventory
     {
-        InventoryItem[] _inventory = new InventoryItem[20];
-        int _invNextFreeIndex = 0;
+        InventoryItem[] _inventory;
+        int _invNextFreeIndex;
+
+        public Inventory()
+        {
+            _inventory = new InventoryItem[20];
+            _invNextFreeIndex = 0;
+            Item item = new PotionOfHealth();
+            this.add(item);
+        }
+        
 
         public InventoryItem find(String _name)
         {

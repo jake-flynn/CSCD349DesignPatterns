@@ -8,38 +8,40 @@ namespace DungeonFinal
 {
     public class Party
     {
-        private Hero[] dungeonParty;
-        private int currentPartyMembers;
+        private Hero[] _dungeonParty;
+        private int _currentPartyMembers;
+        private Inventory _inventory;
 
         public Party()
         {
-            dungeonParty = new Hero[4];
-            currentPartyMembers = 0;
+            _dungeonParty = new Hero[4];
+            _currentPartyMembers = 0;
+            _inventory = new Inventory();
         }
 
         public void addHero(Hero toAdd)
         {
-            if(currentPartyMembers < 4)
+            if(_currentPartyMembers < 4)
             {
-                dungeonParty[currentPartyMembers] = toAdd;
-                currentPartyMembers++;
+                _dungeonParty[_currentPartyMembers] = toAdd;
+                _currentPartyMembers++;
             }
         }
 
         public Hero[] getHeros()
         {
-            return dungeonParty;
+            return _dungeonParty;
         }
 
         public void setHeros(Hero[] newParty)
         {
-            dungeonParty = newParty;
-            currentPartyMembers = 4;
+            _dungeonParty = newParty;
+            _currentPartyMembers = 4;
         }
 
         public int getCurrentPartyMembers()
         {
-            return currentPartyMembers;
+            return _currentPartyMembers;
         }
     }
 }
