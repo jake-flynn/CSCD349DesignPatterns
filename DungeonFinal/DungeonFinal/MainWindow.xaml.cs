@@ -196,7 +196,7 @@ namespace DungeonFinal
         public void SwarmBattle(Monster m, Party heros)
         {
             MessageBox.Show("Your Party enters the room...\r\n" +
-                "And you are ambushed by a horde of " + m.getName() + " that fill the room!\r\n" +
+                "And you are ambushed by a horde of " + m.getName() + "s that fill the room!\r\n" +
                 "Completely surrounded, you party prepares for a hard fight...");
 
             var bw = new BattleWindow_Swarm(m, heros);

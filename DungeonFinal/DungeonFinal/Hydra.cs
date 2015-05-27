@@ -38,6 +38,7 @@ namespace DungeonFinal
             setModDefense(35);
             setBaseResistance(10);
             setModResistance(10);
+            setSpecialAttackFrequency(3);
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -144,9 +145,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Hydra();
+            Monster newMon = new Hydra();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

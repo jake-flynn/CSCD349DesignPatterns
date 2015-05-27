@@ -64,7 +64,7 @@ namespace DungeonFinal
             foreach (Hero h in party)
             {
 
-                h.setCurHealth(h.getCurHealth() + h.getModMagic());
+                h.setCurHealth(h.getCurHealth() + getModMagic());
                 h.setModStrength(h.getBaseStrength());
                 h.setModMagic(h.getBaseMagic());
                 h.setModDefense(h.getBaseDefense());
@@ -100,6 +100,11 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-J6UohVY0-2Y/VV7poKYTrEI/AAAAAAAAAws/Xmdq1-qREdI/w506-h900/Cleric.jpg"));
             imgBrush.ImageSource = image;
             return imgBrush;
+        }
+
+        public override Brush getTextColor()
+        {
+            return Brushes.Purple;
         }
     }
 }

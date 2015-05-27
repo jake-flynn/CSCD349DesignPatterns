@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -26,13 +25,22 @@ namespace DungeonFinal
         Rectangle[,] EastDoors = new Rectangle[6, 6];
         Rectangle[,] SouthDoors = new Rectangle[6, 6];
         Rectangle[,] WestDoors = new Rectangle[6, 6];
+
+        
         
 
         public Map(Room[,] r, int[,] v, int X, int Y)
         {
             InitializeComponent();
-            
-            
+
+            ImageBrush brushRoom = new ImageBrush();
+            BitmapImage room = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-leEjej7SaL4/VQa3h-QaegI/AAAAAAAAAqQ/YKS1YvvMQyw/w506-h532/room%2Btest.jpg"));
+            brushRoom.ImageSource = room;
+
+            rect_VisitedRoom.Fill = brushRoom;
+            rect_VisitedRoom.Opacity = 0.5;
+            rect_CurrentRoom.Fill = brushRoom;
+
 
             //build rooms rectangle array
             BuildRoomsRectangleArray();
@@ -46,7 +54,7 @@ namespace DungeonFinal
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    rooms[i,j].Fill = new SolidColorBrush(Colors.Blue);
+                    rooms[i,j].Fill = new SolidColorBrush(Colors.Black);
                     NorthDoors[i, j].Fill = new SolidColorBrush(Colors.Gray);
                     EastDoors[i, j].Fill = new SolidColorBrush(Colors.Gray);
                     WestDoors[i, j].Fill = new SolidColorBrush(Colors.Gray);
@@ -289,16 +297,23 @@ namespace DungeonFinal
 
         public void PaintRoomsAndDoors(Room[,] r,int[,] v, int curRow, int curCol)
         {
+
+            ImageBrush brushRoom = new ImageBrush();
+            BitmapImage room = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-leEjej7SaL4/VQa3h-QaegI/AAAAAAAAAqQ/YKS1YvvMQyw/w506-h532/room%2Btest.jpg"));
+            brushRoom.ImageSource = room;
+
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
                     if (v[i, j] == 1)
                     {
-                        rooms[i, j].Fill = new SolidColorBrush(Colors.Red);
+                        rooms[i, j].Fill = brushRoom;
+                        rooms[i, j].Opacity = 0.5;
                         if (v[i, j] == 1 && i == curRow && j == curCol)
                         {
-                            rooms[i, j].Fill = new SolidColorBrush(Colors.Green);
+                            rooms[i, j].Fill = brushRoom;
+                            rooms[i, j].Opacity = 1;
                         }
                         
                         if (!r[i, j].GetNorthDoor().CanPass())

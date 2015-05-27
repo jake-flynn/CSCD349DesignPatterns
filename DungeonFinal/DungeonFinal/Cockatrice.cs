@@ -39,6 +39,7 @@ namespace DungeonFinal
             setModDefense(12);
             setBaseResistance(12);
             setModResistance(12);
+            setSpecialAttackFrequency(3);
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -119,9 +120,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Cockatrice();
+            Monster newMon = new Cockatrice();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

@@ -62,6 +62,7 @@ namespace DungeonFinal
         {
             int dmg = (int)(getModStrength() * 2.5);
             setCurMana(getCurMana() - 15);
+            mon.setCurHealth(mon.getCurHealth() - dmg);
             return(getName() + " performed Throw Knives for " + dmg + " damage!");
         }
 
@@ -90,6 +91,11 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-GqQ6Ja-aahk/VV7qAx0PD8I/AAAAAAAAA0E/tguBh4geous/w506-h647/Rogue.jpg"));
             imgBrush.ImageSource = image;
             return imgBrush;
+        }
+
+        public override Brush getTextColor()
+        {
+            return Brushes.Gray;
         }
     }
 }

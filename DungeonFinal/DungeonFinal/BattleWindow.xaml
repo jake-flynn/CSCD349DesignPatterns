@@ -1,12 +1,11 @@
 ﻿<Window x:Class="DungeonFinal.BattleWindow"
         WindowStartupLocation="CenterScreen"
         BorderBrush="Black"
-        
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="BattleWindow" Height="750" Width="880" WindowState="Maximized" 
         >
-    <Grid Background="SlateGray">
+    <Grid Background="SeaGreen">
         <Rectangle x:Name="rect_hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="51,261,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" />
         <Rectangle x:Name="rect_hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="202,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
         <Rectangle x:Name="rect_hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="525,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
@@ -55,10 +54,10 @@
         <ProgressBar x:Name="prgBar_Monster" HorizontalAlignment="Left" Height="10" Margin="325,358,0,0" VerticalAlignment="Top" Width="200" Background="Crimson" Foreground="DarkGreen"/>
 
 
-        <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="51,245,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="202,453,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="525,456,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
-        <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="710,246,0,0" VerticalAlignment="Top" Width="100" Background="SlateGray" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="51,245,0,0" VerticalAlignment="Top" Width="100" Background="Black" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="202,453,0,0" VerticalAlignment="Top" Width="100" Background="Black" Foreground="DarkBlue"/>
+        <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="525,456,0,0" VerticalAlignment="Top" Width="100" Background="Black" Foreground="Black"/>
+        <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="710,246,0,0" VerticalAlignment="Top" Width="100" Background="Black" Foreground="Black"/>
 
 
         <Label x:Name="lbl_monsterHealthNumbers" Content="500/500" HorizontalAlignment="Left" Margin="525,350,0,0" VerticalAlignment="Top" Width="69"/>
@@ -83,7 +82,13 @@
         <Label x:Name="lbl_Hero4_mana" Content="Mana:" HorizontalAlignment="Left" Margin="668,235,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lbl_Monster_health" Content="Monster Health:" HorizontalAlignment="Left" Margin="230,350,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="tb_eventFeed" HorizontalAlignment="Left" Height="163" Margin="604,18,0,0" TextWrapping="Wrap" Text="Battle log:" VerticalAlignment="Top" Width="258" ScrollViewer.CanContentScroll="True" TextChanged="tb_eventFeed_TextChanged" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+        <RichTextBox x:Name="rtb_testBox" HorizontalAlignment="Left" Height="184" Margin="604,10,0,0" VerticalAlignment="Top" Width="258" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" TextChanged="rtb_testBox_TextChanged">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
 
 
 

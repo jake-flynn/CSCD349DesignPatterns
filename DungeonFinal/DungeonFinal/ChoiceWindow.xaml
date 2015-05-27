@@ -1,0 +1,27 @@
+﻿<Window x:Class="DungeonFinal.ChoiceWindow"
+        WindowStartupLocation="CenterScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ChoiceWindow" Height="300" Width="300">
+    <Grid Background="Gainsboro">
+
+        <TextBox x:Name="tb_Heroes" HorizontalAlignment="Left" Height="24" Margin="21,14,0,0" TextWrapping="Wrap" Text="Heroes:" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
+        <TextBox x:Name="tb_Monsters" HorizontalAlignment="Left" Height="24" Margin="149,14,0,0" TextWrapping="Wrap" Text="Monsters:" VerticalAlignment="Top" Width="100" IsReadOnly="True"/>
+
+        <Button x:Name="btn_SelectHero1" Content="Hero 1" HorizontalAlignment="Left" Margin="21,57,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectHero1_Click" Height="25" IsEnabled="True"/>
+        <Button x:Name="btn_SelectHero2" Content="Hero 2" HorizontalAlignment="Left" Margin="21,87,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectHero2_Click" Height="25" IsEnabled="True"/>
+        <Button x:Name="btn_SelectHero3" Content="Hero 3" HorizontalAlignment="Left" Margin="21,117,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectHero3_Click" Height="25" IsEnabled="True"/>
+        <Button x:Name="btn_SelectHero4" Content="Hero 4" HorizontalAlignment="Left" Margin="21,147,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectHero4_Click" Height="25" IsEnabled="True"/>
+
+        <Button x:Name="btn_SelectMonster1" Content="Monster 1" HorizontalAlignment="Left" Margin="149,57,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectMonster1_Click" Height="25" IsEnabled="True"/>
+        <Button x:Name="btn_SelectMonster2" Content="Monster 2" HorizontalAlignment="Left" Margin="149,87,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectMonster2_Click" Height="25" IsEnabled="True"/>
+        <Button x:Name="btn_SelectMonster3" Content="Monster 3" HorizontalAlignment="Left" Margin="149,117,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectMonster3_Click" Height="25" IsEnabled="True"/>
+        <Button x:Name="btn_SelectMonster4" Content="Monster 4" HorizontalAlignment="Left" Margin="149,147,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectMonster4_Click" Height="25" IsEnabled="True"/>
+        <Button x:Name="btn_SelectMonster5" Content="Monster 5" HorizontalAlignment="Left" Margin="149,177,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectMonster5_Click" Height="25" IsEnabled="True"/>
+        <Button x:Name="btn_SelectMonster6" Content="Monster 6" HorizontalAlignment="Left" Margin="149,207,0,0" VerticalAlignment="Top" Width="78" Click="btn_SelectMonster6_Click" Height="25" IsEnabled="True"/>
+
+
+
+
+    </Grid>
+</Window>

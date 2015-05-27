@@ -38,6 +38,7 @@ namespace DungeonFinal
             setModDefense(10);
             setBaseResistance(0);
             setModResistance(0);
+            setSpecialAttackFrequency(3);
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -73,10 +74,12 @@ namespace DungeonFinal
         public override Hero FindTarget(Party p)
         {
             Hero[] party = p.getHeros();
-
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
-
+            Hero target = null;
+            do
+            {
+                int rnd = new Random().Next(1, party.Length);
+                target = party[rnd];
+            } while (target.getIsDefeated());
             return target;
         }
 
@@ -107,9 +110,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Imp();
+            Monster newMon = new Imp();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

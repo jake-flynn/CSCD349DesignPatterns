@@ -299,5 +299,6 @@ namespace DungeonFinal
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
         public abstract ImageBrush getBrush();
+        public abstract Brush getTextColor();
     }
 }

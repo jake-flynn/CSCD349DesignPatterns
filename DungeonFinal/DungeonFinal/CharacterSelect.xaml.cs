@@ -244,6 +244,7 @@ namespace DungeonFinal
         private void rbtn_Hero4_Rogue_Click(object sender, RoutedEventArgs e)
         {
             checkReady();
+            
         }
 
         public Party getPartyFromSelect()
