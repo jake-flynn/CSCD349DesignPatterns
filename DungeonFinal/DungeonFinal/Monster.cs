@@ -91,20 +91,20 @@ namespace DungeonFinal
         }
         public void setCurHealth(int h)
         {
-            //if (h < 0)
-            //{
-            //    _CurHealth = 0;
-            //}
+            if (h < 0)
+            {
+                _CurHealth = 0;
+            }
             
             //else if (h > getMaxHealth())
             //{
             //    _CurHealth = getMaxHealth();
             //}
 
-            //else
-            //{
+            else
+            {
             _CurHealth = h;
-            //}
+            }
         }
         public int getMaxHealth()
         {
@@ -281,6 +281,7 @@ namespace DungeonFinal
         {
             _SpecialAttackFrequency = newFreq;
         }
+
 
 
         //------------------------------- Abstract Methods -------------------------------
