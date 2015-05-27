@@ -192,7 +192,13 @@ namespace DungeonFinal
         private void useItem(Hero hero)
         {
             Item itemToUse = _BattleInventory.findItem(0);
-            itemToUse.use(hero);
+            string resultString = itemToUse.use(hero);
+
+            paragraph.Inlines.Add(new Bold(new Run(resultString))
+            {
+                Foreground = _theHeroes[0].getTextColor()
+            });
+            paragraph.Inlines.Add(new LineBreak());
         }
 
         private async void monsterAttack() //Monster attacks!
@@ -344,12 +350,6 @@ namespace DungeonFinal
                     await Task.Delay(10);
 
                     //testing rich text box
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used item"))
-                    {
-                        Foreground = _theHeroes[0].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-
                     useItem(_theHeroes[0]);
                     
                 }
