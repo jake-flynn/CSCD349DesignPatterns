@@ -13207,6 +13207,47 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="e4574f72-b150-4db0-9683-d66366a0815e"
+            isDerived="false"
+            sourceEndRoleName="Party"
+            targetEndRoleName="Hero"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="769ae98b-08d3-4892-95e1-796b16af0b61"
+              LastKnownName="Hero"
+              LastKnownLocation="Package_1955.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="eff4e302-b297-499e-a17b-a3e9de5bb8b8"
+                  name="Party"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="536208e4-02c8-4909-97f5-e6395e400fbe"
+                  name="Hero"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="aaee2539-df7b-4a66-998b-1f90339230d9"
@@ -20362,6 +20403,47 @@
               LastKnownLocation="Package2_1955.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="61a70665-9c25-478a-b27c-4daf8083354e"
+            isDerived="false"
+            sourceEndRoleName="CharacterSelect"
+            targetEndRoleName="Party"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="701930c6-2391-4636-bb17-9abfa33ba38c"
+              LastKnownName="Party"
+              LastKnownLocation="Package_1955.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2309b31b-eb8b-4711-bd14-1096a1713caf"
+                  name="CharacterSelect"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a35a1ecd-3f5b-4ca1-9047-9d709a871da7"
+                  name="Party"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="10a17ac0-6650-4d9b-8a59-750a03038fa6"
@@ -38072,6 +38154,47 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="333de58d-ed23-43dd-a290-4621d8a1baf3"
+            isDerived="false"
+            sourceEndRoleName="ItemsEffect"
+            targetEndRoleName="Item"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="0b6b41db-fa50-450d-8a0e-37f8ff88739e"
+              LastKnownName="Item"
+              LastKnownLocation="Package_1955.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ec2daa96-a37e-4d06-8025-e6fca84edfbd"
+                  name="ItemsEffect"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fffdcacb-531e-4956-b641-958df499e111"
+                  name="Item"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="ccdd72e1-193b-478f-93af-95c6da3fee1e"
@@ -40028,6 +40151,123 @@
                 <memberEnd
                   Id="1d656bfe-66fa-4094-9b1e-b1dbbfa38c65"
                   name="BattleWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f5a752c3-dd2f-4f54-9802-df0c9997530f"
+            isDerived="false"
+            sourceEndRoleName="MainWindow"
+            targetEndRoleName="Map"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="0ca7ff90-531f-41e4-b0b0-f9c13338c231"
+              LastKnownName="Map"
+              LastKnownLocation="Package_1955.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e380f95f-4226-4839-b1db-c0509c698b86"
+                  name="MainWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7e4874ca-a36e-4de7-9567-b21adff8af58"
+                  name="Map"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ca132a6e-4025-47a2-929e-5f651fd1cde4"
+            isDerived="false"
+            sourceEndRoleName="MainWindow"
+            targetEndRoleName="CharacterSelect"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="82b002be-2a88-4d3e-8bb3-8014a4d444ce"
+              LastKnownName="CharacterSelect"
+              LastKnownLocation="Package_1955.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6c79b288-9a73-441d-9824-4ec6cce27659"
+                  name="MainWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9b38662a-ab4b-4783-80ff-ec3c8878fabc"
+                  name="CharacterSelect"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9b4d5f83-2e79-4fcc-b1b8-a9bf148937fa"
+            isDerived="false"
+            sourceEndRoleName="MainWindow"
+            targetEndRoleName="Party"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="701930c6-2391-4636-bb17-9abfa33ba38c"
+              LastKnownName="Party"
+              LastKnownLocation="Package_1955.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ab38c29f-6560-431f-8497-80198e85a585"
+                  name="MainWindow"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2df11fb0-de54-4992-a983-f36d24dfcc00"
+                  name="Party"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"

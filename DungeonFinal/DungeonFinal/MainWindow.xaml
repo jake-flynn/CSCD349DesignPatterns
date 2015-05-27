@@ -41,7 +41,7 @@
         <Label x:Name="lbl_MonstersSeen" Content="Monsters Encountered" HorizontalAlignment="Left" Margin="314,118,0,0" VerticalAlignment="Top"/>
         
         <Button x:Name="btn_viewMap" Content="View Map" HorizontalAlignment="Left" Margin="66,102,0,0" VerticalAlignment="Top" Width="122" IsEnabled="False" Click="btn_viewMap_Click" Height="39"/>
-        <Button x:Name="btn_newGameNoSelect" Content="New Game no char select" HorizontalAlignment="Left" Margin="26,307,0,0" VerticalAlignment="Top" Width="315" Height="134" Click="btn_newGameNoSelect_Click" />
+        <Button x:Name="btn_newGameNoSelect" Content="New Game no char select" HorizontalAlignment="Left" Margin="26,307,0,0" VerticalAlignment="Top" Width="315" Height="134" Visibility="Hidden" Click="btn_newGameNoSelect_Click" />
 
     </Grid>
 </Window>

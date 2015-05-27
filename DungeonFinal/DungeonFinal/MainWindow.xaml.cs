@@ -154,6 +154,11 @@ namespace DungeonFinal
                 }
             }
             
+            //adding stu as a monster for sure and insect into second room
+            settingMonstersInRooms[0, 1].setMonster(new Insect());
+            settingMonstersInRooms[0, 3].setMonster(new StuBeast());
+
+
             monsterToAdd = mazePopulator.createMonster(4); //Random boss created
             settingMonstersInRooms[difficulty-1, difficulty-1].setMonster(monsterToAdd);
             maze.SetRooms(settingMonstersInRooms);
