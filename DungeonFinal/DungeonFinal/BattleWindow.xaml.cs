@@ -87,7 +87,7 @@ namespace DungeonFinal
         
         public void checkForDefeatedUnit() //Checks to see if a hero or monster has been slain
         {
-            if (_monster.getCurHealth() <= 0)
+            if (_monster.getCurHealth() <= 0)//This method will also check for revived units as soon as an item is used.
             {
                 MessageBox.Show(_monster.getName() + " was slain!!!");
 
@@ -99,7 +99,7 @@ namespace DungeonFinal
             {
                 if (h.getCurHealth() <= 0 && h.getIsDefeated() != true)
                 {
-                    h.setIsDefeated(true);//make sure monsters do proper damage, then find targets
+                    h.setIsDefeated(true);
                     MessageBox.Show(h.getName() + " gasps a final ragged breath, then falls.");
                     
                     if (_theHeroes[0].getIsDefeated())
@@ -191,7 +191,8 @@ namespace DungeonFinal
 
         private void useItem(Hero hero)
         {
-            Item itemToUse = _BattleInventory.findItemByIndex(0);
+            int choiceFromConsumableWindow = 0;
+            Item itemToUse = _BattleInventory.findItemByIndex(choiceFromConsumableWindow);
             string resultString = itemToUse.use(hero);
 
             paragraph.Inlines.Add(new Bold(new Run(resultString))
@@ -199,6 +200,8 @@ namespace DungeonFinal
                 Foreground = _theHeroes[0].getTextColor()
             });
             paragraph.Inlines.Add(new LineBreak());
+            //_BattleInventory.remove(choiceFromConsumableWindow);
+
         }
 
         private async void monsterAttack() //Monster attacks!
@@ -212,8 +215,6 @@ namespace DungeonFinal
 
             if (randSpecial <= mon.getSpecialAttackFrequency())
             {                
-                
-
                 paragraph.Inlines.Add(new Bold(new Run(_monster.PerformSpecialAttack(_theParty, 0, _monster)))
                 {
                     Foreground = Brushes.Red
