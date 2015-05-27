@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class PotionOfHealth : Item
+    class LeatherHelmet : Item
     {
         ItemsEffect _effect;
 
-        public PotionOfHealth()
+        public LeatherHelmet()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Health Potion");
-            this.setConsumable(true);
-            _effect.setEffectName("Heals by ");
-            _effect.setEffectAmount(40);
-            _effect.setHealthValue(40);
+            this.setItemName("Leather Helmet");
+            this.setEquippable(true);
+            this.setSocketAmount(1);
+            _effect.setEffectName("A sturdy leather cap");
+            _effect.setPhysicalDefense(3);
             this.setEffect(_effect);
         }
     }

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    public abstract class Monster : ICloneable
+    public abstract class Monster
     {
         private string _Name;
 
@@ -37,6 +37,8 @@ namespace DungeonFinal
 
         private int _BaseResistance;
         private int _ModResistance;
+
+        private int _SpecialAttackFrequency; //This is an int between 1-10 that signifies how often a monster will use a special attack. E.G.: StuBeast always assigns homework.
 
         private Boolean _IsPhysical;
         private Boolean _IsDefeated;
@@ -89,20 +91,20 @@ namespace DungeonFinal
         }
         public void setCurHealth(int h)
         {
-            //if (h < 0)
-            //{
-            //    _CurHealth = 0;
-            //}
+            if (h < 0)
+            {
+                _CurHealth = 0;
+            }
             
             //else if (h > getMaxHealth())
             //{
             //    _CurHealth = getMaxHealth();
             //}
 
-            //else
-            //{
+            else
+            {
             _CurHealth = h;
-            //}
+            }
         }
         public int getMaxHealth()
         {
@@ -270,6 +272,17 @@ namespace DungeonFinal
             _IsSwarm = iS;
         }
 
+        public int getSpecialAttackFrequency()
+        {
+            return _SpecialAttackFrequency;
+        }
+
+        public void setSpecialAttackFrequency(int newFreq)
+        {
+            _SpecialAttackFrequency = newFreq;
+        }
+
+
 
         //------------------------------- Abstract Methods -------------------------------
         public abstract int BasicAttack();
@@ -278,6 +291,6 @@ namespace DungeonFinal
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
         public abstract ImageBrush getBrush();
-        public abstract Object Clone();
+        public abstract Object Clone(int count);
     }
 }

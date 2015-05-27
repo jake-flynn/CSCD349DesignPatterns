@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class PotionOfHealth : Item
+    class PotionOfDefense : Item
     {
         ItemsEffect _effect;
 
-        public PotionOfHealth()
+        public PotionOfDefense()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Health Potion");
+            this.setItemName("Defense Potion");
             this.setConsumable(true);
-            _effect.setEffectName("Heals by ");
-            _effect.setEffectAmount(40);
-            _effect.setHealthValue(40);
+            _effect.setEffectName("Enhances defense of ");
+            _effect.setPhysicalDefense(5);
+            _effect.setEffectAmount(5);
             this.setEffect(_effect);
         }
     }

@@ -47,8 +47,8 @@ namespace DungeonFinal
 
             for (int m = 0; m < 6; m++)
             {
-                _TheSwarm[m] = (Monster)_PrototypeMonster.Clone();
-            }
+                _TheSwarm[m] = (Monster)_PrototypeMonster.Clone(m + 1);   
+            }                                                      
 
             //_TheSwarm[0] = new Insect();
             //_TheSwarm[1] = new Insect();
@@ -152,23 +152,23 @@ namespace DungeonFinal
                     }
                     if (_TheSwarm[1].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster2.Opacity = 0.4;
                     }
                     if (_TheSwarm[2].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster3.Opacity = 0.4;
                     }
                     if (_TheSwarm[3].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster4.Opacity = 0.4;
                     }
                     if (_TheSwarm[4].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster5.Opacity = 0.4;
                     }
                     if (_TheSwarm[5].getIsDefeated())
                     {
-                        rect_monster1.Opacity = 0.4;
+                        rect_monster6.Opacity = 0.4;
                     }
                 }
             }
@@ -220,9 +220,9 @@ namespace DungeonFinal
             if (heroDamage < 0)
                 heroDamage = 0;
 
-            paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used basic attack for: " + heroDamage + " damage"))
+            paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used basic attack for: " + heroDamage + " damage"))
             {
-                Foreground = _theHeroes[0].getTextColor()
+                Foreground = hero.getTextColor()
             });
             paragraph.Inlines.Add(new LineBreak());
 
@@ -244,7 +244,7 @@ namespace DungeonFinal
             return toReturn;
         }
 
-        private async void monsterAttack(Monster mon) //Monster attacks!
+        private void monsterAttack(Monster mon) //Monster attacks!
         {
             
             Hero hero = mon.FindTarget(_theParty);
@@ -253,7 +253,7 @@ namespace DungeonFinal
             var randomGeneratedNumber = new Random();
             int randSpecial = randomGeneratedNumber.Next(10) + 1;
 
-            if (randSpecial == 1 || randSpecial == 2)
+            if (randSpecial <= mon.getSpecialAttackFrequency())
             {
                 
                 paragraph.Inlines.Add(new Bold(new Run(mon.PerformSpecialAttack(_theParty, 0, mon)))
@@ -307,7 +307,7 @@ namespace DungeonFinal
             hero.setIsDefending(true);
             paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used defend and is taking reduced damage this turn."))
             {
-                Foreground = _theHeroes[3].getTextColor()
+                Foreground = hero.getTextColor()
             });
             paragraph.Inlines.Add(new LineBreak());
         }

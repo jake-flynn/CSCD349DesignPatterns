@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Werewolf : Monster, ICloneable
+    class Werewolf : Monster
     {
 
        //DVC - Level 2
@@ -37,6 +37,7 @@ namespace DungeonFinal
             setModDefense(10);
             setBaseResistance(0);
             setModResistance(0);
+            setSpecialAttackFrequency(3);
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -117,9 +118,11 @@ namespace DungeonFinal
             return imgBrush;
         }
 
-        public override Object Clone()
+        public override Object Clone(int count)
         {
-            return new Werewolf();
+            Monster newMon = new Werewolf();
+            newMon.setName(newMon.getName() + " " + count);
+            return newMon;
         }
     }
 }

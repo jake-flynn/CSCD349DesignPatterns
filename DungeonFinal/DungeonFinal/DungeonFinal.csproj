@@ -64,6 +64,11 @@
     </Compile>
     <Compile Include="Beast.cs" />
     <Compile Include="BladeSlash.cs" />
+    <Compile Include="BronzeBoots.cs" />
+    <Compile Include="BronzeChestPlate.cs" />
+    <Compile Include="BronzeGloves.cs" />
+    <Compile Include="BronzeHelmet.cs" />
+    <Compile Include="BronzeSword.cs" />
     <Compile Include="Centaur.cs" />
     <Compile Include="CharacterSelect.xaml.cs">
       <DependentUpon>CharacterSelect.xaml</DependentUpon>
@@ -79,6 +84,8 @@
     <Compile Include="DemonWarrior.cs" />
     <Compile Include="Dragon.cs" />
     <Compile Include="FullGuard.cs" />
+    <Compile Include="GreaterPotionOfHealth.cs" />
+    <Compile Include="GreaterPotionOfMana.cs" />
     <Compile Include="Harpy.cs" />
     <Compile Include="HealingLight.cs" />
     <Compile Include="Hellhound.cs" />
@@ -86,8 +93,16 @@
     <Compile Include="Hydra.cs" />
     <Compile Include="Imp.cs" />
     <Compile Include="Insect.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="InventoryItem.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemsEffect.cs" />
+    <Compile Include="LeatherBoots.cs" />
+    <Compile Include="LeatherGloves.cs" />
+    <Compile Include="LeatherHelmet.cs" />
+    <Compile Include="LeatherVest.cs" />
+    <Compile Include="LesserPotionOfHealth.cs" />
+    <Compile Include="LesserPotionOfMana.cs" />
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
@@ -95,12 +110,22 @@
     <Compile Include="MazeMaker.cs" />
     <Compile Include="Minotaur.cs" />
     <Compile Include="MonsterFactory.cs" />
+    <Compile Include="nullItem.cs" />
     <Compile Include="Paladin.cs" />
     <Compile Include="Party.cs" />
+    <Compile Include="PotionOfDefense.cs" />
     <Compile Include="PotionOfHealth.cs" />
+    <Compile Include="PotionOfMagic.cs" />
     <Compile Include="PotionOfMana.cs" />
+    <Compile Include="PotionOfPower.cs" />
+    <Compile Include="PotionOfResistance.cs" />
     <Compile Include="Rogue.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="RuneOfCreation.cs" />
+    <Compile Include="RuneOfDespair.cs" />
+    <Compile Include="RuneOfDestruction.cs" />
+    <Compile Include="RuneOfHope.cs" />
+    <Compile Include="RuneOfTranquility.cs" />
     <Compile Include="Shade.cs" />
     <Compile Include="Skeleton.cs" />
     <Compile Include="Slime.cs" />
@@ -108,6 +133,7 @@
     <Compile Include="Sphynx.cs" />
     <Compile Include="Swordsman.cs" />
     <Compile Include="ThrowKnives.cs" />
+    <Compile Include="Ultima.cs" />
     <Compile Include="VampireBat.cs" />
     <Compile Include="Werewolf.cs" />
     <Page Include="BattleWindow.xaml">

@@ -29,6 +29,31 @@ namespace DungeonFinal
             btn_SelectHero2.IsEnabled = false;
             btn_SelectHero3.IsEnabled = false;
             btn_SelectHero4.IsEnabled = false;
+
+            if(TheSwarm[0].getIsDefeated() == true)
+            {
+                btn_SelectMonster1.IsEnabled = false;
+            }
+            if (TheSwarm[1].getIsDefeated() == true)
+            {
+                btn_SelectMonster2.IsEnabled = false;
+            }
+            if (TheSwarm[2].getIsDefeated() == true)
+            {
+                btn_SelectMonster3.IsEnabled = false;
+            }
+            if (TheSwarm[3].getIsDefeated() == true)
+            {
+                btn_SelectMonster4.IsEnabled = false;
+            }
+            if (TheSwarm[4].getIsDefeated() == true)
+            {
+                btn_SelectMonster5.IsEnabled = false;
+            }
+            if (TheSwarm[5].getIsDefeated() == true)
+            {
+                btn_SelectMonster6.IsEnabled = false;
+            }
         }
 
         public ChoiceWindow(Hero[] TheHeroes)// make hero choices visible
@@ -41,6 +66,23 @@ namespace DungeonFinal
             btn_SelectMonster4.IsEnabled = false;
             btn_SelectMonster5.IsEnabled = false;
             btn_SelectMonster6.IsEnabled = false;
+
+            if (TheHeroes[0].getIsDefeated() == true)
+            {
+                btn_SelectHero1.IsEnabled = false;
+            }
+            if (TheHeroes[1].getIsDefeated() == true)
+            {
+                btn_SelectHero2.IsEnabled = false;
+            }
+            if (TheHeroes[2].getIsDefeated() == true)
+            {
+                btn_SelectHero3.IsEnabled = false;
+            }
+            if (TheHeroes[3].getIsDefeated() == true)
+            {
+                btn_SelectHero4.IsEnabled = false;
+            }
         }
 
 
