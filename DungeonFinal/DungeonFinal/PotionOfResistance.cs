@@ -15,8 +15,9 @@ namespace DungeonFinal
             _effect = new ItemsEffect();
             this.setItemName("Potion of Magical Resistance");
             this.setConsumable(true);
-            _effect.setEffectName("Enhances the resistance of a single character temporarily");
+            _effect.setEffectName("Enhances the resistance of ");
             _effect.setResistanceDefense(5);
+            _effect.setEffectAmount(5);
             this.setEffect(_effect);
         }
         

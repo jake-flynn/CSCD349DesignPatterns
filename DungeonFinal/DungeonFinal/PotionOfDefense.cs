@@ -15,8 +15,9 @@ namespace DungeonFinal
             _effect = new ItemsEffect();
             this.setItemName("Defense Potion");
             this.setConsumable(true);
-            _effect.setEffectName("Enhances the defense of a single character temporarily");
+            _effect.setEffectName("Enhances the defense of ");
             _effect.setPhysicalDefense(5);
+            _effect.setEffectAmount(5);
             this.setEffect(_effect);
         }
     }

@@ -9,6 +9,7 @@ namespace DungeonFinal
     public class ItemsEffect
     {
         string _effectName;
+        int _effectAmount;
         int _healthValue;
         int _manaValue;
         int _strengthValue;
@@ -30,6 +31,11 @@ namespace DungeonFinal
         public void setEffectName(string _effectName)
         {
             this._effectName = _effectName;
+        }
+
+        public void setEffectAmount(int _effectAmount)
+        {
+            this._effectAmount = _effectAmount;
         }
 
         public void setHealthValue(int _healthValue)
@@ -66,7 +72,12 @@ namespace DungeonFinal
         {
             return _effectName;
         }
-        
+
+        public int getEffectAmount()
+        {
+            return _effectAmount;
+        }
+
         public int getHealthValue()
         {
             return _healthValue;

@@ -16,7 +16,7 @@ namespace DungeonFinal
         Boolean _isEquippable = false;
         Boolean _isSocketable = false;
 
-        public void use(Hero _hero)
+        public string use(Hero _hero)
         {
             _hero.setCurHealth(_hero.getCurHealth() + _effect.getHealthValue());
             _hero.setCurMana(_hero.getCurMana() + _effect.getManaValue());
@@ -24,6 +24,7 @@ namespace DungeonFinal
             _hero.setModMagic(_hero.getModMagic() + _effect.getMagicValue());
             _hero.setModDefense(_hero.getModDefense() + _effect.getPhysicalDefenseValue());
             _hero.setModResistance(_hero.getModResistance() + _effect.getResistanceDefenseValue());
+            return _effect.getEffectName() + _hero.getName() + " by " +_effect.getEffectAmount();
         }  
 
         public void unUse(Hero _hero)
