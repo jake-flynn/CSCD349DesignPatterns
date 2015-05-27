@@ -3,13 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Inventory
+    public class Inventory
     {
-        InventoryItem[] _inventory = new InventoryItem[20];
-        int _invNextFreeIndex = 0;
+        public InventoryItem[] _inventory;
+        public int _invNextFreeIndex;
+
+        public Inventory()
+        {
+            _inventory = new InventoryItem[20];
+            _invNextFreeIndex = 0;
+            Item item = new PotionOfHealth();
+            this.addLast(item);
+        }
+        
 
         public InventoryItem find(String _name)
         {
@@ -22,6 +39,11 @@ namespace DungeonFinal
             }
 
             return new InventoryItem(new nullItem() , 0);
+        }
+
+        public Item findItem(int index)
+        {
+            return _inventory[index].getItem();
         }
 
         public int findIndex(Item _item)
@@ -66,7 +88,20 @@ namespace DungeonFinal
             }
         }
 
-        public Item remove(Item _item)
+        public void addLast(Item itemToAdd) //will be renamed addToInventory
+        {
+            if (_invNextFreeIndex < _inventory.Length)//if there is still room to add.
+            {
+                _inventory[_invNextFreeIndex] = new InventoryItem(itemToAdd, 1);
+                _invNextFreeIndex++;
+            }
+            else
+            {
+                MessageBox.Show("Your packs are full! You cannot carry another pound.");
+            }
+        }
+
+        public Item remove(int indexOfItem)
         {
             if(_invNextFreeIndex == 0)
             {
@@ -76,34 +111,19 @@ namespace DungeonFinal
 
             else
             {
-                InventoryItem _invItem = findItem(_item);
+                Item item = findItem(indexOfItem);
 
-                if(_invItem.getItem().getItemName().Equals("Null Item"))
+                if(item.getItemName().Equals("Null Item"))
                 {
                     // handling edge case of null item in inventory.
                 }
 
                 else
                 {
-                    _invItem.setAmount(_invItem.getAmount() - 1);
-
-                    if(_invItem.getAmount() == 0)
-                    {
-                        int index = findIndex(_item);
-
-                        if(index == -1)
-                        {
-                            // handle edge case
-                        }
-
-                        else
-                        {
-                            _inventory[index] = new InventoryItem(new nullItem(), 0);
-                        }
-                    }
+                    return item;
                 }
 
-                return _item;
+                return item;
             }
         }
     }

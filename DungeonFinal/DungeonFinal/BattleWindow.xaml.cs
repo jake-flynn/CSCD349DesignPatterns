@@ -24,7 +24,8 @@ namespace DungeonFinal
         Party _theParty;
         Hero[] _theHeroes;
         Paragraph paragraph;
- 
+        Inventory _BattleInventory;
+
         public BattleWindow()
         {
             InitializeComponent();
@@ -37,7 +38,9 @@ namespace DungeonFinal
             _theParty = heros;
             _theHeroes = _theParty.getHeros();
             _monster = mon;
-            
+
+            _BattleInventory = _theParty.getInventory();
+
             updateVisuals();
             
 
@@ -188,7 +191,8 @@ namespace DungeonFinal
 
         private void useItem(Hero hero)
         {
-
+            Item itemToUse = _BattleInventory.findItem(0);
+            itemToUse.use(hero);
         }
 
         private async void monsterAttack() //Monster attacks!

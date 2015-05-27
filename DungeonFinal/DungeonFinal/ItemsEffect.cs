@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class ItemsEffect
+    public class ItemsEffect
     {
         string _effectName;
         int _healthValue;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class InventoryItem
+    public class InventoryItem
     {
         Item _item;
         int _amount;

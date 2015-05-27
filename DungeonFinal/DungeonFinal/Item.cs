@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    abstract class Item
+    public abstract class Item
     {
         Item[] sockets;
-        int socketNumber = 0;
+        int _socketNumber = 0;
         string _itemName;
         ItemsEffect _effect;
         Boolean _isConsumable = false;
@@ -42,15 +42,15 @@ namespace DungeonFinal
             {
                 if(_item._isSocketable)
                 {
-                    if(socketNumber > sockets.Length)
+                    if(_socketNumber > sockets.Length)
                     {
                         // all sockets are full
                     }
 
                     else
                     {
-                        sockets[socketNumber] = _item;
-                        socketNumber++;
+                        sockets[_socketNumber] = _item;
+                        _socketNumber++;
                         allocate(_hero, _item);
                     }
                     
