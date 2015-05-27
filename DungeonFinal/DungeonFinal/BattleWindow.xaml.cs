@@ -186,6 +186,11 @@ namespace DungeonFinal
             return toReturn;
         }
 
+        private void useItem(Hero hero)
+        {
+
+        }
+
         private async void monsterAttack() //Monster attacks!
         {  
             Monster mon = _monster;
@@ -340,6 +345,8 @@ namespace DungeonFinal
                         Foreground = _theHeroes[0].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
+
+                    useItem(_theHeroes[0]);
                     
                 }
             }
@@ -385,6 +392,8 @@ namespace DungeonFinal
                         Foreground = _theHeroes[1].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
+
+                    useItem(_theHeroes[1]);
                 }
             }
 
@@ -432,6 +441,8 @@ namespace DungeonFinal
                     });
 
                     paragraph.Inlines.Add(new LineBreak());
+
+                    useItem(_theHeroes[2]);
                     
                 }
             }
@@ -476,6 +487,8 @@ namespace DungeonFinal
                         Foreground = _theHeroes[3].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
+
+                    useItem(_theHeroes[3]);
                 }
             }
             //--------------Hero's have had their say... IT'S MONSTA TIME.---------------//

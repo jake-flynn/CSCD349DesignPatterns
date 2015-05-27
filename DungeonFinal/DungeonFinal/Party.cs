@@ -11,6 +11,7 @@ namespace DungeonFinal
         private Hero[] dungeonParty;
         private int currentPartyMembers;
 
+
         public Party()
         {
             dungeonParty = new Hero[4];
