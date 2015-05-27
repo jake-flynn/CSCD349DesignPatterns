@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DungeonFinal
+{
+    class PotionOfDefense : Item
+    {
+        ItemsEffect _effect;
+
+        public PotionOfDefense()
+        {
+            _effect = new ItemsEffect();
+            this.setItemName("Defense Potion");
+            this.setConsumable(true);
+            _effect.setEffectName("Enhances the defense of a single character temporarily");
+            _effect.setPhysicalDefense(5);
+            this.setEffect(_effect);
+        }
+    }
+}
