@@ -191,7 +191,7 @@ namespace DungeonFinal
 
         private void useItem(Hero hero)
         {
-            Item itemToUse = _BattleInventory.findItem(0);
+            Item itemToUse = _BattleInventory.findItemByIndex(0);
             string resultString = itemToUse.use(hero);
 
             paragraph.Inlines.Add(new Bold(new Run(resultString))

@@ -84,6 +84,8 @@
     <Compile Include="DemonWarrior.cs" />
     <Compile Include="Dragon.cs" />
     <Compile Include="FullGuard.cs" />
+    <Compile Include="GreaterPotionOfHealth.cs" />
+    <Compile Include="GreaterPotionOfMana.cs" />
     <Compile Include="Harpy.cs" />
     <Compile Include="HealingLight.cs" />
     <Compile Include="Hellhound.cs" />
@@ -99,6 +101,8 @@
     <Compile Include="LeatherGloves.cs" />
     <Compile Include="LeatherHelmet.cs" />
     <Compile Include="LeatherVest.cs" />
+    <Compile Include="LesserPotionOfHealth.cs" />
+    <Compile Include="LesserPotionOfMana.cs" />
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
