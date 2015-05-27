@@ -33,6 +33,11 @@ namespace DungeonFinal
             return new InventoryItem(new nullItem() , 0);
         }
 
+        public Item findItem(int index)
+        {
+            return _inventory[index].getItem();
+        }
+
         public int findIndex(Item _item)
         {
             for (int x = 0; x < _inventory.Length; x++)
@@ -75,7 +80,7 @@ namespace DungeonFinal
             }
         }
 
-        public Item remove(Item _item)
+        public Item remove(int indexOfItem)
         {
             if(_invNextFreeIndex == 0)
             {
@@ -85,34 +90,19 @@ namespace DungeonFinal
 
             else
             {
-                InventoryItem _invItem = findItem(_item);
+                Item item = findItem(indexOfItem);
 
-                if(_invItem.getItem().getItemName().Equals("Null Item"))
+                if(item.getItemName().Equals("Null Item"))
                 {
                     // handling edge case of null item in inventory.
                 }
 
                 else
                 {
-                    _invItem.setAmount(_invItem.getAmount() - 1);
-
-                    if(_invItem.getAmount() == 0)
-                    {
-                        int index = findIndex(_item);
-
-                        if(index == -1)
-                        {
-                            // handle edge case
-                        }
-
-                        else
-                        {
-                            _inventory[index] = new InventoryItem(new nullItem(), 0);
-                        }
-                    }
+                    return item;
                 }
 
-                return _item;
+                return item;
             }
         }
     }
