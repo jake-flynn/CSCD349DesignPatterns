@@ -16,8 +16,8 @@ namespace DungeonFinal
             this.setItemName("Mana Potion");
             this.setConsumable(true);
             _effect.setEffectName("Restores mana by ");
-            _effect.setManaValue(20);
-            _effect.setEffectAmount(20);
+            _effect.setManaValue(40);
+            _effect.setEffectAmount(40);
             this.setEffect(_effect);
         }
     }

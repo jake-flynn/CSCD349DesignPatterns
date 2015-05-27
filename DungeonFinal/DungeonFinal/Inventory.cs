@@ -23,12 +23,16 @@ namespace DungeonFinal
         {
             _inventory = new InventoryItem[20];
             _invNextFreeIndex = 0;
-            Item item = new PotionOfHealth();
+            Item item = new LesserPotionOfHealth();
+            this.addLast(item);
+            this.addLast(item);
+            item = new LesserPotionOfMana();
+            this.addLast(item);
             this.addLast(item);
         }
         
 
-        public InventoryItem find(String _name)
+        public InventoryItem findInvItemByName(String _name)
         {
             for (int x = 0; x < _inventory.Length; x++)
             {
@@ -41,12 +45,17 @@ namespace DungeonFinal
             return new InventoryItem(new nullItem() , 0);
         }
 
-        public Item findItem(int index)
+        public InventoryItem findInvItemByItem(Item item)
+        {
+              return findInvItemByName(item.getItemName());
+        }
+
+        public Item findItemByIndex(int index)
         {
             return _inventory[index].getItem();
         }
 
-        public int findIndex(Item _item)
+        public int findIndexByItem(Item _item)
         {
             for (int x = 0; x < _inventory.Length; x++)
             {
@@ -59,11 +68,6 @@ namespace DungeonFinal
             return -1;
         }
 
-        public InventoryItem findItem(Item item)
-        {
-            return find(item.getItemName());
-        }
-
         public void add(Item _item)
         {
             if(_invNextFreeIndex > _inventory.Length)
@@ -73,7 +77,7 @@ namespace DungeonFinal
 
             else
             {
-                InventoryItem _invItem = findItem(_item);
+                InventoryItem _invItem = findInvItemByItem(_item);
 
                 if (_invItem.getItem().getItemName().Equals("Null Item"))
                 {
@@ -111,7 +115,7 @@ namespace DungeonFinal
 
             else
             {
-                Item item = findItem(indexOfItem);
+                Item item = findItemByIndex(indexOfItem);
 
                 if(item.getItemName().Equals("Null Item"))
                 {
@@ -121,7 +125,17 @@ namespace DungeonFinal
                 else
                 {
 
-                    return item;
+                    if(_inventory[indexOfItem].getAmount() > 0)
+                    {
+                        _inventory[indexOfItem].setAmount(_inventory[indexOfItem].getAmount() - 1);
+                        return item;
+                    }
+
+                    else
+                    {
+                        // somehow the item was found but wasn't removed.
+                    }
+                    
                 }
 
                 return item;
