@@ -24,8 +24,8 @@ namespace DungeonFinal
             this.setItemName("Cloth HeadPiece");
             this.setEquippable(true);
             _effect.setEffectName("A fine cloth made of silk woven into a khimar");
-            _effect.setPhysicalDefense(1);
-            _effect.setEffectAmount(1);
+            _effect.setPhysicalDefense(2);
+            _effect.setEffectAmount(2);
             this.setEffect(_effect);
         }
 

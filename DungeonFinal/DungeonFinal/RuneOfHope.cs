@@ -30,6 +30,7 @@ namespace DungeonFinal
             _effect.setPhysicalDefense(10);
             _effect.setHealthValue(10);
             _effect.setManaValue(10);
+            _effect.setEffectAmount(10);
             this.setEffect(_effect);
         }
 

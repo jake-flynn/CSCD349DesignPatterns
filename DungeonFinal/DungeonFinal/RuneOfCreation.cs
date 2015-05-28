@@ -26,6 +26,7 @@ namespace DungeonFinal
             _effect.setEffectName("God created the heavens, the earth, and this...");
             _effect.setHealthValue(100);
             _effect.setManaValue(100);
+            _effect.setEffectAmount(100);
             this.setEffect(_effect);
         }
 

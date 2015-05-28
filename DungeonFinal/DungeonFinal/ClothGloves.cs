@@ -24,9 +24,9 @@ namespace DungeonFinal
             this.setItemName("Cloth Gloves");
             this.setEquippable(true);
             _effect.setEffectName("Cloth gloves that increase mana slightly");
-            _effect.setPhysicalDefense(2);
-            _effect.setManaValue(2);
-            _effect.setEffectAmount(2);
+            _effect.setPhysicalDefense(1);
+            _effect.setManaValue(1);
+            _effect.setEffectAmount(1);
             this.setEffect(_effect);
         }
 

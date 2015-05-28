@@ -24,9 +24,9 @@ namespace DungeonFinal
             this.setItemName("Cloth Shoes");
             this.setEquippable(true);
             _effect.setEffectName("Cloth shoes that increase resistance slightly");
-            _effect.setPhysicalDefense(2);
-            _effect.setResistanceDefense(2);
-            _effect.setEffectAmount(2);
+            _effect.setPhysicalDefense(1);
+            _effect.setResistanceDefense(1);
+            _effect.setEffectAmount(1);
             this.setEffect(_effect);
         }
 

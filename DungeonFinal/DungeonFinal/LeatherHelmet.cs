@@ -26,6 +26,7 @@ namespace DungeonFinal
             this.setSocketAmount(1);
             _effect.setEffectName("A sturdy leather cap");
             _effect.setPhysicalDefense(3);
+            _effect.setEffectAmount(3);
             this.setEffect(_effect);
         }
 

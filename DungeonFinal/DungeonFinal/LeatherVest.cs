@@ -26,6 +26,7 @@ namespace DungeonFinal
             this.setSocketAmount(4);
             _effect.setEffectName("A vest made of stiff leather");
             _effect.setPhysicalDefense(4);
+            _effect.setEffectAmount(4);
             this.setEffect(_effect);
         }
 

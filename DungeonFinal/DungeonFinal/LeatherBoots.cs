@@ -26,6 +26,7 @@ namespace DungeonFinal
             this.setSocketAmount(2);
             _effect.setEffectName("Boots made from tough leather");
             _effect.setPhysicalDefense(2);
+            _effect.setEffectAmount(2);
             this.setEffect(_effect);
         }
 

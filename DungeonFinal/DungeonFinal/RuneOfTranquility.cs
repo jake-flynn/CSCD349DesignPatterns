@@ -26,6 +26,7 @@ namespace DungeonFinal
             _effect.setEffectName("In the midst of creation and destruction, stood tranquility...");
             _effect.setResistanceDefense(100);
             _effect.setPhysicalDefense(100);
+            _effect.setEffectAmount(100);
             this.setEffect(_effect);
         }
 

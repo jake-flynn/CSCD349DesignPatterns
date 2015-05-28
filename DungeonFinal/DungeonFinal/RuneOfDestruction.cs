@@ -26,6 +26,7 @@ namespace DungeonFinal
             _effect.setEffectName("The fallen angel set fire to the heavens, and this fell from the ashes...");
             _effect.setStrengthValue(100);
             _effect.setMagicValue(100);
+            _effect.setEffectAmount(100);
             this.setEffect(_effect);
         }
 

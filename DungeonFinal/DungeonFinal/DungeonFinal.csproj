@@ -70,6 +70,10 @@
     <Compile Include="BronzeHelmet.cs" />
     <Compile Include="BronzeSword.cs" />
     <Compile Include="Centaur.cs" />
+    <Compile Include="ChainMailBoots.cs" />
+    <Compile Include="ChainMailGloves.cs" />
+    <Compile Include="ChainMailHelm.cs" />
+    <Compile Include="ChainMailVest.cs" />
     <Compile Include="CharacterSelect.xaml.cs">
       <DependentUpon>CharacterSelect.xaml</DependentUpon>
     </Compile>

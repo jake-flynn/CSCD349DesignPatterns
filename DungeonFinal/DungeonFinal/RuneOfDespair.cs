@@ -28,6 +28,7 @@ namespace DungeonFinal
             _effect.setMagicValue(15);
             _effect.setHealthValue(15);
             _effect.setManaValue(15);
+            _effect.setEffectAmount(15);
             this.setEffect(_effect);
         }
 

@@ -25,7 +25,8 @@ namespace DungeonFinal
             this.setEquippable(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Durable boots made of copper and tin");
-            _effect.setPhysicalDefense(2);
+            _effect.setPhysicalDefense(4);
+            _effect.setEffectAmount(4);
             //_effect.setManaValue(-2);     heavy armor effect?
             this.setEffect(_effect);
         }

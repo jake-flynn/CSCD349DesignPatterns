@@ -25,7 +25,8 @@ namespace DungeonFinal
             this.setEquippable(true);
             this.setSocketAmount(3);
             _effect.setEffectName("A well crafted helmet made of an alloy of copper and tin");
-            _effect.setPhysicalDefense(3);
+            _effect.setPhysicalDefense(5);
+            _effect.setEffectAmount(5);
             //_effect.setManaValue(-1);         Decrease mana pool for wearing heavy armor?
             this.setEffect(_effect);
         }

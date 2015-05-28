@@ -25,7 +25,8 @@ namespace DungeonFinal
             this.setEquippable(true);
             this.setSocketAmount(1);
             _effect.setEffectName("Reasonably well crafted from copper and tin");
-            _effect.setPhysicalDefense(1);
+            _effect.setPhysicalDefense(3);
+            _effect.setEffectAmount(3);
             //_effect.setManaValue(-2);     heavy armor effect?
             this.setEffect(_effect);
         }

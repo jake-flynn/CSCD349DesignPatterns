@@ -24,8 +24,8 @@ namespace DungeonFinal
             this.setItemName("Simple Axe");
             this.setEquippable(true);
             _effect.setEffectName("A simple axe");
-            _effect.setStrengthValue(20);
-            _effect.setEffectAmount(20);
+            _effect.setStrengthValue(9);
+            _effect.setEffectAmount(9);
             this.setEffect(_effect);
         }
 

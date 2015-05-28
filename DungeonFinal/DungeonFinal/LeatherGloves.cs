@@ -25,7 +25,8 @@ namespace DungeonFinal
             this.setEquippable(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Gloves made from leather straps woven together");
-            _effect.setPhysicalDefense(2);
+            _effect.setPhysicalDefense(1);
+            _effect.setEffectAmount(1);
             this.setEffect(_effect);
         }
 

@@ -27,7 +27,8 @@ namespace DungeonFinal
             _effect.setEffectName("FEAR NO STUBEAST");
             _effect.setStrengthValue(100);
             _effect.setHealthValue(100);
-            _effect.setManaValue(-5);
+            //_effect.setManaValue(-5);
+            _effect.setEffectAmount(100);
             this.setEffect(_effect);
         }
 
