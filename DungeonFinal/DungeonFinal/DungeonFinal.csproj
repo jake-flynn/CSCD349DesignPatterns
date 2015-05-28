@@ -149,6 +149,10 @@
     <Compile Include="Slime.cs" />
     <Compile Include="SpecialAttackBehavior.cs" />
     <Compile Include="Sphynx.cs" />
+    <Compile Include="SteelAxe.cs" />
+    <Compile Include="SteelDagger.cs" />
+    <Compile Include="SteelStaff.cs" />
+    <Compile Include="SteelSword.cs" />
     <Compile Include="Swordsman.cs" />
     <Compile Include="ThrowKnives.cs" />
     <Compile Include="Ultima.cs" />
