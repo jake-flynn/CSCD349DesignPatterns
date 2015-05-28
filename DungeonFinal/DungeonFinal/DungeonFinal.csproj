@@ -76,6 +76,10 @@
     <Compile Include="ChoiceWindow.xaml.cs">
       <DependentUpon>ChoiceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClothGloves.cs" />
+    <Compile Include="ClothHeadPiece.cs" />
+    <Compile Include="ClothRobes.cs" />
+    <Compile Include="ClothShoes.cs" />
     <Compile Include="ConsumableWindow.xaml.cs">
       <DependentUpon>ConsumableWindow.xaml</DependentUpon>
     </Compile>
