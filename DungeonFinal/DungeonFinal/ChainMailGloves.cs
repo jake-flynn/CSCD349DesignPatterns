@@ -37,5 +37,4 @@ namespace DungeonFinal
             return imgBrush;
         }
     }
-    }
 }

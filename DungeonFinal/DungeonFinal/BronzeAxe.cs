@@ -14,18 +14,21 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ChainMailHelm : Item
+    class BronzeAxe : Item
     {
         ItemsEffect _effect;
 
-        public ChainMailHelm()
+        public BronzeAxe()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Chain Mail Helmet");
+            this.setItemName("Bronze Axe");
             this.setEquippable(true);
-            _effect.setEffectName("Chain mail helmet made with an interior leather cap surrounded by interlocking steel ringlets");
-            _effect.setPhysicalDefense(5);
-            _effect.setEffectAmount(5);
+            this.setSocketAmount(4);
+            _effect.setEffectName("A great two handed axe made of copper and tin");
+            _effect.setStrengthValue(13);
+            _effect.setEffectAmount(13);
+            //_effect.setHealthValue(12);
+            //_effect.setManaValue(-5);
             this.setEffect(_effect);
         }
 

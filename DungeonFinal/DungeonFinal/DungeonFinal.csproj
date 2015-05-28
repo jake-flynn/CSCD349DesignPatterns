@@ -64,10 +64,13 @@
     </Compile>
     <Compile Include="Beast.cs" />
     <Compile Include="BladeSlash.cs" />
+    <Compile Include="BronzeAxe.cs" />
     <Compile Include="BronzeBoots.cs" />
     <Compile Include="BronzeChestPlate.cs" />
+    <Compile Include="BronzeDagger.cs" />
     <Compile Include="BronzeGloves.cs" />
     <Compile Include="BronzeHelmet.cs" />
+    <Compile Include="BronzeStaff.cs" />
     <Compile Include="BronzeSword.cs" />
     <Compile Include="Centaur.cs" />
     <Compile Include="ChainMailBoots.cs" />

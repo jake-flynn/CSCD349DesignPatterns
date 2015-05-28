@@ -14,18 +14,20 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ChainMailHelm : Item
+    class BronzeStaff : Item
     {
         ItemsEffect _effect;
 
-        public ChainMailHelm()
+        public BronzeStaff()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Chain Mail Helmet");
+            this.setItemName("Bronze Staff");
             this.setEquippable(true);
-            _effect.setEffectName("Chain mail helmet made with an interior leather cap surrounded by interlocking steel ringlets");
-            _effect.setPhysicalDefense(5);
-            _effect.setEffectAmount(5);
+            this.setSocketAmount(4);
+            _effect.setEffectName("A beautiful staff made of copper and tin");
+            _effect.setMagicValue(9);
+            _effect.setEffectAmount(9);
+            //_effect.setHealthValue(12);
             this.setEffect(_effect);
         }
 

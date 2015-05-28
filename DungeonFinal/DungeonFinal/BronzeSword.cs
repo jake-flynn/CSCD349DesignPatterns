@@ -25,8 +25,8 @@ namespace DungeonFinal
             this.setEquippable(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A well balanced sword made of copper and tin");
-            _effect.setStrengthValue(12);
-            _effect.setEffectAmount(12);
+            _effect.setStrengthValue(16);
+            _effect.setEffectAmount(16);
             //_effect.setHealthValue(12);
             //_effect.setManaValue(-5);
             this.setEffect(_effect);

@@ -24,8 +24,8 @@ namespace DungeonFinal
             this.setItemName("Simple Staff");
             this.setEquippable(true);
             _effect.setEffectName("A simple staff");
-            _effect.setStrengthValue(3);
-            _effect.setEffectAmount(3);
+            _effect.setMagicValue(6);
+            _effect.setEffectAmount(6);
             this.setEffect(_effect);
         }
 
