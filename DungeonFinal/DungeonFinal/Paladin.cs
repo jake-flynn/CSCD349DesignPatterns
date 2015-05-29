@@ -22,19 +22,20 @@ namespace DungeonFinal
         public Paladin()
         {
             setName("Paladin");
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
-            setBaseMana(100);
-            setCurMana(100);
+            setBaseHealth(250);
+            setCurHealth(250);
+            setMaxHealth(250);
+            setBaseMana(90);
+            setCurMana(90);
+            setMaxMana(90);
 
             //Main stats are out of 40 points
             setBaseStrength(10);
             setModStrength(10);
             setBaseMagic(10);
             setModMagic(10);
-            setBaseDefense(10);
-            setModDefense(10);
+            setBaseDefense(9);
+            setModDefense(9);
             setBaseResistance(10);
             setModResistance(10);
 

@@ -22,19 +22,19 @@ namespace DungeonFinal
         public Swordsman()
         {
             setName("Swordsman");
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
-            setBaseMana(100);
-            setCurMana(100);
+            setBaseHealth(225);
+            setCurHealth(225);
+            setMaxHealth(225);
+            setBaseMana(110);
+            setCurMana(110);
+            setMaxMana(110);
 
-            //Main stats are out of 40 points
             setBaseStrength(15);
             setModStrength(15);
-            setBaseMagic(5);
-            setModMagic(5);
-            setBaseDefense(15);
-            setModDefense(15);
+            setBaseMagic(0);
+            setModMagic(0);
+            setBaseDefense(8);
+            setModDefense(8);
             setBaseResistance(5);
             setModResistance(5);
 

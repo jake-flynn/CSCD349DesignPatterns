@@ -22,21 +22,21 @@ namespace DungeonFinal
         public Rogue()
         {
             setName("Rogue");
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
-            setBaseMana(100);
-            setCurMana(100);
+            setBaseHealth(140);
+            setCurHealth(140);
+            setMaxHealth(140);
+            setBaseMana(120);
+            setCurMana(120);
+            setMaxMana(120);
 
-            //Main stats are out of 40 points
             setBaseStrength(20);
             setModStrength(20);
             setBaseMagic(0);
             setModMagic(0);
-            setBaseDefense(10);
-            setModDefense(10);
-            setBaseResistance(10);
-            setModResistance(10);
+            setBaseDefense(5);
+            setModDefense(5);
+            setBaseResistance(3);
+            setModResistance(3);
 
             setIsPhysical(true);
             setIsDefeated(false);

@@ -14,38 +14,39 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Cleric : Hero
+    class ArmorKnight : Hero
     {
         //this is a Cleric Hero, considered a healer, there are 40 points assigned to main stats
 
-        
-        public Cleric()
-        {
-            setName("Cleric");
-            setBaseHealth(150);
-            setCurHealth(150);
-            setMaxHealth(150);
-            setBaseMana(200);
-            setCurMana(200);
-            setMaxMana(200);
 
+        public ArmorKnight()
+        {
+            setName("Armor Knight");
+            setBaseHealth(275);
+            setCurHealth(275);
+            setMaxHealth(275);
+            setBaseMana(70);
+            setCurMana(70);
+            setMaxMana(70);
+
+            //Main stats are out of 40 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(20);
-            setModMagic(20);
-            setBaseDefense(2);
-            setModDefense(2);
-            setBaseResistance(8);
-            setModResistance(8);
+            setBaseMagic(0);
+            setModMagic(0);
+            setBaseDefense(13);
+            setModDefense(13);
+            setBaseResistance(12);
+            setModResistance(12);
 
-            setIsPhysical(false);
+            setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"Images/Cleric.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/ArmorKnight.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }
@@ -61,7 +62,7 @@ namespace DungeonFinal
             return s;
         }
 
-        /*PerformSpecialAttack - heals whole party for magic stat and removes debuffs/buffs*/
+        /*PerformSpecialAttack - Taunt*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
@@ -77,7 +78,7 @@ namespace DungeonFinal
             }
 
             setCurMana(getCurMana() - 15);
-            return(getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
+            return (getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
         }
 
         /*Battle - Defend*/
