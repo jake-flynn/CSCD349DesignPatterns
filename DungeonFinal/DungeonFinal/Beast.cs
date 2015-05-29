@@ -38,7 +38,12 @@ namespace DungeonFinal
             setModDefense(15);
             setBaseResistance(15);
             setModResistance(15);
-            setSpecialAttackFrequency(8);
+
+            setSpecialAttackFrequency(4);
+
+            setLore("StuBeast is an unholy abomination created from the deepest depths of students' nightmares.\r\n" + 
+                    "It is said in whispers that it has a heart of gold, though none have survived to confirm this. \r\n" +
+                    "Tough and unforgiving, winning a battle against the StuBeast will ultimately make you stronger.");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -59,17 +64,20 @@ namespace DungeonFinal
             return m;
         }
 
+        //Assign homework - does 15 set damage across whole party
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
-            int dmg = 25;
+            int damage = 15;
 
             foreach (Hero h in party)
             {
-                h.setCurHealth(h.getCurHealth() - dmg);
+                h.setCurHealth(h.getCurHealth() - damage);
             }
 
-            return ("Stubeast gave the whole party homework, it's due tomorrow! Did " + dmg + "accross whole party!");
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return ("Stubeast gave the whole party homework, it's due tomorrow! Did " + damage + "accross whole party!\r\n");
         }
 
 
@@ -126,6 +134,7 @@ namespace DungeonFinal
         {
             Monster newMon = new StuBeast();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

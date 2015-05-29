@@ -38,7 +38,10 @@ namespace DungeonFinal
             setModDefense(35);
             setBaseResistance(10);
             setModResistance(10);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -59,15 +62,45 @@ namespace DungeonFinal
             return m;
         }
 
+        //Feast - At 100% health 3 random attacks at .75 damage, 50% health 6 random attacks at .75 damage, 10% health 9 random attacks at .75 damage
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
+            String message = "";
+            int damage = 0;
+            int hit = (int)(mon.getModStrength() * .75);
+            int numStrikes = 0;
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            //3 Attacks
+            if(mon.getCurHealth() > (mon.getMaxHealth() / 2))
+            {
+                numStrikes = 3;
+            }
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //6 Attacks
+            else if (mon.getCurHealth() <= (mon.getMaxHealth() / 2) && mon.getCurHealth() < (mon.getMaxHealth() / 10))
+            {
+                numStrikes = 6;
+            }
+
+            //9 attacks
+            else
+            {
+                numStrikes = 9;
+            }
+
+            for(; numStrikes > 0; numStrikes--)
+            {
+                int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+                damage = party[rnd].getModDefense() - hit;
+                party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+
+                message += mon.getName() + "bit " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+            }
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -149,6 +182,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Hydra();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

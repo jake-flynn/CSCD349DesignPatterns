@@ -39,7 +39,10 @@ namespace DungeonFinal
             setModDefense(12);
             setBaseResistance(12);
             setModResistance(12);
-            setSpecialAttackFrequency(3);
+
+            setSpecialAttackFrequency(1);
+
+            setLore("");
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -60,15 +63,18 @@ namespace DungeonFinal
             return m;
         }
 
+        //Death Stare - instantly kills a hero
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            party[rnd].setCurHealth(0);
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return (mon.getName() + "caught " + party[rnd].getName() + "'s gaze. " + party[rnd].getName() + " was instantly killed!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -124,6 +130,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Cockatrice();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

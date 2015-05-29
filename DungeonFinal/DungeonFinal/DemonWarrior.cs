@@ -38,7 +38,10 @@ namespace DungeonFinal
             setModDefense(10);
             setBaseResistance(15);
             setModResistance(15);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -59,6 +62,7 @@ namespace DungeonFinal
             return m;
         }
 
+        //Possession - Makes one hero use their special attack for the monster or against the heroes
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
@@ -67,7 +71,9 @@ namespace DungeonFinal
             party[rnd].setModStrength(getModStrength() - 1);
             party[rnd].setModMagic(getModStrength() - 1);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -123,6 +129,7 @@ namespace DungeonFinal
         {
             Monster newMon = new DemonWarrior();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

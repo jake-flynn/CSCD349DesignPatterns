@@ -39,7 +39,10 @@ namespace DungeonFinal
             setModDefense(15);
             setBaseResistance(25);
             setModResistance(25);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -60,15 +63,39 @@ namespace DungeonFinal
             return m;
         }
 
+        //TriStrike - Chance of poison, chance of bleed, and chance of multiple hits
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int chance = new Random().Next(4);
+            String message = "";
+            int damage = mon.getModMagic() - party[rnd].getModResistance();
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //Poison
+            if(chance == 1)
+            {
+                message += mon.getName() + "poisoned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+            }
+
+            //Bleed
+            else if(chance == 2)
+            {
+                message += mon.getName() + "inflicting bleeding on " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+            }
+
+            //Muli-hit
+            else
+            {
+                damage = damage * 3;
+                message += mon.getName() + "used its three heads to hit " + party[rnd].getName() + " for " + damage + " damage each!\r\n";
+            }
+
+            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -150,6 +177,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Chimera();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

@@ -38,7 +38,10 @@ namespace DungeonFinal
             setModDefense(10);
             setBaseResistance(0);
             setModResistance(0);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -59,15 +62,26 @@ namespace DungeonFinal
             return m;
         }
 
+        //Spear - hits 3 random targets at .75 magic
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
+            String message = "";
+            int damage = 0;
+            int hit = (int)(mon.getModMagic() * .75);
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            for (int numStrikes = 3; numStrikes > 0; numStrikes--)
+            {
+                int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+                damage = party[rnd].getModResistance() - hit;
+                party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+                message += mon.getName() + "stabbed " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+            }
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -114,6 +128,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Imp();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

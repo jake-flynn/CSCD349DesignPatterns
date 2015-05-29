@@ -39,7 +39,10 @@ namespace DungeonFinal
             setModDefense(25);
             setBaseResistance(25);
             setModResistance(25);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -60,15 +63,35 @@ namespace DungeonFinal
             return m;
         }
 
+        //HellFire - Attacks whole party, chance of burn
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
+            String message = mon.getName() + "spit hellfire at the party!\r\n";
+            int damage = 0;
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            foreach (Hero h in party)
+            {
+                int chance = new Random().Next(3);
+                damage = mon.getModMagic() - h.getModResistance();
+                h.setCurHealth(h.getCurHealth() - damage);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+                //Burn Successful
+                if(chance == 1)
+                {
+                    message += "Hellfire affected " + h.getName() + " for " + damage + " damage and they suffered a burn!\r\n";
+                }
+
+                //Burn Unuccessful
+                else
+                {
+                    message += "Hellfire affected " + h.getName() + " for " + damage + " damage!\r\n";
+                }
+            }
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -150,6 +173,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Dragon();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

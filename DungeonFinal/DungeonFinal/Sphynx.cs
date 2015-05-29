@@ -37,7 +37,10 @@ namespace DungeonFinal
             setModDefense(15);
             setBaseResistance(15);
             setModResistance(15);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -58,15 +61,31 @@ namespace DungeonFinal
             return m;
         }
 
+        //Riddle - Asks a riddle, if incorrect the hero's health is halved, if correct the sphynx does no damage
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int chance = new Random().Next(5);
+            String message = mon.getName() + " asked " + party[rnd].getName() + "a riddle!\r\n";
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //Riddle Solved (low chance)
+            if (chance == 1)
+            {
+                message += party[rnd].getName() + " successfully solved the riddle!\r\n";
+            }
+
+            //Riddle Unsolved
+            else
+            {
+                message += party[rnd].getName() + " did not solve the riddle correctly so " + mon.getName() + "attacked " + party[rnd].getName() + " and halved their health!\r\n";
+            }
+
+            party[rnd].setCurHealth((int)(party[rnd].getCurHealth() / 2));
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
@@ -122,6 +141,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Sphynx();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }
