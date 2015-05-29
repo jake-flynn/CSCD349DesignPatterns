@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class BronzeStaff : Item
+    class BronzeStaff : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Staff");
-            this.setEquippable(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A beautiful staff made of copper and tin");
             _effect.setMagicValue(9);

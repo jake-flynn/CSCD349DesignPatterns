@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ClothGloves : Item
+    class ClothGloves : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,10 +22,10 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Cloth Gloves");
-            this.setEquippable(true);
-            _effect.setEffectName("Cloth gloves that increase mana slightly");
+            this.setSocketAmount(1);
+            _effect.setEffectName("Cloth gloves that increase mana by 30");
             _effect.setPhysicalDefense(1);
-            _effect.setManaValue(1);
+            _effect.setManaValue(30);
             _effect.setEffectAmount(1);
             this.setEffect(_effect);
         }

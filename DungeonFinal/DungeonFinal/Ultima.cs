@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Ultima : Item
+    class Ultima : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Ultima");
-            this.setEquippable(true);
             this.setSocketAmount(15);
             _effect.setEffectName("FEAR NO STUBEAST");
             _effect.setStrengthValue(100);

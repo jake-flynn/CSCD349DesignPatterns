@@ -14,17 +14,15 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class SimpleStaff : Equipment
+    class NullItemEquipment : Equipment
     {
         ItemsEffect _effect;
 
-        public SimpleStaff() : base()
+        public NullItemEquipment() //: base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Simple Staff");
-            _effect.setEffectName("A simple staff");
-            _effect.setMagicValue(6);
-            _effect.setEffectAmount(6);
+            this.setItemName("Empty slot");
+            _effect.setEffectName(" had no effect");
             this.setEffect(_effect);
         }
 

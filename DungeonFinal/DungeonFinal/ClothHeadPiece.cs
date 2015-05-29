@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ClothHeadPiece : Item
+    class ClothHeadPiece : Equipment
     {
          ItemsEffect _effect;
 
@@ -22,7 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Cloth HeadPiece");
-            this.setEquippable(true);
+            this.setSocketAmount(2);
             _effect.setEffectName("A fine cloth made of silk woven into a khimar");
             _effect.setPhysicalDefense(2);
             _effect.setEffectAmount(2);

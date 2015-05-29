@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class SteelStaff : Item
+    class SteelStaff : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Steel Staff");
-            this.setEquippable(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A magnificent staff made of high quality steel");
             _effect.setMagicValue(12);

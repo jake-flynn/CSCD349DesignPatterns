@@ -16,52 +16,39 @@ namespace DungeonFinal
 {
     public class Inventory
     {
-        public Item[] _inventory;
-        public int _invNextFreeIndex;
+        public Consumable[] _Consumable;
+        public Equipment[] _Equipment;
+        public int _ConsumableNextFreeIndex;
+        public int _EquipmentNextFreeIndex;
 
         public Inventory()
         {
-            _inventory = new Item[20];
-            _invNextFreeIndex = 0;
-            Item item = new LesserPotionOfHealth();
-            this.addLast(item);
-            this.addLast(item);
-            item = new LesserPotionOfMana();
-            this.addLast(item);
-            this.addLast(item);
-            item = new BronzeSword();
-            this.addLast(item);
+            _Consumable = new Consumable[20];
+            _Equipment = new Equipment[20];
+            _ConsumableNextFreeIndex = 0;
+            _EquipmentNextFreeIndex = 0;
+            Consumable consumable = new LesserPotionOfHealth();
+            this.addLastToConsumable(consumable);
+            consumable = new PotionOfHealth();
+            this.addLastToConsumable(consumable);
+            consumable = new LesserPotionOfMana();
+            this.addLastToConsumable(consumable);
+            consumable = new PotionOfMana();
+            this.addLastToConsumable(consumable);
+            Equipment equip = new BronzeSword();
+            this.addLastToEquipment(equip);
         }
-        
 
-        public Item findInvItemByName(String _name)
+        public Consumable findConsumableByIndex(int index)
         {
-            for (int x = 0; x < _inventory.Length; x++)
+            return _Consumable[index];
+        }
+
+        public int findIndexOfConsumable(Item _item)
+        {
+            for (int x = 0; x < _Consumable.Length; x++)
             {
-                if (_inventory[x].getItemName().Equals(_name))
-                {
-                    return _inventory[x];
-                }
-            }
-
-            return new nullItem();
-        }
-
-        public Item findItemByItem(Item item)
-        {
-              return findInvItemByName(item.getItemName());
-        }
-
-        public Item findItemByIndex(int index)
-        {
-            return _inventory[index];
-        }
-
-        public int findIndexByItem(Item _item)
-        {
-            for (int x = 0; x < _inventory.Length; x++)
-            {
-                if(_inventory[x].getItemName().Equals(_item.getItemName()))
+                if(_Consumable[x].getItemName().Equals(_item.getItemName()))
                 {
                     return x;
                 }
@@ -70,12 +57,30 @@ namespace DungeonFinal
             return -1;
         }
 
-        public void addLast(Item itemToAdd) //will be renamed addToInventory
+        public Equipment findEquipmentByIndex(int index)
         {
-            if (_invNextFreeIndex < _inventory.Length)//if there is still room to add.
+            return _Equipment[index];
+        }
+
+        public int findIndexOfEquipment(Item _item)
+        {
+            for (int x = 0; x < _Equipment.Length; x++)
             {
-                _inventory[_invNextFreeIndex] = itemToAdd;
-                _invNextFreeIndex++;
+                if (_Equipment[x].getItemName().Equals(_item.getItemName()))
+                {
+                    return x;
+                }
+            }
+
+            return -1;
+        }
+
+        public void addLastToConsumable(Consumable itemToAdd) //will be renamed addToInventory
+        {
+            if (_ConsumableNextFreeIndex < _Consumable.Length)
+            {
+                _Consumable[_ConsumableNextFreeIndex] = itemToAdd;
+                _ConsumableNextFreeIndex++;
             }
             else
             {
@@ -83,31 +88,48 @@ namespace DungeonFinal
             }
         }
 
-        public Item remove(int indexOfItem)
+        public void addLastToEquipment(Equipment itemToAdd) //will be renamed addToInventory
         {
-            if(_invNextFreeIndex == 0)
+            if (_EquipmentNextFreeIndex < _Equipment.Length)
             {
-                // cannot remove anything because it's empty
-                return new nullItem();
+                _Equipment[_EquipmentNextFreeIndex] = itemToAdd;
+                _EquipmentNextFreeIndex++;
+            }
+            else
+            {
+                MessageBox.Show("Your packs are full! You cannot carry another pound.");
+            }
+        }
+
+        public Item removeFromConsumable(int indexOfItem)
+        {
+            if(_ConsumableNextFreeIndex == 0)
+            {
+                return new NullItemConsumable();
             }
 
             else
             {
-                Item item = findItemByIndex(indexOfItem);
+                Item item = findConsumableByIndex(indexOfItem);
+                _Consumable[indexOfItem] = new NullItemConsumable();
+                _ConsumableNextFreeIndex--;
+                return item;
+            }
+        }
 
-                //if(item.getItemName().Equals("Null Item"))
-                //{
-                //    MessageBox.Show("Cannot remove a null item!"); // handling edge case of null item in inventory.
-                //}
+        public Item removeFromEquipment(int indexOfItem)
+        {
+            if (_EquipmentNextFreeIndex == 0)
+            {
+                return new NullItemConsumable();
+            }
 
-              //  else
-              //  {
-                    _inventory[indexOfItem] = new nullItem();
-                    _invNextFreeIndex--;
-                    return item;
-               // }
-
-             //   return new nullItem();
+            else
+            {
+                Item item = findEquipmentByIndex(indexOfItem);
+                _Equipment[indexOfItem] = null;
+                _EquipmentNextFreeIndex--;
+                return item;
             }
         }
     }

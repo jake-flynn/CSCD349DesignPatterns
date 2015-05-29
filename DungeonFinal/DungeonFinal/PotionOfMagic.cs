@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class PotionOfMagic : Item
+    class PotionOfMagic : Consumable
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Magic Potion");
-            this.setConsumable(true);
             _effect.setEffectName("Enhances magic power by ");
             _effect.setMagicValue(6);
             _effect.setEffectAmount(6);

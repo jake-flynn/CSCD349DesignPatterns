@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class LeatherGloves : Item
+    class LeatherGloves : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Leather Gloves");
-            this.setEquippable(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Gloves made from leather straps woven together");
             _effect.setPhysicalDefense(1);

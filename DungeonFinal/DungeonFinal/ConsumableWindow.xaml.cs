@@ -26,10 +26,10 @@ namespace DungeonFinal
         {
             InitializeComponent();
             _Inventory = CurrentInventory;
-            lbl_item1.Content = _Inventory.findItemByIndex(0).getItemName();
-            lbl_item2.Content = _Inventory.findItemByIndex(1).getItemName();
-            lbl_item3.Content = _Inventory.findItemByIndex(2).getItemName();
-            lbl_item4.Content = _Inventory.findItemByIndex(3).getItemName();
+            lbl_item1.Content = _Inventory.findConsumableByIndex(0).getItemName();
+            lbl_item2.Content = _Inventory.findConsumableByIndex(1).getItemName();
+            lbl_item3.Content = _Inventory.findConsumableByIndex(2).getItemName();
+            lbl_item4.Content = _Inventory.findConsumableByIndex(3).getItemName();
             //lbl_item5.Content = _Inventory.findItemByIndex(4).getItemName();
             //lbl_item6.Content = _Inventory.findItemByIndex(5).getItemName();
             //lbl_item7.Content = _Inventory.findItemByIndex(6).getItemName();
@@ -47,10 +47,10 @@ namespace DungeonFinal
             //lbl_item19.Content = _Inventory.findItemByIndex(18).getItemName();
             //lbl_item20.Content = _Inventory.findItemByIndex(19).getItemName();
 
-            rect_item1.Fill = _Inventory.findItemByIndex(0).getBrush();
-            rect_item2.Fill = _Inventory.findItemByIndex(1).getBrush();
-            rect_item3.Fill = _Inventory.findItemByIndex(2).getBrush();
-            rect_item4.Fill = _Inventory.findItemByIndex(3).getBrush();
+            rect_item1.Fill = _Inventory.findConsumableByIndex(0).getBrush();
+            rect_item2.Fill = _Inventory.findConsumableByIndex(1).getBrush();
+            rect_item3.Fill = _Inventory.findConsumableByIndex(2).getBrush();
+            rect_item4.Fill = _Inventory.findConsumableByIndex(3).getBrush();
 
         }
 

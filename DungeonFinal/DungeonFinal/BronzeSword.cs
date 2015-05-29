@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class BronzeSword : Item
+    class BronzeSword : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Sword");
-            this.setEquippable(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A well balanced sword made of copper and tin");
             _effect.setStrengthValue(16);

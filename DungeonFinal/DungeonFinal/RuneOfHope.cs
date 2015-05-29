@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class RuneOfHope: Item
+    class RuneOfHope : Equipment
     {
         ItemsEffect _effect;
 

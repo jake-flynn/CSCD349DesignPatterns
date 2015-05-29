@@ -24,7 +24,7 @@ namespace DungeonFinal
 
         public Item createItem(int tierLevel)
         {
-            Item newItem = new nullItem();
+            Item newItem = new NullItemConsumable();
 
             if(tierLevel == 1)
             {
@@ -301,6 +301,13 @@ namespace DungeonFinal
 
             else if(tierLevel == 4)
             {
+                var randomNumber = new Random();
+                int choice = randomNumber.Next(1) + 1;
+
+                if(choice == 1)
+                {
+                    return new Ultima();
+                }
 
             }
 

@@ -14,15 +14,15 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class nullItem : Item
+    class NullItemConsumable : Consumable
     {
         ItemsEffect _effect;
 
-        public nullItem() : base()
+        public NullItemConsumable() //: base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Empty slot");
-            _effect.setEffectName("No effect");
+            _effect.setEffectName(" had no effect");
             this.setEffect(_effect);
         }
 
