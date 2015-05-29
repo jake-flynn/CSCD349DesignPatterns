@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class BronzeChestPlate : Item
+    class BronzeChestPlate : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Chest Plate");
-            this.setEquippable(true);
             this.setSocketAmount(6);
             _effect.setEffectName("An exceptional piece of work crafted from copper and tin");
             _effect.setPhysicalDefense(8);

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class SteelDagger : Item
+    class SteelDagger : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Steel Dagger");
-            this.setEquippable(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A ferocious dagger made of high tensile steel");
             _effect.setStrengthValue(12);

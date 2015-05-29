@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class LesserPotionOfPower : Item
+    class LesserPotionOfPower : Consumable
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Lesser Power Potion");
-            this.setConsumable(true);
             _effect.setEffectName("Slightly increases power by ");
             _effect.setEffectAmount(3);
             _effect.setStrengthValue(3);

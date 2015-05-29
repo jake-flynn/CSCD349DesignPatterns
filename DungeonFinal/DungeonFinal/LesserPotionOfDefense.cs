@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class LesserPotionOfDefense : Item
+    class LesserPotionOfDefense : Consumable
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Lesser Defense Potion");
-            this.setConsumable(true);
             _effect.setEffectName("Slightly increases defense by ");
             _effect.setEffectAmount(3);
             _effect.setPhysicalDefense(3);

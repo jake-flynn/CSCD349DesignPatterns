@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class RuneOfCreation : Item
+    class RuneOfCreation : Equipment
     {
         ItemsEffect _effect;
 

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class SimpleStaff : Item
+    class SimpleStaff : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Simple Staff");
-            this.setEquippable(true);
             _effect.setEffectName("A simple staff");
             _effect.setMagicValue(6);
             _effect.setEffectAmount(6);

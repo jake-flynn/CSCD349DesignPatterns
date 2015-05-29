@@ -195,7 +195,7 @@ namespace DungeonFinal
             var consumableWindow = new ConsumableWindow(_BattleInventory);
             consumableWindow.ShowDialog();
             int choiceFromConsumableWindow = consumableWindow.getChoiceFromSelect();
-            Item itemToUse = _BattleInventory.findItemByIndex(choiceFromConsumableWindow);
+            Consumable itemToUse = _BattleInventory.findConsumableByIndex(choiceFromConsumableWindow);
 
             var choiceWindow = new ChoiceWindow(_theHeroes);
             choiceWindow.ShowDialog();
@@ -209,7 +209,7 @@ namespace DungeonFinal
                 Foreground = _theHeroes[0].getTextColor()
             });
             paragraph.Inlines.Add(new LineBreak());
-            _BattleInventory.remove(choiceFromConsumableWindow);
+            _BattleInventory.removeFromConsumable(choiceFromConsumableWindow);
 
         }
 

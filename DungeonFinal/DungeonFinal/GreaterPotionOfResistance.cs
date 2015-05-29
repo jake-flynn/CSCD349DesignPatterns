@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class GreaterPotionOfResistance : Item
+    class GreaterPotionOfResistance : Consumable
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Greater Resistance Potion");
-            this.setConsumable(true);
             _effect.setEffectName("Greatly increase resistance by ");
             _effect.setEffectAmount(10);
             _effect.setResistanceDefense(10);

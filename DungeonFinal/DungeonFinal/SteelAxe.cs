@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class SteelAxe : Item
+    class SteelAxe : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Steel Axe");
-            this.setEquippable(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A monsterous two handed axe made of tempered steel");
             _effect.setStrengthValue(16);

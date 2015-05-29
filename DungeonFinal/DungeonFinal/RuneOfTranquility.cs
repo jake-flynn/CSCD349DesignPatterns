@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class RuneOfTranquility: Item
+    class RuneOfTranquility : Equipment
     {
         ItemsEffect _effect;
 

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ClothShoes: Item
+    class ClothShoes: Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Cloth Shoes");
-            this.setEquippable(true);
+            this.setSocketAmount(1);
             _effect.setEffectName("Cloth shoes that increase resistance slightly");
             _effect.setPhysicalDefense(1);
             _effect.setResistanceDefense(1);
