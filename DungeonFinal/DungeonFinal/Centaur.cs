@@ -49,6 +49,11 @@ namespace DungeonFinal
             setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
+
+            ImageBrush imgBrush = new ImageBrush();
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Centaur.jpg", UriKind.RelativeOrAbsolute));
+            imgBrush.ImageSource = image;
+            setImageBrush(imgBrush);
         }
 
 
@@ -128,13 +133,13 @@ namespace DungeonFinal
         }
 
 
-        public override ImageBrush getBrush()
-        {
-            ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-XVplx0kyrLU/VV7slSv3AGI/AAAAAAAAA6M/PEHwBRJdp48/w506-h610/Centaure.jpg"));
-            imgBrush.ImageSource = image;
-            return imgBrush;
-        }
+        //public override ImageBrush getBrush()
+        //{
+        //    ImageBrush imgBrush = new ImageBrush();
+        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-XVplx0kyrLU/VV7slSv3AGI/AAAAAAAAA6M/PEHwBRJdp48/w506-h610/Centaure.jpg"));
+        //    imgBrush.ImageSource = image;
+        //    return imgBrush;
+        //}
 
         public override Object Clone(int count)
         {

@@ -49,6 +49,12 @@ namespace DungeonFinal
             setIsSwarm(true);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
+
+
+            ImageBrush imgBrush = new ImageBrush();
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Hellhound.jpg", UriKind.RelativeOrAbsolute));
+            imgBrush.ImageSource = image;
+            setImageBrush(imgBrush);
         }
 
 
@@ -131,13 +137,13 @@ namespace DungeonFinal
         }
 
 
-        public override ImageBrush getBrush()
-        {
-            ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
-            imgBrush.ImageSource = image;
-            return imgBrush;
-        }
+        //public override ImageBrush getBrush()
+        //{
+        //    ImageBrush imgBrush = new ImageBrush();
+        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+        //    imgBrush.ImageSource = image;
+        //    return imgBrush;
+        //}
 
         public override Object Clone(int count)
         {

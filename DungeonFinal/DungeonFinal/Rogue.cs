@@ -43,6 +43,12 @@ namespace DungeonFinal
             setIsDefending(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
+
+
+            ImageBrush imgBrush = new ImageBrush();
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Rogue.jpg", UriKind.RelativeOrAbsolute));
+            imgBrush.ImageSource = image;
+            setImageBrush(imgBrush);
         }
 
 
@@ -85,13 +91,13 @@ namespace DungeonFinal
             return dr;
         }
 
-        public override ImageBrush getBrush()
-        {
-            ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-GqQ6Ja-aahk/VV7qAx0PD8I/AAAAAAAAA0E/tguBh4geous/w506-h647/Rogue.jpg"));
-            imgBrush.ImageSource = image;
-            return imgBrush;
-        }
+        //public override ImageBrush getBrush()
+        //{
+        //    ImageBrush imgBrush = new ImageBrush();
+        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-GqQ6Ja-aahk/VV7qAx0PD8I/AAAAAAAAA0E/tguBh4geous/w506-h647/Rogue.jpg"));
+        //    imgBrush.ImageSource = image;
+        //    return imgBrush;
+        //}
 
         public override Brush getTextColor()
         {

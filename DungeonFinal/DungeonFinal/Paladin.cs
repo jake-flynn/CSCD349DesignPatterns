@@ -43,6 +43,12 @@ namespace DungeonFinal
             setIsDefending(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
+
+            ImageBrush imgBrush = new ImageBrush();
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Paladin.jpg", UriKind.RelativeOrAbsolute));
+            imgBrush.ImageSource = image;
+
+            setImageBrush(imgBrush);
         }
 
 
@@ -89,13 +95,13 @@ namespace DungeonFinal
             return dr;
         }
 
-        public override ImageBrush getBrush()
-        {
-            ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-9PZ0hjpgspI/VV7p99bG62I/AAAAAAAAAzg/Ejq9YL1hAtM/w506-h764/Paladin.jpg"));
-            imgBrush.ImageSource = image;
-            return imgBrush;
-        }
+        //public override ImageBrush getBrush()
+        //{
+        //    ImageBrush imgBrush = new ImageBrush();
+        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-9PZ0hjpgspI/VV7p99bG62I/AAAAAAAAAzg/Ejq9YL1hAtM/w506-h764/Paladin.jpg"));
+        //    imgBrush.ImageSource = image;
+        //    return imgBrush;
+        //}
 
         public override Brush getTextColor()
         {

@@ -50,6 +50,12 @@ namespace DungeonFinal
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
 
+
+            ImageBrush imgBrush = new ImageBrush();
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Shade.jpg", UriKind.RelativeOrAbsolute));
+            imgBrush.ImageSource = image;
+            setImageBrush(imgBrush);
+
         }
 
 
@@ -114,13 +120,13 @@ namespace DungeonFinal
         }
 
 
-        public override ImageBrush getBrush()
-        {
-            ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-EKQKgVnW8YE/VV7rA5Vn4pI/AAAAAAAAA2k/kosHQJsMjYs/w506-h571/shade.jpg"));
-            imgBrush.ImageSource = image;
-            return imgBrush;
-        }
+        //public override ImageBrush getBrush()
+        //{
+        //    ImageBrush imgBrush = new ImageBrush();
+        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-EKQKgVnW8YE/VV7rA5Vn4pI/AAAAAAAAA2k/kosHQJsMjYs/w506-h571/shade.jpg"));
+        //    imgBrush.ImageSource = image;
+        //    return imgBrush;
+        //}
 
         public override Object Clone(int count)
         {

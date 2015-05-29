@@ -63,17 +63,17 @@ namespace DungeonFinal
             tb_hero3.Text = _theHeroes[2].getName();
             tb_hero4.Text = _theHeroes[3].getName();
 
-            rect_hero1.Fill = _theHeroes[0].getBrush();
-            rect_hero2.Fill = _theHeroes[1].getBrush();
-            rect_hero3.Fill = _theHeroes[2].getBrush();
-            rect_hero4.Fill = _theHeroes[3].getBrush();
+            rect_hero1.Fill = _theHeroes[0].getImageBrush();
+            rect_hero2.Fill = _theHeroes[1].getImageBrush();
+            rect_hero3.Fill = _theHeroes[2].getImageBrush();
+            rect_hero4.Fill = _theHeroes[3].getImageBrush();
             
-            rect_monster1.Fill = _TheSwarm[0].getBrush();
-            rect_monster2.Fill = _TheSwarm[1].getBrush();
-            rect_monster3.Fill = _TheSwarm[2].getBrush();
-            rect_monster4.Fill = _TheSwarm[3].getBrush();
-            rect_monster5.Fill = _TheSwarm[4].getBrush();
-            rect_monster6.Fill = _TheSwarm[5].getBrush();
+            rect_monster1.Fill = _TheSwarm[0].getImageBrush();
+            rect_monster2.Fill = _TheSwarm[1].getImageBrush();
+            rect_monster3.Fill = _TheSwarm[2].getImageBrush();
+            rect_monster4.Fill = _TheSwarm[3].getImageBrush();
+            rect_monster5.Fill = _TheSwarm[4].getImageBrush();
+            rect_monster6.Fill = _TheSwarm[5].getImageBrush();
 
             paragraph = new Paragraph();
             rtb_testBox.Document = new FlowDocument(paragraph);

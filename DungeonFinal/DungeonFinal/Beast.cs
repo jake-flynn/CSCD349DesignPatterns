@@ -50,6 +50,12 @@ namespace DungeonFinal
             setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
+
+
+            ImageBrush imgBrush = new ImageBrush();
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Stu.jpg", UriKind.RelativeOrAbsolute));
+            imgBrush.ImageSource = image;
+            setImageBrush(imgBrush);
         }
 
 
@@ -120,14 +126,14 @@ namespace DungeonFinal
             return dr;
         }
 
-        public override ImageBrush getBrush()
-        {
-            ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-uGzhj6YzaeE/VV7pxURiutI/AAAAAAAAAx4/20ls6ETfz-Y/w506-h657/Cyclops.jpg"));
-            //BitmapImage image = new BitmapImage(new Uri(@"Images/Stu.jpg", UriKind.RelativeOrAbsolute ));
-            imgBrush.ImageSource = image;
-            return imgBrush;
-        }
+        //public override ImageBrush getBrush()
+        //{
+        //    ImageBrush imgBrush = new ImageBrush();
+        //    //BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-uGzhj6YzaeE/VV7pxURiutI/AAAAAAAAAx4/20ls6ETfz-Y/w506-h657/Cyclops.jpg"));
+        //    BitmapImage image = new BitmapImage(new Uri(@"Images/Stu.jpg", UriKind.RelativeOrAbsolute ));
+        //    imgBrush.ImageSource = image;
+        //    return imgBrush;
+        //}
 
         public override Object Clone(int count)
         {

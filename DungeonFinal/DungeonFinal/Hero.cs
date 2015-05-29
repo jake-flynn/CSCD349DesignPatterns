@@ -48,6 +48,7 @@ namespace DungeonFinal
 
         private int _DefendingDefense;
         private int _DefendingResistance;
+        private ImageBrush _ImageBrush;
 
 
 
@@ -292,6 +293,19 @@ namespace DungeonFinal
         //}
 
        //Battle Defend
+
+        //------------------------------- Image Brush -------------------------------
+
+        public void setImageBrush(ImageBrush i)
+        {
+            _ImageBrush = i;
+        }
+
+        public ImageBrush getImageBrush()
+        {
+            return _ImageBrush;
+        }
+
         //-------------------------------Abstract Methods -------------------------------
         public Boolean getIsDefending()
         {
@@ -324,7 +338,6 @@ namespace DungeonFinal
         public abstract int BasicAttack();
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
-        public abstract ImageBrush getBrush();
         public abstract Brush getTextColor();
     }
 }

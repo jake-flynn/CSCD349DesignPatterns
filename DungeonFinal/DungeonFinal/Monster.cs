@@ -50,6 +50,7 @@ namespace DungeonFinal
 
         private int _DefendingDefense;
         private int _DefendingResistance;
+        private ImageBrush _ImageBrush;
         
         public Monster(){}
 
@@ -308,13 +309,23 @@ namespace DungeonFinal
         }
 
 
+        public void setImageBrush(ImageBrush i)
+        {
+            _ImageBrush = i;
+        }
+
+        public ImageBrush getImageBrush()
+        {
+            return _ImageBrush;
+        }
+
+
         //------------------------------- Abstract Methods -------------------------------
         public abstract int BasicAttack();
         public abstract String PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
         public abstract Hero FindTarget(Party p);
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
-        public abstract ImageBrush getBrush();
         public abstract Object Clone(int count);
     }
 }
