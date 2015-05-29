@@ -37,7 +37,10 @@ namespace DungeonFinal
             setModDefense(3);
             setBaseResistance(2);
             setModResistance(2);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -58,15 +61,23 @@ namespace DungeonFinal
             return m;
         }
 
+        //Leech - attacks one hero with strength value, takes that damage and heals by that amount
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int damage = mon.getModStrength() - party[rnd].getModDefense();
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //Set Damage
+            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+
+            //Set Health
+            mon.setCurHealth(mon.getCurHealth() + damage);
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return (getName() + "sucked " + party[rnd].getName() + "'s blood for " + damage + " and healed itself!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

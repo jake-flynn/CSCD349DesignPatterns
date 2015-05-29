@@ -38,7 +38,10 @@ namespace DungeonFinal
             setModDefense(0);
             setBaseResistance(20);
             setModResistance(20);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -59,15 +62,35 @@ namespace DungeonFinal
             return m;
         }
 
+        //Screech - Attacks whole party for .75 damage and chance of paralyzation
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
+            String message = mon.getName() + "uttered an ear piercing screech!\r\n";
+            int damage = 0;
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            foreach (Hero h in party)
+            {
+                int chance = new Random().Next(3);
+                damage = mon.getModMagic() - h.getModResistance();
+                h.setCurHealth(h.getCurHealth() - damage);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+                //Paralyze Successful
+                if (chance == 1)
+                {
+                    message += "Screech affected " + h.getName() + " for " + damage + " damage and they were paralyzed!\r\n";
+                }
+
+                //Paralyze Unuccessful
+                else
+                {
+                    message += "Screech affected " + h.getName() + " for " + damage + " damage!\r\n";
+                }
+            }
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

@@ -38,7 +38,10 @@ namespace DungeonFinal
             setModDefense(20);
             setBaseResistance(5);
             setModResistance(5);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -59,15 +62,32 @@ namespace DungeonFinal
             return m;
         }
 
+        //Skull Bash - Chance of paralyze, strong hit to one hero
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int chance = new Random().Next(3);
+            String message = "";
+            int damage = (int)(mon.getModStrength() * 1.5) - party[rnd].getModDefense();
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //Burn Successful
+            if (chance == 1)
+            {
+                message += mon.getName() + "hit " + party[rnd].getName() + " with its axe for " + damage + " damage and caused paralyzation!\r\n";
+            }
+
+            //Burn Unsuccessful
+            else
+            {
+                message += mon.getName() + "hit " + party[rnd].getName() + " with its axe and caused " + damage + " damage!\r\n";
+            }
+
+            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

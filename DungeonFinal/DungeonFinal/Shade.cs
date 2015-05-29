@@ -38,7 +38,10 @@ namespace DungeonFinal
             setModDefense(0);
             setBaseResistance(10);
             setModResistance(10);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -62,15 +65,19 @@ namespace DungeonFinal
             return m;
         }
 
+        //Curse - Debuffs one hero with -1 magic and -1 strength
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            party[rnd].setModStrength(party[rnd].getModStrength() - 1);
+            party[rnd].setModMagic(party[rnd].getModStrength() - 1);
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

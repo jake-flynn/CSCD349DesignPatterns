@@ -38,7 +38,10 @@ namespace DungeonFinal
             setModDefense(25);
             setBaseResistance(10);
             setModResistance(10);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -59,15 +62,32 @@ namespace DungeonFinal
             return m;
         }
 
+        //Thunderbolt - chance of paralyze
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int chance = new Random().Next(3);
+            String message = "";
+            int damage = mon.getModStrength() - party[rnd].getModDefense();
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //Paralyze successful
+            if(chance == 1)
+            {
+                message += mon.getName() + "threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage caused paralyzation!\r\n";
+            }
+
+            //Paralyze unsuccessful
+            else
+            {
+                message += mon.getName() + "threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+            }
+
+            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

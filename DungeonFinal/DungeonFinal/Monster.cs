@@ -40,11 +40,13 @@ namespace DungeonFinal
 
         private int _SpecialAttackFrequency; //This is an int between 1-10 that signifies how often a monster will use a special attack. E.G.: StuBeast always assigns homework.
 
+        private String _Stats;
+        private String _Lore;
+
         private Boolean _IsPhysical;
         private Boolean _IsDefeated;
         private Boolean _IsDefending;
         private Boolean _IsSwarm;
-
 
         private int _DefendingDefense;
         private int _DefendingResistance;
@@ -221,6 +223,39 @@ namespace DungeonFinal
             _ModResistance = r;
         }
 
+        //------------------------------- Special Attack Frequency -------------------------------
+        public int getSpecialAttackFrequency()
+        {
+            return _SpecialAttackFrequency;
+        }
+
+        public void setSpecialAttackFrequency(int newFreq)
+        {
+            _SpecialAttackFrequency = newFreq;
+        }
+
+        //------------------------------- Stats -------------------------------
+        public String getStats()
+        {
+            String s = "Strength: " + getModStrength() + "\nMagic: " + getModMagic() + "\nDefense: " + getModDefense() + "\nResistance: " + getModResistance();
+            return _Stats;
+        }
+
+        public void setStats(String s)
+        {
+            _Stats = s;
+        }
+
+        //------------------------------- Lore -------------------------------
+        public String getLore()
+        {
+            return _Lore;
+        }
+
+        public void setLore(String l)
+        {
+            _Lore = l;
+        }
 
         //------------------------------- Battle Attack -------------------------------
         public Boolean getIsPhysical()
@@ -271,17 +306,6 @@ namespace DungeonFinal
         {
             _IsSwarm = iS;
         }
-
-        public int getSpecialAttackFrequency()
-        {
-            return _SpecialAttackFrequency;
-        }
-
-        public void setSpecialAttackFrequency(int newFreq)
-        {
-            _SpecialAttackFrequency = newFreq;
-        }
-
 
 
         //------------------------------- Abstract Methods -------------------------------

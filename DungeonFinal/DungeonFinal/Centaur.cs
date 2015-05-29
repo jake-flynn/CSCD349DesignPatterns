@@ -38,7 +38,10 @@ namespace DungeonFinal
             setModDefense(15);
             setBaseResistance(15);
             setModResistance(15);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -59,15 +62,29 @@ namespace DungeonFinal
             return m;
         }
 
+        //Trample - Strong hit to two heroes
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
+            String message = "";
+            int damage = 0;
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int rnd1 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int rnd2 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //Attack 1
+            damage = mon.getModStrength() - party[rnd1].getModDefense();
+            party[rnd1].setCurHealth(party[rnd1].getCurHealth() - damage);
+            message += mon.getName() + "trampled " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
+
+            //Attack 2
+            damage = mon.getModStrength() - party[rnd2].getModDefense();
+            party[rnd2].setCurHealth(party[rnd2].getCurHealth() - damage);
+            message += mon.getName() + "trampled " + party[rnd2].getName() + " for " + damage + " damage!\r\n";
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
