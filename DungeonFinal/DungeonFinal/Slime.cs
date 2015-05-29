@@ -37,7 +37,10 @@ namespace DungeonFinal
             setModDefense(8);
             setBaseResistance(8);
             setModResistance(8);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(false);
             setIsDefeated(false);
@@ -58,15 +61,38 @@ namespace DungeonFinal
             return m;
         }
 
+        //Toxic Ooze - Chance of either poison, paralyze, or burn
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int chance = new Random().Next(4);
+            String message = mon.getName() + " slung toxic ooze at the party!\r\n";
+            int damage = mon.getModMagic() - party[rnd].getModResistance();
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //Poison
+            if (chance == 1)
+            {
+                message += "It poisoned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+            }
+
+            //Paralyze
+            else if (chance == 2)
+            {
+                message += "It paralyzed " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+            }
+
+            //Burn
+            else
+            {
+                message += "It burned " + party[rnd].getName() + " for " + damage + " damage each!";
+            }
+
+            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

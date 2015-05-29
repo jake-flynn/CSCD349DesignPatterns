@@ -37,7 +37,10 @@ namespace DungeonFinal
             setModDefense(10);
             setBaseResistance(0);
             setModResistance(0);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -58,15 +61,15 @@ namespace DungeonFinal
             return m;
         }
 
+        //Howl - Increases strength by 50% (can stack)
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            int strInc = mon.getModStrength() * 2;
+            mon.setModStrength(strInc);
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            mon.setCurMana(mon.getCurMana() - 10);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            return (mon.getName() + "howled at the moon and increased its strength to " + strInc + "!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

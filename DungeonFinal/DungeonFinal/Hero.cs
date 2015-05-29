@@ -39,6 +39,8 @@ namespace DungeonFinal
 
         private int _BaseResistance = 1;
         private int _ModResistance = 1;
+
+        private String _Stats;
         
         private Boolean _IsPhysical;
         private Boolean _IsDefeated;
@@ -247,7 +249,18 @@ namespace DungeonFinal
             _ModResistance = r;
         }
 
-        
+        //------------------------------- Stats -------------------------------
+        public String getStats()
+        {
+            String s = "Strength: " + getModStrength() + "\nMagic: " + getModMagic() + "\nDefense: " + getModDefense() + "\nResistance: " + getModResistance();
+            return _Stats;
+        }
+
+        public void setStats(String s)
+        {
+            _Stats = s;
+        }
+
         //------------------------------- Battle Attack -------------------------------
         public Boolean getIsPhysical()
         {

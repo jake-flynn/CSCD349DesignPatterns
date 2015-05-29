@@ -37,7 +37,10 @@ namespace DungeonFinal
             setModDefense(10);
             setBaseResistance(2);
             setModResistance(2);
+
             setSpecialAttackFrequency(3);
+
+            setLore("");
 
             setIsPhysical(true);
             setIsDefeated(false);
@@ -58,15 +61,52 @@ namespace DungeonFinal
             return m;
         }
 
+        //Bone Toss/Bonerang - Decreasing chance of hitting all heroes, guarenteed one hit (.75 strength)
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int chance = new Random().Next(5);
+            String message = mon.getName() + " threw its bonerang!\r\n";
+            int damage = 0;
+            int hit = (int)(mon.getModStrength() * .75);
+            int numStrikes = 0;
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!");
+            //Attack 1 member
+            if(chance == 1)
+            {
+                numStrikes = 1;
+            }
+
+            //Attack 2 members
+            else if(chance == 2)
+            {
+                numStrikes = 2;
+            }
+
+            //Attack 3 members
+            else if(chance == 3)
+            {
+                numStrikes = 3;
+            }
+
+            //Attack all 4 members
+            else
+            {
+                numStrikes = 4;
+            }
+
+            for (; numStrikes > 0; numStrikes--)
+            {
+                damage = party[numStrikes].getModDefense() - hit;
+                party[numStrikes].setCurHealth(party[numStrikes].getCurHealth() - damage);
+
+                message += "The bonerang hit " + party[numStrikes].getName() + " for " + damage + " damage!\r\n";
+            }
+
+            mon.setCurMana(mon.getCurMana() - 10);
+
+            return message;
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
