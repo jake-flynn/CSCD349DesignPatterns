@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class LesserPotionOfHealth: Item
+    class LesserPotionOfHealth : Consumable
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Lesser Health Potion");
-            this.setConsumable(true);
             _effect.setEffectName("Slightly heals by ");
             _effect.setEffectAmount(20);
             _effect.setHealthValue(20);

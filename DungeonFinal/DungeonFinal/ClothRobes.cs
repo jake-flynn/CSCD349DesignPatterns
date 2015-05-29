@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ClothRobes : Item
+    class ClothRobes : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,10 +22,11 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Cloth Robes");
-            this.setEquippable(true);
-            _effect.setEffectName("Finely woven silk robes that are imbued with magical properties");
+            this.setSocketAmount(3);
+            _effect.setEffectName("Finely woven silk robes that increase magic power 2 and mana power 10");
             _effect.setPhysicalDefense(2);
             _effect.setMagicValue(2);
+            _effect.setManaValue(10);
             _effect.setEffectAmount(2);
             this.setEffect(_effect);
         }

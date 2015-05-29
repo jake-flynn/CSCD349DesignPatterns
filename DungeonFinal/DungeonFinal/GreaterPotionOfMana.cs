@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class GreaterPotionOfMana : Item
+    class GreaterPotionOfMana : Consumable
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Greater Mana Potion");
-            this.setConsumable(true);
             _effect.setEffectName("Greatly restores mana by ");
             _effect.setEffectAmount(60);
             _effect.setManaValue(60);

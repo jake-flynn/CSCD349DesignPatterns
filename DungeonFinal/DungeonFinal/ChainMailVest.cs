@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ChainMailVest : Item
+    class ChainMailVest : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Chain Mail Vest");
-            this.setEquippable(true);
+            this.setSocketAmount(4);
             _effect.setEffectName("A sturdy vest made of interlocking steel ringlets bound with leather strips");
             _effect.setPhysicalDefense(6);
             _effect.setEffectAmount(6);

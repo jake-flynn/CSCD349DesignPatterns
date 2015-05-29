@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class LeatherHelmet : Item
+    class LeatherHelmet : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Leather Helmet");
-            this.setEquippable(true);
             this.setSocketAmount(1);
             _effect.setEffectName("A sturdy leather cap");
             _effect.setPhysicalDefense(3);

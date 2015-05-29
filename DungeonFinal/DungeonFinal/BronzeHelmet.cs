@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class BronzeHelmet : Item
+    class BronzeHelmet : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Helmet");
-            this.setEquippable(true);
             this.setSocketAmount(3);
             _effect.setEffectName("A well crafted helmet made of an alloy of copper and tin");
             _effect.setPhysicalDefense(5);

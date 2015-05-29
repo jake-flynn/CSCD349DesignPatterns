@@ -87,6 +87,7 @@
     <Compile Include="ClothHeadPiece.cs" />
     <Compile Include="ClothRobes.cs" />
     <Compile Include="ClothShoes.cs" />
+    <Compile Include="Consumable.cs" />
     <Compile Include="ConsumableWindow.xaml.cs">
       <DependentUpon>ConsumableWindow.xaml</DependentUpon>
     </Compile>
@@ -97,6 +98,7 @@
     <Compile Include="Cyclops.cs" />
     <Compile Include="DemonWarrior.cs" />
     <Compile Include="Dragon.cs" />
+    <Compile Include="Equipment.cs" />
     <Compile Include="FullGuard.cs" />
     <Compile Include="GreaterPotionOfDefense.cs" />
     <Compile Include="GreaterPotionOfHealth.cs" />

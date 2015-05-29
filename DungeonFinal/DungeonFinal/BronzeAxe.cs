@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class BronzeAxe : Item
+    class BronzeAxe : Equipment
     {
         ItemsEffect _effect;
 
@@ -22,7 +22,6 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Axe");
-            this.setEquippable(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A great two handed axe made of copper and tin");
             _effect.setStrengthValue(13);
