@@ -152,6 +152,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Harpy();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

@@ -134,6 +134,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Imp();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

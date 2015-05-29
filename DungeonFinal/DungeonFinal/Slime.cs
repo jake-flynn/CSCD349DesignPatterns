@@ -143,6 +143,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Slime();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

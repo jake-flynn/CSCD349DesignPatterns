@@ -24,7 +24,7 @@ namespace DungeonFinal
 
         public Item createItem(int tierLevel)
         {
-            Item newItem = new nullItem();
+            Item newItem = new NullItemConsumable();
 
             if(tierLevel == 1)
             {

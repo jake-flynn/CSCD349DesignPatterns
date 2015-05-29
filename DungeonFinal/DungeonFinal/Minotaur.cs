@@ -175,6 +175,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Minotaur();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

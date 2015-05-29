@@ -145,6 +145,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Centaur();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

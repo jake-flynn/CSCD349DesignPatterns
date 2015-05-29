@@ -149,6 +149,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Cyclops();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

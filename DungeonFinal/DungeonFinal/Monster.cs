@@ -308,6 +308,29 @@ namespace DungeonFinal
             _IsSwarm = iS;
         }
 
+        //------------------------------- Modify stats for Clones -------------------------------
+
+        public void modifyStats()
+        {
+            setBaseHealth(getBaseHealth() / 2);
+            setCurHealth(getCurHealth() / 2);
+            setMaxHealth(getMaxHealth() / 2);
+            setBaseMana(getBaseMana() / 2);
+            setCurMana(getCurMana() / 2);
+            setMaxMana(getMaxMana() / 2);
+
+            
+            setBaseStrength(getBaseStrength() / 2);
+            setModStrength(getModStrength() / 2);
+            setBaseMagic(getBaseMagic() / 2);
+            setModMagic(getModMagic() / 2);
+            setBaseDefense(getBaseDefense() / 2);
+            setModDefense(getModDefense() / 2);
+            setBaseResistance(getBaseResistance() / 2);
+            setModResistance(getModResistance() / 2);
+
+                
+        }
 
         public void setImageBrush(ImageBrush i)
         {

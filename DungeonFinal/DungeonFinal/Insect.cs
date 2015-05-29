@@ -160,6 +160,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Insect();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

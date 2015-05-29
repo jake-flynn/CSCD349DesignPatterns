@@ -130,6 +130,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Werewolf();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

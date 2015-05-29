@@ -42,6 +42,7 @@ namespace DungeonFinal
             setSpecialAttackFrequency(4);
 
             setLore("StuBeast is an unholy abomination created from the deepest depths of students' nightmares.\r\n" + 
+                    "It is said in whispers that it has a heart of gold, though none have survived to confirm this. \r\n" +
                     "Tough and unforgiving, winning a battle against the StuBeast will ultimately make you stronger.");
 
             setIsPhysical(true);
@@ -139,6 +140,7 @@ namespace DungeonFinal
         {
             Monster newMon = new StuBeast();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

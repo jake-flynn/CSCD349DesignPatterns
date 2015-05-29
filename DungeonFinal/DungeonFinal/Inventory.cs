@@ -105,13 +105,13 @@ namespace DungeonFinal
         {
             if(_ConsumableNextFreeIndex == 0)
             {
-                return new nullItem();
+                return new NullItemConsumable();
             }
 
             else
             {
                 Item item = findConsumableByIndex(indexOfItem);
-                _Consumable[indexOfItem] = null;
+                _Consumable[indexOfItem] = new NullItemConsumable();
                 _ConsumableNextFreeIndex--;
                 return item;
             }
@@ -121,7 +121,7 @@ namespace DungeonFinal
         {
             if (_EquipmentNextFreeIndex == 0)
             {
-                return new nullItem();
+                return new NullItemConsumable();
             }
 
             else

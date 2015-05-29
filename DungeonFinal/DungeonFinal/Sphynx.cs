@@ -147,6 +147,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Sphynx();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

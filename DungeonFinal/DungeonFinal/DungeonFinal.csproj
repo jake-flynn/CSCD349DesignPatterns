@@ -135,7 +135,8 @@
     <Compile Include="MazeMaker.cs" />
     <Compile Include="Minotaur.cs" />
     <Compile Include="MonsterFactory.cs" />
-    <Compile Include="nullItem.cs" />
+    <Compile Include="NullItemConsumable.cs" />
+    <Compile Include="NullItemEquipment.cs" />
     <Compile Include="Paladin.cs" />
     <Compile Include="Party.cs" />
     <Compile Include="PotionOfDefense.cs" />

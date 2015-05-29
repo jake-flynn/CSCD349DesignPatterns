@@ -179,6 +179,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Dragon();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

@@ -188,6 +188,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Hydra();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

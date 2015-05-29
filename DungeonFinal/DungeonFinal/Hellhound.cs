@@ -149,6 +149,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Hellhound();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

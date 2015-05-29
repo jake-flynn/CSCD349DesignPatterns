@@ -72,39 +72,39 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getHeros();
 
-            int chance = new Random().Next(5);
+            int chance = new Random().Next(4);
             String message = mon.getName() + " threw its bonerang!\r\n";
             int damage = 0;
             int hit = (int)(mon.getModStrength() * .75);
             int numStrikes = 0;
 
             //Attack 1 member
-            if(chance == 1)
+            if(chance == 0)
+            {
+                numStrikes = 0;
+            }
+
+            //Attack 2 members
+            else if(chance == 1)
             {
                 numStrikes = 1;
             }
 
-            //Attack 2 members
+            //Attack 3 members
             else if(chance == 2)
             {
                 numStrikes = 2;
             }
 
-            //Attack 3 members
-            else if(chance == 3)
+            //Attack all 4 members
+            else
             {
                 numStrikes = 3;
             }
 
-            //Attack all 4 members
-            else
+            for (; numStrikes >= 0; numStrikes--)
             {
-                numStrikes = 4;
-            }
-
-            for (; numStrikes > 0; numStrikes--)
-            {
-                damage = party[numStrikes].getModDefense() - hit;
+                damage = hit - party[numStrikes].getModDefense();
                 party[numStrikes].setCurHealth(party[numStrikes].getCurHealth() - damage);
 
                 message += "The bonerang hit " + party[numStrikes].getName() + " for " + damage + " damage!\r\n";
@@ -157,6 +157,7 @@ namespace DungeonFinal
         {
             Monster newMon = new Skeleton();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }

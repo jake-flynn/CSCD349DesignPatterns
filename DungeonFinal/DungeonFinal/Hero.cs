@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         private string _Name;
 
-        private Item _Helmet;
+        //private Item _Helmet;
 
         private int _BaseHealth = 100;
         private int _CurHealth = 100;

@@ -128,6 +128,7 @@ namespace DungeonFinal
         {
             Monster newMon = new VampireBat();
             newMon.setName(newMon.getName() + " " + count);
+            newMon.modifyStats();
             return newMon;
         }
     }
