@@ -18,6 +18,8 @@ namespace DungeonFinal
     {
         private string _Name;
 
+        private Item _Helmet;
+
         private int _BaseHealth = 100;
         private int _CurHealth = 100;
         private int _MaxHealth = 100;
@@ -264,6 +266,17 @@ namespace DungeonFinal
         {
             _IsDefeated = iD;
         }
+
+        //
+        //public void setHelmet(Item newHelm)
+        //{
+        //    _Helmet = newHelm;
+        //}
+
+        //public void getHelmet(Item newHelm)
+        //{
+
+        //}
 
        //Battle Defend
         //-------------------------------Abstract Methods -------------------------------
