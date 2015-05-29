@@ -191,16 +191,25 @@ namespace DungeonFinal
 
         private void useItem(Hero hero)
         {
-            int choiceFromConsumableWindow = 0;
+                        
+            var consumableWindow = new ConsumableWindow(_BattleInventory);
+            consumableWindow.ShowDialog();
+            int choiceFromConsumableWindow = consumableWindow.getChoiceFromSelect();
             Item itemToUse = _BattleInventory.findItemByIndex(choiceFromConsumableWindow);
-            string resultString = itemToUse.use(hero);
+
+            var choiceWindow = new ChoiceWindow(_theHeroes);
+            choiceWindow.ShowDialog();
+            int attackTarget = choiceWindow.getChoiceFromSelect();
+            Hero targetHero = _theHeroes[attackTarget];
+
+            string resultString = itemToUse.use(targetHero);
 
             paragraph.Inlines.Add(new Bold(new Run(resultString))
             {
                 Foreground = _theHeroes[0].getTextColor()
             });
             paragraph.Inlines.Add(new LineBreak());
-            //_BattleInventory.remove(choiceFromConsumableWindow);
+            _BattleInventory.remove(choiceFromConsumableWindow);
 
         }
 
@@ -247,10 +256,8 @@ namespace DungeonFinal
                 }
                 if (monsterDamage < 0)
                     monsterDamage = 0;
-
+                  
                 
-                
-
                 await Task.Delay(400);
                 hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damage is applied
 
@@ -335,24 +342,17 @@ namespace DungeonFinal
                 else if (rBtn_Hero1Special.IsChecked == true)
                 {
                     await Task.Delay(10);
-
-
                     paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
                     {
                         Foreground = _theHeroes[0].getTextColor()
                     });
                     paragraph.Inlines.Add(new LineBreak());
-
-                    
                     
                 }
                 else if (rBtn_Hero1Item.IsChecked == true)
                 {
                     await Task.Delay(10);
-
-                    //testing rich text box
-                    useItem(_theHeroes[0]);
-                    
+                    useItem(_theHeroes[0]);                    
                 }
             }
 
@@ -391,13 +391,6 @@ namespace DungeonFinal
                 else if (rBtn_Hero2Item.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[1].getName() + " used item"))
-                    {
-                        Foreground = _theHeroes[1].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-
                     useItem(_theHeroes[1]);
                 }
             }
@@ -439,14 +432,6 @@ namespace DungeonFinal
                 else if (rBtn_Hero3Item.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[2].getName() + " used item"))
-                    {
-                        Foreground = _theHeroes[2].getTextColor()
-                    });
-
-                    paragraph.Inlines.Add(new LineBreak());
-
                     useItem(_theHeroes[2]);
                     
                 }
@@ -486,13 +471,6 @@ namespace DungeonFinal
                 else if (rBtn_Hero4Item.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[3].getName() + " used item"))
-                    {
-                        Foreground = _theHeroes[3].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-
                     useItem(_theHeroes[3]);
                 }
             }
