@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public Ultima()
+        public Ultima() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Ultima");

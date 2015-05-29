@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public RuneOfTranquility()
+        public RuneOfTranquility() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Rune Of Tranquility");

@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public ChainMailVest()
+        public ChainMailVest() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Chain Mail Vest");

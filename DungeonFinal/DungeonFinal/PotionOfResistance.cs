@@ -18,14 +18,14 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
         
-        public PotionOfResistance()
+        public PotionOfResistance() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Potion of Magical Resistance");
             this.setConsumable(true);
             _effect.setEffectName("Enhances resistance by ");
-            _effect.setResistanceDefense(5);
-            _effect.setEffectAmount(5);
+            _effect.setResistanceDefense(6);
+            _effect.setEffectAmount(6);
             this.setEffect(_effect);
         }
 

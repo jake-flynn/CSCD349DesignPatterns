@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public SteelDagger()
+        public SteelDagger() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Steel Dagger");

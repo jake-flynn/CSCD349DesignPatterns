@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public RuneOfDespair()
+        public RuneOfDespair() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Rune Of Despair");

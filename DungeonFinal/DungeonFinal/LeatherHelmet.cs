@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public LeatherHelmet()
+        public LeatherHelmet() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Leather Helmet");

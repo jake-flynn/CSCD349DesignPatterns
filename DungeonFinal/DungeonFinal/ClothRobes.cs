@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public ClothRobes()
+        public ClothRobes() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Cloth Robes");

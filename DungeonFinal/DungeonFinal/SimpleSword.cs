@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public SimpleSword()
+        public SimpleSword() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Simple Sword");

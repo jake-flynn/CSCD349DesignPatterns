@@ -18,14 +18,14 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public PotionOfMagic()
+        public PotionOfMagic() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Magic Potion");
             this.setConsumable(true);
             _effect.setEffectName("Enhances magic power by ");
-            _effect.setMagicValue(5);
-            _effect.setEffectAmount(5);
+            _effect.setMagicValue(6);
+            _effect.setEffectAmount(6);
             this.setEffect(_effect);
         }
 

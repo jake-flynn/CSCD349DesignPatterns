@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public RuneOfHope()
+        public RuneOfHope() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Rune Of Hope");

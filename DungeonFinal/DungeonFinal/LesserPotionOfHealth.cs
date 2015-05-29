@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public LesserPotionOfHealth()
+        public LesserPotionOfHealth() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Lesser Health Potion");

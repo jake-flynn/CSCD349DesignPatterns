@@ -18,14 +18,14 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public PotionOfDefense()
+        public PotionOfDefense() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Defense Potion");
             this.setConsumable(true);
             _effect.setEffectName("Enhances defense of ");
-            _effect.setPhysicalDefense(5);
-            _effect.setEffectAmount(5);
+            _effect.setPhysicalDefense(6);
+            _effect.setEffectAmount(6);
             this.setEffect(_effect);
         }
 

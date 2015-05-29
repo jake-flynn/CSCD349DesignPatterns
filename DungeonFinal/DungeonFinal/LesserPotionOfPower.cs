@@ -14,21 +14,18 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class BronzeAxe : Item
+    class LesserPotionOfPower : Item
     {
         ItemsEffect _effect;
 
-        public BronzeAxe() : base()
+        public LesserPotionOfPower() : base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Bronze Axe");
-            this.setEquippable(true);
-            this.setSocketAmount(4);
-            _effect.setEffectName("A great two handed axe made of copper and tin");
-            _effect.setStrengthValue(13);
-            _effect.setEffectAmount(13);
-            //_effect.setHealthValue(12);
-            //_effect.setManaValue(-5);
+            this.setItemName("Lesser Power Potion");
+            this.setConsumable(true);
+            _effect.setEffectName("Slightly increases power by ");
+            _effect.setEffectAmount(3);
+            _effect.setStrengthValue(3);
             this.setEffect(_effect);
         }
 

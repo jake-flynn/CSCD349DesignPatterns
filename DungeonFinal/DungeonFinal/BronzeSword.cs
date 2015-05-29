@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public BronzeSword()
+        public BronzeSword() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Sword");

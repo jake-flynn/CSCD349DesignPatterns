@@ -18,14 +18,14 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public GreaterPotionOfMana()
+        public GreaterPotionOfMana() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Greater Mana Potion");
             this.setConsumable(true);
             _effect.setEffectName("Greatly restores mana by ");
             _effect.setEffectAmount(60);
-            _effect.setHealthValue(60);
+            _effect.setManaValue(60);
             this.setEffect(_effect);
         }
 

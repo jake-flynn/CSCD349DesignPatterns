@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public PotionOfMana()
+        public PotionOfMana() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Mana Potion");

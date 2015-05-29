@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public SimpleStaff()
+        public SimpleStaff() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Simple Staff");

@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public nullItem()
+        public nullItem() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Empty slot");

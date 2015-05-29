@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public BronzeChestPlate()
+        public BronzeChestPlate() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Chest Plate");

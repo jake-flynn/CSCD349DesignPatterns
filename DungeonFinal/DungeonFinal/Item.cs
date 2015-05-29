@@ -17,12 +17,21 @@ namespace DungeonFinal
     public abstract class Item
     {
         Item[] sockets;
-        int _socketNumber = 0;
+        int _socketNumber;
         string _itemName;
         ItemsEffect _effect;
-        Boolean _isConsumable = false;
-        Boolean _isEquippable = false;
-        Boolean _isSocketable = false;
+        Boolean _isConsumable;
+        Boolean _isEquippable;
+        Boolean _isSocketable;
+
+        public Item()
+        {
+            _socketNumber = 0;
+            _itemName = "Null Item";
+            _isConsumable = false;
+            _isEquippable = false;
+            _isSocketable = false;
+        }
 
         public string use(Hero _hero)
         {
