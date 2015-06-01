@@ -17,8 +17,19 @@ namespace DungeonFinal
 
         public override void Modify()
         {
-            if(getDuration() ===)
+            if(getDuration() == 5)
+            {
+                getHero().setModStrength(getHero().getModStrength() - 5);
+                getHero().setModMagic(getHero().getModMagic() - 5);                
+            }
+            else if(getDuration() < 5 && getDuration() > 1)
+            {}
 
+            else
+            {
+                getHero().setModStrength(getHero().getModStrength() + 5);
+                getHero().setModMagic(getHero().getModMagic() + 5);
+            }
             setDuration(getDuration() - 1);            
         }
 
