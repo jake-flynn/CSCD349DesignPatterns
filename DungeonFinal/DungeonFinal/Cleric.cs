@@ -22,21 +22,21 @@ namespace DungeonFinal
         public Cleric()
         {
             setName("Cleric");
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
-            setBaseMana(100);
-            setCurMana(100);
+            setBaseHealth(150);
+            setCurHealth(150);
+            setMaxHealth(150);
+            setBaseMana(200);
+            setCurMana(200);
+            setMaxMana(200);
 
-            //Main stats are out of 40 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(20);
-            setModMagic(20);
-            setBaseDefense(0);
-            setModDefense(0);
-            setBaseResistance(20);
-            setModResistance(20);
+            setBaseMagic(14);
+            setModMagic(14);
+            setBaseDefense(2);
+            setModDefense(2);
+            setBaseResistance(8);
+            setModResistance(8);
 
             setIsPhysical(false);
             setIsDefeated(false);

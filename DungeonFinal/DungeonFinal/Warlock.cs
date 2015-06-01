@@ -14,41 +14,40 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Paladin : Hero
+    class Warlock : Hero
     {
-        //this is a Paladin Hero, it is a strength based hero with high magic resistance, there are 40 points assigned to main stats
+        //this is a Cleric Hero, considered a healer, there are 40 points assigned to main stats
 
-        //DVC
-        public Paladin()
+
+        public Warlock()
         {
-            setName("Paladin");
-            setBaseHealth(250);
-            setCurHealth(250);
-            setMaxHealth(250);
-            setBaseMana(90);
-            setCurMana(90);
-            setMaxMana(90);
+            setName("Warlock");
+            setBaseHealth(160);
+            setCurHealth(160);
+            setMaxHealth(160);
+            setBaseMana(220);
+            setCurMana(220);
+            setMaxMana(220);
 
             //Main stats are out of 40 points
-            setBaseStrength(12);
-            setModStrength(12);
-            setBaseMagic(12);
-            setModMagic(12);
-            setBaseDefense(9);
-            setModDefense(9);
-            setBaseResistance(10);
-            setModResistance(10);
+            setBaseStrength(0);
+            setModStrength(0);
+            setBaseMagic(15);
+            setModMagic(15);
+            setBaseDefense(4);
+            setModDefense(4);
+            setBaseResistance(6);
+            setModResistance(6);
 
-            setIsPhysical(true);
+            setIsPhysical(false);
             setIsDefeated(false);
             setIsDefending(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"Images/Paladin.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Warlock.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-
             setImageBrush(imgBrush);
         }
 
@@ -59,22 +58,27 @@ namespace DungeonFinal
         /*This method returns an int based on the attack stat of that character type.*/
         public override int BasicAttack()
         {
-            int s = getModStrength();
+            int s = getModMagic();
             return s;
         }
 
-        /*PerformSpecialAttack - buffs defense and resistance for 5 accross whole party*/
+        /*PerformSpecialAttack - AoE attack to all monsters*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
 
-            foreach(Hero h in party)
+            foreach (Hero h in party)
             {
-                h.setModDefense(h.getModDefense() + 5);
-                h.setModResistance(h.getModResistance() + 5);
+
+                h.setCurHealth(h.getCurHealth() + getModMagic());
+                h.setModStrength(h.getBaseStrength());
+                h.setModMagic(h.getBaseMagic());
+                h.setModDefense(h.getBaseDefense());
+                h.setModResistance(h.getBaseResistance());
             }
+
             setCurMana(getCurMana() - 15);
-            return(getName() + " performed Full Guard for 5 defense and resistance accross whole party!");
+            return (getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
         }
 
         /*Battle - Defend*/
@@ -99,14 +103,14 @@ namespace DungeonFinal
         //public override ImageBrush getBrush()
         //{
         //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-9PZ0hjpgspI/VV7p99bG62I/AAAAAAAAAzg/Ejq9YL1hAtM/w506-h764/Paladin.jpg"));
+        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-J6UohVY0-2Y/VV7poKYTrEI/AAAAAAAAAws/Xmdq1-qREdI/w506-h900/Cleric.jpg"));
         //    imgBrush.ImageSource = image;
         //    return imgBrush;
         //}
 
         public override Brush getTextColor()
         {
-            return Brushes.Green;
+            return Brushes.Purple;
         }
     }
 }

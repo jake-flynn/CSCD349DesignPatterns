@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ArmorKnight.cs" />
     <Compile Include="BattleWindow.xaml.cs">
       <DependentUpon>BattleWindow.xaml</DependentUpon>
     </Compile>
@@ -137,6 +138,7 @@
     <Compile Include="Maze.cs" />
     <Compile Include="MazeMaker.cs" />
     <Compile Include="Minotaur.cs" />
+    <Compile Include="Monk.cs" />
     <Compile Include="MonsterFactory.cs" />
     <Compile Include="NullItemConsumable.cs" />
     <Compile Include="NullItemEquipment.cs" />
@@ -145,6 +147,7 @@
     <Compile Include="EquipmentPartyWindow.xaml.cs">
       <DependentUpon>EquipmentPartyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Poison.cs" />
     <Compile Include="PotionOfDefense.cs" />
     <Compile Include="PotionOfHealth.cs" />
     <Compile Include="PotionOfMagic.cs" />
@@ -165,8 +168,10 @@
     <Compile Include="SimpleSword.cs" />
     <Compile Include="Skeleton.cs" />
     <Compile Include="Slime.cs" />
+    <Compile Include="Sorceress.cs" />
     <Compile Include="SpecialAttackBehavior.cs" />
     <Compile Include="Sphynx.cs" />
+    <Compile Include="StatusEffect.cs" />
     <Compile Include="SteelAxe.cs" />
     <Compile Include="SteelDagger.cs" />
     <Compile Include="SteelStaff.cs" />
@@ -175,6 +180,7 @@
     <Compile Include="ThrowKnives.cs" />
     <Compile Include="Ultima.cs" />
     <Compile Include="VampireBat.cs" />
+    <Compile Include="Warlock.cs" />
     <Compile Include="Werewolf.cs" />
     <Page Include="BattleWindow.xaml">
       <SubType>Designer</SubType>

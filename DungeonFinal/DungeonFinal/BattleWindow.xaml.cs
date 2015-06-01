@@ -483,6 +483,11 @@ namespace DungeonFinal
                 incrementEffects();
                 checkForDefeatedUnit();
             }
+
+            foreach(Hero h in _theHeroes)
+            {
+                h.Notify();
+            }
         }
 
         private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)
