@@ -11,13 +11,15 @@ namespace DungeonFinal
         {
             setHero(h);
             setDuration(5);
-
-            //_Hero.addObserver(this);
         }
 
         public override void Modify()
         {
-            if(getDuration() ===)
+            if (getDuration() == 0)
+            {
+                getHero().setModStrength(getHero().getModStrength() - 5);
+                getHero().setModMagic(getHero().getModMagic() - 5);
+            }
 
             setDuration(getDuration() - 1);            
         }
