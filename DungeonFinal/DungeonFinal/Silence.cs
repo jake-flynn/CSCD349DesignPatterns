@@ -6,30 +6,28 @@ using System.Threading.Tasks;
 
 namespace DungeonFinal
 {
-    class Stun : StatusEffect
+    class Silence : StatusEffect
     {
-        public Stun(Hero h)
+        public Silence(Hero h)
         {
             setHero(h);
-            setDuration(2);
+            setDuration(3);
         }
 
         public override String Modify()
         {            
             if (getDuration() == 2)
             {
-                getHero().setCanAttack(false);
                 getHero().setCanSpecialAttack(false);
             }
 
             else if(getDuration() == 1)
             {
-                getHero().setCanAttack(true);
                 getHero().setCanSpecialAttack(true);
             }
             setDuration(getDuration() - 1);
 
-            return (getHero().getName() + " is stunned, and completely unable to attack for " + getDuration() + " more turn(s)!");
+            return (getHero().getName() + " has been silenced, they cannot use thier special attack for " + getDuration() + " more turn(s)!");
         }
 
     }

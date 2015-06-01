@@ -164,6 +164,7 @@
     <Compile Include="RuneOfHope.cs" />
     <Compile Include="RuneOfTranquility.cs" />
     <Compile Include="Shade.cs" />
+    <Compile Include="Silence.cs" />
     <Compile Include="SimpleAxe.cs" />
     <Compile Include="SimpleDagger.cs" />
     <Compile Include="SimpleStaff.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="SteelDagger.cs" />
     <Compile Include="SteelStaff.cs" />
     <Compile Include="SteelSword.cs" />
+    <Compile Include="Stun.cs" />
     <Compile Include="Swordsman.cs" />
     <Compile Include="ThrowKnives.cs" />
     <Compile Include="Ultima.cs" />

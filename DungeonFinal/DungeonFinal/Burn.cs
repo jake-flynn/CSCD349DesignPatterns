@@ -22,7 +22,7 @@ namespace DungeonFinal
             setDuration(5);
         }
 
-        public override void Modify()
+        public override String Modify()
         {
             getHero().setCurHealth(getHero().getCurHealth() - 10);
 
@@ -40,8 +40,7 @@ namespace DungeonFinal
 
             setDuration(getDuration() - 1);
 
-            int health2 = getHero().getCurHealth();
-            MessageBox.Show("Burn took effect! Health is now " + health2);
+            return (getHero().getName() + " suffered 10 damage from their burn, it is effecting their health and attack for " + getDuration() + " more turn(s)!");
         }
 
     }
