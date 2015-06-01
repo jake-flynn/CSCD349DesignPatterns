@@ -84,7 +84,8 @@ namespace DungeonFinal
                 //Paralyze Successful
                 if (chance == 1)
                 {
-                    message += "Screech affected " + h.getName() + " for " + damage + " damage and they were paralyzed!\r\n";
+                    message += "Screech affected " + h.getName() + " for " + damage + " damage and they were stunned!\r\n";
+                    //party[rnd].Subscribe(new Stun(party[rnd]));
                 }
 
                 //Paralyze Unuccessful

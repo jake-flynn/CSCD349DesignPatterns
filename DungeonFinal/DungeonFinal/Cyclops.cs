@@ -82,6 +82,7 @@ namespace DungeonFinal
             if(chance == 1)
             {
                 message += mon.getName() + " threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage caused paralyzation!\r\n";
+                //party[rnd].Subscribe(new Stun(party[rnd]));
             }
 
             //Paralyze unsuccessful

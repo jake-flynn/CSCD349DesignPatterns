@@ -86,6 +86,7 @@ namespace DungeonFinal
                 if(chance == 1)
                 {
                     message += "Hellfire affected " + h.getName() + " for " + damage + " damage and they suffered a burn!\r\n";
+                    h.Subscribe(new Burn(h));
                 }
 
                 //Burn Unuccessful
