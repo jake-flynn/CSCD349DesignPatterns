@@ -82,6 +82,7 @@ namespace DungeonFinal
             if (chance == 1)
             {
                 message += mon.getName() + " hit " + party[rnd].getName() + " with its axe for " + damage + " damage and caused paralyzation!\r\n";
+                //party[rnd].Subscribe(new Stun(party[rnd]));
             }
 
             //Burn Unsuccessful

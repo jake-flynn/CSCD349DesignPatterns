@@ -78,8 +78,7 @@ namespace DungeonFinal
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
 
-            party[rnd].setModStrength(party[rnd].getModStrength() - 1);
-            party[rnd].setModMagic(party[rnd].getModStrength() - 1);
+            party[rnd].Subscribe(new Curse(party[rnd]));
 
             mon.setCurMana(mon.getCurMana() - 10);
 

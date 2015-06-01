@@ -72,8 +72,7 @@ namespace DungeonFinal
 
             foreach(Hero h in party)
             {
-                h.setModDefense(h.getModDefense() + 5);
-                h.setModResistance(h.getModResistance() + 5);
+                h.Subscribe(new FullGuard(h));
             }
             setCurMana(getCurMana() - 15);
             return(getName() + " performed Full Guard for 5 defense and resistance accross whole party!");

@@ -90,6 +90,7 @@ namespace DungeonFinal
             else if(chance == 2)
             {
                 message += mon.getName() + " inflicting bleeding on " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                party[rnd].Subscribe(new Bleed(party[rnd]));
             }
 
             //Muli-hit

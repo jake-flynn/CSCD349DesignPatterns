@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Beast.cs" />
     <Compile Include="BladeSlash.cs" />
+    <Compile Include="Bleed.cs" />
     <Compile Include="BronzeAxe.cs" />
     <Compile Include="BronzeBoots.cs" />
     <Compile Include="BronzeChestPlate.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="BronzeHelmet.cs" />
     <Compile Include="BronzeStaff.cs" />
     <Compile Include="BronzeSword.cs" />
+    <Compile Include="Burn.cs" />
     <Compile Include="Centaur.cs" />
     <Compile Include="ChainMailBoots.cs" />
     <Compile Include="ChainMailGloves.cs" />
@@ -176,7 +178,6 @@
     <Compile Include="SteelDagger.cs" />
     <Compile Include="SteelStaff.cs" />
     <Compile Include="SteelSword.cs" />
-    <Compile Include="Stun.cs" />
     <Compile Include="Swordsman.cs" />
     <Compile Include="ThrowKnives.cs" />
     <Compile Include="Ultima.cs" />

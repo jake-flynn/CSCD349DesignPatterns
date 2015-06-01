@@ -11,8 +11,6 @@ namespace DungeonFinal
         {
             setHero(h);
             setDuration(5);
-
-            //_Hero.addObserver(this);
         }
 
         public override void Modify()

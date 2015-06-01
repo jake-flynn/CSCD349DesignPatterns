@@ -87,13 +87,15 @@ namespace DungeonFinal
             //Paralyze
             else if (chance == 2)
             {
-                message += "It paralyzed " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                message += "It stunned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                //party[rnd].Subscribe(new Stun(party[rnd]));
             }
 
             //Burn
             else
             {
                 message += "It burned " + party[rnd].getName() + " for " + damage + " damage each!\r\n";
+                party[rnd].Subscribe(new Burn(party[rnd]));
             }
 
             party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
