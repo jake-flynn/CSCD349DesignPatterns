@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
         private string _Name;
 
-        //private Item _Helmet;
+        private Equipment _Helmet;
 
         private int _BaseHealth = 100;
         private int _CurHealth = 100;
@@ -330,6 +330,17 @@ namespace DungeonFinal
         public string toString()
         {
             return _Name;
+        }
+        //------------------------------- Armor Get and Sets -------------------------------
+
+        public Equipment getHelm()
+        {
+            return _Helmet;
+        }
+
+        public void setHelm(Equipment newHelm)
+        {
+            _Helmet = newHelm;
         }
 
 
