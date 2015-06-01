@@ -17,11 +17,19 @@ namespace DungeonFinal
         }
 
         public override void Modify()
-        {
-            Hero h = getHero();
+        {            
+            if (getDuration() == 5)
+            {
+                getHero().setCanAttack(false);
+            }
+            else if (getDuration() < 5 && getDuration() > 1)
+            { }
 
-            setDuration(getDuration() - 1);
-            h.setCurHealth(h.getCurHealth() - 15);
+            else
+            {
+                getHero().setCanAttack(true);
+            }
+            setDuration(getDuration() - 1);            
         }
 
     }
