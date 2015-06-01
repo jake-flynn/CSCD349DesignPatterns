@@ -14,24 +14,25 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class Poison : StatusEffect
+    class Bleed : StatusEffect
     {
-        public Poison(Hero h)
+        int _Damage = 0;
+
+        public Bleed(Hero h)
         {
             setHero(h);
-            setDuration(10);
+            setDuration(1);
         }
 
         public override void Modify()
         {
-            //int health1 = getHero().getCurHealth();
-            //MessageBox.Show("Poison is about to take effect! Health is now " + health1);
+            _Damage += 10;
 
-            setDuration(getDuration() - 1);
-            getHero().setCurHealth(getHero().getCurHealth() - 15);
+            //setDuration(getDuration() - 1);
+            getHero().setCurHealth(getHero().getCurHealth() - _Damage);
 
             int health2 = getHero().getCurHealth();
-            MessageBox.Show("Poison took effect! Health is now " + health2);
+            MessageBox.Show("Bleed took effect! Health is now " + health2);
         }
 
     }

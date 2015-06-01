@@ -27,6 +27,14 @@ namespace DungeonFinal
             _Equipment = new Equipment[20];
             _ConsumableNextFreeIndex = 0;
             _EquipmentNextFreeIndex = 0;
+            for (int x = 0; x < 20; x++)
+            {
+                _Consumable[x] = new NullItemConsumable();
+            }
+            for (int x = 0; x < 20; x++)
+            {
+                _Equipment[x] = new NullItemEquipment();
+            }
             Consumable consumable = new LesserPotionOfHealth();
             this.addLastToConsumable(consumable);
             consumable = new PotionOfHealth();

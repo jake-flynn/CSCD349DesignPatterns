@@ -100,6 +100,9 @@
     <Compile Include="DemonWarrior.cs" />
     <Compile Include="Dragon.cs" />
     <Compile Include="Equipment.cs" />
+    <Compile Include="EquipmentChoiceWindow.xaml.cs">
+      <DependentUpon>EquipmentChoiceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FullGuard.cs" />
     <Compile Include="GreaterPotionOfDefense.cs" />
     <Compile Include="GreaterPotionOfHealth.cs" />
@@ -141,6 +144,9 @@
     <Compile Include="NullItemEquipment.cs" />
     <Compile Include="Paladin.cs" />
     <Compile Include="Party.cs" />
+    <Compile Include="EquipmentPartyWindow.xaml.cs">
+      <DependentUpon>EquipmentPartyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Poison.cs" />
     <Compile Include="PotionOfDefense.cs" />
     <Compile Include="PotionOfHealth.cs" />
@@ -196,6 +202,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EquipmentChoiceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -210,6 +220,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentPartyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

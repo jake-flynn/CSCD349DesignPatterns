@@ -82,6 +82,7 @@ namespace DungeonFinal
             if (chance == 1)
             {
                 message += mon.getName() + " bit " + party[rnd].getName() + " for " + damage + " damage and caused a burn!\r\n";
+                party[rnd].Subscribe(new Burn(party[rnd]));
             }
 
             //Burn Unsuccessful

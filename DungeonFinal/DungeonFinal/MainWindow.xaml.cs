@@ -60,6 +60,7 @@ namespace DungeonFinal
             var charSelect = new CharacterSelect();
             charSelect.ShowDialog();
             HerosParty = charSelect.getPartyFromSelect();
+            btn_equipmentSelect.IsEnabled = true;
         }
 
         public void newVisitArray()
@@ -371,6 +372,13 @@ namespace DungeonFinal
             populateMonsters();
 
             updateButtonsVisibility();
+            btn_equipmentSelect.IsEnabled = true;
+        }
+
+        private void btn_equipmentSelect_Click(object sender, RoutedEventArgs e)
+        {
+            var equipmentSelect = new PartyEquipmentWindow(HerosParty);
+            equipmentSelect.ShowDialog();
         }
 
     

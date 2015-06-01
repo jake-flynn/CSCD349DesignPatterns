@@ -31,17 +31,19 @@
         <Button x:Name="btn_moveSouth" Content="Go South" HorizontalAlignment="Left" Margin="314,259,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_moveSouth_Click" />
         <Button x:Name="btn_moveEast" Content="Go East" HorizontalAlignment="Left" Margin="416,230,0,0" VerticalAlignment="Top" Width="74" IsEnabled="False" Click="btn_moveEast_Click" />
         <Button x:Name="btn_moveWest" Content="Go West" HorizontalAlignment="Left" Margin="214,230,0,0" VerticalAlignment="Top" Width="76" IsEnabled="False" Click="btn_moveWest_Click" />
-        
+
         <TextBox x:Name="tb_currentCol" HorizontalAlignment="Left" Height="23" Margin="452,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="tb_currentRow" HorizontalAlignment="Left" Height="23" Margin="452,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="tb_numberOfMonsters" HorizontalAlignment="Left" Height="23" Margin="452,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-       
+
         <Label x:Name="lbl_curCol" Content="Current Col:" HorizontalAlignment="Left" Margin="372,39,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="lbl_curRow" Content="Current Row:" HorizontalAlignment="Left" Margin="372,79,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="lbl_MonstersSeen" Content="Monsters Encountered" HorizontalAlignment="Left" Margin="314,118,0,0" VerticalAlignment="Top"/>
-        
+
         <Button x:Name="btn_viewMap" Content="View Map" HorizontalAlignment="Left" Margin="66,102,0,0" VerticalAlignment="Top" Width="122" IsEnabled="False" Click="btn_viewMap_Click" Height="39"/>
+        <Button x:Name="btn_equipmentSelect" Content="Equipment Select" HorizontalAlignment="Left" Margin="528,391,0,0" VerticalAlignment="Top" Width="131" IsEnabled="False" Click="btn_equipmentSelect_Click" Height="50" />
         <Button x:Name="btn_newGameNoSelect" Content="New Game no char select" HorizontalAlignment="Left" Margin="26,307,0,0" VerticalAlignment="Top" Width="315" Height="134" Visibility="Visible" Click="btn_newGameNoSelect_Click" />
+
 
     </Grid>
 </Window>

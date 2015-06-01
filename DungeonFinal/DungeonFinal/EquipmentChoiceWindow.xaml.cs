@@ -17,57 +17,40 @@ namespace DungeonFinal
     /// <summary>
     /// Interaction logic for ConsumableWindow.xaml
     /// </summary>
-    public partial class ConsumableWindow : Window
+    public partial class EquipmentChoiceWindow : Window
     {
         Inventory _Inventory;
         int _choice;
 
-        public ConsumableWindow(Inventory CurrentInventory)
+        public EquipmentChoiceWindow(Inventory CurrentInventory)
         {
             InitializeComponent();
             _Inventory = CurrentInventory;
-            lbl_item1.Content = _Inventory.findConsumableByIndex(0).getItemName();
-            lbl_item2.Content = _Inventory.findConsumableByIndex(1).getItemName();
-            lbl_item3.Content = _Inventory.findConsumableByIndex(2).getItemName();
-            lbl_item4.Content = _Inventory.findConsumableByIndex(3).getItemName();
-            lbl_item5.Content = _Inventory.findConsumableByIndex(4).getItemName();
-            lbl_item6.Content = _Inventory.findConsumableByIndex(5).getItemName();
-            lbl_item7.Content = _Inventory.findConsumableByIndex(6).getItemName();
-            lbl_item8.Content = _Inventory.findConsumableByIndex(7).getItemName();
-            lbl_item9.Content = _Inventory.findConsumableByIndex(8).getItemName();
-            lbl_item10.Content = _Inventory.findConsumableByIndex(9).getItemName();
-            lbl_item11.Content = _Inventory.findConsumableByIndex(10).getItemName();
-            lbl_item12.Content = _Inventory.findConsumableByIndex(11).getItemName();
-            lbl_item13.Content = _Inventory.findConsumableByIndex(12).getItemName();
-            lbl_item14.Content = _Inventory.findConsumableByIndex(13).getItemName();
-            lbl_item15.Content = _Inventory.findConsumableByIndex(14).getItemName();
-            lbl_item16.Content = _Inventory.findConsumableByIndex(15).getItemName();
-            lbl_item17.Content = _Inventory.findConsumableByIndex(16).getItemName();
-            lbl_item18.Content = _Inventory.findConsumableByIndex(17).getItemName();
-            lbl_item19.Content = _Inventory.findConsumableByIndex(18).getItemName();
-            lbl_item20.Content = _Inventory.findConsumableByIndex(19).getItemName();
+            lbl_item1.Content = _Inventory.findEquipmentByIndex(0).getItemName();
+            lbl_item2.Content = _Inventory.findEquipmentByIndex(1).getItemName();
+            lbl_item3.Content = _Inventory.findEquipmentByIndex(2).getItemName();
+            lbl_item4.Content = _Inventory.findEquipmentByIndex(3).getItemName();
+            lbl_item5.Content = _Inventory.findEquipmentByIndex(4).getItemName();
+            lbl_item6.Content = _Inventory.findEquipmentByIndex(5).getItemName();
+            lbl_item7.Content = _Inventory.findEquipmentByIndex(6).getItemName();
+            lbl_item8.Content = _Inventory.findEquipmentByIndex(7).getItemName();
+            lbl_item9.Content = _Inventory.findEquipmentByIndex(8).getItemName();
+            lbl_item10.Content = _Inventory.findEquipmentByIndex(9).getItemName();
+            lbl_item11.Content = _Inventory.findEquipmentByIndex(10).getItemName();
+            lbl_item12.Content = _Inventory.findEquipmentByIndex(11).getItemName();
+            lbl_item13.Content = _Inventory.findEquipmentByIndex(12).getItemName();
+            lbl_item14.Content = _Inventory.findEquipmentByIndex(13).getItemName();
+            lbl_item15.Content = _Inventory.findEquipmentByIndex(14).getItemName();
+            lbl_item16.Content = _Inventory.findEquipmentByIndex(15).getItemName();
+            lbl_item17.Content = _Inventory.findEquipmentByIndex(16).getItemName();
+            lbl_item18.Content = _Inventory.findEquipmentByIndex(17).getItemName();
+            lbl_item19.Content = _Inventory.findEquipmentByIndex(18).getItemName();
+            lbl_item20.Content = _Inventory.findEquipmentByIndex(19).getItemName();
 
             rect_item1.Fill = _Inventory.findConsumableByIndex(0).getBrush();
             rect_item2.Fill = _Inventory.findConsumableByIndex(1).getBrush();
             rect_item3.Fill = _Inventory.findConsumableByIndex(2).getBrush();
             rect_item4.Fill = _Inventory.findConsumableByIndex(3).getBrush();
-            rect_item5.Fill = _Inventory.findConsumableByIndex(4).getBrush();
-            rect_item6.Fill = _Inventory.findConsumableByIndex(5).getBrush();
-            rect_item7.Fill = _Inventory.findConsumableByIndex(6).getBrush();
-            rect_item8.Fill = _Inventory.findConsumableByIndex(7).getBrush();
-            rect_item9.Fill = _Inventory.findConsumableByIndex(8).getBrush();
-            rect_item10.Fill = _Inventory.findConsumableByIndex(9).getBrush();
-            rect_item11.Fill = _Inventory.findConsumableByIndex(10).getBrush();
-            rect_item12.Fill = _Inventory.findConsumableByIndex(11).getBrush();
-            rect_item13.Fill = _Inventory.findConsumableByIndex(12).getBrush();
-            rect_item14.Fill = _Inventory.findConsumableByIndex(13).getBrush();
-            rect_item15.Fill = _Inventory.findConsumableByIndex(14).getBrush();
-            rect_item16.Fill = _Inventory.findConsumableByIndex(15).getBrush();
-            rect_item17.Fill = _Inventory.findConsumableByIndex(16).getBrush();
-            rect_item18.Fill = _Inventory.findConsumableByIndex(17).getBrush();
-            rect_item19.Fill = _Inventory.findConsumableByIndex(18).getBrush();
-            rect_item20.Fill = _Inventory.findConsumableByIndex(19).getBrush();
-
 
         }
 
@@ -75,7 +58,7 @@ namespace DungeonFinal
         //start methods
         public void updateVisuals()
         {
-            
+
         }
 
         public int getChoiceFromSelect()
