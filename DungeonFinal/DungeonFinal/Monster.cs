@@ -97,6 +97,7 @@ namespace DungeonFinal
             if (h < 0)
             {
                 _CurHealth = 0;
+                setIsDefeated(true);
             }
             
             //else if (h > getMaxHealth())

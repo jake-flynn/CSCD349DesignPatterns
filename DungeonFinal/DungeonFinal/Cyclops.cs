@@ -81,13 +81,13 @@ namespace DungeonFinal
             //Paralyze successful
             if(chance == 1)
             {
-                message += mon.getName() + "threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage caused paralyzation!\r\n";
+                message += mon.getName() + " threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage caused paralyzation!\r\n";
             }
 
             //Paralyze unsuccessful
             else
             {
-                message += mon.getName() + "threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage!\r\n";
             }
 
             party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);

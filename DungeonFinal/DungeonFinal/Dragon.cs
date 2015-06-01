@@ -73,7 +73,7 @@ namespace DungeonFinal
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
-            String message = mon.getName() + "spit hellfire at the party!\r\n";
+            String message = mon.getName() + " spit hellfire at the party!\r\n";
             int damage = 0;
 
             foreach (Hero h in party)

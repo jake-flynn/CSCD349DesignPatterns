@@ -83,7 +83,7 @@ namespace DungeonFinal
 
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return ("Stubeast gave the whole party homework, it's due tomorrow! Did " + damage + "accross whole party!\r\n");
+            return ("Stubeast gave the whole party homework, it's due tomorrow! Did " + damage + " across whole party!\r\n");
         }
 
 

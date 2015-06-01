@@ -51,6 +51,8 @@ namespace DungeonFinal
         private ImageBrush _ImageBrush;
 
         private LinkedList<StatusEffect> _EffectList = new LinkedList<StatusEffect>();
+        private Boolean _CanAttack;
+        private Boolean _CanSpecialAttack;
 
 
         public Hero(){}
@@ -115,6 +117,7 @@ namespace DungeonFinal
             if(h < 0)
             {
                 _CurHealth = 0;
+                setIsDefeated(true);
             }
 
             else if (h > getMaxHealth())
@@ -363,6 +366,27 @@ namespace DungeonFinal
             _EffectList.Remove(e);
         }
 
+        //------------------------------- Can Attack -------------------------------
+        public void setCanAttack(Boolean cA)
+        {
+            _CanAttack = cA;
+        }
+
+        public Boolean getCanAttack()
+        {
+            return _CanAttack;
+        }
+
+        //------------------------------- Can Special Attack -------------------------------
+        public void setCanSpecialAttack(Boolean cSA)
+        {
+            _CanSpecialAttack = cSA;
+        }
+
+        public Boolean getCanSpecialAttack()
+        {
+            return _CanSpecialAttack;
+        }
 
         //------------------------------- Abstract Methods -------------------------------
         public abstract String PerformSpecialAttack(Party theParty, int whichHero, Monster mon);

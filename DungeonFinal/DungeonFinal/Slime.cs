@@ -81,6 +81,7 @@ namespace DungeonFinal
             if (chance == 1)
             {
                 message += "It poisoned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                party[rnd].Subscribe(new Poison(party[rnd]));
             }
 
             //Paralyze
@@ -92,7 +93,7 @@ namespace DungeonFinal
             //Burn
             else
             {
-                message += "It burned " + party[rnd].getName() + " for " + damage + " damage each!";
+                message += "It burned " + party[rnd].getName() + " for " + damage + " damage each!\r\n";
             }
 
             party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);

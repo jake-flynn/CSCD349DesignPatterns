@@ -83,7 +83,7 @@ namespace DungeonFinal
 
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return (getName() + "cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!\r\n");
+            return (getName() + " cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

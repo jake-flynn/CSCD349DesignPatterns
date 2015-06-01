@@ -74,7 +74,7 @@ namespace DungeonFinal
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
             int chance = new Random().Next(5);
-            String message = mon.getName() + " asked " + party[rnd].getName() + "a riddle!\r\n";
+            String message = mon.getName() + " asked " + party[rnd].getName() + " a riddle!\r\n";
 
             //Riddle Solved (low chance)
             if (chance == 1)
@@ -85,7 +85,7 @@ namespace DungeonFinal
             //Riddle Unsolved
             else
             {
-                message += party[rnd].getName() + " did not solve the riddle correctly so " + mon.getName() + "attacked " + party[rnd].getName() + " and halved their health!\r\n";
+                message += party[rnd].getName() + " did not solve the riddle correctly so " + mon.getName() + " attacked " + party[rnd].getName() + " and halved their health!\r\n";
             }
 
             party[rnd].setCurHealth((int)(party[rnd].getCurHealth() / 2));

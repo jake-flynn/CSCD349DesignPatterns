@@ -80,12 +80,12 @@ namespace DungeonFinal
             //Attack 1
             damage = mon.getModStrength() - party[rnd1].getModDefense();
             party[rnd1].setCurHealth(party[rnd1].getCurHealth() - damage);
-            message += mon.getName() + "trampled " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
+            message += mon.getName() + " trampled " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
 
             //Attack 2
             damage = mon.getModStrength() - party[rnd2].getModDefense();
             party[rnd2].setCurHealth(party[rnd2].getCurHealth() - damage);
-            message += mon.getName() + "trampled " + party[rnd2].getName() + " for " + damage + " damage!\r\n";
+            message += mon.getName() + " trampled " + party[rnd2].getName() + " for " + damage + " damage!\r\n";
 
             mon.setCurMana(mon.getCurMana() - 10);
 

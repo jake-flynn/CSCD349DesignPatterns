@@ -101,7 +101,7 @@ namespace DungeonFinal
                 damage = party[rnd].getModDefense() - hit;
                 party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
 
-                message += mon.getName() + "bit " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " bit " + party[rnd].getName() + " for " + damage + " damage!\r\n";
             }
 
             mon.setCurMana(mon.getCurMana() - 10);
