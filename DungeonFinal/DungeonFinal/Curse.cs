@@ -5,11 +5,22 @@ using System.Text;
 
 namespace DungeonFinal
 {
-    class Curse : SpecialAttackBehavior
+    class Curse : StatusEffect
     {
-        public void PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public Curse(Hero h)
         {
-            Console.WriteLine("Performed a Curse!");
+            setHero(h);
+            setDuration(5);
+
+            //_Hero.addObserver(this);
         }
+
+        public override void Modify()
+        {
+            if(getDuration() ===)
+
+            setDuration(getDuration() - 1);            
+        }
+
     }
 }

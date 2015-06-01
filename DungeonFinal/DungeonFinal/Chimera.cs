@@ -82,20 +82,21 @@ namespace DungeonFinal
             //Poison
             if(chance == 1)
             {
-                message += mon.getName() + "poisoned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                message += mon.getName() + " poisoned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                party[rnd].Subscribe(new Poison(party[rnd]));
             }
 
             //Bleed
             else if(chance == 2)
             {
-                message += mon.getName() + "inflicting bleeding on " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                message += mon.getName() + " inflicting bleeding on " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
             }
 
             //Muli-hit
             else
             {
                 damage = damage * 3;
-                message += mon.getName() + "used its three heads to hit " + party[rnd].getName() + " for " + damage + " damage each!\r\n";
+                message += mon.getName() + " used its three heads to hit " + party[rnd].getName() + " for " + damage + " damage each!\r\n";
             }
 
             party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);

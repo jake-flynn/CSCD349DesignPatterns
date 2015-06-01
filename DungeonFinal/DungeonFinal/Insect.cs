@@ -46,7 +46,7 @@ namespace DungeonFinal
             setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);
-            setIsSwarm(true);
+            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
@@ -76,43 +76,45 @@ namespace DungeonFinal
             String message = "";
             int damage = 0;
 
-            int rnd1 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            int rnd2 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            int chance1 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            int chance2 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-
           //Attack 1
+            int rnd1 = new Random().Next(theParty.getCurrentPartyMembers());
+            int chance1 = new Random().Next(3);
+
             damage = mon.getModStrength() - party[rnd1].getModDefense();
             party[rnd1].setCurHealth(party[rnd1].getCurHealth() - damage);
             
             //Poison Successful
             if(chance1 == 1)
             {
-                message += mon.getName() + "sprayed venom at " + party[rnd1].getName() + " for " + damage + "damage and caused poison!\r\n";
+                message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage and caused poison!\r\n";
                 party[rnd1].Subscribe(new Poison(party[rnd1]));
             }
 
             //Poison Unsuccessful
             else
             {
-                message += mon.getName() + "sprayed venom at " + party[rnd1].getName() + " for " + damage + "damage!\r\n";
+                message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
             }
 
+
           //Attack 2
+            int rnd2 = new Random().Next(theParty.getCurrentPartyMembers());
+            int chance2 = new Random().Next(3);
+
             damage = mon.getModStrength() - party[rnd2].getModDefense();
             party[rnd2].setCurHealth(party[rnd2].getCurHealth() - damage);
 
             //Poison Successful
             if (chance2 == 1)
             {
-                message += mon.getName() + "sprayed venom at " + party[rnd2].getName() + " for " + damage + "damage and caused poison!\r\n";
+                message += mon.getName() + " sprayed venom at " + party[rnd2].getName() + " for " + damage + " damage and caused poison!\r\n";
                 party[rnd2].Subscribe(new Poison(party[rnd2]));
             }
 
             //Poison Unsuccessful
             else
             {
-                message += mon.getName() + "sprayed venom at " + party[rnd2].getName() + " for " + damage + "damage!\r\n";
+                message += mon.getName() + " sprayed venom at " + party[rnd2].getName() + " for " + damage + " damage!\r\n";
             }
 
             mon.setCurMana(mon.getCurMana() - 10);

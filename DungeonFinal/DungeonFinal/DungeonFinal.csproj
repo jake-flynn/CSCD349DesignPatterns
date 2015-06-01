@@ -176,6 +176,7 @@
     <Compile Include="SteelDagger.cs" />
     <Compile Include="SteelStaff.cs" />
     <Compile Include="SteelSword.cs" />
+    <Compile Include="Stun.cs" />
     <Compile Include="Swordsman.cs" />
     <Compile Include="ThrowKnives.cs" />
     <Compile Include="Ultima.cs" />

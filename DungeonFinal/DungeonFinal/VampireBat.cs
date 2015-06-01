@@ -83,7 +83,7 @@ namespace DungeonFinal
 
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return (getName() + "sucked " + party[rnd].getName() + "'s blood for " + damage + " and healed itself!\r\n");
+            return (getName() + " sucked " + party[rnd].getName() + "'s blood for " + damage + " and healed itself!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

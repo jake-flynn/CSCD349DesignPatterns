@@ -49,6 +49,9 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"Images/Warlock.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+
+            setCanAttack(true);
+            setCanSpecialAttack(true);
         }
 
 

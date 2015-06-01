@@ -81,13 +81,13 @@ namespace DungeonFinal
             //Burn Successful
             if (chance == 1)
             {
-                message += mon.getName() + "hit " + party[rnd].getName() + " with its axe for " + damage + " damage and caused paralyzation!\r\n";
+                message += mon.getName() + " hit " + party[rnd].getName() + " with its axe for " + damage + " damage and caused paralyzation!\r\n";
             }
 
             //Burn Unsuccessful
             else
             {
-                message += mon.getName() + "hit " + party[rnd].getName() + " with its axe and caused " + damage + " damage!\r\n";
+                message += mon.getName() + " hit " + party[rnd].getName() + " with its axe and caused " + damage + " damage!\r\n";
             }
 
             party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);

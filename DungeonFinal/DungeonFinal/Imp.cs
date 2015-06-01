@@ -82,7 +82,7 @@ namespace DungeonFinal
                 damage = party[rnd].getModResistance() - hit;
                 party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
 
-                message += mon.getName() + "stabbed " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " stabbed " + party[rnd].getName() + " for " + damage + " damage!\r\n";
             }
 
             mon.setCurMana(mon.getCurMana() - 10);

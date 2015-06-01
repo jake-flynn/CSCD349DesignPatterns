@@ -48,8 +48,10 @@ namespace DungeonFinal
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"Images/Paladin.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-
             setImageBrush(imgBrush);
+
+            setCanAttack(true);
+            setCanSpecialAttack(true);
         }
 
 

@@ -74,7 +74,7 @@ namespace DungeonFinal
 
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return (mon.getName() + "howled at the moon and increased its strength to " + strInc + "!\r\n");
+            return (mon.getName() + " howled at the moon and increased its strength to " + strInc + "!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
