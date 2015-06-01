@@ -66,19 +66,12 @@ namespace DungeonFinal
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getHeros();
+            int damage = party[whichHero].getModMagic() * 2;
 
-            foreach (Hero h in party)
-            {
-
-                h.setCurHealth(h.getCurHealth() + getModMagic());
-                h.setModStrength(h.getBaseStrength());
-                h.setModMagic(h.getBaseMagic());
-                h.setModDefense(h.getBaseDefense());
-                h.setModResistance(h.getBaseResistance());
-            }
-
+            mon.setCurHealth(mon.getCurHealth() - damage);
             setCurMana(getCurMana() - 15);
-            return (getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
+
+            return (getName() + " performed Bizzard for " + damage + " to monster!");
         }
 
         /*Battle - Defend*/

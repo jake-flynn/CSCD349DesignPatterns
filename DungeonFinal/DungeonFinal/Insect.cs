@@ -89,6 +89,7 @@ namespace DungeonFinal
             if(chance1 == 1)
             {
                 message += mon.getName() + "sprayed venom at " + party[rnd1].getName() + " for " + damage + "damage and caused poison!\r\n";
+                party[rnd1].Subscribe(new Poison(party[rnd1]));
             }
 
             //Poison Unsuccessful
@@ -105,6 +106,7 @@ namespace DungeonFinal
             if (chance2 == 1)
             {
                 message += mon.getName() + "sprayed venom at " + party[rnd2].getName() + " for " + damage + "damage and caused poison!\r\n";
+                party[rnd2].Subscribe(new Poison(party[rnd2]));
             }
 
             //Poison Unsuccessful

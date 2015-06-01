@@ -30,10 +30,10 @@ namespace DungeonFinal
             setMaxMana(90);
 
             //Main stats are out of 40 points
-            setBaseStrength(10);
-            setModStrength(10);
-            setBaseMagic(10);
-            setModMagic(10);
+            setBaseStrength(12);
+            setModStrength(12);
+            setBaseMagic(12);
+            setModMagic(12);
             setBaseDefense(9);
             setModDefense(9);
             setBaseResistance(10);

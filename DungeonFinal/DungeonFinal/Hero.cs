@@ -50,6 +50,7 @@ namespace DungeonFinal
         private int _DefendingResistance;
         private ImageBrush _ImageBrush;
 
+        private LinkedList<StatusEffect> _EffectList = new LinkedList<StatusEffect>();
 
 
         public Hero(){}
@@ -330,6 +331,36 @@ namespace DungeonFinal
         public string toString()
         {
             return _Name;
+        }
+
+        //------------------------------- Effect Subscribe Methods -------------------------------
+        //Notify - handles each effect on the hero and removes an effect if the duration == 0
+        public void Notify()
+        {
+            foreach(StatusEffect e in _EffectList)
+            {
+                e.Modify();
+
+                if(e.getDuration() <= 0)
+                {
+                    Unsubscribe(e);
+                }
+            }
+
+            //LinkedListNode<StatusEffect> node = _EffectList.First();
+        }
+
+        //Subscribe - adds the specified effect to the _EffectList of the hero
+        public void Subscribe(StatusEffect e)
+        {
+            _EffectList.AddLast(e);
+        }
+
+        //Unsubscribe - removes the first effect of that type from the lists (however, because the effects are added last, 
+        //              the oldest effect will be the first one found through Remove()
+        public void Unsubscribe(StatusEffect e)
+        {
+            _EffectList.Remove(e);
         }
 
 

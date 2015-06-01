@@ -141,6 +141,7 @@
     <Compile Include="NullItemEquipment.cs" />
     <Compile Include="Paladin.cs" />
     <Compile Include="Party.cs" />
+    <Compile Include="Poison.cs" />
     <Compile Include="PotionOfDefense.cs" />
     <Compile Include="PotionOfHealth.cs" />
     <Compile Include="PotionOfMagic.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Sorceress.cs" />
     <Compile Include="SpecialAttackBehavior.cs" />
     <Compile Include="Sphynx.cs" />
+    <Compile Include="StatusEffect.cs" />
     <Compile Include="SteelAxe.cs" />
     <Compile Include="SteelDagger.cs" />
     <Compile Include="SteelStaff.cs" />

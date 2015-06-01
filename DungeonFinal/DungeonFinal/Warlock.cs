@@ -32,8 +32,8 @@ namespace DungeonFinal
             //Main stats are out of 40 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(20);
-            setModMagic(20);
+            setBaseMagic(15);
+            setModMagic(15);
             setBaseDefense(4);
             setModDefense(4);
             setBaseResistance(6);

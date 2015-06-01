@@ -506,6 +506,11 @@ namespace DungeonFinal
                 }
             }
             incrementEffects();
+
+            foreach (Hero h in _theHeroes)
+            {
+                h.Notify();
+            }
         }
 
         private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)

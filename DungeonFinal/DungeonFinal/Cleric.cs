@@ -31,8 +31,8 @@ namespace DungeonFinal
 
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(20);
-            setModMagic(20);
+            setBaseMagic(14);
+            setModMagic(14);
             setBaseDefense(2);
             setModDefense(2);
             setBaseResistance(8);
