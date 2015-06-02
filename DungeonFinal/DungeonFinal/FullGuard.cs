@@ -22,12 +22,14 @@ namespace DungeonFinal
             setDuration(3);
         }
 
-        public override void Modify()
+        public override String Modify()
         {
             getHero().setModDefense(getHero().getModDefense() + 5);
             getHero().setModResistance(getHero().getModResistance() + 5);
 
             setDuration(getDuration() - 1);
+
+            return ("");
         }
     }
 }

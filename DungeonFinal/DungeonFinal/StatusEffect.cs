@@ -36,7 +36,7 @@ namespace DungeonFinal
             _Hero = h;
         }
 
-        public abstract void Modify();
+        public abstract String Modify();
 
     }
 }

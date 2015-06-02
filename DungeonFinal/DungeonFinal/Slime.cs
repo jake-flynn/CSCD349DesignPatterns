@@ -88,7 +88,7 @@ namespace DungeonFinal
             else if (chance == 2)
             {
                 message += "It stunned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
-                //party[rnd].Subscribe(new Stun(party[rnd]));
+                party[rnd].Subscribe(new Stun(party[rnd]));
             }
 
             //Burn

@@ -24,15 +24,14 @@ namespace DungeonFinal
             setDuration(1);
         }
 
-        public override void Modify()
+        public override String Modify()
         {
             _Damage += 10;
 
             //setDuration(getDuration() - 1);
             getHero().setCurHealth(getHero().getCurHealth() - _Damage);
 
-            int health2 = getHero().getCurHealth();
-            MessageBox.Show("Bleed took effect! Health is now " + health2);
+            return (getHero().getName() + " is bleeding out and suffered " + _Damage + " damage, it is showing no sign of healing!");
         }
 
     }

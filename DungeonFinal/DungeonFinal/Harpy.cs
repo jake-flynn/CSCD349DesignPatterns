@@ -85,10 +85,17 @@ namespace DungeonFinal
                 if (chance == 1)
                 {
                     message += "Screech affected " + h.getName() + " for " + damage + " damage and they were stunned!\r\n";
-                    //party[rnd].Subscribe(new Stun(party[rnd]));
+                    h.Subscribe(new Stun(h));
                 }
 
-                //Paralyze Unuccessful
+                //Lockdown Successful
+                else if(chance == 2)
+                {
+                    message += "Screech affected " + h.getName() + " for " + damage + " damage and they were silenced!\r\n";
+                    h.Subscribe(new Silence(h));
+                }
+
+                //Paralyze/Lockdown Unuccessful
                 else
                 {
                     message += "Screech affected " + h.getName() + " for " + damage + " damage!\r\n";
