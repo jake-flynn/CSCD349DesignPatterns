@@ -45,6 +45,10 @@ namespace DungeonFinal
             this.addLastToConsumable(consumable);
             Equipment equip = new BronzeSword();
             this.addLastToEquipment(equip);
+            this.addLastToEquipment(new BronzeHelmet());
+            this.addLastToEquipment(new BronzeGloves());
+            this.addLastToEquipment(new BronzeChestPlate());
+            this.addLastToEquipment(new BronzeBoots());
         }
 
         public Consumable findConsumableByIndex(int index)

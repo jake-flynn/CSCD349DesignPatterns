@@ -44,6 +44,11 @@ namespace DungeonFinal
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
 
+            setHelmet(new NullItemEquipment());
+            setTorso(new NullItemEquipment());
+            setGloves(new NullItemEquipment());
+            setBoots(new NullItemEquipment());
+            setWeapon(new NullItemEquipment());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"Images/Swordsman.jpg", UriKind.RelativeOrAbsolute));

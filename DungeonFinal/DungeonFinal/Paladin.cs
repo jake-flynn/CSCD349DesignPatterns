@@ -39,6 +39,12 @@ namespace DungeonFinal
             setBaseResistance(10);
             setModResistance(10);
 
+            setHelmet(new NullItemEquipment());
+            setTorso(new NullItemEquipment());
+            setGloves(new NullItemEquipment());
+            setBoots(new NullItemEquipment());
+            setWeapon(new NullItemEquipment());
+
             setIsPhysical(true);
             setIsDefeated(false);
             setIsDefending(false);

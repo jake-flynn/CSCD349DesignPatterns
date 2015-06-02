@@ -35,7 +35,7 @@ namespace DungeonFinal
         {
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
-            int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
+            int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();            
             hero.getHelmet().unEquip(hero);
             hero.setHelmet(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getHelmet().equip(hero);

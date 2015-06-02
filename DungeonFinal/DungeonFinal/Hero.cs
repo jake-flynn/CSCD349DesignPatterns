@@ -388,7 +388,7 @@ namespace DungeonFinal
 
         public void setWeapon(Equipment newWeapon)
         {
-            _Torso = newWeapon;
+            _Weapon = newWeapon;
         }
 
         //------------------------------- Effect Subscribe Methods -------------------------------
