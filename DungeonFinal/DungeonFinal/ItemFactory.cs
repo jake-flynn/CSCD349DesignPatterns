@@ -22,77 +22,164 @@ namespace DungeonFinal
 
         }
 
-        public Item createItem(int tierLevel)
+        public Consumable createConsumable(int tierLevel)
         {
-            Item newItem = new NullItemConsumable();
+            Consumable newItem = new NullItemConsumable();
 
             if(tierLevel == 1)
             {
                 var randomNumber = new Random();
-                int choice = randomNumber.Next(12) + 1;
+                int choice = randomNumber.Next(6) + 1;
 
                 if(choice == 1)
-                {
-                    return new SimpleSword();
-                }
-
-                else if(choice == 2)
-                {
-                    return new SimpleAxe();
-                }
-
-                else if(choice == 3)
-                {
-                    return new SimpleDagger();
-                }
-
-                else if(choice == 4)
-                {
-                    return new SimpleStaff();
-                }
-
-                else if(choice == 5)
                 {
                     return new LesserPotionOfHealth();
                 }
 
-                else if(choice == 6)
+                else if(choice == 2)
                 {
                     return new LesserPotionOfMana();
                 }
 
-                else if(choice == 7)
+                else if(choice == 3)
                 {
                     return new LesserPotionOfDefense();
                 }
 
-                else if(choice == 8)
+                else if(choice == 4)
                 {
                     return new LesserPotionOfResistance();
                 }
 
-                else if(choice == 9)
+                else if(choice == 5)
                 {
                     return new LesserPotionOfMagic();
                 }
 
-                else if(choice == 10)
+                else if(choice == 6)
                 {
                     return new LesserPotionOfPower();
-                }
-
-                else if(choice == 11)
-                {
-                    return new RuneOfHope();
-                }
-
-                else if (choice == 12)
-                {
-                    return new RuneOfDespair();
                 }
             }
 
             else if(tierLevel == 2)
+            {
+                var randomNumber = new Random();
+                int choice = randomNumber.Next(6) + 1;
+
+                if (choice == 1)
+                {
+                    return new PotionOfDefense();
+                }
+
+                else if (choice == 2)
+                {
+                    return new PotionOfResistance();
+                }
+
+                else if (choice == 3)
+                {
+                    return new PotionOfHealth();
+                }
+
+                else if (choice == 4)
+                {
+                    return new PotionOfMana();
+                }
+
+                else if (choice == 5)
+                {
+                    return new PotionOfPower();
+                }
+
+                else if (choice == 6)
+                {
+                    return new PotionOfMagic();
+                }
+            }
+
+            else if(tierLevel == 3)
+            {
+                var randomNumber = new Random();
+                int choice = randomNumber.Next(6) + 1;
+
+                if (choice == 1)
+                {
+                    return new GreaterPotionOfHealth();
+                }
+
+                else if (choice == 2)
+                {
+                    return new GreaterPotionOfMana();
+                }
+
+                else if (choice == 3)
+                {
+                    return new GreaterPotionOfDefense();
+                }
+
+                else if (choice == 4)
+                {
+                    return new GreaterPotionOfResistance();
+                }
+
+                else if (choice == 5)
+                {
+                    return new GreaterPotionOfMagic();
+                }
+
+                else if (choice == 6)
+                {
+                    return new GreaterPotionOfPower();
+                }
+            }
+
+            //else if(tierLevel == 4)
+            //{
+            //    var randomNumber = new Random();
+            //    int choice = randomNumber.Next(1) + 1;
+
+            //    if(choice == 1)
+            //    {
+            //        return new Ultima();
+            //    }
+
+            //}
+
+            return newItem;
+        }
+
+        public Equipment createEquipment(int tierLevel)
+        {
+            Equipment newItem = new NullItemEquipment();
+
+            if (tierLevel == 1)
+            {
+                var randomNumber = new Random();
+                int choice = randomNumber.Next(12) + 1;
+
+                if (choice == 1)
+                {
+                    return new SimpleSword();
+                }
+
+                else if (choice == 2)
+                {
+                    return new SimpleAxe();
+                }
+
+                else if (choice == 3)
+                {
+                    return new SimpleDagger();
+                }
+
+                else if (choice == 4)
+                {
+                    return new SimpleStaff();
+                }                                
+            }
+
+            else if (tierLevel == 2)
             {
                 var randomNumber = new Random();
                 int choice = randomNumber.Next(26) + 1;
@@ -115,37 +202,7 @@ namespace DungeonFinal
                 else if (choice == 4)
                 {
                     return new BronzeStaff();
-                }
-
-                else if (choice == 5)
-                {
-                    return new PotionOfDefense();
-                }
-
-                else if (choice == 6)
-                {
-                    return new PotionOfResistance();
-                }
-
-                else if (choice == 7)
-                {
-                    return new PotionOfHealth();
-                }
-
-                else if (choice == 8)
-                {
-                    return new PotionOfMana();
-                }
-
-                else if (choice == 9)
-                {
-                    return new PotionOfPower();
-                }
-
-                else if (choice == 10)
-                {
-                    return new PotionOfMagic();
-                }
+                }                
 
                 else if (choice == 11)
                 {
@@ -157,32 +214,32 @@ namespace DungeonFinal
                     return new ChainMailGloves();
                 }
 
-                else if(choice == 13)
+                else if (choice == 13)
                 {
                     return new ChainMailHelm();
                 }
 
-                else if(choice == 14)
+                else if (choice == 14)
                 {
                     return new ChainMailVest();
                 }
 
-                else if(choice == 15)
+                else if (choice == 15)
                 {
                     return new ClothGloves();
                 }
 
-                else if(choice == 16)
+                else if (choice == 16)
                 {
                     return new ClothHeadPiece();
                 }
-                
-                else if(choice == 17)
+
+                else if (choice == 17)
                 {
                     return new ClothRobes();
                 }
 
-                else if(choice == 18)
+                else if (choice == 18)
                 {
                     return new ClothShoes();
                 }
@@ -228,7 +285,7 @@ namespace DungeonFinal
                 }
             }
 
-            else if(tierLevel == 3)
+            else if (tierLevel == 3)
             {
                 var randomNumber = new Random();
                 int choice = randomNumber.Next(13) + 1;
@@ -251,60 +308,15 @@ namespace DungeonFinal
                 else if (choice == 4)
                 {
                     return new SteelStaff();
-                }
-
-                else if (choice == 5)
-                {
-                    return new GreaterPotionOfHealth();
-                }
-
-                else if (choice == 6)
-                {
-                    return new GreaterPotionOfMana();
-                }
-
-                else if (choice == 7)
-                {
-                    return new GreaterPotionOfDefense();
-                }
-
-                else if (choice == 8)
-                {
-                    return new GreaterPotionOfResistance();
-                }
-
-                else if (choice == 9)
-                {
-                    return new GreaterPotionOfMagic();
-                }
-
-                else if (choice == 10)
-                {
-                    return new GreaterPotionOfPower();
-                }
-
-                else if (choice == 11)
-                {
-                    return new RuneOfDestruction();
-                }
-
-                else if (choice == 12)
-                {
-                    return new RuneOfCreation();
-                }
-
-                else if(choice == 13)
-                {
-                    return new RuneOfTranquility();
-                }
+                }                
             }
 
-            else if(tierLevel == 4)
+            else if (tierLevel == 4)
             {
                 var randomNumber = new Random();
                 int choice = randomNumber.Next(1) + 1;
 
-                if(choice == 1)
+                if (choice == 1)
                 {
                     return new Ultima();
                 }
