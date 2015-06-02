@@ -27,7 +27,7 @@ namespace DungeonFinal
             setDuration(getDuration() - 1);
             getHero().setCurHealth(getHero().getCurHealth() - 15);
 
-            return (getHero().getName() + " suffered 15 damage from their poison, it will remain in their blood stream for " + getDuration() + " more turn(s)!");
+            return (getHero().getName() + " suffered 15 damage from their poison, it will remain in their blood stream for " + getDuration() + " more turn(s)!\r\n");
         }
 
     }

@@ -109,10 +109,10 @@ namespace DungeonFinal
                 setIsDefeated(true);
             }
             
-            else if (h > getMaxHealth())
-            {
-                _CurHealth = getMaxHealth();
-            }
+            //else if (h > getMaxHealth())
+            //{
+                //_CurHealth = getMaxHealth();
+            //}
 
             else
             {

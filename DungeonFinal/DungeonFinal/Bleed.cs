@@ -31,7 +31,7 @@ namespace DungeonFinal
             //setDuration(getDuration() - 1);
             getHero().setCurHealth(getHero().getCurHealth() - _Damage);
 
-            return (getHero().getName() + " is bleeding out and suffered " + _Damage + " damage, it is showing no sign of healing!");
+            return (getHero().getName() + " is bleeding out and suffered " + _Damage + " damage, it is showing no sign of healing!\r\n");
         }
 
     }

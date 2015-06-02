@@ -81,7 +81,7 @@ namespace DungeonFinal
                 h.Subscribe(new FullGuard(h));
             }
             setCurMana(getCurMana() - 15);
-            return(getName() + " performed Full Guard for 5 defense and resistance accross whole party!");
+            return (getName() + " performed Full Guard for 5 defense and resistance accross whole party!\r\n");
         }
 
         /*Battle - Defend*/

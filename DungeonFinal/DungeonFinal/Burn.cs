@@ -40,7 +40,7 @@ namespace DungeonFinal
 
             setDuration(getDuration() - 1);
 
-            return (getHero().getName() + " suffered 10 damage from their burn, it is effecting their health and attack for " + getDuration() + " more turn(s)!");
+            return (getHero().getName() + " suffered 10 damage from their burn, it is effecting their health and attack for " + getDuration() + " more turn(s)!\r\n");
         }
 
     }
