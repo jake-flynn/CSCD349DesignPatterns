@@ -22,6 +22,11 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Empty slot");
+            this.setIsHelmet(true);
+            this.setIsGloves(true);
+            this.setIsBoots(true);
+            this.setIsTorso(true);
+            this.setIsWeapon(true);
             _effect.setEffectName(" had no effect");
             this.setEffect(_effect);
 

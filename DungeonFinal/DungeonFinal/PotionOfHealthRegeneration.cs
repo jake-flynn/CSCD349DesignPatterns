@@ -14,26 +14,25 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ClothShoes: Equipment
+    class PotionOfHealthRegeneration : Consumable
     {
         ItemsEffect _effect;
 
-        public ClothShoes() : base()
+        public PotionOfHealthRegeneration() : base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Cloth Shoes");
-            this.setIsBoots(true);
-            this.setSocketAmount(1);
-            _effect.setEffectName("Cloth shoes that increase resistance slightly");
-            _effect.setPhysicalDefense(1);
-            _effect.setResistanceDefense(1);
-            _effect.setEffectAmount(1);
-            this.setEffect(_effect);
+            setItemName("Health Regeneration Potion");
+            _effect.setEffectName("Heals by ");
+            setEffect(_effect);
+            setHasStatusEffect(true);
+          //  setStatusEffect(new HealthRegeneration());
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/mageBoots.png", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/Super_Health_Potion.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }
+
+
     }
 }
