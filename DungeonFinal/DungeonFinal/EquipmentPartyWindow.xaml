@@ -3,27 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="PartyEquipmentWindow" Height="600" Width="1100">
     <Grid>
-        
-        <Label x:Name="lbl_Char1_Helm" Content="Helm" HorizontalAlignment="Left" Margin="20,8,0,0" VerticalAlignment="Top" Width="87"/>
-        <Label x:Name="lbl_Char1_Body" Content="Body" HorizontalAlignment="Left" Margin="21,110,0,0" VerticalAlignment="Top" Width="86"/>
-        <Label x:Name="lbl_Char1_Footwear" Content="Footwear" HorizontalAlignment="Left" Margin="127,110,0,0" VerticalAlignment="Top" Width="98"/>
-        <Label x:Name="lbl_Char1_Weapon" Content="Weapon" HorizontalAlignment="Left" Margin="127,212,0,0" VerticalAlignment="Top" Width="87"/>
-        <Label x:Name="lbl_Char1_Gloves" Content="Gloves" HorizontalAlignment="Left" Margin="22,212,0,0" VerticalAlignment="Top" Width="85"/>
+
+        <Label x:Name="lbl_Char1_Helm" Content="Helm" HorizontalAlignment="Left" Margin="354,10,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="lbl_Char1_Body" Content="Body" HorizontalAlignment="Left" Margin="353,128,0,0" VerticalAlignment="Top" Width="86"/>
+        <Label x:Name="lbl_Char1_Footwear" Content="Footwear" HorizontalAlignment="Left" Margin="404,233,0,0" VerticalAlignment="Top" Width="98"/>
+        <Label x:Name="lbl_Char1_Weapon" Content="Weapon" HorizontalAlignment="Left" Margin="220,133,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="lbl_Char1_Gloves" Content="Gloves" HorizontalAlignment="Left" Margin="307,233,0,0" VerticalAlignment="Top" Width="85"/>
 
 
-        <Rectangle x:Name="rect_Char1_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="20,34,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Char1_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="21,136,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Char1_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="127,136,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Char1_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="127,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Char1_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="22,238,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Char1_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="354,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Char1_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="353,154,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Char1_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="404,259,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Char1_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="220,159,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Char1_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="307,259,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
 
 
 
-        <Button x:Name="btn_Char1_Helm" Content="Button" HorizontalAlignment="Left" Margin="20,92,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Helm_Click"/>
-        <Button x:Name="btn_Char1_Body" Content="Button" HorizontalAlignment="Left" Margin="22,194,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Body_Click"/>
-        <Button x:Name="btn_Char1_Footwear" Content="Button" HorizontalAlignment="Left" Margin="127,194,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Footwear_Click"/>
-        <Button x:Name="btn_Char1_Weapon" Content="Button" HorizontalAlignment="Left" Margin="127,296,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Weapon_Click"/>
-        <Button x:Name="btn_Char1_Gloves" Content="Button" HorizontalAlignment="Left" Margin="22,296,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Gloves_Click"/>
-        
+        <Button x:Name="btn_Char1_Helm" Content="Button" HorizontalAlignment="Left" Margin="354,94,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Helm_Click"/>
+        <Button x:Name="btn_Char1_Body" Content="Button" HorizontalAlignment="Left" Margin="354,212,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Body_Click"/>
+        <Button x:Name="btn_Char1_Footwear" Content="Button" HorizontalAlignment="Left" Margin="404,317,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Footwear_Click"/>
+        <Button x:Name="btn_Char1_Weapon" Content="Button" HorizontalAlignment="Left" Margin="220,217,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Weapon_Click"/>
+        <Button x:Name="btn_Char1_Gloves" Content="Button" HorizontalAlignment="Left" Margin="307,317,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Gloves_Click"/>
+
     </Grid>
 </Window>

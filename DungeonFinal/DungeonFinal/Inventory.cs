@@ -38,6 +38,7 @@ namespace DungeonFinal
             this.addLastToConsumable(new PotionOfHealth());
             this.addLastToConsumable(new LesserPotionOfMana());
             this.addLastToConsumable(new PotionOfMana());
+            this.addLastToConsumable(new PotionOfHealthRegeneration());
 
             this.addLastToEquipment(new BronzeSword());
             this.addLastToEquipment(new BronzeHelmet());

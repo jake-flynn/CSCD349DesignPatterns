@@ -52,13 +52,23 @@ namespace DungeonFinal
         {
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
-            int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();            
-            _Equipment = hero.getHelmet().unEquip(hero);
-            hero.setHelmet(_Inventory.findEquipmentByIndex(equipInventoryIndex));
-            hero.getHelmet().equip(hero);
-            _Inventory.removeFromEquipment(equipInventoryIndex);
+            int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
 
-            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            if (_Inventory.findEquipmentByIndex(equipInventoryIndex).getIsHelmet())
+            {
+                _Equipment = hero.getHelmet().unEquip(hero);
+                hero.setHelmet(_Inventory.findEquipmentByIndex(equipInventoryIndex));
+                hero.getHelmet().equip(hero);
+                _Inventory.removeFromEquipment(equipInventoryIndex);
+
+                _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            }
+
+            else
+            {
+                MessageBox.Show("Cannot equip something that is not a helmet to this slot!");
+            }
+            
 
             updateVisuals();
 
@@ -69,13 +79,22 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
-            _Equipment = hero.getTorso().unEquip(hero);
-            hero.setTorso(_Inventory.findEquipmentByIndex(equipInventoryIndex));
-            hero.getTorso().equip(hero);
-            _Inventory.removeFromEquipment(equipInventoryIndex);
 
-            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            if (_Inventory.findEquipmentByIndex(equipInventoryIndex).getIsTorso())
+            {
+                _Equipment = hero.getTorso().unEquip(hero);
+                hero.setTorso(_Inventory.findEquipmentByIndex(equipInventoryIndex));
+                hero.getTorso().equip(hero);
+                _Inventory.removeFromEquipment(equipInventoryIndex);
 
+                _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            }
+
+            else
+            {
+                MessageBox.Show("Cannot equip something that is not chest armor to this slot");
+            }
+            
             updateVisuals();
 
         }
@@ -85,12 +104,21 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
-            _Equipment = hero.getGloves().unEquip(hero);
-            hero.setGloves(_Inventory.findEquipmentByIndex(equipInventoryIndex));
-            hero.getGloves().equip(hero);
-            _Inventory.removeFromEquipment(equipInventoryIndex);
 
-            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            if (_Inventory.findEquipmentByIndex(equipInventoryIndex).getIsGloves())
+            {
+                _Equipment = hero.getGloves().unEquip(hero);
+                hero.setGloves(_Inventory.findEquipmentByIndex(equipInventoryIndex));
+                hero.getGloves().equip(hero);
+                _Inventory.removeFromEquipment(equipInventoryIndex);
+
+                _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            }
+            
+            else
+            {
+                MessageBox.Show("Cannot equip something that is not gloves to this slot.");
+            }
 
             updateVisuals();
 
@@ -101,12 +129,21 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
-            _Equipment = hero.getBoots().unEquip(hero);
-            hero.setBoots(_Inventory.findEquipmentByIndex(equipInventoryIndex));
-            hero.getBoots().equip(hero);
-            _Inventory.removeFromEquipment(equipInventoryIndex);
 
-            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            if (_Inventory.findEquipmentByIndex(equipInventoryIndex).getIsBoots())
+            {
+                _Equipment = hero.getBoots().unEquip(hero);
+                hero.setBoots(_Inventory.findEquipmentByIndex(equipInventoryIndex));
+                hero.getBoots().equip(hero);
+                _Inventory.removeFromEquipment(equipInventoryIndex);
+
+                _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            }
+
+            else
+            {
+                MessageBox.Show("Cannot equip something that is not boots to this slot");
+            }
 
             updateVisuals();
 
@@ -117,15 +154,23 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
-            _Equipment = hero.getWeapon().unEquip(hero);
-            hero.setWeapon(_Inventory.findEquipmentByIndex(equipInventoryIndex));
-            hero.getWeapon().equip(hero);
-            _Inventory.removeFromEquipment(equipInventoryIndex);
 
-            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            if (_Inventory.findEquipmentByIndex(equipInventoryIndex).getIsWeapon())
+            {
+                _Equipment = hero.getWeapon().unEquip(hero);
+                hero.setWeapon(_Inventory.findEquipmentByIndex(equipInventoryIndex));
+                hero.getWeapon().equip(hero);
+                _Inventory.removeFromEquipment(equipInventoryIndex);
+
+                _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
+            }
+
+            else
+            {
+                MessageBox.Show("Cannot equip something that is not a weapon to this slot");
+            }
 
             updateVisuals();
-
         }
 
         

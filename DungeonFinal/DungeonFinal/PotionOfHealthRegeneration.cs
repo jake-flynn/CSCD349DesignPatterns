@@ -14,26 +14,25 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class NullItemEquipment : Equipment
+    class PotionOfHealthRegeneration : Consumable
     {
         ItemsEffect _effect;
 
-        public NullItemEquipment() : base()
+        public PotionOfHealthRegeneration() : base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Empty slot");
-            this.setIsHelmet(true);
-            this.setIsGloves(true);
-            this.setIsBoots(true);
-            this.setIsTorso(true);
-            this.setIsWeapon(true);
-            _effect.setEffectName(" had no effect");
-            this.setEffect(_effect);
+            setItemName("Health Regeneration Potion");
+            _effect.setEffectName("Heals by ");
+            setEffect(_effect);
+            setHasStatusEffect(true);
+          //  setStatusEffect(new HealthRegeneration());
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/swordoutline.png", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/Super_Health_Potion.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }
+
+
     }
 }

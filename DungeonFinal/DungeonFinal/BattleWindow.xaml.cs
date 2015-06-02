@@ -201,7 +201,7 @@ namespace DungeonFinal
             choiceWindow.ShowDialog();
             int attackTarget = choiceWindow.getChoiceFromSelect();
             Hero targetHero = _theHeroes[attackTarget];
-
+            
             string resultString = itemToUse.use(targetHero);
 
             paragraph.Inlines.Add(new Bold(new Run(resultString))

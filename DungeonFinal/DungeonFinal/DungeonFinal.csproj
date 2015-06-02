@@ -134,6 +134,7 @@
     <Compile Include="LesserPotionOfMana.cs" />
     <Compile Include="LesserPotionOfPower.cs" />
     <Compile Include="LesserPotionOfResistance.cs" />
+    <Compile Include="ManaRegeneration.cs" />
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
@@ -152,10 +153,12 @@
     <Compile Include="Poison.cs" />
     <Compile Include="PotionOfDefense.cs" />
     <Compile Include="PotionOfHealth.cs" />
+    <Compile Include="PotionOfHealthRegeneration.cs" />
     <Compile Include="PotionOfMagic.cs" />
     <Compile Include="PotionOfMana.cs" />
     <Compile Include="PotionOfPower.cs" />
     <Compile Include="PotionOfResistance.cs" />
+    <Compile Include="HealthRegeneration.cs" />
     <Compile Include="Rogue.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RuneOfCreation.cs" />
