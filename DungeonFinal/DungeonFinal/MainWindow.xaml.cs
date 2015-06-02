@@ -190,6 +190,7 @@ namespace DungeonFinal
             updateButtonsVisibility();
             //upgradeStats(heros);
             _TheParty.getInventory().addLastToConsumable(_ItemFactory.createConsumable(1));
+            _TheParty.getInventory().addLastToEquipment(_ItemFactory.createEquipment(1));
         }
 
         public void NormalBattle(Monster m, Party heros)

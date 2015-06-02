@@ -486,7 +486,7 @@ namespace DungeonFinal
             foreach(Hero h in _theHeroes)
             {
                 String effectString = "";
-                //effectString = //h.Notify();
+                effectString = h.Notify();
 
                 paragraph.Inlines.Add(new Bold(new Run(effectString))
                 {

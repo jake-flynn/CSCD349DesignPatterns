@@ -50,12 +50,7 @@ namespace DungeonFinal
                 _TheSwarm[m] = (Monster)_PrototypeMonster.Clone(m + 1);   
             }                                                      
 
-            //_TheSwarm[0] = new Insect();
-            //_TheSwarm[1] = new Insect();
-            //_TheSwarm[2] = new Insect();
-            //_TheSwarm[3] = new Insect();
-            //_TheSwarm[4] = new Insect();
-            //_TheSwarm[5] = new Insect();
+            
 
             //tb_monster.Text = _monster.getName();
             tb_hero1.Text = _theHeroes[0].getName();

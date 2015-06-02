@@ -393,11 +393,13 @@ namespace DungeonFinal
 
         //------------------------------- Effect Subscribe Methods -------------------------------
         //Notify - handles each effect on the hero and removes an effect if the duration == 0
-        public void Notify()
+        public string Notify()
         {
+            string retString = ""; 
+
             foreach(StatusEffect e in _EffectList)
             {
-                e.Modify();
+                retString += e.Modify();
 
                 if(e.getDuration() <= 0)
                 {
@@ -405,7 +407,7 @@ namespace DungeonFinal
                 }
             }
 
-            //LinkedListNode<StatusEffect> node = _EffectList.First();
+            return retString;
         }
 
         //Subscribe - adds the specified effect to the _EffectList of the hero

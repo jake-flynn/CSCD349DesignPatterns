@@ -84,7 +84,7 @@ namespace DungeonFinal
             party[rnd1].setCurHealth(party[rnd1].getCurHealth() - damage);
             
             //Poison Successful
-            if(chance1 == 1)
+            if(chance1 != 1)
             {
                 message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage and caused poison!\r\n";
                 party[rnd1].Subscribe(new Poison(party[rnd1]));
