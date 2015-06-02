@@ -22,7 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Rune Of Despair");
-            this.setSocketable(true);
+            this.setIsSocketable(true);
             _effect.setEffectName("Sheds darkness upon your enemies");
             _effect.setStrengthValue(15);
             _effect.setMagicValue(15);
@@ -30,14 +30,11 @@ namespace DungeonFinal
             _effect.setManaValue(15);
             _effect.setEffectAmount(15);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/zodRune.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

@@ -22,20 +22,18 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Chest Plate");
+            this.setIsTorso(true);
             this.setSocketAmount(6);
             _effect.setEffectName("An exceptional piece of work crafted from copper and tin");
             _effect.setPhysicalDefense(8);
             _effect.setEffectAmount(8);
             //_effect.setManaValue(-2);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/bronzeTorso.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

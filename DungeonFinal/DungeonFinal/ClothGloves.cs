@@ -22,20 +22,18 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Cloth Gloves");
+            this.setIsGloves(true);
             this.setSocketAmount(1);
             _effect.setEffectName("Cloth gloves that increase mana by 30");
             _effect.setPhysicalDefense(1);
             _effect.setManaValue(30);
             _effect.setEffectAmount(1);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/busterblade.jpeg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

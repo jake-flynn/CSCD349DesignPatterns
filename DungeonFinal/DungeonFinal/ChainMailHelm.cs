@@ -22,19 +22,17 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Chain Mail Helmet");
+            this.setIsHelmet(true);
             this.setSocketAmount(3);
             _effect.setEffectName("Chain mail helmet made with an interior leather cap surrounded by interlocking steel ringlets");
             _effect.setPhysicalDefense(5);
             _effect.setEffectAmount(5);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/chainhelmet.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Sword");
+            this.setIsWeapon(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A well balanced sword made of copper and tin");
             _effect.setStrengthValue(16);
@@ -29,14 +30,11 @@ namespace DungeonFinal
             //_effect.setHealthValue(12);
             //_effect.setManaValue(-5);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/bronzesword.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

@@ -47,10 +47,10 @@ namespace DungeonFinal
             lbl_item19.Content = _Inventory.findEquipmentByIndex(18).getItemName();
             lbl_item20.Content = _Inventory.findEquipmentByIndex(19).getItemName();
 
-            rect_item1.Fill = _Inventory.findConsumableByIndex(0).getBrush();
-            rect_item2.Fill = _Inventory.findConsumableByIndex(1).getBrush();
-            rect_item3.Fill = _Inventory.findConsumableByIndex(2).getBrush();
-            rect_item4.Fill = _Inventory.findConsumableByIndex(3).getBrush();
+            rect_item1.Fill = _Inventory.findConsumableByIndex(0).getImageBrush();
+            rect_item2.Fill = _Inventory.findConsumableByIndex(1).getImageBrush();
+            rect_item3.Fill = _Inventory.findConsumableByIndex(2).getImageBrush();
+            rect_item4.Fill = _Inventory.findConsumableByIndex(3).getImageBrush();
 
         }
 

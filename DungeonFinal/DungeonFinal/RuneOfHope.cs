@@ -22,7 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Rune Of Hope");
-            this.setSocketable(true);
+            this.setIsSocketable(true);
             _effect.setEffectName("Sheds light upon your dark journey");
             _effect.setStrengthValue(10);
             _effect.setMagicValue(10);
@@ -32,14 +32,11 @@ namespace DungeonFinal
             _effect.setManaValue(10);
             _effect.setEffectAmount(10);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/chamRune.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

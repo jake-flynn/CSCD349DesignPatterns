@@ -23,6 +23,8 @@ namespace DungeonFinal
         Boolean _isTorso;
         Boolean _isGloves;
         Boolean _isBoots;
+        Boolean _isWeapon;
+        private ImageBrush _ImageBrush;
 
         public Equipment() : base()
         {
@@ -31,6 +33,7 @@ namespace DungeonFinal
             _isGloves = false;
             _isHelmet = false;
             _isTorso = false;
+            _isWeapon = false;
             _isSocketable = false;
         }
 
@@ -101,56 +104,74 @@ namespace DungeonFinal
             return sockets.Length;
         }
 
-        public void setSocketable(Boolean _isSocketable)
+        public void setIsSocketable(Boolean _isSocketable)
         {
             this._isSocketable = _isSocketable;
         }
 
-        public Boolean getSocketable()
+        public Boolean getIsSocketable()
         {
             return _isSocketable;
         }
 
-        public void setHelmet(Boolean _isHelmet)
+        public void setIsWeapon(Boolean _isWeapon)
+        {
+            this._isWeapon = _isWeapon;
+        }
+
+        public Boolean getIsWeapon()
+        {
+            return _isWeapon;
+        }
+
+        public void setIsHelmet(Boolean _isHelmet)
         {
             this._isHelmet = _isHelmet;
         }
 
-        public Boolean getHelmet()
+        public Boolean getIsHelmet()
         {
             return _isHelmet;
         }
 
-        public void setTorso(Boolean _isTorso)
+        public void setIsTorso(Boolean _isTorso)
         {
             this._isTorso = _isTorso;
         }
 
-        public Boolean getTorso()
+        public Boolean getIsTorso()
         {
             return _isTorso;
         }
 
-        public void setBoots(Boolean _isBoots)
+        public void setIsBoots(Boolean _isBoots)
         {
             this._isBoots = _isBoots;
         }
 
-        public Boolean getBoots()
+        public Boolean getIsBoots()
         {
             return _isBoots;
         }
 
-        public void setGloves(Boolean _isGloves)
+        public void setIsGloves(Boolean _isGloves)
         {
             this._isGloves = _isGloves;
         }
 
-        public Boolean getGloves()
+        public Boolean getIsGloves()
         {
             return _isGloves;
         }
 
-      //  public abstract ImageBrush getBrush();
+        public void setImageBrush(ImageBrush i)
+        {
+            _ImageBrush = i;
+        }
+
+        public ImageBrush getImageBrush()
+        {
+            return _ImageBrush;
+        }
     }
 }

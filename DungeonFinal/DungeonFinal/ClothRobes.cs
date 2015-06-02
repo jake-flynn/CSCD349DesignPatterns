@@ -22,6 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Cloth Robes");
+            this.setIsTorso(true);
             this.setSocketAmount(3);
             _effect.setEffectName("Finely woven silk robes that increase magic power 2 and mana power 10");
             _effect.setPhysicalDefense(2);
@@ -29,14 +30,11 @@ namespace DungeonFinal
             _effect.setManaValue(10);
             _effect.setEffectAmount(2);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/busterblade.jpeg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

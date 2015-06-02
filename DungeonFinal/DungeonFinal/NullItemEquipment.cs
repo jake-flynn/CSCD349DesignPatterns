@@ -18,20 +18,17 @@ namespace DungeonFinal
     {
         ItemsEffect _effect;
 
-        public NullItemEquipment() //: base()
+        public NullItemEquipment() : base()
         {
             _effect = new ItemsEffect();
             this.setItemName("Empty slot");
             _effect.setEffectName(" had no effect");
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/swordoutline.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

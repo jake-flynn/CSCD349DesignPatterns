@@ -22,18 +22,16 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Simple Dagger");
+            this.setIsWeapon(true);
             _effect.setEffectName("A simple dagger");
             _effect.setStrengthValue(6);
             _effect.setEffectAmount(6);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/dirk.gif", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

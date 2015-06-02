@@ -22,20 +22,17 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Rune Of Destruction");
-            this.setSocketable(true);
+            this.setIsSocketable(true);
             _effect.setEffectName("The fallen angel set fire to the heavens, and this fell from the ashes...");
             _effect.setStrengthValue(100);
             _effect.setMagicValue(100);
             _effect.setEffectAmount(100);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/Ist_Rune.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

@@ -22,20 +22,17 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Rune Of Tranquility");
-            this.setSocketable(true);
+            this.setIsSocketable(true);
             _effect.setEffectName("In the midst of creation and destruction, stood tranquility...");
             _effect.setResistanceDefense(100);
             _effect.setPhysicalDefense(100);
             _effect.setEffectAmount(100);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/Jah_Rune.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

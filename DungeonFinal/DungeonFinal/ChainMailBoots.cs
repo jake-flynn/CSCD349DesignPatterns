@@ -22,19 +22,17 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Chain Mail Boots");
+            this.setIsBoots(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Chain Mail boots made of steel ringlets reinfored with leather strips");
             _effect.setPhysicalDefense(4);
             _effect.setEffectAmount(4);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/Chain_Boots.gif", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

@@ -22,20 +22,18 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Staff");
+            this.setIsWeapon(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A beautiful staff made of copper and tin");
             _effect.setMagicValue(9);
             _effect.setEffectAmount(9);
             //_effect.setHealthValue(12);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/WarStaff.gif", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

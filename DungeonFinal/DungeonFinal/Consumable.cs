@@ -16,6 +16,8 @@ namespace DungeonFinal
 {
     public abstract class Consumable : Item
     {
+        private ImageBrush _ImageBrush;
+
         public Consumable() : base()
         {
 
@@ -43,6 +45,14 @@ namespace DungeonFinal
             return _hero.getName() + " had effect of " + this.getItemName() + ", " + getEffect().getEffectName() + getEffect().getEffectAmount();
         }
 
-       // public abstract ImageBrush getBrush();
+        public void setImageBrush(ImageBrush i)
+        {
+            _ImageBrush = i;
+        }
+
+        public ImageBrush getImageBrush()
+        {
+            return _ImageBrush;
+        }
     }
 }

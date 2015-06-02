@@ -22,6 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Steel Sword");
+            this.setIsWeapon(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A razor sharp sword made of folded steel");
             _effect.setStrengthValue(19);
@@ -29,14 +30,11 @@ namespace DungeonFinal
             //_effect.setHealthValue(12);
             //_effect.setManaValue(-5);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/warsword.gif", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

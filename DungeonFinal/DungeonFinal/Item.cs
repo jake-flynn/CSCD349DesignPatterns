@@ -19,7 +19,6 @@ namespace DungeonFinal
         string _itemName;
         ItemsEffect _effect;
         
-
         public Item()
         {
             _itemName = "Null Item";
@@ -44,8 +43,5 @@ namespace DungeonFinal
         {
             return _effect;
         }
-
-        //abstract methods
-        public abstract ImageBrush getBrush();
     }
 }

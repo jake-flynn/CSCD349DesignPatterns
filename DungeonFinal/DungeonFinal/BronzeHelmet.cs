@@ -22,20 +22,18 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Bronze Helmet");
+            this.setIsHelmet(true);
             this.setSocketAmount(3);
             _effect.setEffectName("A well crafted helmet made of an alloy of copper and tin");
             _effect.setPhysicalDefense(5);
             _effect.setEffectAmount(5);
             //_effect.setManaValue(-1);         Decrease mana pool for wearing heavy armor?
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/bronzehelmet.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }

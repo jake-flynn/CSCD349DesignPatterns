@@ -22,6 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Ultima");
+            this.setIsWeapon(true);
             this.setSocketAmount(15);
             _effect.setEffectName("FEAR NO STUBEAST");
             _effect.setStrengthValue(100);
@@ -29,14 +30,11 @@ namespace DungeonFinal
             //_effect.setManaValue(-5);
             _effect.setEffectAmount(100);
             this.setEffect(_effect);
-        }
 
-        public override ImageBrush getBrush()
-        {
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
+            BitmapImage image = new BitmapImage(new Uri(@"Images/Items/busterblade.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            return imgBrush;
+            setImageBrush(imgBrush);
         }
     }
 }
