@@ -22,13 +22,14 @@ namespace DungeonFinal
     {
 
 
-        private Maze maze;
-        public int difficulty = 6;
-        public int move = 0;
-        public int[,] visited;
-        public int MonstersSeen = 0;
-        public int runDifficulty = 1;
-        public Party HerosParty;
+        private Maze _Maze;
+        public int _Difficulty = 6;
+        public int _Move = 0;
+        public int[,] _Visited;
+        public int _MonstersSeen = 0;
+        public int _RunDifficulty = 1;
+        public Party _TheParty;
+        private ItemFactory _ItemFactory;
 
         public MainWindow()
         {
@@ -36,8 +37,9 @@ namespace DungeonFinal
             
 
 
-            HerosParty = new Party();
+            _TheParty = new Party();
             MessageBox.Show("Hello, and welcome to OFOM!");
+            _ItemFactory = new ItemFactory();
             //newGame();
             //updateButtonsVisibility();
         }
@@ -48,92 +50,92 @@ namespace DungeonFinal
 
         public void newGame()//resets all variables for a new game
         {
-            runDifficulty = difficulty;
-            var builder = new MazeMaker(runDifficulty);
-            maze = builder.Build();
-            visited = new int[runDifficulty, runDifficulty];
+            _RunDifficulty = _Difficulty;
+            var builder = new MazeMaker(_RunDifficulty);
+            _Maze = builder.Build();
+            _Visited = new int[_RunDifficulty, _RunDifficulty];
             newVisitArray();
-            visit(maze.GetPosition()[0], maze.GetPosition()[1]);
-            MonstersSeen = 0;
+            visit(_Maze.GetPosition()[0], _Maze.GetPosition()[1]);
+            _MonstersSeen = 0;
             populateMonsters();
 
             var charSelect = new CharacterSelect();
             charSelect.ShowDialog();
-            HerosParty = charSelect.getPartyFromSelect();
+            _TheParty = charSelect.getPartyFromSelect();
             btn_equipmentSelect.IsEnabled = true;
         }
 
         public void newVisitArray()
         {
-            for (int i = 0; i < runDifficulty; i++)
+            for (int i = 0; i < _RunDifficulty; i++)
             {
-                for (int j = 0; j < runDifficulty; j++)
+                for (int j = 0; j < _RunDifficulty; j++)
                 {
-                    visited[i, j] = 0;
+                    _Visited[i, j] = 0;
                 }
             }
         }
 
         public void visit(int x, int y)
         {
-            visited[x, y] = 1;
+            _Visited[x, y] = 1;
         }
 
         public void updateButtonsVisibility()
         {
-            if (maze.GetCurrentRoom().GetNorthDoor().CanPass())
+            if (_Maze.GetCurrentRoom().GetNorthDoor().CanPass())
             {
                 btn_moveNorth.IsEnabled = true;
             }
-            if (!maze.GetCurrentRoom().GetNorthDoor().CanPass())
+            if (!_Maze.GetCurrentRoom().GetNorthDoor().CanPass())
             {
                 btn_moveNorth.IsEnabled = false;
             }
 
-            if (maze.GetCurrentRoom().GetEastDoor().CanPass())
+            if (_Maze.GetCurrentRoom().GetEastDoor().CanPass())
             {
                 btn_moveEast.IsEnabled = true;
             }
-            if (!maze.GetCurrentRoom().GetEastDoor().CanPass())
+            if (!_Maze.GetCurrentRoom().GetEastDoor().CanPass())
             {
                 btn_moveEast.IsEnabled = false;
             }
 
-            if (maze.GetCurrentRoom().GetSouthDoor().CanPass())
+            if (_Maze.GetCurrentRoom().GetSouthDoor().CanPass())
             {
                 btn_moveSouth.IsEnabled = true;
             }
-            if (!maze.GetCurrentRoom().GetSouthDoor().CanPass())
+            if (!_Maze.GetCurrentRoom().GetSouthDoor().CanPass())
             {
                 btn_moveSouth.IsEnabled = false;
             }
 
-            if (maze.GetCurrentRoom().GetWestDoor().CanPass())
+            if (_Maze.GetCurrentRoom().GetWestDoor().CanPass())
             {
                 btn_moveWest.IsEnabled = true;
             }
-            if (!maze.GetCurrentRoom().GetWestDoor().CanPass())
+            if (!_Maze.GetCurrentRoom().GetWestDoor().CanPass())
             {
                 btn_moveWest.IsEnabled = false;
             }
 
             btn_viewMap.IsEnabled = true;
 
-            tb_currentRow.Text = maze.GetCurrentRow()+1 + "";
-            tb_currentCol.Text = maze.GetCurrentCol()+1 + "";
-            tb_numberOfMonsters.Text = MonstersSeen + "";
+            tb_currentRow.Text = _Maze.GetCurrentRow()+1 + "";
+            tb_currentCol.Text = _Maze.GetCurrentCol()+1 + "";
+            tb_numberOfMonsters.Text = _MonstersSeen + "";
         }
 
         public async void populateMonsters()
         {
             var randomGeneratedNumber = new Random();
             int randomNumber = randomGeneratedNumber.Next(10);
-            Room[,] settingMonstersInRooms = maze.GetRooms();
+            Room[,] settingMonstersInRooms = _Maze.GetRooms();
             Monster monsterToAdd;
             MonsterFactory mazePopulator = new MonsterFactory();
-            for(int i = 0; i < difficulty; i++)
+            for(int i = 0; i < _Difficulty; i++)
             {
-                for(int j = 1; j < difficulty; j++)
+                for(int j = 1; j < _Difficulty; j++)
                 {
                     randomNumber = randomGeneratedNumber.Next(10);
                     if( i < 3 && j < 3)
@@ -161,8 +163,8 @@ namespace DungeonFinal
 
 
             monsterToAdd = mazePopulator.createMonster(4); //Random boss created
-            settingMonstersInRooms[difficulty-1, difficulty-1].setMonster(monsterToAdd);
-            maze.SetRooms(settingMonstersInRooms);
+            settingMonstersInRooms[_Difficulty-1, _Difficulty-1].setMonster(monsterToAdd);
+            _Maze.SetRooms(settingMonstersInRooms);
 
         }
 
@@ -184,10 +186,10 @@ namespace DungeonFinal
             {
                 NormalBattle(m, heros);
             }
-            MonstersSeen++;
+            _MonstersSeen++;
             updateButtonsVisibility();
             //upgradeStats(heros);
-            //HerosParty.getInventory().addLastToConsumable();
+            _TheParty.getInventory().addLastToConsumable(_ItemFactory.createConsumable(1));
         }
 
         public void NormalBattle(Monster m, Party heros)
@@ -251,16 +253,16 @@ namespace DungeonFinal
 
         private void btn_moveNorth_Click(object sender, RoutedEventArgs e)
         {
-            if (maze.GetCurrentRoom().GetNorthDoor().IsOpen() == true)
+            if (_Maze.GetCurrentRoom().GetNorthDoor().IsOpen() == true)
             {
-                maze.MoveNorth();
-                visit(maze.GetPosition()[0], maze.GetPosition()[1]);
-                if(maze.GetCurrentRoom().hasMonster() == true)
+                _Maze.MoveNorth();
+                visit(_Maze.GetPosition()[0], _Maze.GetPosition()[1]);
+                if(_Maze.GetCurrentRoom().hasMonster() == true)
                 {
-                    startBattle(maze.GetCurrentRoom().getMonster(), HerosParty);
-                    maze.GetCurrentRoom().defeatedMonster();
+                    startBattle(_Maze.GetCurrentRoom().getMonster(), _TheParty);
+                    _Maze.GetCurrentRoom().defeatedMonster();
                 }
-                if (maze.GetCurrentRoom().IsExit())
+                if (_Maze.GetCurrentRoom().IsExit())
                 {
                     MessageBox.Show("You have reached the exit!!!\r\nYou may wander the maze or start a new game!");
                 }
@@ -275,16 +277,16 @@ namespace DungeonFinal
 
         private void btn_moveEast_Click(object sender, RoutedEventArgs e)
         {
-            if (maze.GetCurrentRoom().GetEastDoor().IsOpen() == true)
+            if (_Maze.GetCurrentRoom().GetEastDoor().IsOpen() == true)
             {
-                maze.MoveEast();
-                visit(maze.GetPosition()[0], maze.GetPosition()[1]);
-                if (maze.GetCurrentRoom().hasMonster() == true)
+                _Maze.MoveEast();
+                visit(_Maze.GetPosition()[0], _Maze.GetPosition()[1]);
+                if (_Maze.GetCurrentRoom().hasMonster() == true)
                 {
-                    startBattle(maze.GetCurrentRoom().getMonster(), HerosParty);
-                    maze.GetCurrentRoom().defeatedMonster();
+                    startBattle(_Maze.GetCurrentRoom().getMonster(), _TheParty);
+                    _Maze.GetCurrentRoom().defeatedMonster();
                 }
-                if (maze.GetCurrentRoom().IsExit())
+                if (_Maze.GetCurrentRoom().IsExit())
                 {
                     MessageBox.Show("You have reached the exit!!!\r\nYou may wander the maze or start a new game!");
                 }
@@ -298,16 +300,16 @@ namespace DungeonFinal
 
         private void btn_moveSouth_Click(object sender, RoutedEventArgs e)
         {
-            if (maze.GetCurrentRoom().GetSouthDoor().IsOpen() == true)
+            if (_Maze.GetCurrentRoom().GetSouthDoor().IsOpen() == true)
             {
-                maze.MoveSouth();
-                visit(maze.GetPosition()[0], maze.GetPosition()[1]);
-                if (maze.GetCurrentRoom().hasMonster() == true)
+                _Maze.MoveSouth();
+                visit(_Maze.GetPosition()[0], _Maze.GetPosition()[1]);
+                if (_Maze.GetCurrentRoom().hasMonster() == true)
                 {
-                    startBattle(maze.GetCurrentRoom().getMonster(), HerosParty);
-                    maze.GetCurrentRoom().defeatedMonster();
+                    startBattle(_Maze.GetCurrentRoom().getMonster(), _TheParty);
+                    _Maze.GetCurrentRoom().defeatedMonster();
                 }
-                if (maze.GetCurrentRoom().IsExit())
+                if (_Maze.GetCurrentRoom().IsExit())
                 {
                     MessageBox.Show("You have reached the exit!!!\r\nYou may wander the maze or start a new game!");
                 }
@@ -322,16 +324,16 @@ namespace DungeonFinal
 
         private void btn_moveWest_Click(object sender, RoutedEventArgs e)
         {
-            if (maze.GetCurrentRoom().GetWestDoor().IsOpen() == true)
+            if (_Maze.GetCurrentRoom().GetWestDoor().IsOpen() == true)
             {
-                maze.MoveWest();
-                visit(maze.GetPosition()[0], maze.GetPosition()[1]);
-                if (maze.GetCurrentRoom().hasMonster() == true)
+                _Maze.MoveWest();
+                visit(_Maze.GetPosition()[0], _Maze.GetPosition()[1]);
+                if (_Maze.GetCurrentRoom().hasMonster() == true)
                 {
-                    startBattle(maze.GetCurrentRoom().getMonster(), HerosParty);
-                    maze.GetCurrentRoom().defeatedMonster();
+                    startBattle(_Maze.GetCurrentRoom().getMonster(), _TheParty);
+                    _Maze.GetCurrentRoom().defeatedMonster();
                 }
-                if (maze.GetCurrentRoom().IsExit())
+                if (_Maze.GetCurrentRoom().IsExit())
                 {
                     MessageBox.Show("You have reached the exit!!!\r\nYou may wander the maze or start a new game!");
                 }
@@ -346,7 +348,7 @@ namespace DungeonFinal
 
         private void btn_viewMap_Click(object sender, RoutedEventArgs e)
         {
-            var map = new Map(maze.GetRooms(), visited, maze.GetPosition()[0], maze.GetPosition()[1]);
+            var map = new Map(_Maze.GetRooms(), _Visited, _Maze.GetPosition()[0], _Maze.GetPosition()[1]);
             map.ShowDialog();
 
         }
@@ -361,15 +363,15 @@ namespace DungeonFinal
             party.addHero(new Paladin());
             party.addHero(new Rogue());
             party.addHero(new Cleric());
-            HerosParty = party;
+            _TheParty = party;
 
-            runDifficulty = difficulty;
-            var builder = new MazeMaker(runDifficulty);
-            maze = builder.Build();
-            visited = new int[runDifficulty, runDifficulty];
+            _RunDifficulty = _Difficulty;
+            var builder = new MazeMaker(_RunDifficulty);
+            _Maze = builder.Build();
+            _Visited = new int[_RunDifficulty, _RunDifficulty];
             newVisitArray();
-            visit(maze.GetPosition()[0], maze.GetPosition()[1]);
-            MonstersSeen = 0;
+            visit(_Maze.GetPosition()[0], _Maze.GetPosition()[1]);
+            _MonstersSeen = 0;
             populateMonsters();
 
             updateButtonsVisibility();
@@ -378,7 +380,7 @@ namespace DungeonFinal
 
         private void btn_equipmentSelect_Click(object sender, RoutedEventArgs e)
         {
-            var equipmentSelect = new PartyEquipmentWindow(HerosParty);
+            var equipmentSelect = new PartyEquipmentWindow(_TheParty);
             equipmentSelect.ShowDialog();
         }
 
