@@ -26,6 +26,13 @@ namespace DungeonFinal
         {
             InitializeComponent();
             _Inventory = CurrentInventory;
+            updateVisuals();
+        }
+
+
+        //start methods
+        public void updateVisuals()
+        {
             lbl_item1.Content = _Inventory.findEquipmentByIndex(0).getItemName();
             lbl_item2.Content = _Inventory.findEquipmentByIndex(1).getItemName();
             lbl_item3.Content = _Inventory.findEquipmentByIndex(2).getItemName();
@@ -51,14 +58,22 @@ namespace DungeonFinal
             rect_item2.Fill = _Inventory.findConsumableByIndex(1).getImageBrush();
             rect_item3.Fill = _Inventory.findConsumableByIndex(2).getImageBrush();
             rect_item4.Fill = _Inventory.findConsumableByIndex(3).getImageBrush();
-
-        }
-
-
-        //start methods
-        public void updateVisuals()
-        {
-
+            rect_item5.Fill = _Inventory.findConsumableByIndex(4).getImageBrush();
+            rect_item6.Fill = _Inventory.findConsumableByIndex(5).getImageBrush();
+            rect_item7.Fill = _Inventory.findConsumableByIndex(6).getImageBrush();
+            rect_item8.Fill = _Inventory.findConsumableByIndex(7).getImageBrush();
+            rect_item9.Fill = _Inventory.findConsumableByIndex(8).getImageBrush();
+            rect_item10.Fill = _Inventory.findConsumableByIndex(9).getImageBrush();
+            rect_item11.Fill = _Inventory.findConsumableByIndex(10).getImageBrush();
+            rect_item12.Fill = _Inventory.findConsumableByIndex(11).getImageBrush();
+            rect_item13.Fill = _Inventory.findConsumableByIndex(12).getImageBrush();
+            rect_item14.Fill = _Inventory.findConsumableByIndex(13).getImageBrush();
+            rect_item15.Fill = _Inventory.findConsumableByIndex(14).getImageBrush();
+            rect_item16.Fill = _Inventory.findConsumableByIndex(15).getImageBrush();
+            rect_item17.Fill = _Inventory.findConsumableByIndex(16).getImageBrush();
+            rect_item18.Fill = _Inventory.findConsumableByIndex(17).getImageBrush();
+            rect_item19.Fill = _Inventory.findConsumableByIndex(18).getImageBrush();
+            rect_item20.Fill = _Inventory.findConsumableByIndex(19).getImageBrush();
         }
 
         public int getChoiceFromSelect()
@@ -67,6 +82,10 @@ namespace DungeonFinal
         }
 
         //end methods
+
+        //==========================================================================================================//
+        //Start Event Handlers
+        //==========================================================================================================//
 
         private void btn_item1_Click(object sender, RoutedEventArgs e)
         {

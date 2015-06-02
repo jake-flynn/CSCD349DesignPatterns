@@ -479,14 +479,20 @@ namespace DungeonFinal
             if (_monster.getCurHealth() > 0)
             {
                 await Task.Delay(400);
-                monsterAttack();
-                incrementEffects();
+                monsterAttack();                
                 checkForDefeatedUnit();
             }
-
+            incrementEffects();
             foreach(Hero h in _theHeroes)
             {
-                h.Notify();
+                String effectString = "";
+                //effectString = //h.Notify();
+
+                paragraph.Inlines.Add(new Bold(new Run(effectString))
+                {
+                    Foreground = Brushes.Fuchsia
+                });
+                paragraph.Inlines.Add(new LineBreak());
             }
         }
 
