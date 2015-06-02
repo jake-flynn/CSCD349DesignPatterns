@@ -36,8 +36,16 @@ namespace DungeonFinal
         public void updateVisuals()
         {
             lbl_Char1_Helm.Content = _TheHeroes[0].getHelmet().getItemName();
+            lbl_Char1_Footwear.Content = _TheHeroes[0].getBoots().getItemName();
+            lbl_Char1_Gloves.Content = _TheHeroes[0].getGloves().getItemName();
+            lbl_Char1_Body.Content = _TheHeroes[0].getTorso().getItemName();
+            lbl_Char1_Weapon.Content = _TheHeroes[0].getWeapon().getItemName();
 
             rect_Char1_Helm.Fill = _TheHeroes[0].getHelmet().getImageBrush();
+            rect_Char1_Footwear.Fill = _TheHeroes[0].getBoots().getImageBrush();
+            rect_Char1_Gloves.Fill = _TheHeroes[0].getGloves().getImageBrush();
+            rect_Char1_Body.Fill = _TheHeroes[0].getTorso().getImageBrush();
+            rect_Char1_Weapon.Fill = _TheHeroes[0].getWeapon().getImageBrush();
         }
 
         private void changeHelmet(Hero hero)
