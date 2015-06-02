@@ -95,7 +95,7 @@ namespace DungeonFinal
             {
                 message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
             }
-
+            
 
           //Attack 2
             int rnd2 = new Random().Next(theParty.getCurrentPartyMembers());

@@ -187,6 +187,7 @@ namespace DungeonFinal
             MonstersSeen++;
             updateButtonsVisibility();
             //upgradeStats(heros);
+            //HerosParty.getInventory().addLastToConsumable();
         }
 
         public void NormalBattle(Monster m, Party heros)
