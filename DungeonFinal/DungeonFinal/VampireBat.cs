@@ -72,18 +72,18 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getHeros();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            int damage = mon.getModStrength() - party[rnd].getModDefense();
+            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int damage = mon.getModStrength() - party[randomHero].getModDefense();
 
             //Set Damage
-            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
             //Set Health
             mon.setCurHealth(mon.getCurHealth() + damage);
 
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return (getName() + " sucked " + party[rnd].getName() + "'s blood for " + damage + " and healed itself!\r\n");
+            return (getName() + " sucked " + party[randomHero].getName() + "'s blood for " + damage + " and healed itself!\r\n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

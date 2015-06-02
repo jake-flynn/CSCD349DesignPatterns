@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -77,44 +78,44 @@ namespace DungeonFinal
             int damage = 0;
 
           //Attack 1
-            int rnd1 = new Random().Next(theParty.getCurrentPartyMembers());
-            int chance1 = new Random().Next(3);
+            int randomHero = new Random().Next(theParty.getCurrentPartyMembers());
+            int chance = new Random().Next(3);
 
-            damage = mon.getModStrength() - party[rnd1].getModDefense();
-            party[rnd1].setCurHealth(party[rnd1].getCurHealth() - damage);
+            damage = mon.getModStrength() - party[randomHero].getModDefense();
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             
             //Poison Successful
-            if(chance1 == 1)
+            if(chance == 1)
             {
-                message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage and caused poison!\r\n";
-                party[rnd1].Subscribe(new Poison(party[rnd1]));
+                message += mon.getName() + " sprayed venom at " + party[randomHero].getName() + " for " + damage + " damage and caused poison!\r\n";
+                party[randomHero].Subscribe(new Poison(party[randomHero]));
             }
 
             //Poison Unsuccessful
             else
             {
-                message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " sprayed venom at " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
             }
 
-
+            Thread.Sleep(500);
           //Attack 2
-            int rnd2 = new Random().Next(theParty.getCurrentPartyMembers());
-            int chance2 = new Random().Next(3);
+            randomHero = new Random().Next(theParty.getCurrentPartyMembers());
+            chance = new Random().Next(3);
 
-            damage = mon.getModStrength() - party[rnd2].getModDefense();
-            party[rnd2].setCurHealth(party[rnd2].getCurHealth() - damage);
+            damage = mon.getModStrength() - party[randomHero].getModDefense();
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
             //Poison Successful
-            if (chance2 == 1)
+            if (chance == 1)
             {
-                message += mon.getName() + " sprayed venom at " + party[rnd2].getName() + " for " + damage + " damage and caused poison!\r\n";
-                party[rnd2].Subscribe(new Poison(party[rnd2]));
+                message += mon.getName() + " sprayed venom at " + party[randomHero].getName() + " for " + damage + " damage and caused poison!\r\n";
+                party[randomHero].Subscribe(new Poison(party[randomHero]));
             }
 
             //Poison Unsuccessful
             else
             {
-                message += mon.getName() + " sprayed venom at " + party[rnd2].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " sprayed venom at " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
             }
 
             mon.setCurMana(mon.getCurMana() - 10);

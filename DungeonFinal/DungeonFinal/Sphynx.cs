@@ -72,23 +72,23 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getHeros();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
             int chance = new Random().Next(5);
-            String message = mon.getName() + " asked " + party[rnd].getName() + " a riddle!\r\n";
+            String message = mon.getName() + " asked " + party[randomHero].getName() + " a riddle!\r\n";
 
             //Riddle Solved (low chance)
             if (chance == 1)
             {
-                message += party[rnd].getName() + " successfully solved the riddle!\r\n";
+                message += party[randomHero].getName() + " successfully solved the riddle!\r\n";
             }
 
             //Riddle Unsolved
             else
             {
-                message += party[rnd].getName() + " did not solve the riddle correctly so " + mon.getName() + " attacked " + party[rnd].getName() + " and halved their health!\r\n";
+                message += party[randomHero].getName() + " did not solve the riddle correctly so " + mon.getName() + " attacked " + party[randomHero].getName() + " and halved their health!\r\n";
             }
 
-            party[rnd].setCurHealth((int)(party[rnd].getCurHealth() / 2));
+            party[randomHero].setCurHealth((int)(party[randomHero].getCurHealth() / 2));
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;

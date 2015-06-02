@@ -74,33 +74,33 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getHeros();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
             int chance = new Random().Next(4);
             String message = "";
-            int damage = mon.getModMagic() - party[rnd].getModResistance();
+            int damage = mon.getModMagic() - party[randomHero].getModResistance();
 
             //Poison
             if(chance == 1)
             {
-                message += mon.getName() + " poisoned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
-                party[rnd].Subscribe(new Poison(party[rnd]));
+                message += mon.getName() + " poisoned " + party[randomHero].getName() + " and caused " + damage + " damage!\r\n";
+                party[randomHero].Subscribe(new Poison(party[randomHero]));
             }
 
             //Bleed
             else if(chance == 2)
             {
-                message += mon.getName() + " inflicting bleeding on " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
-                party[rnd].Subscribe(new Bleed(party[rnd]));
+                message += mon.getName() + " inflicting bleeding on " + party[randomHero].getName() + " and caused " + damage + " damage!\r\n";
+                party[randomHero].Subscribe(new Bleed(party[randomHero]));
             }
 
             //Muli-hit
             else
             {
                 damage = damage * 3;
-                message += mon.getName() + " used its three heads to hit " + party[rnd].getName() + " for " + damage + " damage each!\r\n";
+                message += mon.getName() + " used its three heads to hit " + party[randomHero].getName() + " for " + damage + " damage each!\r\n";
             }
 
-            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;

@@ -73,25 +73,25 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getHeros();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
             int chance = new Random().Next(3);
             String message = "";
-            int damage = mon.getModStrength() - party[rnd].getModDefense();
+            int damage = mon.getModStrength() - party[randomHero].getModDefense();
 
             //Burn Successful
             if (chance == 1)
             {
-                message += mon.getName() + " bit " + party[rnd].getName() + " for " + damage + " damage and caused a burn!\r\n";
-                party[rnd].Subscribe(new Burn(party[rnd]));
+                message += mon.getName() + " bit " + party[randomHero].getName() + " for " + damage + " damage and caused a burn!\r\n";
+                party[randomHero].Subscribe(new Burn(party[randomHero]));
             }
 
             //Burn Unsuccessful
             else
             {
-                message += mon.getName() + " bit " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                message += mon.getName() + " bit " + party[randomHero].getName() + " and caused " + damage + " damage!\r\n";
             }
 
-            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;

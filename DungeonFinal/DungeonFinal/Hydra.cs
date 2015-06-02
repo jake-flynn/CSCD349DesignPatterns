@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -76,6 +77,7 @@ namespace DungeonFinal
             int damage = 0;
             int hit = (int)(mon.getModStrength() * .75);
             int numStrikes = 0;
+            int randomHero = 0;
 
             //3 Attacks
             if(mon.getCurHealth() > (mon.getMaxHealth() / 2))
@@ -97,11 +99,14 @@ namespace DungeonFinal
 
             for(; numStrikes > 0; numStrikes--)
             {
-                int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-                damage = party[rnd].getModDefense() - hit;
-                party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+                randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+                damage = party[randomHero].getModDefense() - hit;
+                party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
-                message += mon.getName() + " bit " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " bit " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
+
+                //Add Delay for random number generation
+                Thread.Sleep(500);
             }
 
             mon.setCurMana(mon.getCurMana() - 10);

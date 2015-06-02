@@ -81,7 +81,7 @@ namespace DungeonFinal
             }
 
             setCurMana(getCurMana() - 15);
-            return (getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
+            return (getName() + " performed Healing Light for " + getModMagic() + " healing accross whole party and reset all stats!");
         }
 
         /*Battle - Defend*/
