@@ -27,28 +27,24 @@ namespace DungeonFinal
             _Equipment = new Equipment[20];
             _ConsumableNextFreeIndex = 0;
             _EquipmentNextFreeIndex = 0;
+
             for (int x = 0; x < 20; x++)
             {
                 _Consumable[x] = new NullItemConsumable();
-            }
-            for (int x = 0; x < 20; x++)
-            {
                 _Equipment[x] = new NullItemEquipment();
             }
-            Consumable consumable = new LesserPotionOfHealth();
-            this.addLastToConsumable(consumable);
-            consumable = new PotionOfHealth();
-            this.addLastToConsumable(consumable);
-            consumable = new LesserPotionOfMana();
-            this.addLastToConsumable(consumable);
-            consumable = new PotionOfMana();
-            this.addLastToConsumable(consumable);
-            Equipment equip = new BronzeSword();
-            this.addLastToEquipment(equip);
+
+            this.addLastToConsumable(new LesserPotionOfHealth());
+            this.addLastToConsumable(new PotionOfHealth());
+            this.addLastToConsumable(new LesserPotionOfMana());
+            this.addLastToConsumable(new PotionOfMana());
+
+            this.addLastToEquipment(new BronzeSword());
             this.addLastToEquipment(new BronzeHelmet());
             this.addLastToEquipment(new BronzeGloves());
             this.addLastToEquipment(new BronzeChestPlate());
             this.addLastToEquipment(new BronzeBoots());
+            this.addLastToEquipment(new Ultima());
         }
 
         public Consumable findConsumableByIndex(int index)
