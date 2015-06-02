@@ -71,7 +71,7 @@ namespace DungeonFinal
         //Screech - Attacks whole party for .75 damage and chance of paralyzation
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
             String message = mon.getName() + " uttered an ear piercing screech!\r\n";
             int damage = 0;
 
@@ -110,7 +110,7 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAllHeroes();
             Hero target = party[0];
 
             if (p.getCurrentPartyMembers() == 1)

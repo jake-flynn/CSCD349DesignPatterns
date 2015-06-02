@@ -70,7 +70,7 @@ namespace DungeonFinal
         //Toxic Ooze - Chance of either poison, paralyze, or burn
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
             int chance = new Random().Next(4);
@@ -107,7 +107,7 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAllHeroes();
 
             int rnd = new Random().Next(1, party.Length);
             Hero target = party[rnd];

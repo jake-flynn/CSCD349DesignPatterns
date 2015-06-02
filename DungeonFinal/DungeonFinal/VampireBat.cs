@@ -70,7 +70,7 @@ namespace DungeonFinal
         //Leech - attacks one hero with strength value, takes that damage and heals by that amount
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
 
             int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
             int damage = mon.getModStrength() - party[rnd].getModDefense();
@@ -89,7 +89,7 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAllHeroes();
 
             int rnd = new Random().Next(1, party.Length);
             Hero target = party[rnd];

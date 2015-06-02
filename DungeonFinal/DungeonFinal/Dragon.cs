@@ -72,7 +72,7 @@ namespace DungeonFinal
         //HellFire - Attacks whole party, chance of burn
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
             String message = mon.getName() + " spit hellfire at the party!\r\n";
             int damage = 0;
 
@@ -111,7 +111,7 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAllHeroes();
             int rnd1 = new Random().Next(1, 3);
             Hero target = party[0];
 

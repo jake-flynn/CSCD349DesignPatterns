@@ -72,7 +72,7 @@ namespace DungeonFinal
         //Poison Spray - attacks two heroes, chance of poison
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
             String message = "";
             int damage = 0;
 
@@ -125,7 +125,7 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAllHeroes();
 
             int rnd = new Random().Next(1, party.Length);
             Hero target = party[rnd];

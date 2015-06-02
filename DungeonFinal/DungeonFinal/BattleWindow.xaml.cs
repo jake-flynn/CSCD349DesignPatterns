@@ -36,7 +36,7 @@ namespace DungeonFinal
             InitializeComponent();
 
             _theParty = heros;
-            _theHeroes = _theParty.getHeros();
+            _theHeroes = _theParty.getAllHeroes();
             _monster = mon;
 
             _BattleInventory = _theParty.getInventory();

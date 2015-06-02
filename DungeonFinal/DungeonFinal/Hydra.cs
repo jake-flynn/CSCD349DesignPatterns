@@ -71,7 +71,7 @@ namespace DungeonFinal
         //Feast - At 100% health 3 random attacks at .75 damage, 50% health 6 random attacks at .75 damage, 10% health 9 random attacks at .75 damage
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
             String message = "";
             int damage = 0;
             int hit = (int)(mon.getModStrength() * .75);
@@ -112,7 +112,7 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAllHeroes();
             int rnd1 = new Random().Next(1, 3);
             Hero target = party[0];
 

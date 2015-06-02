@@ -74,7 +74,7 @@ namespace DungeonFinal
         /*PerformSpecialAttack - buffs defense and resistance for 5 accross whole party*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
 
             foreach(Hero h in party)
             {

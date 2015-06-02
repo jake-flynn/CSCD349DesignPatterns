@@ -73,7 +73,7 @@ namespace DungeonFinal
         /*PerformSpecialAttack - heals whole party for magic stat and removes debuffs/buffs*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
 
             foreach (Hero h in party)
             {

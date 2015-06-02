@@ -212,7 +212,7 @@ namespace DungeonFinal
 
         public void upgradeStats(Party party)
         {
-            Hero[] Heroes = party.getHeros();
+            Hero[] Heroes = party.getAllHeroes();
             for (int i = 0; i < Heroes.Length; i++ )
             {
                 Heroes[i].setMaxHealth(Heroes[i].getMaxHealth() + 5);

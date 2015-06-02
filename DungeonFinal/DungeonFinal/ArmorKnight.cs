@@ -68,7 +68,7 @@ namespace DungeonFinal
         /*PerformSpecialAttack - Taunt*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
 
             foreach (Hero h in party)
             {

@@ -74,7 +74,7 @@ namespace DungeonFinal
         /*PerformSpecialAttack - Strong magic attack to one enemy*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
             int damage = party[whichHero].getModMagic() * 2;
 
             mon.setCurHealth(mon.getCurHealth() - damage);

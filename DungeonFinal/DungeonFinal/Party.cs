@@ -29,15 +29,42 @@ namespace DungeonFinal
             }
         }
 
-        public Hero[] getHeros()
+        public Hero[] getAllHeroes()
         {
             return _dungeonParty;
         }
 
-        public void setHeros(Hero[] newParty)
+        public void setHeroes(Hero[] newParty)
         {
             _dungeonParty = newParty;
             _currentPartyMembers = 4;
+        }
+
+        public Hero[] getAliveHeroes()
+        {
+            Hero[] _AliveHeroes;
+            int _numberOfHerosAlive = 0;
+            foreach(Hero h in _dungeonParty)
+            {
+                if(!h.getIsDefeated())
+                {
+                    _numberOfHerosAlive++;
+                }
+            }
+
+            _AliveHeroes = new Hero[_numberOfHerosAlive];
+            int _nextAvailableIndex = 0;
+
+            for(int x = 0; x < _numberOfHerosAlive; x++)
+            {
+                if(!_dungeonParty[x].getIsDefeated())
+                {
+                    _AliveHeroes[_nextAvailableIndex] = _dungeonParty[x];
+                }
+            }
+
+            return _AliveHeroes;
+
         }
 
         public int getCurrentPartyMembers()
