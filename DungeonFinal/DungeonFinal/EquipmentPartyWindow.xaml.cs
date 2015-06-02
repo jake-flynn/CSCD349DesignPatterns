@@ -21,6 +21,7 @@ namespace DungeonFinal
     {
         Hero[] _theHeroes;
         Inventory _Inventory;
+        Equipment _Equipment;
 
         public PartyEquipmentWindow(Party party)
         {
@@ -36,10 +37,11 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();            
-            hero.getHelmet().unEquip(hero);
+            _Equipment = hero.getHelmet().unEquip(hero);
             hero.setHelmet(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getHelmet().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
         }
 
         private void changeTorso(Hero hero)
@@ -47,10 +49,11 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
-            hero.getTorso().unEquip(hero);
+            _Equipment = hero.getTorso().unEquip(hero);
             hero.setTorso(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getTorso().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
         }
                 
         private void changeGloves(Hero hero)
@@ -58,10 +61,11 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
-            hero.getGloves().unEquip(hero);
+            _Equipment = hero.getGloves().unEquip(hero);
             hero.setGloves(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getGloves().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
         }
 
         private void changeBoots(Hero hero)
@@ -69,10 +73,11 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
-            hero.getBoots().unEquip(hero);
+            _Equipment = hero.getBoots().unEquip(hero);
             hero.setBoots(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getBoots().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
         }
 
         private void changeWeapon(Hero hero)
@@ -80,10 +85,11 @@ namespace DungeonFinal
             var equipmentChoiceWindow = new EquipmentChoiceWindow(_Inventory);
             equipmentChoiceWindow.ShowDialog();
             int equipInventoryIndex = equipmentChoiceWindow.getChoiceFromSelect();
-            hero.getWeapon().unEquip(hero);
+            _Equipment = hero.getWeapon().unEquip(hero);
             hero.setWeapon(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getWeapon().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            _Inventory.addToEquipmentByIndex(equipInventoryIndex, _Equipment);
         }
 
         

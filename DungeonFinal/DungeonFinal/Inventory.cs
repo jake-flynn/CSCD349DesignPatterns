@@ -113,6 +113,19 @@ namespace DungeonFinal
             }
         }
 
+        public void addToEquipmentByIndex(int index, Equipment itemToAdd)
+        {
+            if(index < _Equipment.Length)
+            {
+                _Equipment[index] = itemToAdd;
+            }
+
+            else
+            {
+                MessageBox.Show("Your packs are full! You cannot carry another pound.");
+            }
+        }
+
         public Item removeFromConsumable(int indexOfItem)
         {
             if(_ConsumableNextFreeIndex == 0)
