@@ -27,7 +27,7 @@ namespace DungeonFinal
             }
             setDuration(getDuration() - 1);
 
-            return (getHero().getName() + " has been silenced, they cannot use thier special attack for " + getDuration() + " more turn(s)!");
+            return (getHero().getName() + " has been silenced, they cannot use thier special attack for " + getDuration() + " more turn(s)!\r\n");
         }
 
     }

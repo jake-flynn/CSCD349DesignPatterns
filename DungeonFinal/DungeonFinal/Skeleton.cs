@@ -21,6 +21,8 @@ namespace DungeonFinal
         public Skeleton()
         {
             setName("Skeleton");
+
+           //Stats
             setBaseHealth(100);
             setCurHealth(100);
             setMaxHealth(100);
@@ -28,7 +30,6 @@ namespace DungeonFinal
             setCurMana(100);
             setMaxMana(100);
 
-            //Main stats are out of 20 points
             setBaseStrength(8);
             setModStrength(8);
             setBaseMagic(0);
@@ -38,18 +39,24 @@ namespace DungeonFinal
             setBaseResistance(2);
             setModResistance(2);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(1);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Skeleton.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -70,9 +77,9 @@ namespace DungeonFinal
         //Bone Toss/Bonerang - Decreasing chance of hitting all heroes, guarenteed one hit (.75 strength)
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAliveHeroes();
 
-            int chance = new Random().Next(4);
+            int chance = new Random().Next(party.Length);
             String message = mon.getName() + " threw its bonerang!\r\n";
             int damage = 0;
             int hit = (int)(mon.getModStrength() * .75);
@@ -118,10 +125,10 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAliveHeroes();
 
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
+            int randomHero = new Random().Next(1, party.Length);
+            Hero target = party[randomHero];
 
             return target;
         }
@@ -135,6 +142,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -143,7 +151,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

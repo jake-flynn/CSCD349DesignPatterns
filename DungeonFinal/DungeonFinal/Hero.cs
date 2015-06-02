@@ -118,11 +118,16 @@ namespace DungeonFinal
         }
         public void setCurHealth(int h)
         {
+            //MessageBox.Show("Max health:" + getMaxHealth() + "");
+            //MessageBox.Show("Cur health:" + getCurHealth() + "");
             if(h < 0)
             {
                 _CurHealth = 0;
                 setIsDefeated(true);
+                _EffectList.Clear();
             }
+
+
 
             else if (h > getMaxHealth())
             {
@@ -133,6 +138,7 @@ namespace DungeonFinal
             {
                 _CurHealth = h;
             }
+            
         }
 
         public void setMaxHealth(int h)

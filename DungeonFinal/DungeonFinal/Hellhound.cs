@@ -22,6 +22,8 @@ namespace DungeonFinal
         public Hellhound()
         {
             setName("Hellhound");
+
+           //Stats
             setBaseHealth(200);
             setCurHealth(200);
             setMaxHealth(200);
@@ -29,7 +31,6 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 50 points
             setBaseStrength(35);
             setModStrength(35);
             setBaseMagic(0);
@@ -39,18 +40,24 @@ namespace DungeonFinal
             setBaseResistance(5);
             setModResistance(5);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(true);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(true);
 
+           //Identity
+            setTierNumber(2);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Hellhound.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -71,27 +78,27 @@ namespace DungeonFinal
         //Firemaw - Chance of burn
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAliveHeroes();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(party.Length);
             int chance = new Random().Next(3);
             String message = "";
-            int damage = mon.getModStrength() - party[rnd].getModDefense();
+            int damage = mon.getModStrength() - party[randomHero].getModDefense();
 
             //Burn Successful
             if (chance == 1)
             {
-                message += mon.getName() + " bit " + party[rnd].getName() + " for " + damage + " damage and caused a burn!\r\n";
-                party[rnd].Subscribe(new Burn(party[rnd]));
+                message += mon.getName() + " bit " + party[randomHero].getName() + " for " + damage + " damage and caused a burn!\r\n";
+                party[randomHero].Subscribe(new Burn(party[randomHero]));
             }
 
             //Burn Unsuccessful
             else
             {
-                message += mon.getName() + " bit " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
+                message += mon.getName() + " bit " + party[randomHero].getName() + " and caused " + damage + " damage!\r\n";
             }
 
-            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;
@@ -100,15 +107,15 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAliveHeroes();
             Hero target = party[0];
 
-            if (p.getCurrentPartyMembers() == 1)
+            if (party.Length == 1)
             {
                 return target;
             }
 
-            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            for (int i = 0; i < (party.Length - 2); i++)
             {
                 if(party[i + 1].getCurHealth() < party[i].getCurHealth())
                 {
@@ -128,6 +135,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -136,7 +144,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

@@ -22,12 +22,13 @@ namespace DungeonFinal
         public Swordsman()
         {
             setName("Swordsman");
+            setMaxHealth(225);
             setBaseHealth(225);
             setCurHealth(225);
-            setMaxHealth(225);
+            setMaxMana(110);
             setBaseMana(110);
             setCurMana(110);
-            setMaxMana(110);
+            
 
             setBaseStrength(15);
             setModStrength(15);

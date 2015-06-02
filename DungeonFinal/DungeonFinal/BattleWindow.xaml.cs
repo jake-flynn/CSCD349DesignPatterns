@@ -23,7 +23,7 @@ namespace DungeonFinal
         Monster _monster;
         Party _theParty;
         Hero[] _theHeroes;
-        Paragraph paragraph;
+        Paragraph _Paragraph;
         Inventory _BattleInventory;
 
         public BattleWindow()
@@ -36,7 +36,7 @@ namespace DungeonFinal
             InitializeComponent();
 
             _theParty = heros;
-            _theHeroes = _theParty.getHeros();
+            _theHeroes = _theParty.getAllHeroes();
             _monster = mon;
 
             _BattleInventory = _theParty.getInventory();
@@ -63,16 +63,16 @@ namespace DungeonFinal
 
 
             
-            paragraph = new Paragraph();
-            rtb_testBox.Document = new FlowDocument(paragraph);
+            _Paragraph = new Paragraph();
+            rtb_testBox.Document = new FlowDocument(_Paragraph);
 
             
-            paragraph.Inlines.Add(new Bold(new Run("Battle Log:"))
+            _Paragraph.Inlines.Add(new Bold(new Run("Battle Log:"))
             {
                 Foreground = Brushes.Black
             });
             
-            paragraph.Inlines.Add(new LineBreak());
+            _Paragraph.Inlines.Add(new LineBreak());
             this.DataContext = this;
 
 
@@ -150,11 +150,6 @@ namespace DungeonFinal
             rect_Monster.ToolTip = "checking to see if this works\r\n" + _monster.getCurHealth();
         }
 
-        public void chooseTarget()// Not sure what this will return yet. Not sure how I want to make the hero choose its target either.
-        {
-            
-        }
-
         private void normalAttack(Hero hero, Monster mon) //Hero attacks!
         {
             int heroDamage;
@@ -169,11 +164,11 @@ namespace DungeonFinal
             if (heroDamage < 0)
                 heroDamage = 0;
 
-            paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used basic attack for: " + heroDamage + " damage"))//EVENTUALLY, I want to say which monster got attacked, in the swarm window.
+            _Paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used basic attack for: " + heroDamage + " damage"))//EVENTUALLY, I want to say which monster got attacked, in the swarm window.
             {
                 Foreground = hero.getTextColor()
             });
-            paragraph.Inlines.Add(new LineBreak());
+            _Paragraph.Inlines.Add(new LineBreak());
 
             mon.setCurHealth(mon.getCurHealth() - heroDamage);
             updateVisuals();
@@ -204,11 +199,11 @@ namespace DungeonFinal
             
             string resultString = itemToUse.use(targetHero);
 
-            paragraph.Inlines.Add(new Bold(new Run(resultString))
+            _Paragraph.Inlines.Add(new Bold(new Run(resultString))
             {
                 Foreground = _theHeroes[0].getTextColor()
             });
-            paragraph.Inlines.Add(new LineBreak());
+            _Paragraph.Inlines.Add(new LineBreak());
             _BattleInventory.removeFromConsumable(choiceFromConsumableWindow);
 
         }
@@ -224,11 +219,11 @@ namespace DungeonFinal
 
             if (randSpecial <= mon.getSpecialAttackFrequency())
             {                
-                paragraph.Inlines.Add(new Bold(new Run(_monster.PerformSpecialAttack(_theParty, 0, _monster)))
+                _Paragraph.Inlines.Add(new Bold(new Run(_monster.PerformSpecialAttack(_theParty, 0, _monster)))
                 {
                     Foreground = Brushes.Red
                 });
-                paragraph.Inlines.Add(new LineBreak());
+                _Paragraph.Inlines.Add(new LineBreak());
             }
             else
             {
@@ -261,11 +256,11 @@ namespace DungeonFinal
                 await Task.Delay(400);
                 hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damage is applied
 
-                paragraph.Inlines.Add(new Bold(new Run("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage + " damage."))
+                _Paragraph.Inlines.Add(new Bold(new Run("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage + " damage."))
                 {
                     Foreground = Brushes.Red
                 });
-                paragraph.Inlines.Add(new LineBreak());
+                _Paragraph.Inlines.Add(new LineBreak());
             }
 
             updateVisuals();
@@ -274,6 +269,11 @@ namespace DungeonFinal
 
         private void defend(Hero hero)
         {
+            _Paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used defend and is taking reduced damage this turn."))
+            {
+                Foreground = hero.getTextColor()
+            });
+            _Paragraph.Inlines.Add(new LineBreak());
             hero.setIsDefending(true);
         }
 
@@ -330,23 +330,16 @@ namespace DungeonFinal
                 else if (rBtn_Hero1Defend.IsChecked == true)
                 {
                     await Task.Delay(10);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used defend and is taking reduced damage this turn."))
-                    {
-                        Foreground = _theHeroes[0].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-                    
                     defend(_theHeroes[0]);
                 }
                 else if (rBtn_Hero1Special.IsChecked == true)
                 {
                     await Task.Delay(10);
-                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
+                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
                     {
                         Foreground = _theHeroes[0].getTextColor()
                     });
-                    paragraph.Inlines.Add(new LineBreak());
+                    _Paragraph.Inlines.Add(new LineBreak());
                     
                 }
                 else if (rBtn_Hero1Item.IsChecked == true)
@@ -366,27 +359,18 @@ namespace DungeonFinal
                 }
                 else if (rBtn_Hero2Defend.IsChecked == true)
                 {
-                    await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[1].getName() + " used defend and is taking reduced damage this turn."))
-                    {
-                        Foreground = _theHeroes[1].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-                    
+                    await Task.Delay(400);                    
                     defend(_theHeroes[1]);
                 }
                 else if (rBtn_Hero2Special.IsChecked == true)
                 {
                     await Task.Delay(400);
 
-                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[1], 1)))
+                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[1], 1)))
                     {
                         Foreground = _theHeroes[1].getTextColor()
                     });
-                    paragraph.Inlines.Add(new LineBreak());
-
-                    
+                    _Paragraph.Inlines.Add(new LineBreak());                    
                 }
                 else if (rBtn_Hero2Item.IsChecked == true)
                 {
@@ -399,33 +383,24 @@ namespace DungeonFinal
             if (_monster.getCurHealth() > 0 && _theHeroes[2].getCurHealth() > 0)
             {
                 if (rBtn_Hero3Attack.IsChecked == true)
-                {
-                    
+                {                    
                     await Task.Delay(400);
                     normalAttack(_theHeroes[2], _monster);
                 }
                 else if (rBtn_Hero3Defend.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[2].getName() + " used defend and is taking reduced damage this turn."))
-                    {
-                        Foreground = _theHeroes[2].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-
                     defend(_theHeroes[2]);
 
                 }
                 else if (rBtn_Hero3Special.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[2], 2)))
+                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[2], 2)))
                     {
                         Foreground = _theHeroes[2].getTextColor()
                     });
-                    paragraph.Inlines.Add(new LineBreak());
+                    _Paragraph.Inlines.Add(new LineBreak());
 
                     
                 }
@@ -447,26 +422,16 @@ namespace DungeonFinal
                 else if (rBtn_Hero4Defend.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[3].getName() + " used defend and is taking reduced damage this turn."))
-                    {
-                        Foreground = _theHeroes[3].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
-
                     defend(_theHeroes[3]);
                 }
                 else if (rBtn_Hero4Special.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[3], 3)))
+                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[3], 3)))
                     {
                         Foreground = _theHeroes[3].getTextColor()
                     });
-                    paragraph.Inlines.Add(new LineBreak());
-
-                    
+                    _Paragraph.Inlines.Add(new LineBreak());                    
                 }
                 else if (rBtn_Hero4Item.IsChecked == true)
                 {
@@ -488,11 +453,11 @@ namespace DungeonFinal
                 String effectString = "";
                 effectString = h.Notify();
 
-                paragraph.Inlines.Add(new Bold(new Run(effectString))
+                _Paragraph.Inlines.Add(new Bold(new Run(effectString))
                 {
                     Foreground = Brushes.Fuchsia
                 });
-                paragraph.Inlines.Add(new LineBreak());
+                _Paragraph.Inlines.Add(new LineBreak());
             }
         }
 

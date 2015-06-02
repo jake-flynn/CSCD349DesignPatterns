@@ -22,12 +22,13 @@ namespace DungeonFinal
         public Rogue()
         {
             setName("Rogue");
+            setMaxHealth(140);
             setBaseHealth(140);
             setCurHealth(140);
-            setMaxHealth(140);
+            setMaxMana(120);
             setBaseMana(120);
             setCurMana(120);
-            setMaxMana(120);
+            
 
             setBaseStrength(20);
             setModStrength(20);

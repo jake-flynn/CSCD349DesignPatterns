@@ -27,7 +27,7 @@ namespace DungeonFinal
         {
             InitializeComponent();
 
-            _TheHeroes = party.getHeros();
+            _TheHeroes = party.getAllHeroes();
             _Inventory = party.getInventory();
             updateVisuals();
         }

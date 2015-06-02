@@ -29,7 +29,7 @@ namespace DungeonFinal
             }
             setDuration(getDuration() - 1);
 
-            return (getHero().getName() + " is stunned, and completely unable to attack for " + getDuration() + " more turn(s)!");
+            return (getHero().getName() + " is stunned, and completely unable to attack for " + getDuration() + " more turn(s)!\r\n");
         }
 
     }

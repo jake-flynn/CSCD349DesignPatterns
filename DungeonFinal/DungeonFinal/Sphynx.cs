@@ -21,6 +21,8 @@ namespace DungeonFinal
         public Sphynx()
         {
             setName("Sphynx");
+
+           //Stats
             setBaseHealth(200);
             setCurHealth(200);
             setMaxHealth(200);
@@ -28,7 +30,6 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 50 points
             setBaseStrength(0);
             setModStrength(0);
             setBaseMagic(20);
@@ -38,18 +39,24 @@ namespace DungeonFinal
             setBaseResistance(15);
             setModResistance(15);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(2);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Sphynx.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -70,25 +77,25 @@ namespace DungeonFinal
         //Riddle - Asks a riddle, if incorrect the hero's health is halved, if correct the sphynx does no damage
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAliveHeroes();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(party.Length);
             int chance = new Random().Next(5);
-            String message = mon.getName() + " asked " + party[rnd].getName() + " a riddle!\r\n";
+            String message = mon.getName() + " asked " + party[randomHero].getName() + " a riddle!\r\n";
 
             //Riddle Solved (low chance)
             if (chance == 1)
             {
-                message += party[rnd].getName() + " successfully solved the riddle!\r\n";
+                message += party[randomHero].getName() + " successfully solved the riddle!\r\n";
             }
 
             //Riddle Unsolved
             else
             {
-                message += party[rnd].getName() + " did not solve the riddle correctly so " + mon.getName() + " attacked " + party[rnd].getName() + " and halved their health!\r\n";
+                message += party[randomHero].getName() + " did not solve the riddle correctly so " + mon.getName() + " attacked " + party[randomHero].getName() + " and halved their health!\r\n";
             }
 
-            party[rnd].setCurHealth((int)(party[rnd].getCurHealth() / 2));
+            party[randomHero].setCurHealth((int)(party[randomHero].getCurHealth() / 2));
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;
@@ -97,7 +104,7 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAllHeroes();
             Hero target = party[0];
 
             if (p.getCurrentPartyMembers() == 1)

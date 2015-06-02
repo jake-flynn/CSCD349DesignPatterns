@@ -22,12 +22,14 @@ namespace DungeonFinal
         public Cleric()
         {
             setName("Cleric");
+            setMaxHealth(150);
             setBaseHealth(150);
             setCurHealth(150);
-            setMaxHealth(150);
+
+            setMaxMana(200);
             setBaseMana(200);
             setCurMana(200);
-            setMaxMana(200);
+            
 
             setBaseStrength(0);
             setModStrength(0);
@@ -73,7 +75,7 @@ namespace DungeonFinal
         /*PerformSpecialAttack - heals whole party for magic stat and removes debuffs/buffs*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
 
             foreach (Hero h in party)
             {

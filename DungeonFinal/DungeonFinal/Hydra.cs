@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,8 @@ namespace DungeonFinal
         public Hydra()
         {
             setName("Hydra");
+
+           //Stats
             setBaseHealth(400);
             setCurHealth(400);
             setMaxHealth(400);
@@ -29,7 +32,6 @@ namespace DungeonFinal
             setCurMana(400);
             setMaxMana(400);
 
-            //Main stats are out of 90 points
             setBaseStrength(45);
             setModStrength(45);
             setBaseMagic(0);
@@ -39,18 +41,24 @@ namespace DungeonFinal
             setBaseResistance(10);
             setModResistance(10);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(4);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Hydra.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -71,11 +79,12 @@ namespace DungeonFinal
         //Feast - At 100% health 3 random attacks at .75 damage, 50% health 6 random attacks at .75 damage, 10% health 9 random attacks at .75 damage
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAliveHeroes();
             String message = "";
             int damage = 0;
             int hit = (int)(mon.getModStrength() * .75);
             int numStrikes = 0;
+            int randomHero = 0;
 
             //3 Attacks
             if(mon.getCurHealth() > (mon.getMaxHealth() / 2))
@@ -97,11 +106,14 @@ namespace DungeonFinal
 
             for(; numStrikes > 0; numStrikes--)
             {
-                int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-                damage = party[rnd].getModDefense() - hit;
-                party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+                randomHero = new Random().Next(party.Length);
+                damage = party[randomHero].getModDefense() - hit;
+                party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
-                message += mon.getName() + " bit " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " bit " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
+
+                //Add Delay for random number generation
+                Thread.Sleep(500);
             }
 
             mon.setCurMana(mon.getCurMana() - 10);
@@ -112,24 +124,26 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
-            int rnd1 = new Random().Next(1, 3);
+            Hero[] party = p.getAliveHeroes();
+            int attackType = new Random().Next(1, 3);
             Hero target = party[0];
 
-            if (rnd1 == 1)
+           //Tier 1 FindTarget
+            if (attackType == 1)
             {
-                int rnd2 = new Random().Next(1, party.Length);
-                target = party[rnd2];
+                int randomHero = new Random().Next(1, party.Length);
+                target = party[randomHero];
             }
 
-            else if (rnd1 == 2)
+           //Tier 2 FindTarget
+            else if (attackType == 2)
             {
-                if (p.getCurrentPartyMembers() == 1)
+                if (party.Length == 1)
                 {
                     return target;
                 }
 
-                for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+                for (int i = 0; i < (party.Length - 2); i++)
                 {
                     if (party[i + 1].getCurHealth() < party[i].getCurHealth())
                     {
@@ -138,14 +152,15 @@ namespace DungeonFinal
                 }
             }
 
-            else if (rnd1 == 3)
+           //Tier 3 FindTarget
+            else if (attackType == 3)
             {
-                if (p.getCurrentPartyMembers() == 1)
+                if (party.Length == 1)
                 {
                     return target;
                 }
 
-                for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+                for (int i = 0; i < (party.Length - 2); i++)
                 {
                     if (party[i + 1].getModDefense() < party[i].getModDefense())
                     {
@@ -166,6 +181,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -174,7 +190,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

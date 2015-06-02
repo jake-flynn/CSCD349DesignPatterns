@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,8 @@ namespace DungeonFinal
         public Insect()
         {
             setName("Insect");
+
+           //Stats
             setBaseHealth(100);
             setCurHealth(100);
             setMaxHealth(100);
@@ -29,7 +32,6 @@ namespace DungeonFinal
             setCurMana(100);
             setMaxMana(100);
 
-            //Main stats are out of 30 points
             setBaseStrength(17);
             setModStrength(17);
             setBaseMagic(0);
@@ -39,18 +41,24 @@ namespace DungeonFinal
             setBaseResistance(6);
             setModResistance(6);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(1);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Insect.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -72,49 +80,52 @@ namespace DungeonFinal
         //Poison Spray - attacks two heroes, chance of poison
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAliveHeroes();
             String message = "";
             int damage = 0;
 
           //Attack 1
-            int rnd1 = new Random().Next(theParty.getCurrentPartyMembers());
-            int chance1 = new Random().Next(3);
+            int randomHero = new Random().Next(party.Length);
+            int chance = new Random().Next(3);
 
-            damage = mon.getModStrength() - party[rnd1].getModDefense();
-            party[rnd1].setCurHealth(party[rnd1].getCurHealth() - damage);
+            damage = mon.getModStrength() - party[randomHero].getModDefense();
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             
             //Poison Successful
-            if(chance1 != 1)
+
+            if(chance == 1)
             {
-                message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage and caused poison!\r\n";
-                party[rnd1].Subscribe(new Poison(party[rnd1]));
+                message += mon.getName() + " sprayed venom at " + party[randomHero].getName() + " for " + damage + " damage and caused poison!\r\n";
+                party[randomHero].Subscribe(new Poison(party[randomHero]));
             }
 
             //Poison Unsuccessful
             else
             {
-                message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " sprayed venom at " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
             }
-            
+
+
+            Thread.Sleep(500);
 
           //Attack 2
-            int rnd2 = new Random().Next(theParty.getCurrentPartyMembers());
-            int chance2 = new Random().Next(3);
+            randomHero = new Random().Next(party.Length);
+            chance = new Random().Next(3);
 
-            damage = mon.getModStrength() - party[rnd2].getModDefense();
-            party[rnd2].setCurHealth(party[rnd2].getCurHealth() - damage);
+            damage = mon.getModStrength() - party[randomHero].getModDefense();
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
             //Poison Successful
-            if (chance2 == 1)
+            if (chance == 1)
             {
-                message += mon.getName() + " sprayed venom at " + party[rnd2].getName() + " for " + damage + " damage and caused poison!\r\n";
-                party[rnd2].Subscribe(new Poison(party[rnd2]));
+                message += mon.getName() + " sprayed venom at " + party[randomHero].getName() + " for " + damage + " damage and caused poison!\r\n";
+                party[randomHero].Subscribe(new Poison(party[randomHero]));
             }
 
             //Poison Unsuccessful
             else
             {
-                message += mon.getName() + " sprayed venom at " + party[rnd2].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " sprayed venom at " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
             }
 
             mon.setCurMana(mon.getCurMana() - 10);
@@ -125,10 +136,10 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAliveHeroes();
 
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
+            int randomHero = new Random().Next(1, party.Length);
+            Hero target = party[randomHero];
 
             return target;
         }
@@ -142,6 +153,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -150,7 +162,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

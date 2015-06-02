@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,8 @@ namespace DungeonFinal
         public Centaur()
         {
             setName("Centaur");
+
+           //Stats
             setBaseHealth(300);
             setCurHealth(300);
             setMaxHealth(300);
@@ -29,7 +32,6 @@ namespace DungeonFinal
             setCurMana(300);
             setMaxMana(300);
 
-            //Main stats are out of 70 points
             setBaseStrength(40);
             setModStrength(40);
             setBaseMagic(0);
@@ -39,17 +41,24 @@ namespace DungeonFinal
             setBaseResistance(15);
             setModResistance(15);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
+
+           //Identity
+            setTierNumber(3);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Centaur.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -70,22 +79,26 @@ namespace DungeonFinal
         //Trample - Strong hit to two heroes
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAliveHeroes();
             String message = "";
             int damage = 0;
 
-            int rnd1 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            int rnd2 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+          //Attack 1
+            int randomHero = new Random().Next(party.Length);
 
-            //Attack 1
-            damage = mon.getModStrength() - party[rnd1].getModDefense();
-            party[rnd1].setCurHealth(party[rnd1].getCurHealth() - damage);
-            message += mon.getName() + " trampled " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
+            damage = mon.getModStrength() - party[randomHero].getModDefense();
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
+            message += mon.getName() + " trampled " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
 
-            //Attack 2
-            damage = mon.getModStrength() - party[rnd2].getModDefense();
-            party[rnd2].setCurHealth(party[rnd2].getCurHealth() - damage);
-            message += mon.getName() + " trampled " + party[rnd2].getName() + " for " + damage + " damage!\r\n";
+            //Add Delay for random number generation
+            Thread.Sleep(500);
+
+          //Attack 2
+            randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+
+            damage = mon.getModStrength() - party[randomHero].getModDefense();
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
+            message += mon.getName() + " trampled " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
 
             mon.setCurMana(mon.getCurMana() - 10);
 
@@ -95,17 +108,17 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAliveHeroes();
             Hero target = party[0];
 
-            if (p.getCurrentPartyMembers() == 1)
+            if (party.Length == 1)
             {
                 return target;
             }
 
-            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            for (int i = 0; i < (party.Length - 2); i++)
             {
-                if (party[i + 1].getModDefense() < party[i].getModDefense())
+                if (party[i + 1].getModResistance() < party[i].getModResistance())
                 {
                     target = party[i + 1];
                 }
@@ -123,6 +136,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -131,7 +145,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

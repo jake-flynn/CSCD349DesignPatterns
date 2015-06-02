@@ -22,12 +22,13 @@ namespace DungeonFinal
         public Warlock()
         {
             setName("Warlock");
+            setMaxHealth(160);
             setBaseHealth(160);
             setCurHealth(160);
-            setMaxHealth(160);
+            setMaxMana(220);
             setBaseMana(220);
             setCurMana(220);
-            setMaxMana(220);
+            
 
             //Main stats are out of 40 points
             setBaseStrength(0);
@@ -74,7 +75,7 @@ namespace DungeonFinal
         /*PerformSpecialAttack - AoE attack to all monsters*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
 
             foreach (Hero h in party)
             {
@@ -87,7 +88,7 @@ namespace DungeonFinal
             }
 
             setCurMana(getCurMana() - 15);
-            return (getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
+            return (getName() + " performed Healing Light for " + getModMagic() + " healing accross whole party and reset all stats!");
         }
 
         /*Battle - Defend*/

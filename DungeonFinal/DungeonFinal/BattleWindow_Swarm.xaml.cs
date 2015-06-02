@@ -25,7 +25,8 @@ namespace DungeonFinal
         Party _theParty;
         Hero[] _theHeroes;
         Boolean _IsSwarmDefeated;
-        Paragraph paragraph;
+        Paragraph _Paragraph;
+        Inventory _BattleInventory;
 
         //In the swarm
 
@@ -38,9 +39,11 @@ namespace DungeonFinal
         {
             InitializeComponent();
             _theParty = heros;
-            _theHeroes = _theParty.getHeros();
+            _theHeroes = _theParty.getAllHeroes();
             _TheSwarm = new Monster[6];
             _IsSwarmDefeated = false;
+
+            _BattleInventory = _theParty.getInventory();
 
             _PrototypeMonster = mon;
 
@@ -70,16 +73,16 @@ namespace DungeonFinal
             rect_monster5.Fill = _TheSwarm[4].getImageBrush();
             rect_monster6.Fill = _TheSwarm[5].getImageBrush();
 
-            paragraph = new Paragraph();
-            rtb_testBox.Document = new FlowDocument(paragraph);
+            _Paragraph = new Paragraph();
+            rtb_testBox.Document = new FlowDocument(_Paragraph);
 
 
-            paragraph.Inlines.Add(new Bold(new Run("Battle Log:"))
+            _Paragraph.Inlines.Add(new Bold(new Run("Battle Log:"))
             {
                 Foreground = Brushes.Black
             });
 
-            paragraph.Inlines.Add(new LineBreak());
+            _Paragraph.Inlines.Add(new LineBreak());
             this.DataContext = this;
 
             updateVisuals();
@@ -215,11 +218,11 @@ namespace DungeonFinal
             if (heroDamage < 0)
                 heroDamage = 0;
 
-            paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used basic attack for: " + heroDamage + " damage"))
+            _Paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used basic attack for: " + heroDamage + " damage"))
             {
                 Foreground = hero.getTextColor()
             });
-            paragraph.Inlines.Add(new LineBreak());
+            _Paragraph.Inlines.Add(new LineBreak());
 
             mon.setCurHealth(mon.getCurHealth() - heroDamage);
             updateVisuals();
@@ -241,7 +244,7 @@ namespace DungeonFinal
 
         private void monsterAttack(Monster mon) //Monster attacks!
         {
-            
+
             Hero hero = mon.FindTarget(_theParty);
             int monsterDamage;
 
@@ -251,11 +254,11 @@ namespace DungeonFinal
             if (randSpecial <= mon.getSpecialAttackFrequency())
             {
                 
-                paragraph.Inlines.Add(new Bold(new Run(mon.PerformSpecialAttack(_theParty, 0, mon)))
+                _Paragraph.Inlines.Add(new Bold(new Run(mon.PerformSpecialAttack(_theParty, 0, mon)))
                 {
                     Foreground = Brushes.Red
                 });
-                paragraph.Inlines.Add(new LineBreak());
+                _Paragraph.Inlines.Add(new LineBreak());
             }
             else
             {
@@ -287,11 +290,11 @@ namespace DungeonFinal
                 
                 hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damage is applied
 
-                paragraph.Inlines.Add(new Bold(new Run("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage + " damage."))
+                _Paragraph.Inlines.Add(new Bold(new Run("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage + " damage."))
                 {
                     Foreground = Brushes.Red
                 });
-                paragraph.Inlines.Add(new LineBreak());
+                _Paragraph.Inlines.Add(new LineBreak());
             }
             updateVisuals();
             checkForDefeatedUnit();
@@ -300,11 +303,35 @@ namespace DungeonFinal
         private void defend(Hero hero)
         {
             hero.setIsDefending(true);
-            paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used defend and is taking reduced damage this turn."))
+            _Paragraph.Inlines.Add(new Bold(new Run(hero.getName() + " used defend and is taking reduced damage this turn."))
             {
                 Foreground = hero.getTextColor()
             });
-            paragraph.Inlines.Add(new LineBreak());
+            _Paragraph.Inlines.Add(new LineBreak());
+        }
+
+        private void useItem(Hero hero)
+        {
+
+            var consumableWindow = new ConsumableWindow(_BattleInventory);
+            consumableWindow.ShowDialog();
+            int choiceFromConsumableWindow = consumableWindow.getChoiceFromSelect();
+            Consumable itemToUse = _BattleInventory.findConsumableByIndex(choiceFromConsumableWindow);
+
+            var choiceWindow = new ChoiceWindow(_theHeroes);
+            choiceWindow.ShowDialog();
+            int attackTarget = choiceWindow.getChoiceFromSelect();
+            Hero targetHero = _theHeroes[attackTarget];
+
+            string resultString = itemToUse.use(targetHero);
+
+            _Paragraph.Inlines.Add(new Bold(new Run(resultString))
+            {
+                Foreground = _theHeroes[0].getTextColor()
+            });
+            _Paragraph.Inlines.Add(new LineBreak());
+            _BattleInventory.removeFromConsumable(choiceFromConsumableWindow);
+
         }
 
         private void incrementEffects()//This method will process all effects and time based moves
@@ -361,21 +388,17 @@ namespace DungeonFinal
                 else if (rBtn_Hero1Special.IsChecked == true)
                 {
                     await Task.Delay(10);
-                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
+                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
                     {
                         Foreground = _theHeroes[0].getTextColor()
                     });
-                    paragraph.Inlines.Add(new LineBreak());
+                    _Paragraph.Inlines.Add(new LineBreak());
                     
                 }
                 else if (rBtn_Hero1Item.IsChecked == true)
                 {
                     await Task.Delay(10);
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[0].getName() + " used item"))
-                    {
-                        Foreground = _theHeroes[0].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
+                    useItem(_theHeroes[0]);
                 }
             }
 
@@ -396,21 +419,16 @@ namespace DungeonFinal
                 {
                     await Task.Delay(400);
 
-                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[1], 1)))
+                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[1], 1)))
                     {
                         Foreground = _theHeroes[1].getTextColor()
                     });
-                    paragraph.Inlines.Add(new LineBreak());
+                    _Paragraph.Inlines.Add(new LineBreak());
                 }
                 else if (rBtn_Hero2Item.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[1].getName() + " used item"))
-                    {
-                        Foreground = _theHeroes[1].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
+                    useItem(_theHeroes[1]);
                 }
             }
 
@@ -433,22 +451,16 @@ namespace DungeonFinal
 
                     await Task.Delay(400);
 
-                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[2], 2)))
+                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[2], 2)))
                     {
                         Foreground = _theHeroes[2].getTextColor()
                     });
-                    paragraph.Inlines.Add(new LineBreak());
+                    _Paragraph.Inlines.Add(new LineBreak());
                 }
                 else if (rBtn_Hero3Item.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[2].getName() + " used item"))
-                    {
-                        Foreground = _theHeroes[2].getTextColor()
-                    });
-
-                    paragraph.Inlines.Add(new LineBreak());
+                    useItem(_theHeroes[2]);
                 }
             }
             //----------------------------------------//
@@ -468,21 +480,16 @@ namespace DungeonFinal
                 {
                     await Task.Delay(400);
 
-                    paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[3], 3)))
+                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[3], 3)))
                     {
                         Foreground = _theHeroes[3].getTextColor()
                     });
-                    paragraph.Inlines.Add(new LineBreak());
+                    _Paragraph.Inlines.Add(new LineBreak());
                 }
                 else if (rBtn_Hero4Item.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    paragraph.Inlines.Add(new Bold(new Run(_theHeroes[3].getName() + " used item"))
-                    {
-                        Foreground = _theHeroes[3].getTextColor()
-                    });
-                    paragraph.Inlines.Add(new LineBreak());
+                    useItem(_theHeroes[3]);
                 }
             }
             //--------------Hero's have had their say... IT'S MONSTA TIME.---------------//

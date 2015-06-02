@@ -22,6 +22,8 @@ namespace DungeonFinal
         public DemonWarrior()
         {
             setName("Demon Warrior");
+
+           //Stats
             setBaseHealth(300);
             setCurHealth(300);
             setMaxHealth(300);
@@ -29,7 +31,6 @@ namespace DungeonFinal
             setCurMana(300);
             setMaxMana(300);
 
-            //Main stats are out of 70 points
             setBaseStrength(0);
             setModStrength(0);
             setBaseMagic(45);
@@ -39,18 +40,24 @@ namespace DungeonFinal
             setBaseResistance(15);
             setModResistance(15);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(3);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/DemonWarrior.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -71,29 +78,29 @@ namespace DungeonFinal
         //Possession - Makes one hero use their special attack for the monster or against the heroes
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAliveHeroes();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            party[rnd].setModStrength(getModStrength() - 1);
-            party[rnd].setModMagic(getModStrength() - 1);
+            int randomHero = new Random().Next(party.Length);
+            party[randomHero].setModStrength(getModStrength() - 1);
+            party[randomHero].setModMagic(getModStrength() - 1);
 
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return (getName() + " cast a curse on " + party[rnd].getName() + " for -1 Strength and Magic!/r/n");
+            return (getName() + " cast a curse on " + party[randomHero].getName() + " for -1 Strength and Magic!/r/n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
+            Hero[] party = p.getAliveHeroes();
             Hero target = party[0];
 
-            if (p.getCurrentPartyMembers() == 1)
+            if (party.Length == 1)
             {
                 return target;
             }
 
-            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            for (int i = 0; i < (party.Length - 2); i++)
             {
                 if (party[i + 1].getModResistance() < party[i].getModResistance())
                 {
@@ -113,6 +120,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -121,7 +129,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

@@ -22,12 +22,13 @@ namespace DungeonFinal
         public Paladin()
         {
             setName("Paladin");
+            setMaxHealth(250);
             setBaseHealth(250);
             setCurHealth(250);
-            setMaxHealth(250);
+            setMaxMana(90);
             setBaseMana(90);
             setCurMana(90);
-            setMaxMana(90);
+            
 
             //Main stats are out of 40 points
             setBaseStrength(12);
@@ -74,14 +75,14 @@ namespace DungeonFinal
         /*PerformSpecialAttack - buffs defense and resistance for 5 accross whole party*/
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAllHeroes();
 
             foreach(Hero h in party)
             {
                 h.Subscribe(new FullGuard(h));
             }
             setCurMana(getCurMana() - 15);
-            return(getName() + " performed Full Guard for 5 defense and resistance accross whole party!");
+            return (getName() + " performed Full Guard for 5 defense and resistance accross whole party!\r\n");
         }
 
         /*Battle - Defend*/

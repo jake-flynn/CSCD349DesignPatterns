@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,8 @@ namespace DungeonFinal
         public Imp()
         {
             setName("Imp");
+
+           //Stats
             setBaseHealth(100);
             setCurHealth(100);
             setMaxHealth(100);
@@ -29,7 +32,6 @@ namespace DungeonFinal
             setCurMana(100);
             setMaxMana(100);
 
-            //Main stats are out of 30 points
             setBaseStrength(0);
             setModStrength(0);
             setBaseMagic(20);
@@ -39,18 +41,24 @@ namespace DungeonFinal
             setBaseResistance(0);
             setModResistance(0);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(1);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Imp.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -71,18 +79,22 @@ namespace DungeonFinal
         //Spear - hits 3 random targets at .75 magic
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getHeros();
+            Hero[] party = theParty.getAliveHeroes();
             String message = "";
             int damage = 0;
             int hit = (int)(mon.getModMagic() * .75);
+            int randomHero = 0;
 
             for (int numStrikes = 3; numStrikes > 0; numStrikes--)
             {
-                int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-                damage = party[rnd].getModResistance() - hit;
-                party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+                randomHero = new Random().Next(party.Length);
+                damage = party[randomHero].getModResistance() - hit;
+                party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
-                message += mon.getName() + " stabbed " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " stabbed " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
+                
+                //Add Delay for random number generation
+                Thread.Sleep(500);
             }
 
             mon.setCurMana(mon.getCurMana() - 10);
@@ -93,13 +105,11 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getHeros();
-            Hero target = null;
-            do
-            {
-                int rnd = new Random().Next(1, party.Length);
-                target = party[rnd];
-            } while (target.getIsDefeated());
+            Hero[] party = p.getAliveHeroes();
+
+            int randomHero = new Random().Next(1, party.Length);
+            Hero target = party[randomHero];
+
             return target;
         }
 
