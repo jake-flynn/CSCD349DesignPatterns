@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -74,18 +75,22 @@ namespace DungeonFinal
             String message = "";
             int damage = 0;
 
-            int rnd1 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
-            int rnd2 = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+          //Attack 1
+            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
 
-            //Attack 1
-            damage = mon.getModStrength() - party[rnd1].getModDefense();
-            party[rnd1].setCurHealth(party[rnd1].getCurHealth() - damage);
-            message += mon.getName() + " trampled " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
+            damage = mon.getModStrength() - party[randomHero].getModDefense();
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
+            message += mon.getName() + " trampled " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
 
-            //Attack 2
-            damage = mon.getModStrength() - party[rnd2].getModDefense();
-            party[rnd2].setCurHealth(party[rnd2].getCurHealth() - damage);
-            message += mon.getName() + " trampled " + party[rnd2].getName() + " for " + damage + " damage!\r\n";
+            //Add Delay for random number generation
+            Thread.Sleep(500);
+
+          //Attack 2
+            randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+
+            damage = mon.getModStrength() - party[randomHero].getModDefense();
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
+            message += mon.getName() + " trampled " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
 
             mon.setCurMana(mon.getCurMana() - 10);
 

@@ -73,25 +73,25 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAllHeroes();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
             int chance = new Random().Next(3);
             String message = "";
-            int damage = mon.getModStrength() - party[rnd].getModDefense();
+            int damage = mon.getModStrength() - party[randomHero].getModDefense();
 
             //Paralyze successful
             if(chance == 1)
             {
-                message += mon.getName() + " threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage caused paralyzation!\r\n";
-                party[rnd].Subscribe(new Stun(party[rnd]));
+                message += mon.getName() + " threw Zeus' thunderbolt at " + party[randomHero].getName() + " for " + damage + " damage caused paralyzation!\r\n";
+                party[randomHero].Subscribe(new Stun(party[randomHero]));
             }
 
             //Paralyze unsuccessful
             else
             {
-                message += mon.getName() + " threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " threw Zeus' thunderbolt at " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
             }
 
-            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;

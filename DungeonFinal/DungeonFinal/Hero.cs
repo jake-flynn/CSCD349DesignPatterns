@@ -122,6 +122,7 @@ namespace DungeonFinal
             {
                 _CurHealth = 0;
                 setIsDefeated(true);
+                _EffectList.Clear();
             }
 
             else if (h > getMaxHealth())

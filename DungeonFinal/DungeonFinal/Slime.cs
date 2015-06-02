@@ -72,33 +72,33 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAllHeroes();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
             int chance = new Random().Next(4);
             String message = mon.getName() + " slung toxic ooze at the party!\r\n";
-            int damage = mon.getModMagic() - party[rnd].getModResistance();
+            int damage = mon.getModMagic() - party[randomHero].getModResistance();
 
             //Poison
             if (chance == 1)
             {
-                message += "It poisoned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
-                party[rnd].Subscribe(new Poison(party[rnd]));
+                message += "It poisoned " + party[randomHero].getName() + " and caused " + damage + " damage!\r\n";
+                party[randomHero].Subscribe(new Poison(party[randomHero]));
             }
 
             //Paralyze
             else if (chance == 2)
             {
-                message += "It stunned " + party[rnd].getName() + " and caused " + damage + " damage!\r\n";
-                party[rnd].Subscribe(new Stun(party[rnd]));
+                message += "It stunned " + party[randomHero].getName() + " and caused " + damage + " damage!\r\n";
+                party[randomHero].Subscribe(new Stun(party[randomHero]));
             }
 
             //Burn
             else
             {
-                message += "It burned " + party[rnd].getName() + " for " + damage + " damage each!\r\n";
-                party[rnd].Subscribe(new Burn(party[rnd]));
+                message += "It burned " + party[randomHero].getName() + " for " + damage + " damage each!\r\n";
+                party[randomHero].Subscribe(new Burn(party[randomHero]));
             }
 
-            party[rnd].setCurHealth(party[rnd].getCurHealth() - damage);
+            party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;
