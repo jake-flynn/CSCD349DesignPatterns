@@ -22,16 +22,12 @@ namespace DungeonFinal
             setDuration(10);
         }
 
-        public override void Modify()
+        public override String Modify()
         {
-            //int health1 = getHero().getCurHealth();
-            //MessageBox.Show("Poison is about to take effect! Health is now " + health1);
-
             setDuration(getDuration() - 1);
             getHero().setCurHealth(getHero().getCurHealth() - 15);
 
-            int health2 = getHero().getCurHealth();
-            MessageBox.Show("Poison took effect! Health is now " + health2);
+            return (getHero().getName() + " suffered 15 damage from their poison, it will remain in their blood stream for " + getDuration() + " more turn(s)!");
         }
 
     }

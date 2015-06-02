@@ -53,7 +53,7 @@ namespace DungeonFinal
 
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"Images/Dragon.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Dragon.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }
@@ -78,7 +78,7 @@ namespace DungeonFinal
 
             foreach (Hero h in party)
             {
-                int chance = new Random().Next(3);
+                int chance = new Random().Next(4);
                 damage = mon.getModMagic() - h.getModResistance();
                 h.setCurHealth(h.getCurHealth() - damage);
 
@@ -87,6 +87,13 @@ namespace DungeonFinal
                 {
                     message += "Hellfire affected " + h.getName() + " for " + damage + " damage and they suffered a burn!\r\n";
                     h.Subscribe(new Burn(h));
+                }
+
+                //Silence Successful
+                else if(chance == 2)
+                {
+                    message += "Hellfire affected " + h.getName() + " for " + damage + " damage and they were silenced!\r\n";
+                    h.Subscribe(new Silence(h));
                 }
 
                 //Burn Unuccessful

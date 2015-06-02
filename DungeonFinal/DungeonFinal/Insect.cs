@@ -52,7 +52,7 @@ namespace DungeonFinal
 
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"Images/Insect.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Insect.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }
@@ -95,7 +95,7 @@ namespace DungeonFinal
             {
                 message += mon.getName() + " sprayed venom at " + party[rnd1].getName() + " for " + damage + " damage!\r\n";
             }
-
+            
 
           //Attack 2
             int rnd2 = new Random().Next(theParty.getCurrentPartyMembers());

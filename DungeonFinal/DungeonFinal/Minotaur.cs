@@ -52,7 +52,7 @@ namespace DungeonFinal
 
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"Images/Minotaur.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Minotaur.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }
@@ -82,7 +82,7 @@ namespace DungeonFinal
             if (chance == 1)
             {
                 message += mon.getName() + " hit " + party[rnd].getName() + " with its axe for " + damage + " damage and caused paralyzation!\r\n";
-                //party[rnd].Subscribe(new Stun(party[rnd]));
+                party[rnd].Subscribe(new Stun(party[rnd]));
             }
 
             //Burn Unsuccessful

@@ -11,25 +11,25 @@ namespace DungeonFinal
         public Stun(Hero h)
         {
             setHero(h);
-            setDuration(10);
-
-            //_Hero.addObserver(this);
+            setDuration(2);
         }
 
-        public override void Modify()
+        public override String Modify()
         {            
-            if (getDuration() == 5)
+            if (getDuration() == 2)
             {
                 getHero().setCanAttack(false);
+                getHero().setCanSpecialAttack(false);
             }
-            else if (getDuration() < 5 && getDuration() > 1)
-            { }
 
-            else
+            else if(getDuration() == 1)
             {
                 getHero().setCanAttack(true);
+                getHero().setCanSpecialAttack(true);
             }
-            setDuration(getDuration() - 1);            
+            setDuration(getDuration() - 1);
+
+            return (getHero().getName() + " is stunned, and completely unable to attack for " + getDuration() + " more turn(s)!");
         }
 
     }

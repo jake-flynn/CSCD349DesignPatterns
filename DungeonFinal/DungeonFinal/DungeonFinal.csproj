@@ -164,6 +164,7 @@
     <Compile Include="RuneOfHope.cs" />
     <Compile Include="RuneOfTranquility.cs" />
     <Compile Include="Shade.cs" />
+    <Compile Include="Silence.cs" />
     <Compile Include="SimpleAxe.cs" />
     <Compile Include="SimpleDagger.cs" />
     <Compile Include="SimpleStaff.cs" />
@@ -258,9 +259,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Stu.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

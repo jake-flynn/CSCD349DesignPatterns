@@ -52,7 +52,7 @@ namespace DungeonFinal
 
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"Images/Cyclops.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Cyclops.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }
@@ -82,7 +82,7 @@ namespace DungeonFinal
             if(chance == 1)
             {
                 message += mon.getName() + " threw Zeus' thunderbolt at " + party[rnd].getName() + " for " + damage + " damage caused paralyzation!\r\n";
-                //party[rnd].Subscribe(new Stun(party[rnd]));
+                party[rnd].Subscribe(new Stun(party[rnd]));
             }
 
             //Paralyze unsuccessful

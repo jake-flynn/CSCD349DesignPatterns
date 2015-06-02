@@ -13,22 +13,23 @@ namespace DungeonFinal
             setDuration(5);
         }
 
-        public override void Modify()
+        public override String Modify()
         {
             if(getDuration() == 5)
             {
-                getHero().setModStrength(getHero().getModStrength() - 5);
-                getHero().setModMagic(getHero().getModMagic() - 5);                
+                getHero().setModStrength(getHero().getModStrength() - 7);
+                getHero().setModMagic(getHero().getModMagic() - 7);                
             }
-            else if(getDuration() < 5 && getDuration() > 1)
-            {}
 
-            else
+            else if(getDuration() == 1)
             {
-                getHero().setModStrength(getHero().getModStrength() + 5);
-                getHero().setModMagic(getHero().getModMagic() + 5);
+                getHero().setModStrength(getHero().getModStrength() + 7);
+                getHero().setModMagic(getHero().getModMagic() + 7);
             }
-            setDuration(getDuration() - 1);            
+
+            setDuration(getDuration() - 1);
+
+            return (getHero().getName() + " is under a curse, it is sapping thier strength " + getDuration() + " more turn(s)!");
         }
 
     }
