@@ -18,6 +18,7 @@ namespace DungeonFinal
     {
         private string _Name;
 
+       //Stats
         private int _BaseHealth;
         private int _CurHealth;
         private int _MaxHealth;
@@ -38,18 +39,25 @@ namespace DungeonFinal
         private int _BaseResistance;
         private int _ModResistance;
 
+       //Special Attack
         private int _SpecialAttackFrequency; //This is an int between 1-10 that signifies how often a monster will use a special attack. E.G.: StuBeast always assigns homework.
 
-        private String _Stats;
-        private String _Lore;
-
+       //Attack
         private Boolean _IsPhysical;
         private Boolean _IsDefeated;
-        private Boolean _IsDefending;
-        private Boolean _IsSwarm;
 
+       //Defend
+        private Boolean _IsDefending;
         private int _DefendingDefense;
         private int _DefendingResistance;
+
+       //Swarm
+        private Boolean _IsSwarm;
+
+       //Identity
+        private int _TierNumber;
+        private String _Stats;
+        private String _Lore;
         private ImageBrush _ImageBrush;
         
         public Monster(){}
@@ -77,7 +85,8 @@ namespace DungeonFinal
             _Name = n;
         }
 
-        //------------------------------- Health -------------------------------
+        //------------------------------- Stats -------------------------------
+        //Health
         public int getBaseHealth()
         {
             return _BaseHealth;
@@ -100,14 +109,14 @@ namespace DungeonFinal
                 setIsDefeated(true);
             }
             
-            //else if (h > getMaxHealth())
-            //{
-            //    _CurHealth = getMaxHealth();
-            //}
+            else if (h > getMaxHealth())
+            {
+                _CurHealth = getMaxHealth();
+            }
 
             else
             {
-            _CurHealth = h;
+                _CurHealth = h;
             }
         }
         public int getMaxHealth()
@@ -118,7 +127,8 @@ namespace DungeonFinal
         {
             _MaxHealth = h;
         }
-        //------------------------------- Mana -------------------------------
+
+        //Mana
         public int getBaseMana()
         {
             return _BaseMana;
@@ -156,7 +166,8 @@ namespace DungeonFinal
         {
             _MaxMana = m;
         }
-        //------------------------------- Strength -------------------------------
+
+        //Strength
         public int getBaseStrength()
         {
             return _BaseStrength;
@@ -173,7 +184,8 @@ namespace DungeonFinal
         {
             _ModStrength = s;
         }
-        //------------------------------- Magic -------------------------------
+
+        //Magic
         public int getBaseMagic()
         {
             return _BaseMagic;
@@ -190,7 +202,8 @@ namespace DungeonFinal
         {
             _ModMagic = m;
         }
-        //------------------------------- Defense -------------------------------
+
+        //Defense
         public int getBaseDefense()
         {
             return _BaseDefense;
@@ -207,7 +220,8 @@ namespace DungeonFinal
         {
             _ModDefense = d;
         }
-        //------------------------------- Resistance -------------------------------
+
+        //Resistance
         public int getBaseResistance()
         {
             return _BaseResistance;
@@ -225,7 +239,8 @@ namespace DungeonFinal
             _ModResistance = r;
         }
 
-        //------------------------------- Special Attack Frequency -------------------------------
+
+        //------------------------------- Special Attack Methods -------------------------------
         public int getSpecialAttackFrequency()
         {
             return _SpecialAttackFrequency;
@@ -236,30 +251,8 @@ namespace DungeonFinal
             _SpecialAttackFrequency = newFreq;
         }
 
-        //------------------------------- Stats -------------------------------
-        public String getStats()
-        {
-            String s = "Strength: " + getModStrength() + "\nMagic: " + getModMagic() + "\nDefense: " + getModDefense() + "\nResistance: " + getModResistance();
-            return _Stats;
-        }
 
-        public void setStats(String s)
-        {
-            _Stats = s;
-        }
-
-        //------------------------------- Lore -------------------------------
-        public String getLore()
-        {
-            return _Lore;
-        }
-
-        public void setLore(String l)
-        {
-            _Lore = l;
-        }
-
-        //------------------------------- Battle Attack -------------------------------
+        //------------------------------- Attack Methods -------------------------------
         public Boolean getIsPhysical()
         {
             return _IsPhysical;
@@ -279,7 +272,7 @@ namespace DungeonFinal
         }
 
 
-        //------------------------------- Battle Defend -------------------------------
+        //------------------------------- Defend Methods -------------------------------
         public Boolean getIsDefending()
         {
             return _IsDefending;
@@ -299,6 +292,8 @@ namespace DungeonFinal
             _DefendingResistance = dr;
         }
 
+
+        //------------------------------- Swarm Methods -------------------------------
         public Boolean getIsSwarm()
         {
             return _IsSwarm;
@@ -309,8 +304,7 @@ namespace DungeonFinal
             _IsSwarm = iS;
         }
 
-        //------------------------------- Modify stats for Clones -------------------------------
-
+        //Modify stats for Clones
         public void modifyStats()
         {
             setBaseHealth(getBaseHealth() / 2);
@@ -320,7 +314,6 @@ namespace DungeonFinal
             setCurMana(getCurMana() / 2);
             setMaxMana(getMaxMana() / 2);
 
-            
             setBaseStrength(getBaseStrength() / 2);
             setModStrength(getModStrength() / 2);
             setBaseMagic(getBaseMagic() / 2);
@@ -328,9 +321,40 @@ namespace DungeonFinal
             setBaseDefense(getBaseDefense() / 2);
             setModDefense(getModDefense() / 2);
             setBaseResistance(getBaseResistance() / 2);
-            setModResistance(getModResistance() / 2);
+            setModResistance(getModResistance() / 2);        
+        }
 
-                
+
+        //------------------------------- Identity Methods -------------------------------
+        public int getTierNumber()
+        {
+            return _TierNumber;
+        }
+
+        public void setTierNumber(int tN)
+        {
+            _TierNumber = tN;
+        }
+
+        public String getStats()
+        {
+            String s = "Strength: " + getModStrength() + "\nMagic: " + getModMagic() + "\nDefense: " + getModDefense() + "\nResistance: " + getModResistance();
+            return _Stats;
+        }
+
+        public void setStats(String s)
+        {
+            _Stats = s;
+        }
+
+        public String getLore()
+        {
+            return _Lore;
+        }
+
+        public void setLore(String l)
+        {
+            _Lore = l;
         }
 
         public void setImageBrush(ImageBrush i)

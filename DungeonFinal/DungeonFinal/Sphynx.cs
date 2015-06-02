@@ -21,6 +21,8 @@ namespace DungeonFinal
         public Sphynx()
         {
             setName("Sphynx");
+
+           //Stats
             setBaseHealth(200);
             setCurHealth(200);
             setMaxHealth(200);
@@ -28,7 +30,6 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 50 points
             setBaseStrength(0);
             setModStrength(0);
             setBaseMagic(20);
@@ -38,18 +39,24 @@ namespace DungeonFinal
             setBaseResistance(15);
             setModResistance(15);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(2);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Sphynx.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -70,9 +77,9 @@ namespace DungeonFinal
         //Riddle - Asks a riddle, if incorrect the hero's health is halved, if correct the sphynx does no damage
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getAllHeroes();
+            Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(party.Length);
             int chance = new Random().Next(5);
             String message = mon.getName() + " asked " + party[randomHero].getName() + " a riddle!\r\n";
 

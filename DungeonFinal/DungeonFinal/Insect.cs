@@ -23,6 +23,8 @@ namespace DungeonFinal
         public Insect()
         {
             setName("Insect");
+
+           //Stats
             setBaseHealth(100);
             setCurHealth(100);
             setMaxHealth(100);
@@ -30,7 +32,6 @@ namespace DungeonFinal
             setCurMana(100);
             setMaxMana(100);
 
-            //Main stats are out of 30 points
             setBaseStrength(17);
             setModStrength(17);
             setBaseMagic(0);
@@ -40,18 +41,24 @@ namespace DungeonFinal
             setBaseResistance(6);
             setModResistance(6);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(1);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Insect.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -73,12 +80,12 @@ namespace DungeonFinal
         //Poison Spray - attacks two heroes, chance of poison
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getAllHeroes();
+            Hero[] party = theParty.getAliveHeroes();
             String message = "";
             int damage = 0;
 
           //Attack 1
-            int randomHero = new Random().Next(theParty.getCurrentPartyMembers());
+            int randomHero = new Random().Next(party.Length);
             int chance = new Random().Next(3);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
@@ -101,7 +108,7 @@ namespace DungeonFinal
             Thread.Sleep(500);
 
           //Attack 2
-            randomHero = new Random().Next(theParty.getCurrentPartyMembers());
+            randomHero = new Random().Next(party.Length);
             chance = new Random().Next(3);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
@@ -128,10 +135,10 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getAllHeroes();
+            Hero[] party = p.getAliveHeroes();
 
-            int rnd = new Random().Next(1, party.Length);
-            Hero target = party[rnd];
+            int randomHero = new Random().Next(1, party.Length);
+            Hero target = party[randomHero];
 
             return target;
         }
@@ -145,6 +152,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -153,7 +161,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

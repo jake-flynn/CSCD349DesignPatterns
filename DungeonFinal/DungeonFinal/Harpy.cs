@@ -22,6 +22,8 @@ namespace DungeonFinal
         public Harpy()
         {
             setName("Harpy");
+
+           //Stats
             setBaseHealth(200);
             setCurHealth(200);
             setMaxHealth(200);
@@ -29,7 +31,6 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 50 points
             setBaseStrength(0);
             setModStrength(0);
             setBaseMagic(30);
@@ -39,18 +40,24 @@ namespace DungeonFinal
             setBaseResistance(20);
             setModResistance(20);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(2);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Harpy.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -71,7 +78,7 @@ namespace DungeonFinal
         //Screech - Attacks whole party for .75 damage and chance of paralyzation
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            Hero[] party = theParty.getAllHeroes();
+            Hero[] party = theParty.getAliveHeroes();
             String message = mon.getName() + " uttered an ear piercing screech!\r\n";
             int damage = 0;
 
@@ -110,15 +117,15 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getAllHeroes();
+            Hero[] party = p.getAliveHeroes();
             Hero target = party[0];
 
-            if (p.getCurrentPartyMembers() == 1)
+            if (party.Length == 1)
             {
                 return target;
             }
 
-            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            for (int i = 0; i < (party.Length - 2); i++)
             {
                 if(party[i + 1].getCurHealth() < party[i].getCurHealth())
                 {
@@ -138,6 +145,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -146,7 +154,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

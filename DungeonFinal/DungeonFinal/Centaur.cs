@@ -23,6 +23,8 @@ namespace DungeonFinal
         public Centaur()
         {
             setName("Centaur");
+
+           //Stats
             setBaseHealth(300);
             setCurHealth(300);
             setMaxHealth(300);
@@ -30,7 +32,6 @@ namespace DungeonFinal
             setCurMana(300);
             setMaxMana(300);
 
-            //Main stats are out of 70 points
             setBaseStrength(40);
             setModStrength(40);
             setBaseMagic(0);
@@ -40,17 +41,24 @@ namespace DungeonFinal
             setBaseResistance(15);
             setModResistance(15);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
+
+           //Identity
+            setTierNumber(3);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Centaur.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -76,7 +84,7 @@ namespace DungeonFinal
             int damage = 0;
 
           //Attack 1
-            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(party.Length);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
@@ -110,7 +118,7 @@ namespace DungeonFinal
 
             for (int i = 0; i < (party.Length - 2); i++)
             {
-                if (party[i + 1].getModDefense() < party[i].getModDefense())
+                if (party[i + 1].getModResistance() < party[i].getModResistance())
                 {
                     target = party[i + 1];
                 }
@@ -128,6 +136,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -136,7 +145,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{

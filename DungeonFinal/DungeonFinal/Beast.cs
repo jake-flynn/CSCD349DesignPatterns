@@ -22,6 +22,8 @@ namespace DungeonFinal
         public StuBeast()
         {
             setName("Stu, the OS Abomination");
+
+           //Stats
             setBaseHealth(200);
             setCurHealth(200);
             setMaxHealth(200);
@@ -29,7 +31,6 @@ namespace DungeonFinal
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 50 points
             setBaseStrength(20);
             setModStrength(20);
             setBaseMagic(0);
@@ -38,21 +39,27 @@ namespace DungeonFinal
             setModDefense(15);
             setBaseResistance(15);
             setModResistance(15);
-
+         
+           //Special Attack
             setSpecialAttackFrequency(4);
 
-            setLore("StuBeast is an unholy abomination created from the deepest depths of students' nightmares.\r\n" + 
-                    "It is said in whispers that it has a heart of gold, though none have survived to confirm this. \r\n" +
-                    "Tough and unforgiving, winning a battle against the StuBeast will ultimately make you stronger.");
-
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(2);
+            setLore("StuBeast is an unholy abomination created from the deepest depths of students' nightmares.\r\n" + 
+                    "It is said in whispers that it has a heart of gold, though none have survived to confirm this. \r\n" +
+                    "Tough and unforgiving, winning a battle against the StuBeast will ultimately make you stronger.");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Stu.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -93,14 +100,14 @@ namespace DungeonFinal
             Hero[] party = p.getAliveHeroes();
             Hero target = party[0];
 
-            if (p.getCurrentPartyMembers() == 1)
+            if (party.Length == 1)
             {
                 return target;
             }
 
-            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            for (int i = 0; i < (party.Length - 2); i++)
             {
-                if(party[i + 1].getCurHealth() < party[i].getCurHealth())
+                if (party[i + 1].getCurHealth() < party[i].getCurHealth())
                 {
                     target = party[i + 1];
                 }

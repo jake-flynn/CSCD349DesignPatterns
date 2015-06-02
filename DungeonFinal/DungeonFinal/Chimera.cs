@@ -23,6 +23,8 @@ namespace DungeonFinal
         public Chimera()
         {
             setName("Chimera");
+
+           //Stats
             setBaseHealth(400);
             setCurHealth(400);
             setMaxHealth(400);
@@ -30,7 +32,6 @@ namespace DungeonFinal
             setCurMana(400);
             setMaxMana(400);
 
-            //Main stats are out of 90 points
             setBaseStrength(0);
             setModStrength(0);
             setBaseMagic(50);
@@ -40,18 +41,24 @@ namespace DungeonFinal
             setBaseResistance(25);
             setModResistance(25);
 
+           //Special Attack
             setSpecialAttackFrequency(3);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(4);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Chimera.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
@@ -74,7 +81,7 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int randomHero = new Random().Next(party.Length);
             int chance = new Random().Next(4);
             String message = "";
             int damage = mon.getModMagic() - party[randomHero].getModResistance();
@@ -109,24 +116,26 @@ namespace DungeonFinal
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
         public override Hero FindTarget(Party p)
         {
-            Hero[] party = p.getAllHeroes();
-            int rnd1 = new Random().Next(1, 3);
+            Hero[] party = p.getAliveHeroes();
+            int attackType = new Random().Next(1, 3);
             Hero target = party[0];
 
-            if (rnd1 == 1)
+            //Tier 1 FindTarget
+            if (attackType == 1)
             {
-                int rnd2 = new Random().Next(1, 3);
-                target = party[rnd2];
+                int randomHero = new Random().Next(1, party.Length);
+                target = party[randomHero];
             }
 
-            else if (rnd1 == 2)
+           //Tier 2 FindTarget
+            else if (attackType == 2)
             {
-                if (p.getCurrentPartyMembers() == 1)
+                if (party.Length == 1)
                 {
                     return target;
                 }
 
-                for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+                for (int i = 0; i < (party.Length - 2); i++)
                 {
                     if (party[i + 1].getCurHealth() < party[i].getCurHealth())
                     {
@@ -135,16 +144,17 @@ namespace DungeonFinal
                 }
             }
 
-            else if (rnd1 == 3)
+           //Tier 3 FindTarget
+            else if (attackType == 3)
             {
-                if (p.getCurrentPartyMembers() == 1)
+                if (party.Length == 1)
                 {
                     return target;
                 }
 
-                for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+                for (int i = 0; i < (party.Length - 2); i++)
                 {
-                    if (party[i + 1].getModResistance() < party[i].getModResistance())
+                    if (party[i + 1].getModDefense() < party[i].getModDefense())
                     {
                         target = party[i + 1];
                     }
@@ -163,6 +173,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -171,7 +182,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         //public override ImageBrush getBrush()
         //{
