@@ -19,17 +19,25 @@ namespace DungeonFinal
     /// </summary>
     public partial class PartyEquipmentWindow : Window
     {
-        Hero[] _theHeroes;
+        Hero[] _TheHeroes;
         Inventory _Inventory;
 
         public PartyEquipmentWindow(Party party)
         {
             InitializeComponent();
 
-            _theHeroes = party.getHeros();
+            _TheHeroes = party.getHeros();
             _Inventory = party.getInventory();
+            updateVisuals();
         }
         //start methods
+
+        public void updateVisuals()
+        {
+            lbl_Char1_Helm.Content = _TheHeroes[0].getHelmet().getItemName();
+
+            rect_Char1_Helm.Fill = _TheHeroes[0].getHelmet().getImageBrush();
+        }
 
         private void changeHelmet(Hero hero)
         {
@@ -40,6 +48,7 @@ namespace DungeonFinal
             hero.setHelmet(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getHelmet().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            updateVisuals();
         }
 
         private void changeTorso(Hero hero)
@@ -51,6 +60,7 @@ namespace DungeonFinal
             hero.setTorso(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getTorso().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            updateVisuals();
         }
                 
         private void changeGloves(Hero hero)
@@ -62,6 +72,7 @@ namespace DungeonFinal
             hero.setGloves(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getGloves().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            updateVisuals();
         }
 
         private void changeBoots(Hero hero)
@@ -73,6 +84,7 @@ namespace DungeonFinal
             hero.setBoots(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getBoots().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            updateVisuals();
         }
 
         private void changeWeapon(Hero hero)
@@ -84,6 +96,7 @@ namespace DungeonFinal
             hero.setWeapon(_Inventory.findEquipmentByIndex(equipInventoryIndex));
             hero.getWeapon().equip(hero);
             _Inventory.removeFromEquipment(equipInventoryIndex);
+            updateVisuals();
         }
 
         
@@ -97,27 +110,27 @@ namespace DungeonFinal
 
         private void btn_Char1_Helm_Click(object sender, RoutedEventArgs e)
         {
-            changeHelmet(_theHeroes[0]);
+            changeHelmet(_TheHeroes[0]);
         }
 
         private void btn_Char1_Body_Click(object sender, RoutedEventArgs e)
         {
-            changeTorso(_theHeroes[0]);
+            changeTorso(_TheHeroes[0]);
         }
 
         private void btn_Char1_Gloves_Click(object sender, RoutedEventArgs e)
         {
-            changeGloves(_theHeroes[0]);
+            changeGloves(_TheHeroes[0]);
         }
 
         private void btn_Char1_Footwear_Click(object sender, RoutedEventArgs e)
         {
-            changeBoots(_theHeroes[0]);
+            changeBoots(_TheHeroes[0]);
         }
 
         private void btn_Char1_Weapon_Click(object sender, RoutedEventArgs e)
         {
-            changeWeapon(_theHeroes[0]);
+            changeWeapon(_TheHeroes[0]);
         }
 
         
