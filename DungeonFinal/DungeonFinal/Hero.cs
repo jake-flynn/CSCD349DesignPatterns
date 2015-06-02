@@ -19,6 +19,10 @@ namespace DungeonFinal
         private string _Name;
 
         private Equipment _Helmet;
+        private Equipment _Torso;
+        private Equipment _Boots;
+        private Equipment _Gloves;
+        private Equipment _Weapon;
 
         private int _BaseHealth = 100;
         private int _CurHealth = 100;
@@ -337,14 +341,54 @@ namespace DungeonFinal
         }
         //------------------------------- Armor Get and Sets -------------------------------
 
-        public Equipment getHelm()
+        public Equipment getHelmet()
         {
             return _Helmet;
         }
 
-        public void setHelm(Equipment newHelm)
+        public void setHelmet(Equipment newHelmet)
         {
-            _Helmet = newHelm;
+            _Helmet = newHelmet;
+        }
+
+        public Equipment getTorso()
+        {
+            return _Torso;
+        }
+
+        public void setTorso(Equipment newTorso)
+        {
+            _Torso = newTorso;
+        }
+
+        public Equipment getBoots()
+        {
+            return _Boots;
+        }
+
+        public void setBoots(Equipment newBoots)
+        {
+            _Boots = newBoots;
+        }
+
+        public Equipment getGloves()
+        {
+            return _Gloves;
+        }
+
+        public void setGloves(Equipment newGloves)
+        {
+            _Gloves = newGloves;
+        }
+
+        public Equipment getWeapon()
+        {
+            return _Weapon;
+        }
+
+        public void setWeapon(Equipment newWeapon)
+        {
+            _Torso = newWeapon;
         }
 
         //------------------------------- Effect Subscribe Methods -------------------------------

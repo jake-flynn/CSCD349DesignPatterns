@@ -135,7 +135,7 @@ namespace DungeonFinal
             else
             {
                 Item item = findEquipmentByIndex(indexOfItem);
-                _Equipment[indexOfItem] = null;
+                _Equipment[indexOfItem] = new NullItemEquipment();
                 _EquipmentNextFreeIndex--;
                 return item;
             }
