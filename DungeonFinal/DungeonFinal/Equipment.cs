@@ -48,7 +48,7 @@ namespace DungeonFinal
             return _hero.getName() + " equipped " + this.getItemName() + ", " + getEffect().getEffectName() + getEffect().getEffectAmount();
         }
 
-        public string unEquip(Hero _hero)
+        public Equipment unEquip(Hero _hero)
         {
             _hero.setCurHealth(_hero.getCurHealth() - getEffect().getHealthValue());
             _hero.setCurMana(_hero.getCurMana() - getEffect().getManaValue());
@@ -56,7 +56,8 @@ namespace DungeonFinal
             _hero.setModMagic(_hero.getModMagic() - getEffect().getMagicValue());
             _hero.setModDefense(_hero.getModDefense() - getEffect().getPhysicalDefenseValue());
             _hero.setModResistance(_hero.getModResistance() - getEffect().getResistanceDefenseValue());
-            return _hero.getName() + " unequipped " + this.getItemName() + ", " + getEffect().getEffectName() + getEffect().getEffectAmount();
+            //return _hero.getName() + " unequipped " + this.getItemName() + ", " + getEffect().getEffectName() + getEffect().getEffectAmount();
+            return this;
         }
 
         public void socket(Hero _hero, Item _item)
