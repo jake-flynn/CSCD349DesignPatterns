@@ -22,11 +22,10 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Potion of Power");
-            _effect.setEffectName("Enhances power by ");
-            _effect.setStrengthValue(6);
-            _effect.setEffectAmount(6);
+            _effect.setEffectName("Enhances power by 6 for four turns.");
             this.setEffect(_effect);
-
+            setStatusEffect(new PowerBoost());
+            
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/potionofpower.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

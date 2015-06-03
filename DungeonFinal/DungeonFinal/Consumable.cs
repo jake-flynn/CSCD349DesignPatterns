@@ -38,10 +38,8 @@ namespace DungeonFinal
 
             if(_hasStatusEffect)
             {
-               // _statusEffect.setHero(_hero);
-                //MessageBox.Show(_statusEffect.getHero().getName());
-                _hero.Subscribe(new HealthRegeneration(_hero));
-                //_statusEffect.getHero().setCurHealth(_statusEffect.getHero().getCurHealth() + 20);
+                _statusEffect.setHero(_hero);
+                _hero.Subscribe(_statusEffect);
             }
 
             else

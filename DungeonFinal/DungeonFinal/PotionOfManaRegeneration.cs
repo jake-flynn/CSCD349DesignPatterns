@@ -14,20 +14,21 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class PotionOfDefense : Consumable
+    class PotionOfManaRegeneration : Consumable
     {
         ItemsEffect _effect;
 
-        public PotionOfDefense() : base()
+        public PotionOfManaRegeneration() : base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Defense Potion");
-            _effect.setEffectName("Enhances defense by 6 for four turns.");
-            this.setEffect(_effect);
-            setStatusEffect(new DefenseBoost());
+            setItemName("Mana Regeneration Potion");
+            _effect.setEffectName("Resotres mana by ");
+            setEffect(_effect);
+            setHasStatusEffect(true);
+            setStatusEffect(new ManaRegeneration());
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/potionofdefense.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/full_mana_potion.gif", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }

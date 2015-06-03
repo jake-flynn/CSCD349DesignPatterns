@@ -22,10 +22,9 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Magic Potion");
-            _effect.setEffectName("Enhances magic power by ");
-            _effect.setMagicValue(6);
-            _effect.setEffectAmount(6);
+            _effect.setEffectName("Enhances magic power by 6 for four turns.");
             this.setEffect(_effect);
+            setStatusEffect(new MagicBoost());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/potionofmagic.jpg", UriKind.RelativeOrAbsolute));

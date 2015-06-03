@@ -21,11 +21,10 @@ namespace DungeonFinal
         public PotionOfResistance() : base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Potion of Magical Resistance");
-            _effect.setEffectName("Enhances resistance by ");
-            _effect.setResistanceDefense(6);
-            _effect.setEffectAmount(6);
+            this.setItemName("Potion of Resistance");
+            _effect.setEffectName("Enhances resistance by 6 for four turns.");
             this.setEffect(_effect);
+            setStatusEffect(new ResistanceBoost());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/potionofresistance.png", UriKind.RelativeOrAbsolute));

@@ -22,10 +22,9 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Lesser Defense Potion");
-            _effect.setEffectName("Slightly increases defense by ");
-            _effect.setEffectAmount(3);
-            _effect.setPhysicalDefense(3);
+            _effect.setEffectName("Slightly increases defense by 3 for three turns.");
             this.setEffect(_effect);
+            setStatusEffect(new LesserDefenseBoost());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/potionofdefense.jpg", UriKind.RelativeOrAbsolute));

@@ -39,13 +39,21 @@ namespace DungeonFinal
             this.addLastToConsumable(new LesserPotionOfMana());
             this.addLastToConsumable(new PotionOfMana());
             this.addLastToConsumable(new PotionOfHealthRegeneration());
+            this.addLastToConsumable(new PotionOfMagic());
+            this.addLastToConsumable(new PotionOfManaRegeneration());
+            this.addLastToConsumable(new PotionOfPower());
 
             this.addLastToEquipment(new BronzeSword());
             this.addLastToEquipment(new BronzeHelmet());
             this.addLastToEquipment(new BronzeGloves());
             this.addLastToEquipment(new BronzeChestPlate());
             this.addLastToEquipment(new BronzeBoots());
+            this.addLastToEquipment(new SteelAxe());
             this.addLastToEquipment(new Ultima());
+            this.addLastToEquipment(new ChainMailBoots());
+            this.addLastToEquipment(new ChainMailGloves());
+            this.addLastToEquipment(new ChainMailHelm());
+            this.addLastToEquipment(new ChainMailVest());
         }
 
         public Consumable findConsumableByIndex(int index)

@@ -22,10 +22,9 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Greater Power Potion");
-            _effect.setEffectName("Greatly increase strength by ");
-            _effect.setEffectAmount(10);
-            _effect.setStrengthValue(10);
+            _effect.setEffectName("Greatly increase strength by 10 for five turns.");
             this.setEffect(_effect);
+            setStatusEffect(new GreaterPowerBoost());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/potionofpower.jpg", UriKind.RelativeOrAbsolute));

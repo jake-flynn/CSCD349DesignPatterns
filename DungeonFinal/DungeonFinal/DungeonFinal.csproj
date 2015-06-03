@@ -99,6 +99,7 @@
     <Compile Include="Cleric.cs" />
     <Compile Include="Cockatrice.cs" />
     <Compile Include="Cyclops.cs" />
+    <Compile Include="DefenseBoost.cs" />
     <Compile Include="DemonWarrior.cs" />
     <Compile Include="Dragon.cs" />
     <Compile Include="Equipment.cs" />
@@ -106,12 +107,16 @@
       <DependentUpon>EquipmentChoiceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FullGuard.cs" />
+    <Compile Include="GreaterDefenseBoost.cs" />
+    <Compile Include="GreaterMagicBoost.cs" />
     <Compile Include="GreaterPotionOfDefense.cs" />
     <Compile Include="GreaterPotionOfHealth.cs" />
     <Compile Include="GreaterPotionOfMagic.cs" />
     <Compile Include="GreaterPotionOfMana.cs" />
     <Compile Include="GreaterPotionOfPower.cs" />
     <Compile Include="GreaterPotionOfResistance.cs" />
+    <Compile Include="GreaterPowerBoost.cs" />
+    <Compile Include="GreaterResistanceBoost.cs" />
     <Compile Include="Harpy.cs" />
     <Compile Include="HealingLight.cs" />
     <Compile Include="Hellhound.cs" />
@@ -128,12 +133,17 @@
     <Compile Include="LeatherGloves.cs" />
     <Compile Include="LeatherHelmet.cs" />
     <Compile Include="LeatherVest.cs" />
+    <Compile Include="LesserDefenseBoost.cs" />
+    <Compile Include="LesserMagicBoost.cs" />
     <Compile Include="LesserPotionOfDefense.cs" />
     <Compile Include="LesserPotionOfHealth.cs" />
     <Compile Include="LesserPotionOfMagic.cs" />
     <Compile Include="LesserPotionOfMana.cs" />
     <Compile Include="LesserPotionOfPower.cs" />
     <Compile Include="LesserPotionOfResistance.cs" />
+    <Compile Include="LesserPowerBoost.cs" />
+    <Compile Include="LesserResistanceBoost.cs" />
+    <Compile Include="MagicBoost.cs" />
     <Compile Include="ManaRegeneration.cs" />
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
@@ -156,9 +166,12 @@
     <Compile Include="PotionOfHealthRegeneration.cs" />
     <Compile Include="PotionOfMagic.cs" />
     <Compile Include="PotionOfMana.cs" />
+    <Compile Include="PotionOfManaRegeneration.cs" />
     <Compile Include="PotionOfPower.cs" />
     <Compile Include="PotionOfResistance.cs" />
     <Compile Include="HealthRegeneration.cs" />
+    <Compile Include="PowerBoost.cs" />
+    <Compile Include="ResistanceBoost.cs" />
     <Compile Include="Rogue.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="RuneOfCreation.cs" />

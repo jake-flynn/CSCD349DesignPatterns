@@ -22,10 +22,9 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Lesser Power Potion");
-            _effect.setEffectName("Slightly increases power by ");
-            _effect.setEffectAmount(3);
-            _effect.setStrengthValue(3);
+            _effect.setEffectName("Slightly increases power by 3 for three turns.");
             this.setEffect(_effect);
+            setStatusEffect(new LesserPowerBoost());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/potionofpower.jpg", UriKind.RelativeOrAbsolute));

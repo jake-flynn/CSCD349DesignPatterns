@@ -22,10 +22,9 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             this.setItemName("Greater Resistance Potion");
-            _effect.setEffectName("Greatly increase resistance by ");
-            _effect.setEffectAmount(10);
-            _effect.setResistanceDefense(10);
+            _effect.setEffectName("Greatly increase resistance by 10 for five turns.");
             this.setEffect(_effect);
+            setStatusEffect(new GreaterResistanceBoost());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/potionofresistance.png", UriKind.RelativeOrAbsolute));

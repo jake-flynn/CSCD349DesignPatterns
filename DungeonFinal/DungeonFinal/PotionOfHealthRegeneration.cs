@@ -25,14 +25,12 @@ namespace DungeonFinal
             _effect.setEffectName("Heals by ");
             setEffect(_effect);
             setHasStatusEffect(true);
-          //  setStatusEffect(new HealthRegeneration());
+            setStatusEffect(new HealthRegeneration());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/Super_Health_Potion.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }
-
-
     }
 }
