@@ -14,21 +14,20 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class PotionOfHealthRegeneration : Consumable
+    class PotionOfRejuvenation : Consumable
     {
         ItemsEffect _effect;
 
-        public PotionOfHealthRegeneration() : base()
+        public PotionOfRejuvenation() : base()
         {
             _effect = new ItemsEffect();
-            setItemName("Health Regeneration Potion");
-            _effect.setEffectName("Restores health by 15 for four turns.");
-            setEffect(_effect);
-            setHasStatusEffect(true);
-            setStatusEffect(new HealthRegeneration());
+            this.setItemName("Rejuvenation Potion");
+            _effect.setEffectName("Restores mana and health by 15 for four turns.");
+            this.setEffect(_effect);
+            setStatusEffect(new Rejuvenation());
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/Super_Health_Potion.png", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/Fullrejuv.gif", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }

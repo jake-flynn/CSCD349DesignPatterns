@@ -39,8 +39,8 @@ namespace DungeonFinal
 
         public string equip(Hero _hero)
         {
-            _hero.setCurHealth(_hero.getCurHealth() + getEffect().getHealthValue());
-            _hero.setCurMana(_hero.getCurMana() + getEffect().getManaValue());
+            _hero.setMaxHealth(_hero.getMaxHealth() + getEffect().getHealthValue());
+            _hero.setMaxMana(_hero.getMaxMana() + getEffect().getManaValue());
             _hero.setModStrength(_hero.getModStrength() + getEffect().getStrengthValue());
             _hero.setModMagic(_hero.getModMagic() + getEffect().getMagicValue());
             _hero.setModDefense(_hero.getModDefense() + getEffect().getPhysicalDefenseValue());
@@ -50,8 +50,8 @@ namespace DungeonFinal
 
         public Equipment unEquip(Hero _hero)
         {
-            _hero.setCurHealth(_hero.getCurHealth() - getEffect().getHealthValue());
-            _hero.setCurMana(_hero.getCurMana() - getEffect().getManaValue());
+            _hero.setMaxHealth(_hero.getMaxHealth() - getEffect().getHealthValue());
+            _hero.setMaxMana(_hero.getMaxMana() - getEffect().getManaValue());
             _hero.setModStrength(_hero.getModStrength() - getEffect().getStrengthValue());
             _hero.setModMagic(_hero.getModMagic() - getEffect().getMagicValue());
             _hero.setModDefense(_hero.getModDefense() - getEffect().getPhysicalDefenseValue());

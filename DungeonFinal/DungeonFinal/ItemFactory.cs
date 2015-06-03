@@ -29,7 +29,7 @@ namespace DungeonFinal
             if(tierLevel == 1)
             {
                 var randomNumber = new Random();
-                int choice = randomNumber.Next(6) + 1;
+                int choice = randomNumber.Next(7) + 1;
 
                 if(choice == 1)
                 {
@@ -59,6 +59,16 @@ namespace DungeonFinal
                 else if(choice == 6)
                 {
                     return new LesserPotionOfPower();
+                }
+
+                else if(choice == 7)
+                {
+                    return new LesserPotionOfRejuvenation();
+                }
+
+                else if(choice == 8)
+                {
+                    return new LesserPotionOfHealthRegeneration();
                 }
             }
 

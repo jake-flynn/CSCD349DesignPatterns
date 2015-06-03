@@ -34,14 +34,15 @@ namespace DungeonFinal
                 _Equipment[x] = new NullItemEquipment();
             }
 
-            this.addLastToConsumable(new LesserPotionOfHealth());
-            this.addLastToConsumable(new PotionOfHealth());
-            this.addLastToConsumable(new LesserPotionOfMana());
-            this.addLastToConsumable(new PotionOfMana());
-            this.addLastToConsumable(new PotionOfHealthRegeneration());
-            this.addLastToConsumable(new PotionOfMagic());
+            //this.addLastToConsumable(new LesserPotionOfHealth());
+            //this.addLastToConsumable(new PotionOfHealth());
+            //this.addLastToConsumable(new LesserPotionOfMana());
+            //this.addLastToConsumable(new PotionOfMana());
+            //this.addLastToConsumable(new PotionOfHealthRegeneration());
+            //this.addLastToConsumable(new PotionOfMagic());
             this.addLastToConsumable(new PotionOfManaRegeneration());
             this.addLastToConsumable(new PotionOfPower());
+            this.addLastToConsumable(new PotionOfResistance());
 
             this.addLastToEquipment(new BronzeSword());
             this.addLastToEquipment(new BronzeHelmet());

@@ -14,18 +14,18 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class PotionOfHealthRegeneration : Consumable
+    class GreaterPotionOfHealthRegeneration : Consumable
     {
         ItemsEffect _effect;
 
-        public PotionOfHealthRegeneration() : base()
+        public GreaterPotionOfHealthRegeneration() : base()
         {
             _effect = new ItemsEffect();
-            setItemName("Health Regeneration Potion");
-            _effect.setEffectName("Restores health by 15 for four turns.");
+            setItemName("Greater Health Regeneration Potion");
+            _effect.setEffectName("Restores health by 20 for four turns.");
             setEffect(_effect);
             setHasStatusEffect(true);
-            setStatusEffect(new HealthRegeneration());
+            setStatusEffect(new GreaterHealthRegeneration());
 
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/Super_Health_Potion.png", UriKind.RelativeOrAbsolute));
