@@ -24,6 +24,10 @@
         <Button x:Name="btn_Char1_Footwear" Content="Button" HorizontalAlignment="Left" Margin="404,317,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Footwear_Click"/>
         <Button x:Name="btn_Char1_Weapon" Content="Button" HorizontalAlignment="Left" Margin="220,217,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Weapon_Click"/>
         <Button x:Name="btn_Char1_Gloves" Content="Button" HorizontalAlignment="Left" Margin="307,317,0,0" VerticalAlignment="Top" Width="53" Height="18" Click="btn_Char1_Gloves_Click"/>
+       
+        
+        <Rectangle x:Name="rect_Hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="601,94,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="lbl_Hero1" Content="Label" HorizontalAlignment="Left" Margin="824,133,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

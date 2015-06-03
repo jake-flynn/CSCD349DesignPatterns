@@ -268,7 +268,7 @@ namespace DungeonFinal
         public String getStats()
         {
             String s = "Strength: " + getModStrength() + "\nMagic: " + getModMagic() + "\nDefense: " + getModDefense() + "\nResistance: " + getModResistance();
-            return _Stats;
+            return s;
         }
 
         public void setStats(String s)

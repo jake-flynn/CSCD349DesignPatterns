@@ -46,6 +46,9 @@ namespace DungeonFinal
             rect_Char1_Gloves.Fill = _TheHeroes[0].getGloves().getImageBrush();
             rect_Char1_Body.Fill = _TheHeroes[0].getTorso().getImageBrush();
             rect_Char1_Weapon.Fill = _TheHeroes[0].getWeapon().getImageBrush();
+
+            rect_Hero1.Fill = _TheHeroes[0].getImageBrush();
+            lbl_Hero1.Content = _TheHeroes[0].getStats();
         }
 
         private void changeHelmet(Hero hero)
