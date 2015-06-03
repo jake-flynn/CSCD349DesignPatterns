@@ -40,7 +40,7 @@ namespace DungeonFinal
             {
                // _statusEffect.setHero(_hero);
                 //MessageBox.Show(_statusEffect.getHero().getName());
-                _hero.Subscribe(new Curse(_hero));
+                _hero.Subscribe(new HealthRegeneration(_hero));
                 //_statusEffect.getHero().setCurHealth(_statusEffect.getHero().getCurHealth() + 20);
             }
 

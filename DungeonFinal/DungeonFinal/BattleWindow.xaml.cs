@@ -211,7 +211,7 @@ namespace DungeonFinal
         private async void monsterAttack() //Monster attacks!
         {  
             Monster mon = _monster;
-            Hero hero = mon.FindTarget(_theParty);
+            Hero hero = _theHeroes[0];//mon.FindTarget(_theParty);
             int monsterDamage;
 
             var randomGeneratedNumber = new Random();
@@ -447,7 +447,7 @@ namespace DungeonFinal
                 monsterAttack();                
                 checkForDefeatedUnit();
             }
-            incrementEffects();
+            //incrementEffects();
             foreach(Hero h in _theHeroes)
             {
                 String effectString = "";

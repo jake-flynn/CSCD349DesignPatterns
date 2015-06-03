@@ -401,12 +401,15 @@ namespace DungeonFinal
         //Notify - handles each effect on the hero and removes an effect if the duration == 0
         public string Notify()
         {
-            string retString = ""; 
+            string retString = "";
 
+            int ctr = 0;
+            
             foreach(StatusEffect e in _EffectList)
             {
+                MessageBox.Show("Number off effects: " + ctr);
                 retString += e.Modify();
-
+                ctr++;
                 if(e.getDuration() <= 0)
                 {
                     Unsubscribe(e);
