@@ -202,7 +202,11 @@
     <Compile Include="Sphynx.cs" />
     <Compile Include="StatusEffect.cs" />
     <Compile Include="SteelAxe.cs" />
+    <Compile Include="SteelBoots.cs" />
+    <Compile Include="SteelChestPlate.cs" />
     <Compile Include="SteelDagger.cs" />
+    <Compile Include="SteelGloves.cs" />
+    <Compile Include="SteelHelmet.cs" />
     <Compile Include="SteelStaff.cs" />
     <Compile Include="SteelSword.cs" />
     <Compile Include="Stun.cs" />
