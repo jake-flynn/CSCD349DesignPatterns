@@ -125,6 +125,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -133,7 +134,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
 
         public override Object Clone(int count)
         {

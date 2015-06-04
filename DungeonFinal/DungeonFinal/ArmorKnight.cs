@@ -22,6 +22,8 @@ namespace DungeonFinal
         public ArmorKnight()
         {
             setName("Armor Knight");
+
+           //Stats
             setBaseHealth(275);
             setCurHealth(275);
             setMaxHealth(275);
@@ -29,7 +31,6 @@ namespace DungeonFinal
             setCurMana(70);
             setMaxMana(70);
 
-            //Main stats are out of 40 points
             setBaseStrength(10);
             setModStrength(10);
             setBaseMagic(0);
@@ -39,19 +40,31 @@ namespace DungeonFinal
             setBaseResistance(12);
             setModResistance(12);
 
+           //Special Attack
+            setCanSpecialAttack(true);
+
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setCanAttack(true);
+
+           //Defend
             setIsDefending(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Equipment
+            setHelmet(new NullItemEquipment());
+            setTorso(new NullItemEquipment());
+            setGloves(new NullItemEquipment());
+            setBoots(new NullItemEquipment());
+            setWeapon(new NullItemEquipment());
+
+           //Identity
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/ArmorKnight.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-
-            setCanAttack(true);
-            setCanSpecialAttack(true);
         }
 
 
@@ -65,8 +78,8 @@ namespace DungeonFinal
             return s;
         }
 
-        /*PerformSpecialAttack - Taunt*/
-        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        /*PerformSpecialAttack - Taunt monsters to attack THIS ArmorKnight */
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
             Hero[] party = theParty.getAllHeroes();
 
@@ -81,7 +94,7 @@ namespace DungeonFinal
             }
 
             setCurMana(getCurMana() - 15);
-            return (getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
+            return (getName() + " performed Healing Light for 20 healing across whole party and reset all stats!");
         }
 
         /*Battle - Defend*/
@@ -102,14 +115,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-J6UohVY0-2Y/VV7poKYTrEI/AAAAAAAAAws/Xmdq1-qREdI/w506-h900/Cleric.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Brush getTextColor()
         {

@@ -178,7 +178,9 @@ namespace DungeonFinal
 
         private string specialMove(Hero hero, int whichHero)
         {
-            string toReturn = hero.PerformSpecialAttack(_theParty, whichHero, _monster);
+            Monster[] justOneMonster = new Monster[1];
+            justOneMonster[0] = _monster;
+            string toReturn = hero.PerformSpecialAttack(_theParty, whichHero, justOneMonster);
             updateVisuals();
             checkForDefeatedUnit();
             return toReturn;

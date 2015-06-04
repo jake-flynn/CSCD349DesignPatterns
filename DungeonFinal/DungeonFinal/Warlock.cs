@@ -22,6 +22,8 @@ namespace DungeonFinal
         public Warlock()
         {
             setName("Warlock");
+
+           //Stats
             setMaxHealth(160);
             setBaseHealth(160);
             setCurHealth(160);
@@ -29,8 +31,6 @@ namespace DungeonFinal
             setBaseMana(220);
             setCurMana(220);
             
-
-            //Main stats are out of 40 points
             setBaseStrength(0);
             setModStrength(0);
             setBaseMagic(15);
@@ -40,25 +40,31 @@ namespace DungeonFinal
             setBaseResistance(6);
             setModResistance(6);
 
+           //Special Attack
+            setCanSpecialAttack(true);
+
+           //Attack
+            setIsPhysical(false);
+            setIsDefeated(false);
+            setCanAttack(true);
+
+           //Defend
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
+
+           //Equipment
             setHelmet(new NullItemEquipment());
             setTorso(new NullItemEquipment());
             setGloves(new NullItemEquipment());
             setBoots(new NullItemEquipment());
             setWeapon(new NullItemEquipment());
 
-            setIsPhysical(false);
-            setIsDefeated(false);
-            setIsDefending(false);
-            setDefendingDefense(getDefendingDefense());
-            setDefendingResistance(getDefendingResistance());
-
+           //Identity
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Warlock.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            setImageBrush(imgBrush);
-
-            setCanAttack(true);
-            setCanSpecialAttack(true);
+            setImageBrush(imgBrush);  
         }
 
 
@@ -73,22 +79,18 @@ namespace DungeonFinal
         }
 
         /*PerformSpecialAttack - AoE attack to all monsters*/
-        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
             Hero[] party = theParty.getAllHeroes();
 
-            foreach (Hero h in party)
+            foreach (Monster mon in monsters)
             {
-
-                h.setCurHealth(h.getCurHealth() + getModMagic());
-                h.setModStrength(h.getBaseStrength());
-                h.setModMagic(h.getBaseMagic());
-                h.setModDefense(h.getBaseDefense());
-                h.setModResistance(h.getBaseResistance());
+                mon.setCurHealth(mon.getCurHealth() - (mon.getModResistance() - getModMagic()));
             }
 
             setCurMana(getCurMana() - 15);
-            return (getName() + " performed Healing Light for " + getModMagic() + " healing accross whole party and reset all stats!");
+
+            return (getName() + " performed Firestorm for " + (monsters[0].getModResistance() - getModMagic()) + " damage across all monsters!");
         }
 
         /*Battle - Defend*/
@@ -109,14 +111,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-J6UohVY0-2Y/VV7poKYTrEI/AAAAAAAAAws/Xmdq1-qREdI/w506-h900/Cleric.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Brush getTextColor()
         {

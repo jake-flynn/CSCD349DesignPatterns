@@ -22,14 +22,14 @@ namespace DungeonFinal
         public Cleric()
         {
             setName("Cleric");
+
+           //Stats
             setMaxHealth(150);
             setBaseHealth(150);
             setCurHealth(150);
-
             setMaxMana(200);
             setBaseMana(200);
             setCurMana(200);
-            
 
             setBaseStrength(0);
             setModStrength(0);
@@ -40,25 +40,31 @@ namespace DungeonFinal
             setBaseResistance(8);
             setModResistance(8);
 
+           //Special Attack
+            setCanSpecialAttack(true);
+
+           //Attack
+            setIsPhysical(false);
+            setIsDefeated(false);
+            setCanAttack(true);
+
+           //Defend
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
+
+           //Equipment
             setHelmet(new NullItemEquipment());
             setTorso(new NullItemEquipment());
             setGloves(new NullItemEquipment());
             setBoots(new NullItemEquipment());
             setWeapon(new NullItemEquipment());
 
-            setIsPhysical(false);
-            setIsDefeated(false);
-            setIsDefending(false);
-            setDefendingDefense(getDefendingDefense());
-            setDefendingResistance(getDefendingResistance());
-
+           //Identity
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Cleric.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-
-            setCanAttack(true);
-            setCanSpecialAttack(true);
         }
 
 
@@ -73,22 +79,17 @@ namespace DungeonFinal
         }
 
         /*PerformSpecialAttack - heals whole party for magic stat and removes debuffs/buffs*/
-        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
             Hero[] party = theParty.getAllHeroes();
 
             foreach (Hero h in party)
             {
-
                 h.setCurHealth(h.getCurHealth() + getModMagic());
-                h.setModStrength(h.getBaseStrength());
-                h.setModMagic(h.getBaseMagic());
-                h.setModDefense(h.getBaseDefense());
-                h.setModResistance(h.getBaseResistance());
             }
 
             setCurMana(getCurMana() - 15);
-            return(getName() + " performed Healing Light for 20 healing accross whole party and reset all stats!");
+            return(getName() + " performed Healing Light for " + getModMagic() + " healing across whole party and reset all stats!");
         }
 
         /*Battle - Defend*/
