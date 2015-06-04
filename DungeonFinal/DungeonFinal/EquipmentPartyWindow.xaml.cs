@@ -238,6 +238,87 @@ namespace DungeonFinal
             changeWeapon(_TheHeroes[0]);
         }
 
+        //------------------------------------//
+
+        private void btn_Hero2_Helm_Click(object sender, RoutedEventArgs e)
+        {
+            changeHelmet(_TheHeroes[1]);
+        }
+
+        private void btn_Hero2_Body_Click(object sender, RoutedEventArgs e)
+        {
+            changeTorso(_TheHeroes[1]);
+        }
+
+        private void btn_Hero2_Gloves_Click(object sender, RoutedEventArgs e)
+        {
+            changeGloves(_TheHeroes[1]);
+        }
+
+        private void btn_Hero2_Footwear_Click(object sender, RoutedEventArgs e)
+        {
+            changeBoots(_TheHeroes[1]);
+        }
+
+        private void btn_Hero2_Weapon_Click(object sender, RoutedEventArgs e)
+        {
+            changeWeapon(_TheHeroes[1]);
+        }
+
+        //------------------------------------//
+        
+        private void btn_Hero3_Helm_Click(object sender, RoutedEventArgs e)
+        {
+            changeHelmet(_TheHeroes[2]);
+        }
+
+        private void btn_Hero3_Body_Click(object sender, RoutedEventArgs e)
+        {
+            changeTorso(_TheHeroes[2]);
+        }
+
+        private void btn_Hero3_Footwear_Click(object sender, RoutedEventArgs e)
+        {
+            changeBoots(_TheHeroes[2]);
+        }
+
+        private void btn_Hero3_Gloves_Click(object sender, RoutedEventArgs e)
+        {
+            changeGloves(_TheHeroes[2]);
+        }
+
+        private void btn_Hero3_Weapon_Click(object sender, RoutedEventArgs e)
+        {
+            changeWeapon(_TheHeroes[2]);
+        }
+
+        //------------------------------------//
+
+        private void btn_Hero4_Helm_Click(object sender, RoutedEventArgs e)
+        {
+            changeHelmet(_TheHeroes[3]);
+        }
+
+        private void btn_Hero4_Body_Click(object sender, RoutedEventArgs e)
+        {
+            changeTorso(_TheHeroes[3]);
+        }
+
+        private void btn_Hero4_Footwear_Click(object sender, RoutedEventArgs e)
+        {
+            changeBoots(_TheHeroes[3]);
+        }
+
+        private void btn_Hero4_Gloves_Click(object sender, RoutedEventArgs e)
+        {
+            changeGloves(_TheHeroes[3]);
+        }
+
+        private void btn_Hero4_Weapon_Click(object sender, RoutedEventArgs e)
+        {
+            changeWeapon(_TheHeroes[3]);
+        }
+
         
     }
 }

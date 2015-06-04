@@ -17,9 +17,14 @@ namespace DungeonFinal
 {
     public class ItemFactory
     {
+        private static Random randomNumber;
         public ItemFactory()
         {
-
+            if (randomNumber == null)
+            {
+                randomNumber = new Random();
+            }
+            
         }
 
         public Consumable createConsumable(int tierLevel)
@@ -28,7 +33,7 @@ namespace DungeonFinal
 
             if(tierLevel == 1)
             {
-                var randomNumber = new Random();
+                
                 int choice = randomNumber.Next(9) + 1;
 
                 if(choice == 1)
@@ -129,8 +134,7 @@ namespace DungeonFinal
             }
 
             else if(tierLevel == 3)
-            {
-                var randomNumber = new Random();
+            {                
                 int choice = randomNumber.Next(6) + 1;
 
                 if (choice == 1)
@@ -187,8 +191,7 @@ namespace DungeonFinal
             Equipment newItem = new NullItemEquipment();
 
             if (tierLevel == 1)
-            {
-                var randomNumber = new Random();
+            {                
                 int choice = randomNumber.Next(16) + 1;
 
                 if (choice == 1)
@@ -271,7 +274,6 @@ namespace DungeonFinal
                     return new LeatherVest();
                 }
 
-
                 //if (choice == 1)
                 //{
                 //    return new SimpleSword();
@@ -296,8 +298,7 @@ namespace DungeonFinal
             }
 
             else if (tierLevel == 2)
-            {
-                var randomNumber = new Random();
+            {                
                 int choice = randomNumber.Next(16) + 1;
 
                 if (choice == 1)
@@ -382,8 +383,7 @@ namespace DungeonFinal
             }
 
             else if (tierLevel == 3)
-            {
-                var randomNumber = new Random();
+            {                
                 int choice = randomNumber.Next(16) + 1;
 
                 if(choice == 1)
@@ -488,8 +488,7 @@ namespace DungeonFinal
             }
 
             else if (tierLevel == 4)
-            {
-                var randomNumber = new Random();
+            {                
                 int choice = randomNumber.Next(1) + 1;
 
                 if (choice == 1)

@@ -417,7 +417,7 @@ namespace DungeonFinal
         //------------------------------- Identity Methods -------------------------------
         public String getStats()
         {
-            String s = "Strength: " + getModStrength() + "\nMagic: " + getModMagic() + "\nDefense: " + getModDefense() + "\nResistance: " + getModResistance();
+            String s = "Strength: " + getBaseStrength() + " + " + (getModStrength() - getBaseStrength()) + "\nMagic: " + getBaseMagic() + " + " + (getModMagic() - getBaseMagic()) + "\nDefense: " + getModDefense() + " + " + (getModDefense() - getBaseDefense()) + "\nResistance: " + getModResistance() + " + " + (getModResistance() - getBaseResistance());
             return s;
         }
 
