@@ -450,6 +450,7 @@ namespace DungeonFinal
             //incrementEffects();
             foreach(Hero h in _theHeroes)
             {
+                await Task.Delay(400);
                 String effectString = "";
                 effectString = h.Notify();
 
@@ -458,6 +459,7 @@ namespace DungeonFinal
                     Foreground = Brushes.Fuchsia
                 });
                 _Paragraph.Inlines.Add(new LineBreak());
+                updateVisuals();
             }
         }
 

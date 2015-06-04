@@ -405,14 +405,14 @@ namespace DungeonFinal
 
             int ctr = 0;
             
-            foreach(StatusEffect e in _EffectList)
+            foreach(StatusEffect effect in _EffectList)
             {
-                MessageBox.Show("Number off effects: " + ctr);
-                retString += e.Modify();
+                //await Task.Delay(400);
+                retString += effect.Modify();
                 ctr++;
-                if(e.getDuration() <= 0)
+                if(effect.getDuration() <= 0)
                 {
-                    Unsubscribe(e);
+                    Unsubscribe(effect);
                 }
             }
 
