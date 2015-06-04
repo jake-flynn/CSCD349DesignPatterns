@@ -51,32 +51,54 @@ namespace DungeonFinal
         public Hero[] getAliveHeroes()
         {
             Hero[] _AliveHeroes;
-            int _numberOfHerosAlive = 0;
+            int _numberOfHeroesAlive = 0;
+            int _numberOfHeroesTaunting = 0;
+
             foreach(Hero h in _dungeonParty)
             {
                 if(!h.getIsDefeated())
                 {
-                    _numberOfHerosAlive++;
+                    _numberOfHeroesAlive++;
+
+                    if(h.getIsTaunting())
+                    {
+                        _numberOfHeroesTaunting++;
+                    }
                 }
             }
 
-            _AliveHeroes = new Hero[_numberOfHerosAlive];
+            _AliveHeroes = new Hero[_numberOfHeroesAlive];
             int _nextAvailableIndex = 0;
 
-            for(int x = 0; x < 4; x++)
+
+
+            //If there is a hero(es) who is/are alive and taunting, make an array of that FIRST
+            if(_numberOfHeroesTaunting > 0)
             {
-                if(!_dungeonParty[x].getIsDefeated())
+                for(int y = 0; y < 4; y++)
                 {
-                    _AliveHeroes[_nextAvailableIndex] = _dungeonParty[x];
-                    _nextAvailableIndex++;
+                    if (!_dungeonParty[y].getIsDefeated() && _dungeonParty[y].getIsTaunting())
+                    {
+                        _AliveHeroes[_nextAvailableIndex] = _dungeonParty[y];
+                        _nextAvailableIndex++;
+                    }
                 }
             }
 
-            
-
+            //If not, create an array of all alive hero(es)
+            else
+            {
+                for (int x = 0; x < 4; x++)
+                {
+                    if (!_dungeonParty[x].getIsDefeated())
+                    {
+                        _AliveHeroes[_nextAvailableIndex] = _dungeonParty[x];
+                        _nextAvailableIndex++;
+                    }
+                }
+            }
 
             return _AliveHeroes;
-
         }
 
         public int getCurrentPartyMembers()

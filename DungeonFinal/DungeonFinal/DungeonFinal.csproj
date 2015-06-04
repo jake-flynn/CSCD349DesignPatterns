@@ -239,6 +239,7 @@
     <Compile Include="SteelSword.cs" />
     <Compile Include="Stun.cs" />
     <Compile Include="Swordsman.cs" />
+    <Compile Include="Taunt.cs" />
     <Compile Include="ThrowKnives.cs" />
     <Compile Include="Ultima.cs" />
     <Compile Include="VampireBat.cs" />
