@@ -22,13 +22,14 @@ namespace DungeonFinal
         public Swordsman()
         {
             setName("Swordsman");
+
+           //Stats
             setMaxHealth(225);
             setBaseHealth(225);
             setCurHealth(225);
             setMaxMana(110);
             setBaseMana(110);
             setCurMana(110);
-            
 
             setBaseStrength(15);
             setModStrength(15);
@@ -39,25 +40,31 @@ namespace DungeonFinal
             setBaseResistance(5);
             setModResistance(5);
 
+           //Special Attack
+            setCanSpecialAttack(true);
+
+           //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setCanAttack(true);
+
+           //Defend
             setIsDefending(false);
             setDefendingDefense(this.getDefendingDefense());
             setDefendingResistance(this.getDefendingResistance());
 
+           //Equipment
             setHelmet(new NullItemEquipment());
             setTorso(new NullItemEquipment());
             setGloves(new NullItemEquipment());
             setBoots(new NullItemEquipment());
             setWeapon(new NullItemEquipment());
 
+           //Identity
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Swordsman.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-
-            setCanAttack(true);
-            setCanSpecialAttack(true);
         }
 
 
@@ -73,7 +80,7 @@ namespace DungeonFinal
         }
 
         /*PerformSpecialAttack - attacks for 1.5 strength and buffs strength and defense for 5*/
-        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
             //Buff Strength and Defense
             setModDefense(getModDefense() + 5);
@@ -81,8 +88,14 @@ namespace DungeonFinal
 
             //Damage Monster
             int dmg = (int)(getModStrength() * 1.5);
-            mon.setCurHealth(mon.getCurHealth() - dmg);
+            var cWindow = new ChoiceWindow(monsters);
+
+            cWindow.ShowDialog();
+            int monsterToAttack = cWindow.getChoiceFromSelect();
+
+            monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - dmg);
             setCurMana(getCurMana() - 15);
+
             return(getName() + " buffed own defense and strength by 5! Performed a Blade Slash for " + dmg + " damage!");
         }
 
@@ -104,14 +117,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-jwP2jq5N8vk/VV7qG6mhNWI/AAAAAAAAA1Q/MCdr_HdAZnw/w506-h731/Swordsman.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Brush getTextColor()
         {

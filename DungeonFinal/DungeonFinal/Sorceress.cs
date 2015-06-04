@@ -22,6 +22,8 @@ namespace DungeonFinal
         public Sorceress()
         {
             setName("Sorceress");
+
+           //Stats
             setMaxHealth(140);
             setBaseHealth(140);
             setCurHealth(140);
@@ -29,8 +31,6 @@ namespace DungeonFinal
             setBaseMana(120);
             setCurMana(120);
             
-
-            //Main stats are out of 40 points
             setBaseStrength(0);
             setModStrength(0);
             setBaseMagic(20);
@@ -40,25 +40,31 @@ namespace DungeonFinal
             setBaseResistance(5);
             setModResistance(5);
 
+           //Special Attack
+            setCanSpecialAttack(true);
+
+           //Attack
+            setIsPhysical(false);
+            setIsDefeated(false);
+            setCanAttack(true);
+
+           //Defend
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
+
+           //Equipment
             setHelmet(new NullItemEquipment());
             setTorso(new NullItemEquipment());
             setGloves(new NullItemEquipment());
             setBoots(new NullItemEquipment());
             setWeapon(new NullItemEquipment());
 
-            setIsPhysical(false);
-            setIsDefeated(false);
-            setIsDefending(false);
-            setDefendingDefense(getDefendingDefense());
-            setDefendingResistance(getDefendingResistance());
-
+           //Identity
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Sorceress.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            setImageBrush(imgBrush);
-
-            setCanAttack(true);
-            setCanSpecialAttack(true);
+            setImageBrush(imgBrush); 
         }
 
 
@@ -73,15 +79,18 @@ namespace DungeonFinal
         }
 
         /*PerformSpecialAttack - Strong magic attack to one enemy*/
-        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
-            Hero[] party = theParty.getAllHeroes();
-            int damage = party[whichHero].getModMagic() * 2;
+            int damage = getModMagic() * 2;
+            var cWindow = new ChoiceWindow(monsters);
 
-            mon.setCurHealth(mon.getCurHealth() - damage);
+            cWindow.ShowDialog();
+            int monsterToAttack = cWindow.getChoiceFromSelect();
+
+            monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - (monsters[monsterToAttack].getModResistance() - damage));
             setCurMana(getCurMana() - 15);
 
-            return (getName() + " performed Bizzard for " + damage + " to monster!");
+            return (getName() + " performed Blizzard for " + (monsters[monsterToAttack].getModResistance() - damage) + " to monster!");
         }
 
         /*Battle - Defend*/
@@ -102,14 +111,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-J6UohVY0-2Y/VV7poKYTrEI/AAAAAAAAAws/Xmdq1-qREdI/w506-h900/Cleric.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Brush getTextColor()
         {

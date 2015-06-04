@@ -63,7 +63,7 @@ namespace DungeonFinal
             _AliveHeroes = new Hero[_numberOfHerosAlive];
             int _nextAvailableIndex = 0;
 
-            for(int x = 0; x < _numberOfHerosAlive; x++)
+            for(int x = 0; x < 4; x++)
             {
                 if(!_dungeonParty[x].getIsDefeated())
                 {

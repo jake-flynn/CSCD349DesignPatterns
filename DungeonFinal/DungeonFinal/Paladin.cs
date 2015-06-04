@@ -22,6 +22,8 @@ namespace DungeonFinal
         public Paladin()
         {
             setName("Paladin");
+
+           //Stats
             setMaxHealth(250);
             setBaseHealth(250);
             setCurHealth(250);
@@ -29,8 +31,6 @@ namespace DungeonFinal
             setBaseMana(90);
             setCurMana(90);
             
-
-            //Main stats are out of 40 points
             setBaseStrength(12);
             setModStrength(12);
             setBaseMagic(12);
@@ -40,25 +40,31 @@ namespace DungeonFinal
             setBaseResistance(10);
             setModResistance(10);
 
+           //Special Attack
+            setCanSpecialAttack(true);
+
+           //Attack
+            setIsPhysical(true);
+            setIsDefeated(false);
+            setCanAttack(true);
+
+           //Defend
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
+
+           //Equipment
             setHelmet(new NullItemEquipment());
             setTorso(new NullItemEquipment());
             setGloves(new NullItemEquipment());
             setBoots(new NullItemEquipment());
             setWeapon(new NullItemEquipment());
 
-            setIsPhysical(true);
-            setIsDefeated(false);
-            setIsDefending(false);
-            setDefendingDefense(getDefendingDefense());
-            setDefendingResistance(getDefendingResistance());
-
+           //Identity
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Paladin.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-
-            setCanAttack(true);
-            setCanSpecialAttack(true);
         }
 
 
@@ -73,7 +79,7 @@ namespace DungeonFinal
         }
 
         /*PerformSpecialAttack - buffs defense and resistance for 5 accross whole party*/
-        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
             Hero[] party = theParty.getAllHeroes();
 
@@ -103,14 +109,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-9PZ0hjpgspI/VV7p99bG62I/AAAAAAAAAzg/Ejq9YL1hAtM/w506-h764/Paladin.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Brush getTextColor()
         {
