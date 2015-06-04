@@ -41,6 +41,7 @@ namespace DungeonFinal
 
        //Special Attack
         private Boolean _CanSpecialAttack;
+        private Boolean _IsTaunting;
 
        //Attack
         private Boolean _IsPhysical;
@@ -260,6 +261,16 @@ namespace DungeonFinal
         public Boolean getCanSpecialAttack()
         {
             return _CanSpecialAttack;
+        }
+
+        public void setIsTaunting(Boolean iT)
+        {
+            _IsTaunting = iT;
+        }
+
+        public Boolean getIsTaunting()
+        {
+            return _IsTaunting;
         }
 
         //------------------------------- Attack Methods -------------------------------
