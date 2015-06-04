@@ -17,18 +17,18 @@ namespace DungeonFinal
     class Rogue : Hero
     {
         //this is a Rogue Hero, it is a damage dealer, there are 40 points assigned to main stats
-
         
         public Rogue()
         {
             setName("Rogue");
+
+           //Stats
             setMaxHealth(140);
             setBaseHealth(140);
             setCurHealth(140);
             setMaxMana(120);
             setBaseMana(120);
             setCurMana(120);
-            
 
             setBaseStrength(20);
             setModStrength(20);
@@ -39,26 +39,31 @@ namespace DungeonFinal
             setBaseResistance(3);
             setModResistance(3);
 
+           //Special Attack
+            setCanSpecialAttack(true);
+
+           //Attack
+            setIsPhysical(true);
+            setIsDefeated(false);
+            setCanAttack(true);
+
+           //Defend
+            setIsDefending(false);
+            setDefendingDefense(getDefendingDefense());
+            setDefendingResistance(getDefendingResistance());
+
+           //Equipment
             setHelmet(new NullItemEquipment());
             setTorso(new NullItemEquipment());
             setGloves(new NullItemEquipment());
             setBoots(new NullItemEquipment());
             setWeapon(new NullItemEquipment());
 
-            setIsPhysical(true);
-            setIsDefeated(false);
-            setIsDefending(false);
-            setDefendingDefense(getDefendingDefense());
-            setDefendingResistance(getDefendingResistance());
-
-
+           //Identity
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Rogue.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
-            setImageBrush(imgBrush);
-
-            setCanAttack(true);
-            setCanSpecialAttack(true);
+            setImageBrush(imgBrush);   
         }
 
 
@@ -74,12 +79,18 @@ namespace DungeonFinal
         }
 
         /*PerformSpecialAttack - attacks for 2.5 strength*/
-        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
+        public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
-            int dmg = (int)(getModStrength() * 2.5);
+            int damage = (int)(getModStrength() * 2.5);
+            var cWindow = new ChoiceWindow(monsters);
+
+            cWindow.ShowDialog();
+            int monsterToAttack = cWindow.getChoiceFromSelect();
+
             setCurMana(getCurMana() - 15);
-            mon.setCurHealth(mon.getCurHealth() - dmg);
-            return(getName() + " performed Throw Knives for " + dmg + " damage!");
+            monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - (monsters[monsterToAttack].getModDefense() - damage));
+
+            return (getName() + " performed Throw Knives for " + (monsters[monsterToAttack].getModDefense() - damage) + " damage!");
         }
 
         /*Battle - Defend*/
@@ -100,14 +111,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-GqQ6Ja-aahk/VV7qAx0PD8I/AAAAAAAAA0E/tguBh4geous/w506-h647/Rogue.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Brush getTextColor()
         {

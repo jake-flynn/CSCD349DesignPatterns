@@ -18,12 +18,7 @@ namespace DungeonFinal
     {
         private string _Name;
 
-        private Equipment _Helmet;
-        private Equipment _Torso;
-        private Equipment _Boots;
-        private Equipment _Gloves;
-        private Equipment _Weapon;
-
+       //Stats
         private int _BaseHealth = 100;
         private int _CurHealth = 100;
         private int _MaxHealth = 100;
@@ -44,48 +39,38 @@ namespace DungeonFinal
         private int _BaseResistance = 1;
         private int _ModResistance = 1;
 
-        private String _Stats;
-        
-        private Boolean _IsPhysical;
-        private Boolean _IsDefeated;
-        private Boolean _IsDefending;
-
-        private int _DefendingDefense;
-        private int _DefendingResistance;
-        private ImageBrush _ImageBrush;
-
-        private LinkedList<StatusEffect> _EffectList = new LinkedList<StatusEffect>();
-        private Boolean _CanAttack;
+       //Special Attack
         private Boolean _CanSpecialAttack;
 
+       //Attack
+        private Boolean _IsPhysical;
+        private Boolean _IsDefeated;
+        private Boolean _CanAttack;
+
+       //Defend
+        private Boolean _IsDefending;
+        private int _DefendingDefense;
+        private int _DefendingResistance;
+
+       //Status Effects
+        private LinkedList<StatusEffect> _EffectList = new LinkedList<StatusEffect>();
+
+       //Equipment
+        private Equipment _Helmet;
+        private Equipment _Torso;
+        private Equipment _Boots;
+        private Equipment _Gloves;
+        private Equipment _Weapon;
+
+       //Identity
+        private String _Stats;
+        private ImageBrush _ImageBrush;
 
         public Hero(){}
 
-
         /*
-         * Heroes: Swordsman, Paladin, Cleric, Rogue         40 points assigned to primary stats
+         * Heroes: ArmorKnight, Cleric, Monk, Paladin, Rogue, Sorceress, Swordsman, Warlock
          */
-        public Hero(int i)
-        {
-            if (i == 1)
-            {
-                new Swordsman();
-            }
-            else if (i == 2)
-            {           
-                new Paladin();
-            }
-            else if (i == 3)
-            {              
-                new Cleric();
-            }
-            else if(i == 4)
-            {
-                new Rogue();
-            }
-
-            _BaseHealth = 100;
-        }
 
     /*---------------------------------------------------------------------------------------*/
     /*                              Get/Set Methods                                          */
@@ -101,7 +86,8 @@ namespace DungeonFinal
             _Name = n;
         }
 
-        //------------------------------- Health -------------------------------
+        //------------------------------- Stats -------------------------------
+        //Health
         public int getBaseHealth()
         {
             return _BaseHealth;
@@ -118,8 +104,6 @@ namespace DungeonFinal
         }
         public void setCurHealth(int h)
         {
-            //MessageBox.Show("Max health:" + getMaxHealth() + "");
-            //MessageBox.Show("Cur health:" + getCurHealth() + "");
             if(h < 0)
             {
                 _CurHealth = 0;
@@ -149,7 +133,8 @@ namespace DungeonFinal
         {
             return _MaxHealth;
         }
-        //------------------------------- Mana -------------------------------
+
+        //Mana
         public int getBaseMana()
         {
             return _BaseMana;
@@ -187,7 +172,8 @@ namespace DungeonFinal
         {
             _MaxMana = m;
         }
-        //------------------------------- Strength -------------------------------
+
+        //Strength
         public int getBaseStrength()
         {
             return _BaseStrength;
@@ -212,7 +198,7 @@ namespace DungeonFinal
                 _ModStrength = s;
             }
         }
-        //------------------------------- Magic -------------------------------
+        //Magic
         public int getBaseMagic()
         {
             return _BaseMagic;
@@ -229,7 +215,7 @@ namespace DungeonFinal
         {
             _ModMagic = m;
         }
-        //------------------------------- Defense -------------------------------
+        //Defense
         public int getBaseDefense()
         {
             return _BaseDefense;
@@ -246,7 +232,8 @@ namespace DungeonFinal
         {
             _ModDefense = d;
         }
-        //------------------------------- Resistance -------------------------------
+
+        //Resistance
         public int getBaseResistance()
         {
             return _BaseResistance;
@@ -264,19 +251,18 @@ namespace DungeonFinal
             _ModResistance = r;
         }
 
-        //------------------------------- Stats -------------------------------
-        public String getStats()
+        //------------------------------- Special Attack Methods -------------------------------
+        public void setCanSpecialAttack(Boolean cSA)
         {
-            String s = "Strength: " + getModStrength() + "\nMagic: " + getModMagic() + "\nDefense: " + getModDefense() + "\nResistance: " + getModResistance();
-            return s;
+            _CanSpecialAttack = cSA;
         }
 
-        public void setStats(String s)
+        public Boolean getCanSpecialAttack()
         {
-            _Stats = s;
+            return _CanSpecialAttack;
         }
 
-        //------------------------------- Battle Attack -------------------------------
+        //------------------------------- Attack Methods -------------------------------
         public Boolean getIsPhysical()
         {
             return _IsPhysical;
@@ -295,32 +281,17 @@ namespace DungeonFinal
             _IsDefeated = iD;
         }
 
-        //
-        //public void setHelmet(Item newHelm)
-        //{
-        //    _Helmet = newHelm;
-        //}
-
-        //public void getHelmet(Item newHelm)
-        //{
-
-        //}
-
-       //Battle Defend
-
-        //------------------------------- Image Brush -------------------------------
-
-        public void setImageBrush(ImageBrush i)
+        public void setCanAttack(Boolean cA)
         {
-            _ImageBrush = i;
+            _CanAttack = cA;
         }
 
-        public ImageBrush getImageBrush()
+        public Boolean getCanAttack()
         {
-            return _ImageBrush;
+            return _CanAttack;
         }
 
-        //-------------------------------Abstract Methods -------------------------------
+        //------------------------------- Defend Methods -------------------------------
         public Boolean getIsDefending()
         {
             return _IsDefending;
@@ -340,12 +311,47 @@ namespace DungeonFinal
             _DefendingResistance = dr;
         }
 
-
-        public string toString()
+        //------------------------------- Status Effect Methods -------------------------------
+        //Notify - handles each effect on the hero and removes an effect if the duration == 0
+        public string Notify()
         {
-            return _Name;
+            string retString = "";
+
+            int ctr = 0;
+
+            foreach (StatusEffect e in _EffectList)
+            {
+                MessageBox.Show("Number off effects: " + ctr);
+                retString += e.Modify();
+                ctr++;
+                if (e.getDuration() <= 0)
+                {
+                    Unsubscribe(e);
+                }
+            }
+
+            return retString;
         }
-        //------------------------------- Armor Get and Sets -------------------------------
+
+        //Subscribe - adds the specified effect to the _EffectList of the hero
+        public void Subscribe(StatusEffect e)
+        {
+            _EffectList.AddLast(e);
+        }
+
+        //Unsubscribe - removes the first effect of that type from the lists (however, because the effects are added last, 
+        //              the oldest effect will be the first one found through Remove()
+        public void Unsubscribe(StatusEffect e)
+        {
+            _EffectList.Remove(e);
+        }
+
+        public void ClearAllEffects()
+        {
+            _EffectList.Clear();
+        }
+
+        //------------------------------- Equipment Methods -------------------------------
 
         public Equipment getHelmet()
         {
@@ -397,65 +403,30 @@ namespace DungeonFinal
             _Weapon = newWeapon;
         }
 
-        //------------------------------- Effect Subscribe Methods -------------------------------
-        //Notify - handles each effect on the hero and removes an effect if the duration == 0
-        public string Notify()
+        //------------------------------- Identity Methods -------------------------------
+        public String getStats()
         {
-            string retString = "";
-
-            int ctr = 0;
-            
-            foreach(StatusEffect e in _EffectList)
-            {
-                MessageBox.Show("Number off effects: " + ctr);
-                retString += e.Modify();
-                ctr++;
-                if(e.getDuration() <= 0)
-                {
-                    Unsubscribe(e);
-                }
-            }
-
-            return retString;
+            String s = "Strength: " + getModStrength() + "\nMagic: " + getModMagic() + "\nDefense: " + getModDefense() + "\nResistance: " + getModResistance();
+            return s;
         }
 
-        //Subscribe - adds the specified effect to the _EffectList of the hero
-        public void Subscribe(StatusEffect e)
+        public void setStats(String s)
         {
-            _EffectList.AddLast(e);
+            _Stats = s;
         }
 
-        //Unsubscribe - removes the first effect of that type from the lists (however, because the effects are added last, 
-        //              the oldest effect will be the first one found through Remove()
-        public void Unsubscribe(StatusEffect e)
+        public void setImageBrush(ImageBrush i)
         {
-            _EffectList.Remove(e);
+            _ImageBrush = i;
         }
 
-        //------------------------------- Can Attack -------------------------------
-        public void setCanAttack(Boolean cA)
+        public ImageBrush getImageBrush()
         {
-            _CanAttack = cA;
-        }
-
-        public Boolean getCanAttack()
-        {
-            return _CanAttack;
-        }
-
-        //------------------------------- Can Special Attack -------------------------------
-        public void setCanSpecialAttack(Boolean cSA)
-        {
-            _CanSpecialAttack = cSA;
-        }
-
-        public Boolean getCanSpecialAttack()
-        {
-            return _CanSpecialAttack;
+            return _ImageBrush;
         }
 
         //------------------------------- Abstract Methods -------------------------------
-        public abstract String PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
+        public abstract String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters);
         public abstract int BasicAttack();
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
