@@ -168,29 +168,41 @@ namespace DungeonFinal
 
         }
 
-        public void startBattle(Monster m, Party heros)
+        public void startBattle(Monster monster, Party heros)
         {
-            if(m.getIsSwarm())
+            if(monster.getIsSwarm())
             {
                 int rndSwarm = new Random().Next(3) + 1;
                 if(rndSwarm == 1 || rndSwarm == 2)
                 {
-                    SwarmBattle(m, heros);
+                    SwarmBattle(monster, heros);
                 }
                 else
                 {
-                    NormalBattle(m, heros);
+                    NormalBattle(monster, heros);
                 }
             }
             else
             {
-                NormalBattle(m, heros);
+                NormalBattle(monster, heros);
             }
             _MonstersSeen++;
             updateButtonsVisibility();
             //upgradeStats(heros);
-            _TheParty.getInventory().addLastToConsumable(_ItemFactory.createConsumable(1));
-            _TheParty.getInventory().addLastToEquipment(_ItemFactory.createEquipment(1));
+            _TheParty.getInventory().addLastToConsumable(_ItemFactory.createConsumable(monster.getTierNumber()));
+            _TheParty.getInventory().addLastToEquipment(_ItemFactory.createEquipment(monster.getTierNumber()));
+
+            var randomNumberGenerator = new Random();
+            int randomNumber = randomNumberGenerator.Next(1000) + 1;
+            
+            if(randomNumber < 999)
+            {
+                Equipment artifact = _ItemFactory.createEquipment(4);
+                _TheParty.getInventory().addLastToEquipment(artifact);
+                MessageBox.Show("As you sort through the treasures of the fallen monster, your " + _TheParty.getAliveHeroes()[0].getName() + " lets out a shout of excitement. You've found an ancient and powerful artifact: an " + artifact.getItemName() + "!!!");
+            }
+
+            
         }
 
         public void NormalBattle(Monster m, Party heros)
