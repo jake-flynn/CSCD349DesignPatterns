@@ -29,7 +29,7 @@ namespace DungeonFinal
             if(tierLevel == 1)
             {
                 var randomNumber = new Random();
-                int choice = randomNumber.Next(7) + 1;
+                int choice = randomNumber.Next(9) + 1;
 
                 if(choice == 1)
                 {
@@ -70,12 +70,17 @@ namespace DungeonFinal
                 {
                     return new LesserPotionOfHealthRegeneration();
                 }
+
+                else if (choice == 9)
+                {
+                    return new LesserPotionOfManaRegeneration();
+                }
             }
 
             else if(tierLevel == 2)
             {
                 var randomNumber = new Random();
-                int choice = randomNumber.Next(6) + 1;
+                int choice = randomNumber.Next(9) + 1;
 
                 if (choice == 1)
                 {
@@ -105,6 +110,21 @@ namespace DungeonFinal
                 else if (choice == 6)
                 {
                     return new PotionOfMagic();
+                }
+
+                else if (choice == 7)
+                {
+                    return new PotionOfHealthRegeneration();
+                }
+
+                else if (choice == 8)
+                {
+                    return new PotionOfManaRegeneration();
+                }
+
+                else if (choice == 9)
+                {
+                    return new PotionOfRejuvenation();
                 }
             }
 
@@ -142,19 +162,22 @@ namespace DungeonFinal
                 {
                     return new GreaterPotionOfPower();
                 }
+
+                else if (choice == 7)
+                {
+                    return new GreaterPotionOfHealthRegeneration();
+                }
+
+                else if (choice == 8)
+                {
+                    return new GreaterPotionOfManaRegeneration();
+                }
+
+                else if (choice == 9)
+                {
+                    return new GreaterPotionOfRejuvenation();
+                }
             }
-
-            //else if(tierLevel == 4)
-            //{
-            //    var randomNumber = new Random();
-            //    int choice = randomNumber.Next(1) + 1;
-
-            //    if(choice == 1)
-            //    {
-            //        return new Ultima();
-            //    }
-
-            //}
 
             return newItem;
         }
@@ -166,33 +189,7 @@ namespace DungeonFinal
             if (tierLevel == 1)
             {
                 var randomNumber = new Random();
-                int choice = randomNumber.Next(12) + 1;
-
-                if (choice == 1)
-                {
-                    return new SimpleSword();
-                }
-
-                else if (choice == 2)
-                {
-                    return new SimpleAxe();
-                }
-
-                else if (choice == 3)
-                {
-                    return new SimpleDagger();
-                }
-
-                else if (choice == 4)
-                {
-                    return new SimpleStaff();
-                }                                
-            }
-
-            else if (tierLevel == 2)
-            {
-                var randomNumber = new Random();
-                int choice = randomNumber.Next(26) + 1;
+                int choice = randomNumber.Next(16) + 1;
 
                 if (choice == 1)
                 {
@@ -212,93 +209,96 @@ namespace DungeonFinal
                 else if (choice == 4)
                 {
                     return new BronzeStaff();
-                }                
-
-                else if (choice == 11)
-                {
-                    return new ChainMailBoots();
                 }
 
-                else if (choice == 12)
-                {
-                    return new ChainMailGloves();
-                }
-
-                else if (choice == 13)
-                {
-                    return new ChainMailHelm();
-                }
-
-                else if (choice == 14)
-                {
-                    return new ChainMailVest();
-                }
-
-                else if (choice == 15)
+                else if (choice == 5)
                 {
                     return new ClothGloves();
                 }
 
-                else if (choice == 16)
+                else if (choice == 6)
                 {
-                    return new ClothHeadPiece();
+                    return new ClothHood();
                 }
 
-                else if (choice == 17)
+                else if (choice == 7)
                 {
                     return new ClothRobes();
                 }
 
-                else if (choice == 18)
+                else if (choice == 8)
                 {
-                    return new ClothShoes();
+                    return new ClothBoots();
                 }
 
-                else if (choice == 19)
+                else if (choice == 9)
                 {
                     return new BronzeGloves();
                 }
 
-                else if (choice == 20)
+                else if (choice == 10)
                 {
                     return new BronzeHelmet();
                 }
 
-                else if (choice == 21)
+                else if (choice == 11)
                 {
                     return new BronzeBoots();
                 }
 
-                else if (choice == 22)
+                else if (choice == 12)
                 {
                     return new BronzeChestPlate();
                 }
 
-                else if (choice == 23)
+                else if (choice == 13)
                 {
                     return new LeatherBoots();
                 }
 
-                else if (choice == 24)
+                else if (choice == 14)
                 {
                     return new LeatherGloves();
                 }
 
-                else if (choice == 25)
+                else if (choice == 15)
                 {
                     return new LeatherHelmet();
                 }
 
-                else if (choice == 26)
+                else if (choice == 16)
                 {
                     return new LeatherVest();
                 }
+
+
+                //if (choice == 1)
+                //{
+                //    return new SimpleSword();
+                //}
+
+                //else if (choice == 2)
+                //{
+                //    return new SimpleAxe();
+                //}
+
+                //else if (choice == 3)
+                //{
+                //    return new SimpleDagger();
+                //}
+
+                //else if (choice == 4)
+                //{
+                //    return new SimpleStaff();
+                //}
+            
+
             }
 
-            else if (tierLevel == 3)
+            else if (tierLevel == 2)
             {
                 var randomNumber = new Random();
-                int choice = randomNumber.Next(13) + 1;
+                int choice = randomNumber.Next(16) + 1;
 
                 if (choice == 1)
                 {
@@ -318,7 +318,173 @@ namespace DungeonFinal
                 else if (choice == 4)
                 {
                     return new SteelStaff();
-                }                
+                }
+
+                else if (choice == 5)
+                {
+                    return new SteelBoots();
+                }
+
+                else if (choice == 6)
+                {
+                    return new SteelChestPlate();
+                }
+
+                else if (choice == 7)
+                {
+                    return new SteelGloves();
+                }
+
+                else if (choice == 8)
+                {
+                    return new SteelHelmet();
+                }
+
+                else if (choice == 9)
+                {
+                    return new ChainMailBoots();
+                }
+
+                else if (choice == 10)
+                {
+                    return new ChainMailGloves();
+                }
+
+                else if (choice == 11)
+                {
+                    return new ChainMailHelm();
+                }
+
+                else if (choice == 12)
+                {
+                    return new ChainMailVest();
+                }
+
+                else if (choice == 13)
+                {
+                    return new EnchantedBoots();
+                }
+
+                else if (choice == 14)
+                {
+                    return new EnchantedGloves();
+                }
+
+                else if (choice == 15)
+                {
+                    return new EnchantedHood();
+                }
+
+                else if (choice == 16)
+                {
+                    return new EnchantedRobes();
+                }
+            }
+
+            else if (tierLevel == 3)
+            {
+                var randomNumber = new Random();
+                int choice = randomNumber.Next(16) + 1;
+
+                if(choice == 1)
+                {
+                    return new MythrilBoots();
+                }
+
+                else if (choice == 2)
+                {
+                    return new MythrilGloves();
+                }
+
+                else if (choice == 3)
+                {
+                    return new MythrilHelmet();
+                }
+
+                else if (choice == 4)
+                {
+                    return new MythrilChestPlate();
+                }
+
+                else if (choice == 5)
+                {
+                    return new AssassinBoots();
+                }
+
+                else if (choice == 6)
+                {
+                    return new AssassinGloves();
+                }
+
+                else if (choice == 7)
+                {
+                    return new AssassinHood();
+                }
+
+                else if (choice == 8)
+                {
+                    return new AssassinCloak();
+                }
+
+                else if(choice == 9)
+                {
+                    return new PlateMailBoots();
+                }
+
+                else if (choice == 10)
+                {
+                    return new PlateMailGloves();
+                }
+
+                else if (choice == 11)
+                {
+                    return new PlateMailHelmet();
+                }
+
+                else if (choice == 12)
+                {
+                    return new PlateMailVest();
+                }
+
+                else if(choice == 13)
+                {
+                    return new MythicalBoots();
+                }
+
+                else if (choice == 14)
+                {
+                    return new MythicalGloves();
+                }
+
+                else if (choice == 15)
+                {
+                    return new MythicalHelmet();
+                }
+
+                else if (choice == 16)
+                {
+                    return new MythicalRobes();
+                }
+
+                else if(choice == 17)
+                {
+                    return new MythrilAxe();
+                }
+
+                else if (choice == 18)
+                {
+                    return new MythrilSword();
+                }
+
+                else if (choice == 19)
+                {
+                    return new MythrilDagger();
+                }
+
+                else if (choice == 20)
+                {
+                    return new MythrilStaff();
+                }
             }
 
             else if (tierLevel == 4)

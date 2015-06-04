@@ -24,9 +24,10 @@ namespace DungeonFinal
             this.setItemName("Chain Mail Helmet");
             this.setIsHelmet(true);
             this.setSocketAmount(3);
-            _effect.setEffectName("Chain mail helmet made with an interior leather cap surrounded by interlocking steel ringlets");
-            _effect.setPhysicalDefense(5);
-            _effect.setEffectAmount(5);
+            _effect.setEffectName("Chain mail helmet made of interlocking steel ringlets, increases strength by 5");
+            _effect.setPhysicalDefense(9);
+            _effect.setStrengthValue(5);
+            _effect.setEffectAmount(9);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

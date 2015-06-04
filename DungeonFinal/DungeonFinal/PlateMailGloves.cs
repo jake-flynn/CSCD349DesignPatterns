@@ -14,23 +14,24 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ClothHeadPiece : Equipment
+    class PlateMailGloves : Equipment
     {
-         ItemsEffect _effect;
+        ItemsEffect _effect;
 
-        public ClothHeadPiece() : base()
+        public PlateMailGloves() : base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Cloth HeadPiece");
-            this.setIsHelmet(true);
+            this.setItemName("Plate Mail Gloves");
+            this.setIsGloves(true);
             this.setSocketAmount(2);
-            _effect.setEffectName("A fine cloth made of silk woven into a khimar");
-            _effect.setPhysicalDefense(2);
-            _effect.setEffectAmount(2);
+            _effect.setEffectName("Plate mail gloves that increase strength by 9");
+            _effect.setPhysicalDefense(10);
+            _effect.setStrengthValue(9);
+            _effect.setEffectAmount(10);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/mageHood.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/platedGloves.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }

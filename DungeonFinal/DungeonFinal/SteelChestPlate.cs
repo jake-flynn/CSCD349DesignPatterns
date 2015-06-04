@@ -24,10 +24,10 @@ namespace DungeonFinal
             this.setItemName("Steel Chest Plate");
             this.setIsTorso(true);
             this.setSocketAmount(6);
-            _effect.setEffectName("An exceptional piece of work crafted from steel, increases health slightly.");
+            _effect.setEffectName("An exceptional piece of work crafted from steel, increases health by 10");
             _effect.setPhysicalDefense(15);
             _effect.setResistanceDefense(15);
-            _effect.setHealthValue(5);
+            _effect.setHealthValue(10);
             _effect.setEffectAmount(15);
             this.setEffect(_effect);
 

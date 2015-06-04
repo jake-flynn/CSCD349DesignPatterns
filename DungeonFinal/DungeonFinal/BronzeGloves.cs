@@ -24,10 +24,11 @@ namespace DungeonFinal
             this.setItemName("Bronze Gloves");
             this.setIsGloves(true);
             this.setSocketAmount(1);
-            _effect.setEffectName("Reasonably well crafted from copper and tin");
-            _effect.setPhysicalDefense(3);
-            _effect.setEffectAmount(3);
-            //_effect.setManaValue(-2);     heavy armor effect?
+            _effect.setEffectName("Reasonably well crafted from copper and tin, increases health by 3");
+            _effect.setPhysicalDefense(5);
+            _effect.setResistanceDefense(5);
+            _effect.setHealthValue(3);
+            _effect.setEffectAmount(5);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

@@ -14,24 +14,25 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class ClothShoes: Equipment
+    class MythrilBoots : Equipment
     {
         ItemsEffect _effect;
 
-        public ClothShoes() : base()
+        public MythrilBoots() : base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Cloth Shoes");
-            this.setIsBoots(true);
-            this.setSocketAmount(1);
-            _effect.setEffectName("Cloth shoes that increase resistance slightly");
-            _effect.setPhysicalDefense(1);
-            _effect.setResistanceDefense(1);
-            _effect.setEffectAmount(1);
+            this.setItemName("Mythril Boots");
+            this.setIsHelmet(true);
+            this.setSocketAmount(3);
+            _effect.setEffectName("Legendary boots made of mythril, increases health by 5");
+            _effect.setPhysicalDefense(18);
+            _effect.setResistanceDefense(18);
+            _effect.setHealthValue(5);
+            _effect.setEffectAmount(18);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/mageBoots.png", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/dreadknaught.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }

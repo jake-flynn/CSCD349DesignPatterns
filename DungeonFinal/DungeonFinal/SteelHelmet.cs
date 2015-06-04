@@ -24,7 +24,7 @@ namespace DungeonFinal
             this.setItemName("Steel Helmet");
             this.setIsHelmet(true);
             this.setSocketAmount(3);
-            _effect.setEffectName("A well crafted helmet made of steel, slightly increases health");
+            _effect.setEffectName("A well crafted helmet made of steel, increases health by 3");
             _effect.setPhysicalDefense(12);
             _effect.setResistanceDefense(12);
             _effect.setHealthValue(3);
@@ -32,7 +32,7 @@ namespace DungeonFinal
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/bronzehelmet.jpg", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/Assualthelm.gif", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }

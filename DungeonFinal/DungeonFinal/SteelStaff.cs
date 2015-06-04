@@ -24,10 +24,10 @@ namespace DungeonFinal
             this.setItemName("Steel Staff");
             this.setIsWeapon(true);
             this.setSocketAmount(5);
-            _effect.setEffectName("A magnificent staff made of high quality steel");
+            _effect.setEffectName("A magnificent staff made of high quality steel, increases mana by 30");
             _effect.setMagicValue(12);
             _effect.setEffectAmount(12);
-            //_effect.setHealthValue(12);
+            _effect.setManaValue(30);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

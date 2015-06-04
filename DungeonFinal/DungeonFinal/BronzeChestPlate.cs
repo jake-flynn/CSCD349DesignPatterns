@@ -24,10 +24,11 @@ namespace DungeonFinal
             this.setItemName("Bronze Chest Plate");
             this.setIsTorso(true);
             this.setSocketAmount(6);
-            _effect.setEffectName("An exceptional piece of work crafted from copper and tin");
-            _effect.setPhysicalDefense(8);
-            _effect.setEffectAmount(8);
-            //_effect.setManaValue(-2);
+            _effect.setEffectName("A bronze chest plate that increases health by 5");
+            _effect.setPhysicalDefense(9);
+            _effect.setResistanceDefense(9);
+            _effect.setHealthValue(5);
+            _effect.setEffectAmount(9);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

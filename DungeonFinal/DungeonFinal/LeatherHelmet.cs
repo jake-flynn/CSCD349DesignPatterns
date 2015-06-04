@@ -24,9 +24,10 @@ namespace DungeonFinal
             this.setItemName("Leather Helmet");
             this.setIsHelmet(true);
             this.setSocketAmount(1);
-            _effect.setEffectName("A sturdy leather cap");
-            _effect.setPhysicalDefense(3);
-            _effect.setEffectAmount(3);
+            _effect.setEffectName("A sturdy leather cap, increases strength by 3");
+            _effect.setPhysicalDefense(4);
+            _effect.setStrengthValue(3);
+            _effect.setEffectAmount(4);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

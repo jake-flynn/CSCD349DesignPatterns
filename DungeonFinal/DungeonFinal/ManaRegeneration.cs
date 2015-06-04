@@ -18,8 +18,7 @@ namespace DungeonFinal
     {
         public ManaRegeneration()
         {
-            //setHero(h);
-            setDuration(5);
+            setDuration(4);
         }
 
         public override String Modify()

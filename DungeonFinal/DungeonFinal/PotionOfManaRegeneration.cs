@@ -22,7 +22,7 @@ namespace DungeonFinal
         {
             _effect = new ItemsEffect();
             setItemName("Mana Regeneration Potion");
-            _effect.setEffectName("Resotres mana by ");
+            _effect.setEffectName("Restores mana by 15 for four turns.");
             setEffect(_effect);
             setHasStatusEffect(true);
             setStatusEffect(new ManaRegeneration());

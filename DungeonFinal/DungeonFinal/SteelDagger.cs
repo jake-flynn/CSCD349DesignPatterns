@@ -24,11 +24,10 @@ namespace DungeonFinal
             this.setItemName("Steel Dagger");
             this.setIsWeapon(true);
             this.setSocketAmount(5);
-            _effect.setEffectName("A ferocious dagger made of high tensile steel");
-            _effect.setStrengthValue(12);
-            _effect.setEffectAmount(12);
-            //_effect.setHealthValue(12);
-            //_effect.setManaValue(-5);
+            _effect.setEffectName("A ferocious dagger made of high tensile steel, increases magic resistance by 8");
+            _effect.setStrengthValue(20);
+            _effect.setResistanceDefense(8);
+            _effect.setEffectAmount(20);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

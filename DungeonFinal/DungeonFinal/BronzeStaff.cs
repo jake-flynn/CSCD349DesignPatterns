@@ -24,10 +24,10 @@ namespace DungeonFinal
             this.setItemName("Bronze Staff");
             this.setIsWeapon(true);
             this.setSocketAmount(4);
-            _effect.setEffectName("A beautiful staff made of copper and tin");
+            _effect.setEffectName("A beautiful staff made of copper and tin, increases mana by 20");
             _effect.setMagicValue(9);
             _effect.setEffectAmount(9);
-            //_effect.setHealthValue(12);
+            _effect.setManaValue(12);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();
