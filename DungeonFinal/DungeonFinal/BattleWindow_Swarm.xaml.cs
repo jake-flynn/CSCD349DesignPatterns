@@ -232,11 +232,7 @@ namespace DungeonFinal
 
         private string specialMove(Hero hero, int whichHero)
         {
-            var cw = new ChoiceWindow(_TheSwarm);
-            cw.ShowDialog();
-            int attackTarget = cw.getChoiceFromSelect();
-            Monster mon = _TheSwarm[attackTarget];
-            string toReturn = hero.PerformSpecialAttack(_theParty, whichHero, mon);
+            string toReturn = hero.PerformSpecialAttack(_theParty, whichHero, _TheSwarm);
             updateVisuals();
             checkForDefeatedUnit();
             return toReturn;

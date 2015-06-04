@@ -20,6 +20,7 @@ namespace DungeonFinal
         public Equipment[] _Equipment;
         public int _ConsumableNextFreeIndex;
         public int _EquipmentNextFreeIndex;
+        private ItemFactory _ItemFactory;
 
         public Inventory()
         {
@@ -27,6 +28,7 @@ namespace DungeonFinal
             _Equipment = new Equipment[20];
             _ConsumableNextFreeIndex = 0;
             _EquipmentNextFreeIndex = 0;
+            _ItemFactory = new ItemFactory();
 
             for (int x = 0; x < 20; x++)
             {
@@ -34,27 +36,19 @@ namespace DungeonFinal
                 _Equipment[x] = new NullItemEquipment();
             }
 
-            //this.addLastToConsumable(new LesserPotionOfHealth());
-            //this.addLastToConsumable(new PotionOfHealth());
-            //this.addLastToConsumable(new LesserPotionOfMana());
-            //this.addLastToConsumable(new PotionOfMana());
-            //this.addLastToConsumable(new PotionOfHealthRegeneration());
-            //this.addLastToConsumable(new PotionOfMagic());
-            this.addLastToConsumable(new PotionOfManaRegeneration());
-            this.addLastToConsumable(new PotionOfPower());
-            this.addLastToConsumable(new PotionOfResistance());
+            addLastToConsumable(new LesserPotionOfHealth());
+            addLastToConsumable(new PotionOfHealth());
+            addLastToConsumable(new LesserPotionOfMana());
 
-            this.addLastToEquipment(new BronzeSword());
-            this.addLastToEquipment(new BronzeHelmet());
-            this.addLastToEquipment(new BronzeGloves());
-            this.addLastToEquipment(new BronzeChestPlate());
-            this.addLastToEquipment(new BronzeBoots());
-            this.addLastToEquipment(new SteelAxe());
-            this.addLastToEquipment(new Ultima());
-            this.addLastToEquipment(new ChainMailBoots());
-            this.addLastToEquipment(new ChainMailGloves());
-            this.addLastToEquipment(new ChainMailHelm());
-            this.addLastToEquipment(new ChainMailVest());
+            addLastToConsumable(_ItemFactory.createConsumable(1));
+            addLastToConsumable(_ItemFactory.createConsumable(1));
+            addLastToConsumable(_ItemFactory.createConsumable(1));
+
+            addLastToEquipment(_ItemFactory.createEquipment(1));
+            addLastToEquipment(_ItemFactory.createEquipment(1));
+            addLastToEquipment(_ItemFactory.createEquipment(1));
+            addLastToEquipment(_ItemFactory.createEquipment(1));
+            addLastToEquipment(_ItemFactory.createEquipment(1));
         }
 
         public Consumable findConsumableByIndex(int index)
