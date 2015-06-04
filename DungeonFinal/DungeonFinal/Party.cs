@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
@@ -60,8 +68,12 @@ namespace DungeonFinal
                 if(!_dungeonParty[x].getIsDefeated())
                 {
                     _AliveHeroes[_nextAvailableIndex] = _dungeonParty[x];
+                    _nextAvailableIndex++;
                 }
             }
+
+            
+
 
             return _AliveHeroes;
 
