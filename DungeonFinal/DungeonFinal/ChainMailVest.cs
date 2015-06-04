@@ -24,9 +24,10 @@ namespace DungeonFinal
             this.setItemName("Chain Mail Vest");
             this.setIsTorso(true);
             this.setSocketAmount(4);
-            _effect.setEffectName("A sturdy vest made of interlocking steel ringlets bound with leather strips");
-            _effect.setPhysicalDefense(6);
-            _effect.setEffectAmount(6);
+            _effect.setEffectName("A vest made of interlocking steel ringlets, increases strength by 10");
+            _effect.setPhysicalDefense(12);
+            _effect.setStrengthValue(10);
+            _effect.setEffectAmount(12);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

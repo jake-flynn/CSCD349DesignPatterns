@@ -24,9 +24,10 @@ namespace DungeonFinal
             this.setItemName("Leather Gloves");
             this.setIsGloves(true);
             this.setSocketAmount(2);
-            _effect.setEffectName("Gloves made from leather straps woven together");
-            _effect.setPhysicalDefense(1);
-            _effect.setEffectAmount(1);
+            _effect.setEffectName("Gloves made from leather straps woven together, increases strength by 4");
+            _effect.setPhysicalDefense(4);
+            _effect.setStrengthValue(4);
+            _effect.setEffectAmount(4);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

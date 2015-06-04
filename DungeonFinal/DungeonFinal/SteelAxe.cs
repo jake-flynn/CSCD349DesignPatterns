@@ -24,11 +24,10 @@ namespace DungeonFinal
             this.setItemName("Steel Axe");
             this.setIsWeapon(true);
             this.setSocketAmount(5);
-            _effect.setEffectName("A monsterous two handed axe made of tempered steel");
+            _effect.setEffectName("A monsterous two handed axe made of tempered steel, increases health by 15");
             _effect.setStrengthValue(16);
             _effect.setEffectAmount(16);
-            //_effect.setHealthValue(12);
-            //_effect.setManaValue(-5);
+            _effect.setHealthValue(15);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

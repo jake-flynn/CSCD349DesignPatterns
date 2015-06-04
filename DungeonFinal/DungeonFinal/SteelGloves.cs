@@ -14,7 +14,27 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class SteelGloves
+    class SteelGloves : Equipment
     {
+        ItemsEffect _effect;
+
+        public SteelGloves() : base()
+        {
+            _effect = new ItemsEffect();
+            this.setItemName("Steel Gloves");
+            this.setIsHelmet(true);
+            this.setSocketAmount(3);
+            _effect.setEffectName("Strong gloves made of an alloy of steel, increases health by 3");
+            _effect.setPhysicalDefense(10);
+            _effect.setResistanceDefense(10);
+            _effect.setHealthValue(3);
+            _effect.setEffectAmount(10);
+            this.setEffect(_effect);
+
+            ImageBrush imgBrush = new ImageBrush();
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/steelgloves.gif", UriKind.RelativeOrAbsolute));
+            imgBrush.ImageSource = image;
+            setImageBrush(imgBrush);
+        }
     }
 }

@@ -24,10 +24,11 @@ namespace DungeonFinal
             this.setItemName("Bronze Boots");
             this.setIsBoots(true);
             this.setSocketAmount(2);
-            _effect.setEffectName("Durable boots made of copper and tin");
-            _effect.setPhysicalDefense(4);
-            _effect.setEffectAmount(4);
-            //_effect.setManaValue(-2);     heavy armor effect?
+            _effect.setEffectName("Bronze boots made of copper and tin, increases health by 3");
+            _effect.setPhysicalDefense(5);
+            _effect.setResistanceDefense(5);
+            _effect.setHealthValue(3);
+            _effect.setEffectAmount(5);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

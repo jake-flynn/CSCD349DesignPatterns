@@ -24,9 +24,10 @@ namespace DungeonFinal
             this.setItemName("Leather Boots");
             this.setIsBoots(true);
             this.setSocketAmount(2);
-            _effect.setEffectName("Boots made from tough leather");
-            _effect.setPhysicalDefense(2);
-            _effect.setEffectAmount(2);
+            _effect.setEffectName("Boots made from leather that increase strength by 3");
+            _effect.setPhysicalDefense(3);
+            _effect.setStrengthValue(3);
+            _effect.setEffectAmount(3);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

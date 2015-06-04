@@ -57,6 +57,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ArmorKnight.cs" />
+    <Compile Include="AssassinBoots.cs" />
+    <Compile Include="AssassinGloves.cs" />
+    <Compile Include="AssassinHood.cs" />
+    <Compile Include="AssassinCloak.cs" />
     <Compile Include="BattleWindow.xaml.cs">
       <DependentUpon>BattleWindow.xaml</DependentUpon>
     </Compile>
@@ -87,9 +91,9 @@
       <DependentUpon>ChoiceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ClothGloves.cs" />
-    <Compile Include="ClothHeadPiece.cs" />
+    <Compile Include="ClothHood.cs" />
     <Compile Include="ClothRobes.cs" />
-    <Compile Include="ClothShoes.cs" />
+    <Compile Include="ClothBoots.cs" />
     <Compile Include="Consumable.cs" />
     <Compile Include="ConsumableWindow.xaml.cs">
       <DependentUpon>ConsumableWindow.xaml</DependentUpon>
@@ -102,6 +106,10 @@
     <Compile Include="DefenseBoost.cs" />
     <Compile Include="DemonWarrior.cs" />
     <Compile Include="Dragon.cs" />
+    <Compile Include="EnchantedBoots.cs" />
+    <Compile Include="EnchantedGloves.cs" />
+    <Compile Include="EnchantedHood.cs" />
+    <Compile Include="EnchantedRobes.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="EquipmentChoiceWindow.xaml.cs">
       <DependentUpon>EquipmentChoiceWindow.xaml</DependentUpon>
@@ -110,11 +118,13 @@
     <Compile Include="GreaterDefenseBoost.cs" />
     <Compile Include="GreaterHealthRegeneration.cs" />
     <Compile Include="GreaterMagicBoost.cs" />
+    <Compile Include="GreaterManaRegeneration.cs" />
     <Compile Include="GreaterPotionOfDefense.cs" />
     <Compile Include="GreaterPotionOfHealth.cs" />
     <Compile Include="GreaterPotionOfHealthRegeneration.cs" />
     <Compile Include="GreaterPotionOfMagic.cs" />
     <Compile Include="GreaterPotionOfMana.cs" />
+    <Compile Include="GreaterPotionOfManaRegeneration.cs" />
     <Compile Include="GreaterPotionOfPower.cs" />
     <Compile Include="GreaterPotionOfRejuvenation.cs" />
     <Compile Include="GreaterPotionOfResistance.cs" />
@@ -140,10 +150,12 @@
     <Compile Include="LesserDefenseBoost.cs" />
     <Compile Include="LesserHealthRegeneration.cs" />
     <Compile Include="LesserMagicBoost.cs" />
+    <Compile Include="LesserManaRegeneration.cs" />
     <Compile Include="LesserPotionOfDefense.cs" />
     <Compile Include="LesserPotionOfHealth.cs" />
     <Compile Include="LesserPotionOfMagic.cs" />
     <Compile Include="LesserPotionOfMana.cs" />
+    <Compile Include="LesserPotionOfManaRegeneration.cs" />
     <Compile Include="LesserPotionOfPower.cs" />
     <Compile Include="LesserPotionOfHealthRegeneration.cs" />
     <Compile Include="LesserPotionOfRejuvenation.cs" />
@@ -161,6 +173,18 @@
     <Compile Include="Minotaur.cs" />
     <Compile Include="Monk.cs" />
     <Compile Include="MonsterFactory.cs" />
+    <Compile Include="MythicalBoots.cs" />
+    <Compile Include="MythicalGloves.cs" />
+    <Compile Include="MythicalHelmet.cs" />
+    <Compile Include="MythicalRobes.cs" />
+    <Compile Include="MythrilAxe.cs" />
+    <Compile Include="MythrilBoots.cs" />
+    <Compile Include="MythrilChestPlate.cs" />
+    <Compile Include="MythrilDagger.cs" />
+    <Compile Include="MythrilGloves.cs" />
+    <Compile Include="MythrilHelmet.cs" />
+    <Compile Include="MythrilStaff.cs" />
+    <Compile Include="MythrilSword.cs" />
     <Compile Include="NullItemConsumable.cs" />
     <Compile Include="NullItemEquipment.cs" />
     <Compile Include="Paladin.cs" />
@@ -168,6 +192,10 @@
     <Compile Include="EquipmentPartyWindow.xaml.cs">
       <DependentUpon>EquipmentPartyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlateMailBoots.cs" />
+    <Compile Include="PlateMailGloves.cs" />
+    <Compile Include="PlateMailHelmet.cs" />
+    <Compile Include="PlateMailVest.cs" />
     <Compile Include="Poison.cs" />
     <Compile Include="PotionOfDefense.cs" />
     <Compile Include="PotionOfHealth.cs" />

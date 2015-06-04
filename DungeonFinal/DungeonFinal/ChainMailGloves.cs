@@ -24,9 +24,10 @@ namespace DungeonFinal
             this.setItemName("Chain Mail Gloves");
             this.setIsGloves(true);
             this.setSocketAmount(2);
-            _effect.setEffectName("Chain mail gloves made of interlocking steel surrounding a leather base");
-            _effect.setPhysicalDefense(3);
-            _effect.setEffectAmount(3);
+            _effect.setEffectName("Chain mail gloves made of interlocking steel that increase strength by 6");
+            _effect.setPhysicalDefense(7);
+            _effect.setStrengthValue(6);
+            _effect.setEffectAmount(7);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

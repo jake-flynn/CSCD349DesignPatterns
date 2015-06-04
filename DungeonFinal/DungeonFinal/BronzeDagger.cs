@@ -24,11 +24,10 @@ namespace DungeonFinal
             this.setItemName("Bronze Dagger");
             this.setIsWeapon(true);
             this.setSocketAmount(4);
-            _effect.setEffectName("A deadly dagger made of copper and tin");
-            _effect.setStrengthValue(9);
-            _effect.setEffectAmount(9);
-            //_effect.setHealthValue(12);
-            //_effect.setManaValue(-5);
+            _effect.setEffectName("A deadly dagger made of copper and tin, increases magic resistance by 4");
+            _effect.setStrengthValue(13);
+            _effect.setResistanceDefense(4);
+            _effect.setEffectAmount(13);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

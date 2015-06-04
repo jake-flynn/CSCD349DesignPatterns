@@ -24,11 +24,10 @@ namespace DungeonFinal
             this.setItemName("Bronze Sword");
             this.setIsWeapon(true);
             this.setSocketAmount(4);
-            _effect.setEffectName("A well balanced sword made of copper and tin");
-            _effect.setStrengthValue(16);
-            _effect.setEffectAmount(16);
-            //_effect.setHealthValue(12);
-            //_effect.setManaValue(-5);
+            _effect.setEffectName("A well balanced sword made of copper and tin, increases mana by 10");
+            _effect.setStrengthValue(11);
+            _effect.setEffectAmount(11);
+            _effect.setManaValue(10);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

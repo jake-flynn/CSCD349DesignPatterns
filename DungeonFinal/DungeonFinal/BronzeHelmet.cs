@@ -24,10 +24,11 @@ namespace DungeonFinal
             this.setItemName("Bronze Helmet");
             this.setIsHelmet(true);
             this.setSocketAmount(3);
-            _effect.setEffectName("A well crafted helmet made of an alloy of copper and tin");
-            _effect.setPhysicalDefense(5);
-            _effect.setEffectAmount(5);
-            //_effect.setManaValue(-1);         Decrease mana pool for wearing heavy armor?
+            _effect.setEffectName("A bronze helmet that increases health by 4");
+            _effect.setPhysicalDefense(6);
+            _effect.setResistanceDefense(6);
+            _effect.setHealthValue(4);
+            _effect.setEffectAmount(6);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();
