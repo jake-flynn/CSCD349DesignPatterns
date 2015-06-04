@@ -81,20 +81,12 @@ namespace DungeonFinal
         /*PerformSpecialAttack - Taunt monsters to attack THIS ArmorKnight */
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
-            Hero[] party = theParty.getAllHeroes();
+            setIsTaunting(true);
 
-            foreach (Hero h in party)
-            {
-
-                h.setCurHealth(h.getCurHealth() + getModMagic());
-                h.setModStrength(h.getBaseStrength());
-                h.setModMagic(h.getBaseMagic());
-                h.setModDefense(h.getBaseDefense());
-                h.setModResistance(h.getBaseResistance());
-            }
+            Subscribe(new Taunt(this));
 
             setCurMana(getCurMana() - 15);
-            return (getName() + " performed Healing Light for 20 healing across whole party and reset all stats!");
+            return (getName() + " has taunted the enemy!");
         }
 
         /*Battle - Defend*/
