@@ -211,7 +211,7 @@ namespace DungeonFinal
         private async void monsterAttack() //Monster attacks!
         {  
             Monster mon = _monster;
-            Hero hero = _theHeroes[0];//mon.FindTarget(_theParty);
+            Hero hero = mon.FindTarget(_theParty);
             int monsterDamage;
 
             var randomGeneratedNumber = new Random();
@@ -450,6 +450,7 @@ namespace DungeonFinal
             //incrementEffects();
             foreach(Hero h in _theHeroes)
             {
+                await Task.Delay(400);
                 String effectString = "";
                 effectString = h.Notify();
 
@@ -458,6 +459,7 @@ namespace DungeonFinal
                     Foreground = Brushes.Fuchsia
                 });
                 _Paragraph.Inlines.Add(new LineBreak());
+                updateVisuals();
             }
         }
 
