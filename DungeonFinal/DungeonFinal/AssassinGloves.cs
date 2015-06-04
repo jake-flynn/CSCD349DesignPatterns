@@ -21,9 +21,11 @@ namespace DungeonFinal
         public AssassinGloves() : base()
         {
             _effect = new ItemsEffect();
+            //equipment fields set
             this.setItemName("Assassin Gloves");
             this.setIsGloves(true);
             this.setSocketAmount(2);
+            //effects of item are set in itemsEffect class
             _effect.setEffectName("Swift hands deliver death, increases strength by 20");
             _effect.setPhysicalDefense(5);
             _effect.setStrengthValue(20);
