@@ -65,6 +65,51 @@ namespace DungeonFinal
             btn_equipmentSelect.IsEnabled = true;
         }
 
+
+        public void updateHeroVisuals()
+        {
+            Hero[] _TheHeroes = _TheParty.getAllHeroes();
+
+            //hero1
+            lbl_Hero1_Name.Content = _TheHeroes[0].getName();
+            rect_Hero1.Fill = _TheHeroes[0].getImageBrush();
+            prgBar_Hero1_Health.Value = ((double)_TheHeroes[0].getCurHealth()) / ((double)_TheHeroes[0].getMaxHealth()) * 100;
+            prgBar_Hero1_Mana.Value = ((double)_TheHeroes[0].getCurMana()) / ((double)_TheHeroes[0].getMaxMana()) * 100;
+            lbl_Hero1_Stats.Content = _TheHeroes[0].getStats();
+            lbl_Hero1_Health.Content = _TheHeroes[0].getCurHealth() + "/" + _TheHeroes[0].getMaxHealth();
+            lbl_Hero1_Mana.Content = _TheHeroes[0].getCurMana() + "/" + _TheHeroes[0].getMaxMana();
+
+            //hero2
+            lbl_Hero2_Name.Content = _TheHeroes[1].getName();
+            rect_Hero2.Fill = _TheHeroes[1].getImageBrush();
+            prgBar_Hero2_Health.Value = ((double)_TheHeroes[1].getCurHealth()) / ((double)_TheHeroes[1].getMaxHealth()) * 100;
+            prgBar_Hero2_Mana.Value = ((double)_TheHeroes[1].getCurMana()) / ((double)_TheHeroes[1].getMaxMana()) * 100;
+            lbl_Hero2_Stats.Content = _TheHeroes[1].getStats();
+            lbl_Hero2_Health.Content = _TheHeroes[1].getCurHealth() + "/" + _TheHeroes[1].getMaxHealth();
+            lbl_Hero2_Mana.Content = _TheHeroes[1].getCurMana() + "/" + _TheHeroes[1].getMaxMana();
+
+            //hero3
+            lbl_Hero3_Name.Content = _TheHeroes[2].getName();
+            rect_Hero3.Fill = _TheHeroes[2].getImageBrush();
+            prgBar_Hero3_Health.Value = ((double)_TheHeroes[2].getCurHealth()) / ((double)_TheHeroes[2].getMaxHealth()) * 100;
+            prgBar_Hero3_Mana.Value = ((double)_TheHeroes[2].getCurMana()) / ((double)_TheHeroes[2].getMaxMana()) * 100;
+            lbl_Hero3_Stats.Content = _TheHeroes[2].getStats();
+            lbl_Hero3_Health.Content = _TheHeroes[2].getCurHealth() + "/" + _TheHeroes[2].getMaxHealth();
+            lbl_Hero3_Mana.Content = _TheHeroes[2].getCurMana() + "/" + _TheHeroes[2].getMaxMana();
+
+            //hero4
+            lbl_Hero4_Name.Content = _TheHeroes[3].getName();
+            rect_Hero4.Fill = _TheHeroes[3].getImageBrush();
+            prgBar_Hero4_Health.Value = ((double)_TheHeroes[3].getCurHealth()) / ((double)_TheHeroes[3].getMaxHealth()) * 100;
+            prgBar_Hero4_Mana.Value = ((double)_TheHeroes[3].getCurMana()) / ((double)_TheHeroes[3].getMaxMana()) * 100;
+            lbl_Hero4_Stats.Content = _TheHeroes[3].getStats();
+            lbl_Hero4_Health.Content = _TheHeroes[3].getCurHealth() + "/" + _TheHeroes[3].getMaxHealth();
+            lbl_Hero4_Mana.Content = _TheHeroes[3].getCurMana() + "/" + _TheHeroes[3].getMaxMana();
+            
+        }
+
+
+
         public void newVisitArray()
         {
             for (int i = 0; i < _RunDifficulty; i++)
@@ -124,6 +169,8 @@ namespace DungeonFinal
             tb_currentRow.Text = _Maze.GetCurrentRow()+1 + "";
             tb_currentCol.Text = _Maze.GetCurrentCol()+1 + "";
             tb_numberOfMonsters.Text = _MonstersSeen + "";
+
+            updateHeroVisuals();
         }
 
         public async void populateMonsters()
@@ -201,6 +248,7 @@ namespace DungeonFinal
 
             var bw = new BattleWindow(m, heros);
             bw.ShowDialog();
+            updateHeroVisuals();
         }
 
         public void SwarmBattle(Monster m, Party heros)
@@ -211,6 +259,7 @@ namespace DungeonFinal
 
             var bw = new BattleWindow_Swarm(m, heros);
             bw.ShowDialog();
+            updateHeroVisuals();
         }
 
         public void upgradeStats(Party party)
@@ -351,6 +400,8 @@ namespace DungeonFinal
         {
             var map = new Map(_Maze.GetRooms(), _Visited, _Maze.GetPosition()[0], _Maze.GetPosition()[1]);
             map.ShowDialog();
+            updateHeroVisuals();
+
 
         }
 
@@ -377,12 +428,14 @@ namespace DungeonFinal
 
             updateButtonsVisibility();
             btn_equipmentSelect.IsEnabled = true;
+            updateHeroVisuals();
         }
 
         private void btn_equipmentSelect_Click(object sender, RoutedEventArgs e)
         {
             var equipmentSelect = new PartyEquipmentWindow(_TheParty);
             equipmentSelect.ShowDialog();
+            updateHeroVisuals();
         }
 
     
