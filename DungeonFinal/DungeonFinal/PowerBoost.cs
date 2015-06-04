@@ -15,20 +15,19 @@ namespace DungeonFinal
 
         public override String Modify()
         {
-            if(getDuration() == 4)
+            setDuration(getDuration() - 1);
+            getHero().setModStrength(getHero().getModStrength() + 6);
+
+            if (getDuration() > 1)
             {
-                getHero().setModStrength(getHero().getModStrength() + 6);            
+                return (getHero().getName() + " strength has been boosted by 6 for " + getDuration() + " more turn(s)!\r\n");
             }
 
-            else if(getDuration() == 1)
+            else
             {
                 getHero().setModStrength(getHero().getModStrength() - 6);
+                return (getHero().getName() + " strength boost has ended!\r\n");
             }
-
-            setDuration(getDuration() - 1);
-
-            return (getHero().getName() + " power has been boosted by 6 for " + getDuration() + " more turn(s)!\r\n");
-
         }
     }
 }
