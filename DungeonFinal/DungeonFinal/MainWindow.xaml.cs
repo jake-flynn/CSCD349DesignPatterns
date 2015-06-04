@@ -195,7 +195,7 @@ namespace DungeonFinal
             var randomNumberGenerator = new Random();
             int randomNumber = randomNumberGenerator.Next(1000) + 1;
             
-            if(randomNumber < 999)
+            if(randomNumber > 999)
             {
                 Equipment artifact = _ItemFactory.createEquipment(4);
                 _TheParty.getInventory().addLastToEquipment(artifact);
