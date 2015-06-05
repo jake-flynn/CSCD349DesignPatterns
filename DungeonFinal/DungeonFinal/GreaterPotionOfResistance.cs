@@ -23,6 +23,7 @@ namespace DungeonFinal
             _effect = new ItemsEffect();
             this.setItemName("Greater Resistance Potion");
             _effect.setEffectName("Greatly increase resistance by 10 for five turns.");
+            _effect.setPhysicalDefense(10);
             this.setEffect(_effect);
             setHasStatusEffect(true);
             setStatusEffect(new GreaterResistanceBoost());

@@ -23,6 +23,7 @@ namespace DungeonFinal
             _effect = new ItemsEffect();
             this.setItemName("Lesser Defense Potion");
             _effect.setEffectName("Slightly increases defense by 3 for three turns.");
+            _effect.setPhysicalDefense(3);
             this.setEffect(_effect);
             setHasStatusEffect(true);
             setStatusEffect(new LesserDefenseBoost());

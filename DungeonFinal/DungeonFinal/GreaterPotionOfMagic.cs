@@ -23,6 +23,7 @@ namespace DungeonFinal
             _effect = new ItemsEffect();
             this.setItemName("Greater Magic Potion");
             _effect.setEffectName("Greatly increase magic by 10 for five turns.");
+            _effect.setMagicValue(10);
             this.setEffect(_effect);
             setHasStatusEffect(true);
             setStatusEffect(new GreaterMagicBoost());
