@@ -18,9 +18,9 @@ namespace DungeonFinal
             setDuration(getDuration() - 1);
             getHero().setModStrength(getHero().getModStrength() + 10); 
 
-            if(getDuration() > 1)
+            if(getDuration() > 0)
             {
-                 return (getHero().getName() + " strength has been boosted by 10 for " + getDuration() + " more turn(s)!\r\n");     
+                 return (getHero().getName() + " strength has been boosted by 10 for " + getDuration() + " more turn(s)!\r\n");
             }
 
             else
@@ -28,6 +28,8 @@ namespace DungeonFinal
                 getHero().setModStrength(getHero().getModStrength() - 10);
                 return (getHero().getName() + " greater strength boost has ended has ended!\r\n");
             }
+            
+
         }
     }
 }

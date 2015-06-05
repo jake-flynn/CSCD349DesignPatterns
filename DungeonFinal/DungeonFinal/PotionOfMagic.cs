@@ -24,6 +24,7 @@ namespace DungeonFinal
             this.setItemName("Magic Potion");
             _effect.setEffectName("Enhances magic power by 6 for four turns.");
             this.setEffect(_effect);
+            setHasStatusEffect(true);
             setStatusEffect(new MagicBoost());
 
             ImageBrush imgBrush = new ImageBrush();

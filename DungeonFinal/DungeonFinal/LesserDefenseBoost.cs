@@ -18,7 +18,7 @@ namespace DungeonFinal
             setDuration(getDuration() - 1);
             getHero().setModDefense(getHero().getModDefense() + 3);
 
-            if (getDuration() > 1)
+            if (getDuration() > 0)
             {
                 return (getHero().getName() + " defense has been boosted by 3 for " + getDuration() + " more turn(s)!\r\n");
             }

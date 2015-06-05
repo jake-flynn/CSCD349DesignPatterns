@@ -24,6 +24,7 @@ namespace DungeonFinal
             this.setItemName("Lesser Power Potion");
             _effect.setEffectName("Slightly increases power by 3 for three turns.");
             this.setEffect(_effect);
+            setHasStatusEffect(true);
             setStatusEffect(new LesserPowerBoost());
 
             ImageBrush imgBrush = new ImageBrush();

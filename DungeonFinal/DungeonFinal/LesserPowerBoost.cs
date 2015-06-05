@@ -18,7 +18,7 @@ namespace DungeonFinal
             setDuration(getDuration() - 1);
             getHero().setModStrength(getHero().getModStrength() + 3);
 
-            if (getDuration() > 1)
+            if (getDuration() > 0)
             {
                 return (getHero().getName() + " strength has been boosted by 3 for " + getDuration() + " more turn(s)!\r\n");
             }

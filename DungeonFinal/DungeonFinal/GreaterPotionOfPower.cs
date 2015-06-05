@@ -24,6 +24,7 @@ namespace DungeonFinal
             this.setItemName("Greater Power Potion");
             _effect.setEffectName("Greatly increase strength by 10 for five turns.");
             this.setEffect(_effect);
+            setHasStatusEffect(true);
             setStatusEffect(new GreaterPowerBoost());
 
             ImageBrush imgBrush = new ImageBrush();

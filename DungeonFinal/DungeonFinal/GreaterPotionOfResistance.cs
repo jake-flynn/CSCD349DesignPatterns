@@ -24,6 +24,7 @@ namespace DungeonFinal
             this.setItemName("Greater Resistance Potion");
             _effect.setEffectName("Greatly increase resistance by 10 for five turns.");
             this.setEffect(_effect);
+            setHasStatusEffect(true);
             setStatusEffect(new GreaterResistanceBoost());
 
             ImageBrush imgBrush = new ImageBrush();

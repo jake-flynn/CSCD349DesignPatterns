@@ -18,7 +18,7 @@ namespace DungeonFinal
             setDuration(getDuration() - 1);
             getHero().setModMagic(getHero().getModMagic() + 6);
 
-            if (getDuration() > 1)
+            if (getDuration() > 0)
             {
                 return (getHero().getName() + " magic has been boosted by 6 for " + getDuration() + " more turn(s)!\r\n");
             }

@@ -24,6 +24,7 @@ namespace DungeonFinal
             this.setItemName("Defense Potion");
             _effect.setEffectName("Enhances defense by 6 for four turns.");
             this.setEffect(_effect);
+            setHasStatusEffect(true);
             setStatusEffect(new DefenseBoost());
 
             ImageBrush imgBrush = new ImageBrush();

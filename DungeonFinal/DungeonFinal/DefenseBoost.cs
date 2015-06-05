@@ -19,7 +19,7 @@ namespace DungeonFinal
             getHero().setModDefense(getHero().getModDefense() + 6);
             
 
-            if(getDuration() > 1)
+            if(getDuration() > 0)
             {
                   return (getHero().getName() + " defense has been boosted by 6 for " + getDuration() + " more turn(s)!\r\n");          
             }

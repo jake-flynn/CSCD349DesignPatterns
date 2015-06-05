@@ -24,6 +24,7 @@ namespace DungeonFinal
             this.setItemName("Rejuvenation Potion");
             _effect.setEffectName("Restores mana and health by 15 for four turns.");
             this.setEffect(_effect);
+            setHasStatusEffect(true);
             setStatusEffect(new Rejuvenation());
 
             ImageBrush imgBrush = new ImageBrush();

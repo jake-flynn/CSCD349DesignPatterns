@@ -332,13 +332,14 @@ namespace DungeonFinal
 
             foreach (StatusEffect e in _EffectList)
             {
-                MessageBox.Show("Number off effects: " + ctr);
+                //MessageBox.Show("Number off effects: " + ctr);
                 retString += e.Modify();
                 ctr++;
-                if (e.getDuration() <= 0)
-                {
-                    Unsubscribe(e);
-                }
+
+              //  if (e.getDuration() == 0)
+               // {
+               //     Unsubscribe(e);
+               // }
             }
 
             return retString;
@@ -419,6 +420,11 @@ namespace DungeonFinal
         {
             String s = "Strength: " + getBaseStrength() + " + " + (getModStrength() - getBaseStrength()) + "\nMagic: " + getBaseMagic() + " + " + (getModMagic() - getBaseMagic()) + "\nDefense: " + getModDefense() + " + " + (getModDefense() - getBaseDefense()) + "\nResistance: " + getModResistance() + " + " + (getModResistance() - getBaseResistance());
             return s;
+        }
+
+        public LinkedList<StatusEffect> getEffectList()
+        {
+            return _EffectList;
         }
 
         public void setStats(String s)
