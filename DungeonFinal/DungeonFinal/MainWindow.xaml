@@ -84,6 +84,9 @@
         <Label x:Name="lbl_Hero4_Name" Content="Hero 4" HorizontalAlignment="Left" Margin="612,131,0,0" VerticalAlignment="Top"/>
 
 
+        <Button x:Name="btn_TestBattle" Content="Test Battle" HorizontalAlignment="Left" Margin="25,379,0,0" VerticalAlignment="Top" Width="114" Height="46" IsEnabled="False"  Click="btn_TestBattle_Click"/>
+
+
 
 
 

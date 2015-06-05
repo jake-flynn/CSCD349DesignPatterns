@@ -1,0 +1,43 @@
+﻿<Window x:Class="DungeonFinal.BattleTestChoiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BattleTestChoiceWindow" Height="600" Width="448.8">
+    <Grid>
+
+
+        <Label x:Name="lbl_Description" Content="Choose a Monster to fight!" HorizontalAlignment="Left" Margin="180,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_BattleTypeNormal" Content="Nomal Battles" HorizontalAlignment="Left" Margin="86,53,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_BattleTypeSwarm" Content="Swarm Battles" HorizontalAlignment="Left" Margin="268,53,0,0" VerticalAlignment="Top"/>
+
+        <!--Normal monster battles-->
+        <Button x:Name="btn_MonsterChoice1" Content="Shade" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice1_Click"/>
+        <Button x:Name="btn_MonsterChoice2" Content="Skeleton" HorizontalAlignment="Left" Margin="35,108,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice2_Click"/>
+        <Button x:Name="btn_MonsterChoice3" Content="Insect" HorizontalAlignment="Left" Margin="35,132,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice3_Click"/>
+        <Button x:Name="btn_MonsterChoice4" Content="Vampire Bat" HorizontalAlignment="Left" Margin="35,156,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice4_Click"/>
+        <Button x:Name="btn_MonsterChoice5" Content="Slime" HorizontalAlignment="Left" Margin="35,180,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice5_Click"/>
+        <Button x:Name="btn_MonsterChoice6" Content="Imp" HorizontalAlignment="Left" Margin="35,204,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice6_Click"/>
+        <Button x:Name="btn_MonsterChoice7" Content="StuBeast" HorizontalAlignment="Left" Margin="35,228,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice7_Click"/>
+        <Button x:Name="btn_MonsterChoice8" Content="Werewolf" HorizontalAlignment="Left" Margin="35,252,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice8_Click"/>
+        <Button x:Name="btn_MonsterChoice9" Content="Harpy" HorizontalAlignment="Left" Margin="35,276,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice9_Click"/>
+        <Button x:Name="btn_MonsterChoice10" Content="Hellhound" HorizontalAlignment="Left" Margin="143,84,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice10_Click"/>
+        <Button x:Name="btn_MonsterChoice11" Content="Cockatrice" HorizontalAlignment="Left" Margin="143,108,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice11_Click"/>
+        <Button x:Name="btn_MonsterChoice12" Content="Sphynx" HorizontalAlignment="Left" Margin="143,132,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice12_Click"/>
+        <Button x:Name="btn_MonsterChoice13" Content="Centaur" HorizontalAlignment="Left" Margin="143,156,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice13_Click"/>
+        <Button x:Name="btn_MonsterChoice14" Content="Demon Warrior" HorizontalAlignment="Left" Margin="143,180,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice14_Click"/>
+        <Button x:Name="btn_MonsterChoice15" Content="Cyclops" HorizontalAlignment="Left" Margin="143,204,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice15_Click"/>
+        <Button x:Name="btn_MonsterChoice16" Content="Dragon" HorizontalAlignment="Left" Margin="143,228,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice16_Click"/>
+        <Button x:Name="btn_MonsterChoice17" Content="Minotaur" HorizontalAlignment="Left" Margin="143,252,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice17_Click"/>
+        <Button x:Name="btn_MonsterChoice18" Content="Chimera" HorizontalAlignment="Left" Margin="143,276,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice18_Click"/>
+        <Button x:Name="btn_MonsterChoice19" Content="Hydra" HorizontalAlignment="Left" Margin="143,300,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice19_Click"/>
+
+        <!--swarm monster battles-->
+        <Button x:Name="btn_MonsterChoice20" Content="Insects" HorizontalAlignment="Left" Margin="268,84,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice20_Click"/>
+        <Button x:Name="btn_MonsterChoice21" Content="Vampire Bats" HorizontalAlignment="Left" Margin="268,108,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice21_Click"/>
+        <Button x:Name="btn_MonsterChoice22" Content="Slimes" HorizontalAlignment="Left" Margin="268,132,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice22_Click"/>
+        <Button x:Name="btn_MonsterChoice23" Content="Hellhounds" HorizontalAlignment="Left" Margin="268,156,0,0" VerticalAlignment="Top" Width="90" Click="btn_MonsterChoice23_Click"/>
+
+
+
+
+    </Grid>
+</Window>

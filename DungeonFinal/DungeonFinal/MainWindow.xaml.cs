@@ -63,6 +63,7 @@ namespace DungeonFinal
             charSelect.ShowDialog();
             _TheParty = charSelect.getPartyFromSelect();
             btn_equipmentSelect.IsEnabled = true;
+            btn_TestBattle.IsEnabled = true;
         }
 
 
@@ -215,7 +216,7 @@ namespace DungeonFinal
 
         }
 
-        public async void startBattle(Monster monster, Party heros)
+        public void startBattle(Monster monster, Party heros)
         {
             if(monster.getIsSwarm())
             {
@@ -237,7 +238,7 @@ namespace DungeonFinal
             updateButtonsVisibility();
             //upgradeStats(heros);
             _TheParty.getInventory().addLastToConsumable(_ItemFactory.createConsumable(monster.getTierNumber()));
-            await Task.Delay(400);
+            
             _TheParty.getInventory().addLastToEquipment(_ItemFactory.createEquipment(monster.getTierNumber()));
 
             var randomNumberGenerator = new Random();
@@ -441,6 +442,7 @@ namespace DungeonFinal
 
             updateButtonsVisibility();
             btn_equipmentSelect.IsEnabled = true;
+            btn_TestBattle.IsEnabled = true;
             updateHeroVisuals();
         }
 
@@ -448,6 +450,13 @@ namespace DungeonFinal
         {
             var equipmentSelect = new PartyEquipmentWindow(_TheParty);
             equipmentSelect.ShowDialog();
+            updateHeroVisuals();
+        }
+
+        private void btn_TestBattle_Click(object sender, RoutedEventArgs e)
+        {
+            var map = new BattleTestChoiceWindow(_TheParty);
+            map.ShowDialog();
             updateHeroVisuals();
         }
 

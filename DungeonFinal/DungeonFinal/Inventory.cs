@@ -40,7 +40,7 @@ namespace DungeonFinal
 
         }
 
-        public async void initialInventoryPopulate()
+        public void initialInventoryPopulate()
         {
             addLastToConsumable(new LesserPotionOfHealth());
             addLastToConsumable(new PotionOfHealth());

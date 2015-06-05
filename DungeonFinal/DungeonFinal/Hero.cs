@@ -330,7 +330,7 @@ namespace DungeonFinal
 
             int ctr = 0;
 
-            foreach (StatusEffect e in _EffectList)
+            foreach (StatusEffect e in _EffectList)//THIS CODE IS UNDER CONSTRUCTION. FUNKY STUFF IS GOING DOWN.
             {
                 //MessageBox.Show("Number off effects: " + ctr);
                 retString += e.Modify();

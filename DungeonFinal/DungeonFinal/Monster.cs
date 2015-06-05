@@ -105,8 +105,7 @@ namespace DungeonFinal
         {
             if (h < 0)
             {
-                _CurHealth = 0;
-                setIsDefeated(true);
+                _CurHealth = 0;                
             }
             
             //else if (h > getMaxHealth())
@@ -307,21 +306,21 @@ namespace DungeonFinal
         //Modify stats for Clones
         public void modifyStats()
         {
-            setBaseHealth(getBaseHealth() / 2);
-            setCurHealth(getCurHealth() / 2);
-            setMaxHealth(getMaxHealth() / 2);
-            setBaseMana(getBaseMana() / 2);
-            setCurMana(getCurMana() / 2);
-            setMaxMana(getMaxMana() / 2);
+            setBaseHealth((getBaseHealth() * 3) / 4);
+            setCurHealth((getCurHealth() * 3) / 4);
+            setMaxHealth((getMaxHealth() * 3) / 4);
+            setBaseMana((getBaseMana() * 3) / 4);
+            setCurMana((getCurMana() * 3) / 4);
+            setMaxMana((getMaxMana() * 3) / 4);
 
-            setBaseStrength(getBaseStrength() / 2);
-            setModStrength(getModStrength() / 2);
-            setBaseMagic(getBaseMagic() / 2);
-            setModMagic(getModMagic() / 2);
-            setBaseDefense(getBaseDefense() / 2);
-            setModDefense(getModDefense() / 2);
-            setBaseResistance(getBaseResistance() / 2);
-            setModResistance(getModResistance() / 2);        
+            setBaseStrength((getBaseStrength() * 3) / 4);
+            setModStrength((getModStrength() * 3) / 4);
+            setBaseMagic((getBaseMagic() * 3) / 4);
+            setModMagic((getModMagic() * 3) / 4);
+            setBaseDefense((getBaseDefense() * 3) / 4);
+            setModDefense((getModDefense() * 3) / 4);
+            setBaseResistance((getBaseResistance() * 3) / 4);
+            setModResistance((getModResistance() * 3) / 4);        
         }
 
 

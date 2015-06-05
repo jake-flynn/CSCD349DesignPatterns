@@ -141,7 +141,12 @@ namespace DungeonFinal
             {
                 if (m.getCurHealth() <= 0 && ! m.getIsDefeated())
                 {
-                    MessageBox.Show(m.getName() + " was slain!!!");
+                    _Paragraph.Inlines.Add(new Bold(new Run(m.getName() + " was slain!!!"))
+                    {
+                        Foreground = Brushes.Red
+                    });
+                    _Paragraph.Inlines.Add(new LineBreak());
+
                     m.setIsDefeated(true);
 
                     if (_TheSwarm[0].getIsDefeated())
