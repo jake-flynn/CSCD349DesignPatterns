@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DungeonFinal
@@ -35,20 +36,29 @@ namespace DungeonFinal
                 _Consumable[x] = new NullItemConsumable();
                 _Equipment[x] = new NullItemEquipment();
             }
+            initialInventoryPopulate();
 
+        }
+
+        public async void initialInventoryPopulate()
+        {
             addLastToConsumable(new LesserPotionOfHealth());
             addLastToConsumable(new PotionOfHealth());
             addLastToConsumable(new LesserPotionOfMana());
 
-            addLastToConsumable(_ItemFactory.createConsumable(1));
-            addLastToConsumable(_ItemFactory.createConsumable(1));
-            addLastToConsumable(_ItemFactory.createConsumable(1));
+            
 
-            addLastToEquipment(_ItemFactory.createEquipment(1));
-            addLastToEquipment(_ItemFactory.createEquipment(1));
-            addLastToEquipment(_ItemFactory.createEquipment(1));
-            addLastToEquipment(_ItemFactory.createEquipment(1));
-            addLastToEquipment(_ItemFactory.createEquipment(1));
+            for (int x = 0; x < 15; x++)
+            {
+                addLastToEquipment(_ItemFactory.createEquipment(1));                
+            }
+
+            for (int x = 0; x < 3; x++)
+            {
+                addLastToConsumable(_ItemFactory.createConsumable(1));                
+            }
+            
+            
         }
 
         public Consumable findConsumableByIndex(int index)

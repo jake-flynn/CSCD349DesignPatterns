@@ -215,7 +215,7 @@ namespace DungeonFinal
 
         }
 
-        public void startBattle(Monster monster, Party heros)
+        public async void startBattle(Monster monster, Party heros)
         {
             if(monster.getIsSwarm())
             {
@@ -237,6 +237,7 @@ namespace DungeonFinal
             updateButtonsVisibility();
             //upgradeStats(heros);
             _TheParty.getInventory().addLastToConsumable(_ItemFactory.createConsumable(monster.getTierNumber()));
+            await Task.Delay(400);
             _TheParty.getInventory().addLastToEquipment(_ItemFactory.createEquipment(monster.getTierNumber()));
 
             var randomNumberGenerator = new Random();
