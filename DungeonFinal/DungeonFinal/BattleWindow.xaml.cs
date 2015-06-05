@@ -454,7 +454,7 @@ namespace DungeonFinal
             {
                 await Task.Delay(400);
                 String effectString = "";
-                effectString = h.Notify();
+                effectString = h.Notify() + "\n";
 
                 for (int x = 0; x < h.getEffectList().Count; x++ )
                 {
@@ -463,6 +463,7 @@ namespace DungeonFinal
                     if(cur.Value.getDuration() <= 0)
                     {
                         h.Unsubscribe(cur.Value);
+                        x--;
                     }
                     
                     else

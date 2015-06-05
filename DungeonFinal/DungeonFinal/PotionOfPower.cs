@@ -23,6 +23,7 @@ namespace DungeonFinal
             _effect = new ItemsEffect();
             this.setItemName("Potion of Power");
             _effect.setEffectName("Enhances power by 6 for four turns.");
+            _effect.setStrengthValue(6);
             this.setEffect(_effect);
             setHasStatusEffect(true);
             setStatusEffect(new PowerBoost());

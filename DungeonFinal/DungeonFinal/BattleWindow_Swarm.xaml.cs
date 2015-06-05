@@ -523,6 +523,7 @@ namespace DungeonFinal
                     if (cur.Value.getDuration() <= 0)
                     {
                         h.Unsubscribe(cur.Value);
+                        x--;
                     }
 
                     else

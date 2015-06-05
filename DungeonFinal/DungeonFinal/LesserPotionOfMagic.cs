@@ -23,6 +23,7 @@ namespace DungeonFinal
             _effect = new ItemsEffect();
             this.setItemName("Lesser Magic Potion");
             _effect.setEffectName("Slightly increases magic by 3 for three turns.");
+            _effect.setMagicValue(3);
             this.setEffect(_effect);
             setHasStatusEffect(true);
             setStatusEffect(new LesserMagicBoost());

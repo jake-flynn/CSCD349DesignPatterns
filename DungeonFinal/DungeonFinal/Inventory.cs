@@ -42,6 +42,8 @@ namespace DungeonFinal
 
         public void initialInventoryPopulate()
         {
+            addLastToConsumable(new LesserPotionOfPower());
+            addLastToConsumable(new LesserPotionOfDefense());
             addLastToConsumable(new LesserPotionOfHealth());
             addLastToConsumable(new PotionOfHealth());
             addLastToConsumable(new LesserPotionOfMana());

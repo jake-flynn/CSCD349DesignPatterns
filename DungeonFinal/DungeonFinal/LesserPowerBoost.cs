@@ -16,12 +16,6 @@ namespace DungeonFinal
         public override String Modify()
         {
             setDuration(getDuration() - 1);
-            
-
-            if(getDuration() == 2)
-            {
-                getHero().setModStrength(getHero().getModStrength() + 3);
-            }
 
             if (getDuration() > 0)
             {
@@ -30,7 +24,7 @@ namespace DungeonFinal
 
             else
             {
-                getHero().setModDefense(getHero().getModDefense() - 3);
+                getHero().setModStrength(getHero().getModStrength() - 3);
                 return (getHero().getName() + " lesser strength boost has ended!\r\n");
             }
         }
