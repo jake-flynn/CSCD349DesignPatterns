@@ -84,7 +84,6 @@ namespace DungeonFinal
 
             else if(tierLevel == 2)
             {
-                var randomNumber = new Random();
                 int choice = randomNumber.Next(9) + 1;
 
                 if (choice == 1)
@@ -135,7 +134,7 @@ namespace DungeonFinal
 
             else if(tierLevel == 3)
             {                
-                int choice = randomNumber.Next(6) + 1;
+                int choice = randomNumber.Next(9) + 1;
 
                 if (choice == 1)
                 {
@@ -384,7 +383,7 @@ namespace DungeonFinal
 
             else if (tierLevel == 3)
             {                
-                int choice = randomNumber.Next(16) + 1;
+                int choice = randomNumber.Next(20) + 1;
 
                 if(choice == 1)
                 {

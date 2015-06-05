@@ -24,6 +24,7 @@ namespace DungeonFinal
             this.setItemName("Greater Defense Potion");
             _effect.setEffectName("Greatly increase defense by 10 for five turns.");
             this.setEffect(_effect);
+            setHasStatusEffect(true);
             setStatusEffect(new GreaterDefenseBoost());
 
             ImageBrush imgBrush = new ImageBrush();

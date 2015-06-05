@@ -457,6 +457,7 @@ namespace DungeonFinal
         {
             var map = new BattleTestChoiceWindow(_TheParty);
             map.ShowDialog();
+            updateHeroVisuals();
         }
 
     

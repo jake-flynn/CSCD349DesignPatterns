@@ -15,20 +15,19 @@ namespace DungeonFinal
 
         public override String Modify()
         {
-            if(getDuration() == 4)
+            setDuration(getDuration() - 1);
+            getHero().setModResistance(getHero().getModResistance() + 6);
+
+            if (getDuration() > 0)
             {
-                getHero().setModResistance(getHero().getModResistance() + 6);            
+                return (getHero().getName() + " resistance has been boosted by 6 for " + getDuration() + " more turn(s)!\r\n");
             }
 
-            else if(getDuration() == 1)
+            else
             {
                 getHero().setModResistance(getHero().getModResistance() - 6);
+                return (getHero().getName() + " resistance boost has ended!\r\n");
             }
-
-            setDuration(getDuration() - 1);
-
-            return (getHero().getName() + " resistance has been boosted by 6 for " + getDuration() + " more turn(s)!\r\n");
-
         }
     }
 }

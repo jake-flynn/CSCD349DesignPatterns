@@ -141,7 +141,12 @@ namespace DungeonFinal
             {
                 if (m.getCurHealth() <= 0 && ! m.getIsDefeated())
                 {
-                    MessageBox.Show(m.getName() + " was slain!!!");
+                    _Paragraph.Inlines.Add(new Bold(new Run(m.getName() + " was slain!!!"))
+                    {
+                        Foreground = Brushes.Red
+                    });
+                    _Paragraph.Inlines.Add(new LineBreak());
+
                     m.setIsDefeated(true);
 
                     if (_TheSwarm[0].getIsDefeated())
@@ -507,7 +512,29 @@ namespace DungeonFinal
 
             foreach (Hero h in _theHeroes)
             {
-                h.Notify();
+                await Task.Delay(400);
+                String effectString = "";
+                effectString = h.Notify();
+
+                for (int x = 0; x < h.getEffectList().Count; x++)
+                {
+                    LinkedListNode<StatusEffect> cur = (LinkedListNode<StatusEffect>)h.getEffectList().First;
+
+                    if (cur.Value.getDuration() == 0)
+                    {
+                        h.Unsubscribe(cur.Value);
+                    }
+
+                    else
+                        cur = cur.Next;
+                }
+
+                _Paragraph.Inlines.Add(new Bold(new Run(effectString))
+                {
+                    Foreground = Brushes.Fuchsia
+                });
+                _Paragraph.Inlines.Add(new LineBreak());
+                updateVisuals();
             }
         }
 

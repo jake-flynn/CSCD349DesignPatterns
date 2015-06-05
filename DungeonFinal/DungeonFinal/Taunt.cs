@@ -25,9 +25,8 @@ namespace DungeonFinal
         public override String Modify()
         {
             setDuration(getDuration() - 1);
-            getHero().setCurHealth(getHero().getCurHealth() - 15);
 
-            if(getDuration() > 0)
+            if(getDuration() > 1)
             {
                 return (getHero().getName() + " is currently taunting the enemy monsters. This will last " + getDuration() + " more turn(s)!\r\n");
             }

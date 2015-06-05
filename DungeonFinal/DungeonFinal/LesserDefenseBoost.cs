@@ -15,20 +15,19 @@ namespace DungeonFinal
 
         public override String Modify()
         {
-            if(getDuration() == 3)
+            setDuration(getDuration() - 1);
+            getHero().setModDefense(getHero().getModDefense() + 3);
+
+            if (getDuration() > 0)
             {
-                getHero().setModDefense(getHero().getModDefense() + 3);            
+                return (getHero().getName() + " defense has been boosted by 3 for " + getDuration() + " more turn(s)!\r\n");
             }
 
-            else if(getDuration() == 1)
+            else
             {
                 getHero().setModDefense(getHero().getModDefense() - 3);
+                return (getHero().getName() + " lesser defense boost has ended!\r\n");
             }
-
-            setDuration(getDuration() - 1);
-
-            return (getHero().getName() + " defense has been boosted by 3 for " + getDuration() + " more turn(s)!\r\n");
-
         }
     }
 }

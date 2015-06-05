@@ -456,10 +456,23 @@ namespace DungeonFinal
                 String effectString = "";
                 effectString = h.Notify();
 
-                _Paragraph.Inlines.Add(new Bold(new Run(effectString))
+                for (int x = 0; x < h.getEffectList().Count; x++ )
                 {
-                    Foreground = Brushes.Fuchsia
-                });
+                    LinkedListNode<StatusEffect> cur = (LinkedListNode<StatusEffect>) h.getEffectList().First;
+
+                    if(cur.Value.getDuration() == 0)
+                    {
+                        h.Unsubscribe(cur.Value);
+                    }
+                    
+                    else
+                        cur = cur.Next;
+                }
+
+                    _Paragraph.Inlines.Add(new Bold(new Run(effectString))
+                    {
+                        Foreground = Brushes.Fuchsia
+                    });
                 _Paragraph.Inlines.Add(new LineBreak());
                 updateVisuals();
             }
