@@ -87,10 +87,12 @@ namespace DungeonFinal
             cWindow.ShowDialog();
             int monsterToAttack = cWindow.getChoiceFromSelect();
 
-            setCurMana(getCurMana() - 15);
-            monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - (monsters[monsterToAttack].getModDefense() - damage));
+             int damageWithCalculations  = damage - monsters[monsterToAttack].getModDefense(); 
 
-            return (getName() + " performed Throw Knives for " + (monsters[monsterToAttack].getModDefense() - damage) + " damage!");
+            setCurMana(getCurMana() - 15);
+            monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - damageWithCalculations);
+
+            return (getName() + " performed Throw Knives for " + damageWithCalculations + " damage!");
         }
 
         /*Battle - Defend*/

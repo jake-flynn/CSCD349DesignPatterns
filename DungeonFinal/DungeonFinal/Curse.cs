@@ -29,7 +29,7 @@ namespace DungeonFinal
 
             setDuration(getDuration() - 1);
 
-            return (getHero().getName() + " is under a curse, it is sapping thier strength " + getDuration() + " more turn(s)!\r\n");
+            return (getHero().getName() + " is under a curse, it is sapping their strength for " + getDuration() + " more turn(s)!\r\n");
 
         }
 

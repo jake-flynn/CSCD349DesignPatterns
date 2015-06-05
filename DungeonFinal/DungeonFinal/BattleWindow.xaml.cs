@@ -444,15 +444,13 @@ namespace DungeonFinal
             //--------------Hero's have had their say... IT'S MONSTA TIME.---------------//
 
             if (_monster.getCurHealth() > 0)
-            {
-                await Task.Delay(400);
+            {                
                 monsterAttack();                
                 checkForDefeatedUnit();
             }
             //incrementEffects();
             foreach(Hero h in _theHeroes)
-            {
-                await Task.Delay(400);
+            {                
                 String effectString = "";
                 effectString = h.Notify();
 
@@ -460,7 +458,7 @@ namespace DungeonFinal
                 {
                     LinkedListNode<StatusEffect> cur = (LinkedListNode<StatusEffect>) h.getEffectList().First;
 
-                    if(cur.Value.getDuration() == 0)
+                    if(cur.Value.getDuration() <= 0)
                     {
                         h.Unsubscribe(cur.Value);
                     }

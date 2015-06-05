@@ -19,8 +19,15 @@ namespace DungeonFinal
             getHero().setCurMana(getHero().getCurMana() + 15);                
             setDuration(getDuration() - 1);
 
-            return (getHero().getName() + " health and mana are being rejuvenated by 15 for " + getDuration() + " more turn(s)!\r\n");
+            if (getDuration() > 0)
+            {
+                return (getHero().getName() + " health and mana are being rejuvenated by 15 for " + getDuration() + " more turn(s)!\r\n");
+            }
 
+            else
+            {
+                return (getHero().getName() + " rejuvenation potion has ended!\r\n");
+            }
         }
     }
 }

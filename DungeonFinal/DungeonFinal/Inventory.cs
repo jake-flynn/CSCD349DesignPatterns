@@ -44,7 +44,7 @@ namespace DungeonFinal
         {
             addLastToConsumable(new LesserPotionOfHealth());
             addLastToConsumable(new PotionOfHealth());
-            addLastToConsumable(new LesserPotionOfMana());
+            addLastToConsumable(new PotionOfHealthRegeneration());
 
             
 
