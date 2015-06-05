@@ -515,7 +515,7 @@ namespace DungeonFinal
                 {
                     LinkedListNode<StatusEffect> cur = (LinkedListNode<StatusEffect>)h.getEffectList().First;
 
-                    if (cur.Value.getDuration() == 0)
+                    if (cur.Value.getDuration() <= 0)
                     {
                         h.Unsubscribe(cur.Value);
                     }

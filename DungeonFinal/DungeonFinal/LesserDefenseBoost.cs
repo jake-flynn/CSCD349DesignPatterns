@@ -16,7 +16,11 @@ namespace DungeonFinal
         public override String Modify()
         {
             setDuration(getDuration() - 1);
-            getHero().setModDefense(getHero().getModDefense() + 3);
+            
+            if (getDuration() == 2)
+            {
+                getHero().setModDefense(getHero().getModDefense() + 3);
+            }
 
             if (getDuration() > 0)
             {
