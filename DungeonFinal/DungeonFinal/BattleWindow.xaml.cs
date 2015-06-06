@@ -176,14 +176,20 @@ namespace DungeonFinal
             checkForDefeatedUnit();
         }
 
-        private string specialMove(Hero hero, int whichHero)
+        private void specialMove(Hero hero, int whichHero)
         {
             Monster[] justOneMonster = new Monster[1];
             justOneMonster[0] = _monster;
             string toReturn = hero.PerformSpecialAttack(_theParty, whichHero, justOneMonster);
+
+            _Paragraph.Inlines.Add(new Bold(new Run(toReturn))
+            {
+                Foreground = hero.getTextColor()
+            });
+            _Paragraph.Inlines.Add(new LineBreak());
+
             updateVisuals();
-            checkForDefeatedUnit();
-            return toReturn;
+            checkForDefeatedUnit();            
         }
 
         private void useItem(Hero hero)
@@ -337,12 +343,7 @@ namespace DungeonFinal
                 else if (rBtn_Hero1Special.IsChecked == true)
                 {
                     await Task.Delay(10);
-                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
-                    {
-                        Foreground = _theHeroes[0].getTextColor()
-                    });
-                    _Paragraph.Inlines.Add(new LineBreak());
-                    
+                    specialMove(_theHeroes[0], 0);
                 }
                 else if (rBtn_Hero1Item.IsChecked == true)
                 {
@@ -367,12 +368,7 @@ namespace DungeonFinal
                 else if (rBtn_Hero2Special.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[1], 1)))
-                    {
-                        Foreground = _theHeroes[1].getTextColor()
-                    });
-                    _Paragraph.Inlines.Add(new LineBreak());                    
+                    specialMove(_theHeroes[1], 1);                                        
                 }
                 else if (rBtn_Hero2Item.IsChecked == true)
                 {
@@ -398,13 +394,7 @@ namespace DungeonFinal
                 else if (rBtn_Hero3Special.IsChecked == true)
                 {
                     await Task.Delay(400);
-                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[2], 2)))
-                    {
-                        Foreground = _theHeroes[2].getTextColor()
-                    });
-                    _Paragraph.Inlines.Add(new LineBreak());
-
-                    
+                    specialMove(_theHeroes[2], 2);
                 }
                 else if (rBtn_Hero3Item.IsChecked == true)
                 {
@@ -429,11 +419,7 @@ namespace DungeonFinal
                 else if (rBtn_Hero4Special.IsChecked == true)
                 {
                     await Task.Delay(400);
-                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[3], 3)))
-                    {
-                        Foreground = _theHeroes[3].getTextColor()
-                    });
-                    _Paragraph.Inlines.Add(new LineBreak());                    
+                    specialMove(_theHeroes[3], 3);
                 }
                 else if (rBtn_Hero4Item.IsChecked == true)
                 {
