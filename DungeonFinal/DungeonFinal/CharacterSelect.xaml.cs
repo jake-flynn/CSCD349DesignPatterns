@@ -19,8 +19,9 @@ namespace DungeonFinal
     /// </summary>
     public partial class CharacterSelect : Window
     {
-        private bool ready = false;
-        private Party party;
+        private bool _ready = false;
+        private Party _party;
+        private Hero[] _TheHeroes;
 
         public CharacterSelect()
         {
@@ -29,227 +30,211 @@ namespace DungeonFinal
                             "Select a character by clicking one radio button in each hero row\r\n" +
                             "indicating which character you would like to assign to each hero slot");
             btn_PartyReady.IsEnabled = false;
-            party = new Party();
-            paintRectanglesWithHeroImages();
+            _party = new Party();
+            //paintRectanglesWithHeroImages();
+
+            _TheHeroes = new Hero[4];
+
+            btn_PartyReady.IsEnabled = true;
+
+            
+
         }
 
 
         public void paintRectanglesWithHeroImages()
         {
-            ImageBrush imgBrushSwordsman = new ImageBrush();
-            BitmapImage imageSwordsman = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-jwP2jq5N8vk/VV7qG6mhNWI/AAAAAAAAA1Q/MCdr_HdAZnw/w506-h731/Swordsman.jpg"));
-            imgBrushSwordsman.ImageSource = imageSwordsman;
-            rect_Swordsman.Fill = imgBrushSwordsman;
-
-            ImageBrush imgBrushPaladin = new ImageBrush();
-            BitmapImage imagePaladin = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-9PZ0hjpgspI/VV7p99bG62I/AAAAAAAAAzg/Ejq9YL1hAtM/w506-h764/Paladin.jpg"));
-            imgBrushPaladin.ImageSource = imagePaladin;
-            rect_Paladin.Fill = imgBrushPaladin;
-
-            ImageBrush imgBrushCleric = new ImageBrush();
-            BitmapImage imageCleric = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-J6UohVY0-2Y/VV7poKYTrEI/AAAAAAAAAws/Xmdq1-qREdI/w506-h900/Cleric.jpg"));
-            imgBrushCleric.ImageSource = imageCleric;
-            rect_Cleric.Fill = imgBrushCleric;
-
-            ImageBrush imgBrushRogue = new ImageBrush();
-            BitmapImage imageRogue = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-GqQ6Ja-aahk/VV7qAx0PD8I/AAAAAAAAA0E/tguBh4geous/w506-h647/Rogue.jpg"));
-            imgBrushRogue.ImageSource = imageRogue;
-            rect_Rogue.Fill = imgBrushRogue;
+            
         }
 
 
         public bool checkReady()
         {
-            ready = false;
+            _ready = true;
 
-            if(rbtn_Hero1_Swordsman.IsChecked == true || rbtn_Hero1_Paladin.IsChecked == true || rbtn_Hero1_Cleric.IsChecked == true || rbtn_Hero1_Rogue.IsChecked == true)
-            {
-                if(rbtn_Hero2_Swordsman.IsChecked == true || rbtn_Hero2_Paladin.IsChecked == true || rbtn_Hero2_Cleric.IsChecked == true || rbtn_Hero2_Rogue.IsChecked == true)
-                {
-                    if(rbtn_Hero3_Swordsman.IsChecked == true || rbtn_Hero3_Paladin.IsChecked == true || rbtn_Hero3_Cleric.IsChecked == true || rbtn_Hero3_Rogue.IsChecked == true)
-                    {
-                        if(rbtn_Hero4_Swordsman.IsChecked == true || rbtn_Hero4_Paladin.IsChecked == true || rbtn_Hero4_Cleric.IsChecked == true || rbtn_Hero4_Rogue.IsChecked == true)
-                        {
-                            ready = true;
-                        }
-                    }
-                }
-            }
+         
 
 
-            if(ready == true)
+            if(_ready == true)
             {
                 btn_PartyReady.IsEnabled = true;
             }
 
-            return ready;
+            return _ready;
             
         }
 
         private void btn_PartyReady_Click(object sender, RoutedEventArgs e)
         {
-            
-            if(rbtn_Hero1_Swordsman.IsChecked == true)
-            {
-                party.addHero(new Swordsman());
-            }
-            else if(rbtn_Hero1_Paladin.IsChecked == true)
-            {
-                party.addHero(new Paladin());
-            }
-            else if(rbtn_Hero1_Cleric.IsChecked == true)
-            {
-                party.addHero(new Cleric());
-            }
-            else if(rbtn_Hero1_Rogue.IsChecked == true)
-            {
-                party.addHero(new Rogue());
-            }
 
-
-            if (rbtn_Hero2_Swordsman.IsChecked == true)
-            {
-                party.addHero(new Swordsman());
-            }
-            else if (rbtn_Hero2_Paladin.IsChecked == true)
-            {
-                party.addHero(new Paladin());
-            }
-            else if (rbtn_Hero2_Cleric.IsChecked == true)
-            {
-                party.addHero(new Cleric());
-            }
-            else if (rbtn_Hero2_Rogue.IsChecked == true)
-            {
-                party.addHero(new Rogue());
-            }
-
-
-
-            if (rbtn_Hero3_Swordsman.IsChecked == true)
-            {
-                party.addHero(new Swordsman());
-            }
-            else if (rbtn_Hero3_Paladin.IsChecked == true)
-            {
-                party.addHero(new Paladin());
-            }
-            else if (rbtn_Hero3_Cleric.IsChecked == true)
-            {
-                party.addHero(new Cleric());
-            }
-            else if (rbtn_Hero3_Rogue.IsChecked == true)
-            {
-                party.addHero(new Rogue());
-            }
-
-
-
-            if (rbtn_Hero4_Swordsman.IsChecked == true)
-            {
-                party.addHero(new Swordsman());
-            }
-            else if (rbtn_Hero4_Paladin.IsChecked == true)
-            {
-                party.addHero(new Paladin());
-            }
-            else if (rbtn_Hero4_Cleric.IsChecked == true)
-            {
-                party.addHero(new Cleric());
-            }
-            else if (rbtn_Hero4_Rogue.IsChecked == true)
-            {
-                party.addHero(new Rogue());
-            }
+            _party.addHero(_TheHeroes[0]);
+            _party.addHero(_TheHeroes[1]);
+            _party.addHero(_TheHeroes[2]);
+            _party.addHero(_TheHeroes[3]);
 
             this.Close();
 
         }
 
-        private void rbtn_Hero1_Swordsman_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero1_Paladin_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero1_Priest_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero1_Rogue_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero2_Swordsman_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero2_Paladin_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero2_Priest_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero2_Rogue_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero3_Swordsman_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero3_Paladin_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero3_Priest_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero3_Rogue_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero4_Swordsman_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero4_Paladin_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero4_Priest_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-        }
-
-        private void rbtn_Hero4_Rogue_Click(object sender, RoutedEventArgs e)
-        {
-            checkReady();
-            
-        }
+       
 
         public Party getPartyFromSelect()
         {
-            return party;
+            return _party;
+        }
+
+        private void cmbBox_Hero1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbBox_Hero1.SelectedIndex.Equals(0))
+            {
+                _TheHeroes[0] = new ArmorKnight();
+            }
+            else if (cmbBox_Hero1.SelectedIndex.Equals(1))
+            {
+                _TheHeroes[0] = new Cleric();
+            }
+            else if (cmbBox_Hero1.SelectedIndex.Equals(2))
+            {
+                _TheHeroes[0] = new Monk();
+            }
+            else if (cmbBox_Hero1.SelectedIndex.Equals(3))
+            {
+                _TheHeroes[0] = new Paladin();
+            }
+            else if (cmbBox_Hero1.SelectedIndex.Equals(4))
+            {
+                _TheHeroes[0] = new Rogue();
+            }
+            else if (cmbBox_Hero1.SelectedIndex.Equals(5))
+            {
+                _TheHeroes[0] = new Sorceress();
+            }      
+            else if(cmbBox_Hero1.SelectedIndex.Equals(6))
+            {
+                _TheHeroes[0] = new Swordsman();
+            }
+            else if (cmbBox_Hero1.SelectedIndex.Equals(7))
+            {
+                _TheHeroes[0] = new Warlock();
+            }
+            
+            
+            rect_Hero1.Fill = _TheHeroes[0].getImageBrush();
+        }
+
+        private void cmbBox_Hero2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbBox_Hero2.SelectedIndex.Equals(0))
+            {
+                _TheHeroes[1] = new ArmorKnight();
+            }
+            else if (cmbBox_Hero2.SelectedIndex.Equals(1))
+            {
+                _TheHeroes[1] = new Cleric();
+            }
+            else if (cmbBox_Hero2.SelectedIndex.Equals(2))
+            {
+                _TheHeroes[1] = new Monk();
+            }
+            else if (cmbBox_Hero2.SelectedIndex.Equals(3))
+            {
+                _TheHeroes[1] = new Paladin();
+            }
+            else if (cmbBox_Hero2.SelectedIndex.Equals(4))
+            {
+                _TheHeroes[1] = new Rogue();
+            }
+            else if (cmbBox_Hero2.SelectedIndex.Equals(5))
+            {
+                _TheHeroes[1] = new Sorceress();
+            }
+            else if (cmbBox_Hero2.SelectedIndex.Equals(6))
+            {
+                _TheHeroes[1] = new Swordsman();
+            }
+            else if (cmbBox_Hero2.SelectedIndex.Equals(7))
+            {
+                _TheHeroes[1] = new Warlock();
+            }
+
+            rect_Hero2.Fill = _TheHeroes[1].getImageBrush();
+        }
+
+        private void cmbBox_Hero3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (cmbBox_Hero3.SelectedIndex.Equals(0))
+            {
+                _TheHeroes[2] = new ArmorKnight();
+            }
+            else if (cmbBox_Hero3.SelectedIndex.Equals(1))
+            {
+                _TheHeroes[2] = new Cleric();
+            }
+            else if (cmbBox_Hero3.SelectedIndex.Equals(2))
+            {
+                _TheHeroes[2] = new Monk();
+            }
+            else if (cmbBox_Hero3.SelectedIndex.Equals(3))
+            {
+                _TheHeroes[2] = new Paladin();
+            }
+            else if (cmbBox_Hero3.SelectedIndex.Equals(4))
+            {
+                _TheHeroes[2] = new Rogue();
+            }
+            else if (cmbBox_Hero3.SelectedIndex.Equals(5))
+            {
+                _TheHeroes[2] = new Sorceress();
+            }
+            else if (cmbBox_Hero3.SelectedIndex.Equals(6))
+            {
+                _TheHeroes[2] = new Swordsman();
+            }
+            else if (cmbBox_Hero3.SelectedIndex.Equals(7))
+            {
+                _TheHeroes[2] = new Warlock();
+            }
+
+            rect_Hero3.Fill = _TheHeroes[2].getImageBrush();
+        }
+
+        private void cmbBox_Hero4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbBox_Hero4.SelectedIndex.Equals(0))
+            {
+                _TheHeroes[3] = new ArmorKnight();
+            }
+            else if (cmbBox_Hero4.SelectedIndex.Equals(1))
+            {
+                _TheHeroes[3] = new Cleric();
+            }
+            else if (cmbBox_Hero4.SelectedIndex.Equals(2))
+            {
+                _TheHeroes[3] = new Monk();
+            }
+            else if (cmbBox_Hero4.SelectedIndex.Equals(3))
+            {
+                _TheHeroes[3] = new Paladin();
+            }
+            else if (cmbBox_Hero4.SelectedIndex.Equals(4))
+            {
+                _TheHeroes[3] = new Rogue();
+            }
+            else if (cmbBox_Hero4.SelectedIndex.Equals(5))
+            {
+                _TheHeroes[3] = new Sorceress();
+            }
+            else if (cmbBox_Hero4.SelectedIndex.Equals(6))
+            {
+                _TheHeroes[3] = new Swordsman();
+            }
+            else if (cmbBox_Hero4.SelectedIndex.Equals(7))
+            {
+                _TheHeroes[3] = new Warlock();
+            }
+
+            rect_Hero4.Fill = _TheHeroes[3].getImageBrush();
         }
     }
 }
