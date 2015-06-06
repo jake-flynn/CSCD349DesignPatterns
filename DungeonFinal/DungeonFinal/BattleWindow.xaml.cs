@@ -210,7 +210,7 @@ namespace DungeonFinal
 
         }
 
-        private async void monsterAttack() //Monster attacks!
+        private void monsterAttack() //Monster attacks!
         {  
             Monster mon = _monster;
             Hero hero = mon.FindTarget(_theParty);
@@ -255,7 +255,7 @@ namespace DungeonFinal
                     monsterDamage = 0;
                   
                 
-                await Task.Delay(400);
+                
                 hero.setCurHealth(hero.getCurHealth() - monsterDamage); //actual damage is applied
 
                 _Paragraph.Inlines.Add(new Bold(new Run("The " + mon.getName() + " attacks " + hero.getName() + " for " + monsterDamage + " damage."))
@@ -445,14 +445,15 @@ namespace DungeonFinal
 
             if (_monster.getCurHealth() > 0)
             {                
-                monsterAttack();                
+                monsterAttack();
+                await Task.Delay(500);
                 checkForDefeatedUnit();
             }
             //incrementEffects();
             foreach(Hero h in _theHeroes)
             {                
                 String effectString = "";
-                effectString = h.Notify() + "\n";
+                effectString = h.Notify();
 
                 for (int x = 0; x < h.getEffectList().Count; x++ )
                 {
@@ -468,13 +469,14 @@ namespace DungeonFinal
                         cur = cur.Next;
                 }
 
-                    _Paragraph.Inlines.Add(new Bold(new Run(effectString))
-                    {
-                        Foreground = Brushes.Fuchsia
-                    });
-                _Paragraph.Inlines.Add(new LineBreak());
+                _Paragraph.Inlines.Add(new Bold(new Run(effectString))
+                {
+                    Foreground = Brushes.Fuchsia
+                });
+                
                 updateVisuals();
             }
+            _Paragraph.Inlines.Add(new LineBreak());
         }
 
         private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)
