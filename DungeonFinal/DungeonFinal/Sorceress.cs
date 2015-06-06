@@ -87,10 +87,12 @@ namespace DungeonFinal
             cWindow.ShowDialog();
             int monsterToAttack = cWindow.getChoiceFromSelect();
 
-            monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - (monsters[monsterToAttack].getModResistance() - damage));
+            int damageWithCalculations = damage - monsters[monsterToAttack].getModResistance();
+
+            monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - damageWithCalculations);
             setCurMana(getCurMana() - 15);
 
-            return (getName() + " performed Blizzard for " + (monsters[monsterToAttack].getModResistance() - damage) + " to monster!");
+            return (getName() + " performed Blizzard for " + damageWithCalculations + " to monster!");
         }
 
         /*Battle - Defend*/

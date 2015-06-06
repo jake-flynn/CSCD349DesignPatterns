@@ -127,13 +127,15 @@ namespace DungeonFinal
             prgBar_Hero2_Mana.Value = ((double)_theHeroes[1].getCurMana()) / ((double)_theHeroes[1].getMaxMana()) * 100;
             prgBar_Hero3_Mana.Value = ((double)_theHeroes[2].getCurMana()) / ((double)_theHeroes[2].getMaxMana()) * 100;
             prgBar_Hero4_Mana.Value = ((double)_theHeroes[3].getCurMana()) / ((double)_theHeroes[3].getMaxMana()) * 100;
+
+            
         }
 
         public void checkForDefeatedUnit() //Checks to see if a hero or monster has been slain
         {
             if (_TheSwarm[0].getIsDefeated() && _TheSwarm[1].getIsDefeated() && _TheSwarm[2].getIsDefeated() && _TheSwarm[3].getIsDefeated() && _TheSwarm[4].getIsDefeated() && _TheSwarm[5].getIsDefeated())
             {
-                MessageBox.Show("The " + _TheSwarm[0].getName() + " swarm was defeated!!!");
+                MessageBox.Show("The " + _PrototypeMonster.getName() + " swarm was defeated!!!");
                 _IsSwarmDefeated = true;
                 this.Close();
             }
@@ -234,13 +236,19 @@ namespace DungeonFinal
 
             checkForDefeatedUnit();
         }
-
-        private string specialMove(Hero hero, int whichHero)
+                
+        private void specialMove(Hero hero, int whichHero)
         {
             string toReturn = hero.PerformSpecialAttack(_theParty, whichHero, _TheSwarm);
+
+            _Paragraph.Inlines.Add(new Bold(new Run(toReturn))
+            {
+                Foreground = hero.getTextColor()
+            });
+            _Paragraph.Inlines.Add(new LineBreak());
+            checkForDepletedMana();
             updateVisuals();
             checkForDefeatedUnit();
-            return toReturn;
         }
 
         private void monsterAttack(Monster mon) //Monster attacks!
@@ -332,7 +340,8 @@ namespace DungeonFinal
             });
             _Paragraph.Inlines.Add(new LineBreak());
             _BattleInventory.removeFromConsumable(choiceFromConsumableWindow);
-
+            checkForDepletedMana();
+            updateVisuals();
         }
 
         private void incrementEffects()//This method will process all effects and time based moves
@@ -365,6 +374,54 @@ namespace DungeonFinal
             {
                 btn_Ready.IsEnabled = true;
             }
+            else
+            {
+                btn_Ready.IsEnabled = false;
+            }
+        }
+
+        public void checkForDepletedMana()
+        {
+            if(_theHeroes[0].getCurMana() < 15)
+            {
+                rBtn_Hero1Special.IsEnabled = false;
+                rBtn_Hero1Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero1Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (_theHeroes[1].getCurMana() < 15)
+            {
+                rBtn_Hero2Special.IsEnabled = false;
+                rBtn_Hero2Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero2Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (_theHeroes[2].getCurMana() < 15)
+            {
+                rBtn_Hero3Special.IsEnabled = false;
+                rBtn_Hero3Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero3Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (_theHeroes[3].getCurMana() < 15)
+            {
+                rBtn_Hero4Special.IsEnabled = false;
+                rBtn_Hero4Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero4Special.IsEnabled = true;
+            }
+            checkReady();
         }
 
         //==========================================================================================================//
@@ -373,6 +430,7 @@ namespace DungeonFinal
 
         private async void btn_Ready_Click(object sender, RoutedEventArgs e)
         {
+            btn_Ready.IsEnabled = false;
             if (! _IsSwarmDefeated && _theHeroes[0].getCurHealth() > 0)
             {
                 
@@ -389,11 +447,7 @@ namespace DungeonFinal
                 else if (rBtn_Hero1Special.IsChecked == true)
                 {
                     await Task.Delay(10);
-                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[0], 0)))
-                    {
-                        Foreground = _theHeroes[0].getTextColor()
-                    });
-                    _Paragraph.Inlines.Add(new LineBreak());
+                    specialMove(_theHeroes[0], 0);
                     
                 }
                 else if (rBtn_Hero1Item.IsChecked == true)
@@ -419,12 +473,7 @@ namespace DungeonFinal
                 else if (rBtn_Hero2Special.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[1], 1)))
-                    {
-                        Foreground = _theHeroes[1].getTextColor()
-                    });
-                    _Paragraph.Inlines.Add(new LineBreak());
+                    specialMove(_theHeroes[1], 1);
                 }
                 else if (rBtn_Hero2Item.IsChecked == true)
                 {
@@ -451,12 +500,7 @@ namespace DungeonFinal
                 {
 
                     await Task.Delay(400);
-
-                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[2], 2)))
-                    {
-                        Foreground = _theHeroes[2].getTextColor()
-                    });
-                    _Paragraph.Inlines.Add(new LineBreak());
+                    specialMove(_theHeroes[2], 2);
                 }
                 else if (rBtn_Hero3Item.IsChecked == true)
                 {
@@ -480,12 +524,7 @@ namespace DungeonFinal
                 else if (rBtn_Hero4Special.IsChecked == true)
                 {
                     await Task.Delay(400);
-
-                    _Paragraph.Inlines.Add(new Bold(new Run(specialMove(_theHeroes[3], 3)))
-                    {
-                        Foreground = _theHeroes[3].getTextColor()
-                    });
-                    _Paragraph.Inlines.Add(new LineBreak());
+                    specialMove(_theHeroes[3], 3);
                 }
                 else if (rBtn_Hero4Item.IsChecked == true)
                 {
@@ -533,10 +572,11 @@ namespace DungeonFinal
                 _Paragraph.Inlines.Add(new Bold(new Run(effectString))
                 {
                     Foreground = Brushes.Fuchsia
-                });
-                _Paragraph.Inlines.Add(new LineBreak());
+                });                
                 updateVisuals();
+                checkForDepletedMana();
             }
+            btn_Ready.IsEnabled = true;
         }
 
         private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)
