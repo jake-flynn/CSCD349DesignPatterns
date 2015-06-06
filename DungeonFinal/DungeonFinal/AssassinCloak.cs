@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsTorso(true);
             this.setSocketAmount(4);
             _effect.setEffectName("The shadows engulf you, increases strength by 15");
-            _effect.setPhysicalDefense(15);
-            _effect.setStrengthValue(15);
+            _effect.setStrengthValue(9);
+            _effect.setPhysicalDefense(6);
+            _effect.setManaValue(30);
             _effect.setEffectAmount(15);
             this.setEffect(_effect);
 

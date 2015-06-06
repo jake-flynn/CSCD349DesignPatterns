@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(2);
             _effect.setEffectName("A fine cloth made of silk woven into a khimar, increases mana by 10");
-            _effect.setPhysicalDefense(2);
-            _effect.setManaValue(10);
+            _effect.setMagicValue(3);
+            _effect.setResistanceDefense(1);
+            _effect.setManaValue(7);
             _effect.setEffectAmount(2);
             this.setEffect(_effect);
 

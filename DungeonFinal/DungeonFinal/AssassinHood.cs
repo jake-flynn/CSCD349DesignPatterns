@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(3);
             _effect.setEffectName("Face of darkness, increases strength by 5");
-            _effect.setPhysicalDefense(5);
             _effect.setStrengthValue(5);
+            _effect.setPhysicalDefense(3);
+            _effect.setManaValue(15);
             _effect.setEffectAmount(5);
             this.setEffect(_effect);
 

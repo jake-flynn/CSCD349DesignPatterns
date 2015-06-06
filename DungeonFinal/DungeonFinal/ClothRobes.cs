@@ -25,8 +25,8 @@ namespace DungeonFinal
             this.setIsTorso(true);
             this.setSocketAmount(3);
             _effect.setEffectName("Finely woven silk robes that increase magic power by 5 and mana by 10");
-            _effect.setPhysicalDefense(2);
             _effect.setMagicValue(5);
+            _effect.setResistanceDefense(2);
             _effect.setManaValue(10);
             _effect.setEffectAmount(2);
             this.setEffect(_effect);

@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsTorso(true);
             this.setSocketAmount(6);
             _effect.setEffectName("An exceptional piece of work crafted from steel, increases health by 10");
-            _effect.setPhysicalDefense(15);
-            _effect.setResistanceDefense(15);
-            _effect.setHealthValue(10);
+            _effect.setPhysicalDefense(9);
+            _effect.setResistanceDefense(7);
+            _effect.setHealthValue(40);
             _effect.setEffectAmount(15);
             this.setEffect(_effect);
 

@@ -447,22 +447,22 @@ namespace DungeonFinal
 
                 else if(choice == 13)
                 {
-                    return new MythicalBoots();
+                    return new MysticBoots();
                 }
 
                 else if (choice == 14)
                 {
-                    return new MythicalGloves();
+                    return new MysticGloves();
                 }
 
                 else if (choice == 15)
                 {
-                    return new MythicalHelmet();
+                    return new MysticHelmet();
                 }
 
                 else if (choice == 16)
                 {
-                    return new MythicalRobes();
+                    return new MysticRobes();
                 }
 
                 else if(choice == 17)

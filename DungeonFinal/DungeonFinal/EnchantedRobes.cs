@@ -25,8 +25,8 @@ namespace DungeonFinal
             this.setIsTorso(true);
             this.setSocketAmount(3);
             _effect.setEffectName("Enchanted robes that increase magic power by 10 and mana by 20");
-            _effect.setPhysicalDefense(6);
-            _effect.setMagicValue(10);
+            _effect.setMagicValue(7);
+            _effect.setResistanceDefense(4);
             _effect.setManaValue(20);
             _effect.setEffectAmount(6);
             this.setEffect(_effect);

@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsGloves(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Enchanted gloves that increase mana by 40");
-            _effect.setPhysicalDefense(3);
-            _effect.setManaValue(40);
+            _effect.setMagicValue(2);
+            _effect.setResistanceDefense(2);
+            _effect.setManaValue(8);
             _effect.setEffectAmount(3);
             this.setEffect(_effect);
 

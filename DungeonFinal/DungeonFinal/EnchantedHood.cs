@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(2);
             _effect.setEffectName("An enchanted hood that increases mana by 15");
-            _effect.setPhysicalDefense(4);
-            _effect.setManaValue(15);
-            _effect.setEffectAmount(4);
+            _effect.setMagicValue(4);
+            _effect.setResistanceDefense(2);
+            _effect.setManaValue(14);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

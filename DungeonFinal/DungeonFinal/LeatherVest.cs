@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsTorso(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A vest made of stiff leather, increases strength by 5");
-            _effect.setPhysicalDefense(6);
-            _effect.setStrengthValue(5);
+            _effect.setStrengthValue(3);
+            _effect.setPhysicalDefense(1);
+            _effect.setManaValue(5);
             _effect.setEffectAmount(6);
             this.setEffect(_effect);
 

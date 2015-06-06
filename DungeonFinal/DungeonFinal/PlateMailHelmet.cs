@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(3);
             _effect.setEffectName("Plate mail helmet, increases strength by 7");
-            _effect.setPhysicalDefense(14);
-            _effect.setStrengthValue(7);
+            _effect.setPhysicalDefense(5);
+            _effect.setResistanceDefense(5);
+            _effect.setHealthValue(60);
             _effect.setEffectAmount(14);
             this.setEffect(_effect);
 

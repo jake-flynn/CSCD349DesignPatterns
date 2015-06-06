@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsBoots(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Chain Mail boots made of steel ringlets that increase strength by 6");
-            _effect.setPhysicalDefense(8);
-            _effect.setStrengthValue(6);
+            _effect.setStrengthValue(2);
+            _effect.setPhysicalDefense(2);
+            _effect.setManaValue(4);
             _effect.setEffectAmount(8);
             this.setEffect(_effect);
 

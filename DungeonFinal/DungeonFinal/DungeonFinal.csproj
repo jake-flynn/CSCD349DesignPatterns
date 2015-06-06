@@ -176,10 +176,10 @@
     <Compile Include="Minotaur.cs" />
     <Compile Include="Monk.cs" />
     <Compile Include="MonsterFactory.cs" />
-    <Compile Include="MythicalBoots.cs" />
-    <Compile Include="MythicalGloves.cs" />
-    <Compile Include="MythicalHelmet.cs" />
-    <Compile Include="MythicalRobes.cs" />
+    <Compile Include="MysticBoots.cs" />
+    <Compile Include="MysticGloves.cs" />
+    <Compile Include="MysticHelmet.cs" />
+    <Compile Include="MysticRobes.cs" />
     <Compile Include="MythrilAxe.cs" />
     <Compile Include="MythrilBoots.cs" />
     <Compile Include="MythrilChestPlate.cs" />

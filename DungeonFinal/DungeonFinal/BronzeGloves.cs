@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsGloves(true);
             this.setSocketAmount(1);
             _effect.setEffectName("Reasonably well crafted from copper and tin, increases health by 3");
-            _effect.setPhysicalDefense(5);
-            _effect.setResistanceDefense(5);
-            _effect.setHealthValue(3);
+            _effect.setPhysicalDefense(2);
+            _effect.setResistanceDefense(2);
+            _effect.setHealthValue(5);
             _effect.setEffectAmount(5);
             this.setEffect(_effect);
 

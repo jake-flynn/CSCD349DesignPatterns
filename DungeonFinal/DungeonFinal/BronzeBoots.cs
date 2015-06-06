@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsBoots(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Bronze boots made of copper and tin, increases health by 3");
-            _effect.setPhysicalDefense(5);
-            _effect.setResistanceDefense(5);
-            _effect.setHealthValue(3);
+            _effect.setPhysicalDefense(2);
+            _effect.setResistanceDefense(1);
+            _effect.setHealthValue(10);
             _effect.setEffectAmount(5);
             this.setEffect(_effect);
 

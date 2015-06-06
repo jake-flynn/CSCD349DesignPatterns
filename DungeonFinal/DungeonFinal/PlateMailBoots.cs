@@ -25,9 +25,10 @@ namespace DungeonFinal
             this.setIsBoots(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Plate Mail boots that increase strength by 8");
-            _effect.setPhysicalDefense(13);
-            _effect.setStrengthValue(8);
-            _effect.setEffectAmount(13);
+            _effect.setPhysicalDefense(4);
+            _effect.setResistanceDefense(3);
+            _effect.setHealthValue(40);
+            _effect.setEffectAmount(40);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

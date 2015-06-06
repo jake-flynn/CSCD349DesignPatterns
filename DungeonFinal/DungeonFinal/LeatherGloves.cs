@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsGloves(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Gloves made from leather straps woven together, increases strength by 4");
-            _effect.setPhysicalDefense(4);
-            _effect.setStrengthValue(4);
+            _effect.setStrengthValue(1);
+            _effect.setPhysicalDefense(1);
+            _effect.setManaValue(3);
             _effect.setEffectAmount(4);
             this.setEffect(_effect);
 

@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(1);
             _effect.setEffectName("A sturdy leather cap, increases strength by 3");
-            _effect.setPhysicalDefense(4);
-            _effect.setStrengthValue(3);
+            _effect.setStrengthValue(5);
+            _effect.setPhysicalDefense(2);
+            _effect.setManaValue(10);
             _effect.setEffectAmount(4);
             this.setEffect(_effect);
 

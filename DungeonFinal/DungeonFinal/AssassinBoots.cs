@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsBoots(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Silence in flight, increases strength by 10");
-            _effect.setPhysicalDefense(5);
-            _effect.setStrengthValue(10);
+            _effect.setStrengthValue(3);
+            _effect.setPhysicalDefense(3);
+            _effect.setManaValue(6);
             _effect.setEffectAmount(5);
             this.setEffect(_effect);
 

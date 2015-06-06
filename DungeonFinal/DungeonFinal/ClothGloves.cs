@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsGloves(true);
             this.setSocketAmount(1);
             _effect.setEffectName("Cloth gloves that increase mana by 30");
-            _effect.setPhysicalDefense(1);
-            _effect.setManaValue(30);
+            _effect.setMagicValue(1);
+            _effect.setResistanceDefense(1);
+            _effect.setManaValue(4);
             _effect.setEffectAmount(1);
             this.setEffect(_effect);
 

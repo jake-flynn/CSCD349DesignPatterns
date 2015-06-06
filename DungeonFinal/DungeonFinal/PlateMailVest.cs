@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsTorso(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A vest made of plate mail, increases strength by 15");
-            _effect.setPhysicalDefense(18);
-            _effect.setStrengthValue(15);
+            _effect.setPhysicalDefense(12);
+            _effect.setResistanceDefense(9);
+            _effect.setHealthValue(80);
             _effect.setEffectAmount(18);
             this.setEffect(_effect);
 

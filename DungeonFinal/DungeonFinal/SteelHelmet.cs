@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(3);
             _effect.setEffectName("A well crafted helmet made of steel, increases health by 3");
-            _effect.setPhysicalDefense(12);
-            _effect.setResistanceDefense(12);
-            _effect.setHealthValue(3);
+            _effect.setPhysicalDefense(3);
+            _effect.setResistanceDefense(3);
+            _effect.setHealthValue(30);
             _effect.setEffectAmount(12);
             this.setEffect(_effect);
 

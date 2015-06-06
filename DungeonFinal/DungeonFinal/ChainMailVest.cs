@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsTorso(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A vest made of interlocking steel ringlets, increases strength by 10");
-            _effect.setPhysicalDefense(12);
-            _effect.setStrengthValue(10);
+            _effect.setStrengthValue(7);
+            _effect.setPhysicalDefense(4);
+            _effect.setManaValue(20);
             _effect.setEffectAmount(12);
             this.setEffect(_effect);
 

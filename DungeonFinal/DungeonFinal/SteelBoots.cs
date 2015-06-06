@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(3);
             _effect.setEffectName("Durable boots made of steel, increases health by 4");
-            _effect.setPhysicalDefense(11);
-            _effect.setResistanceDefense(11);
-            _effect.setHealthValue(4);
+            _effect.setPhysicalDefense(3);
+            _effect.setResistanceDefense(2);
+            _effect.setHealthValue(20);
             _effect.setEffectAmount(11);
             this.setEffect(_effect);
 

@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsBoots(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Cloth boots that increase resistance by 4");
-            _effect.setPhysicalDefense(1);
-            _effect.setResistanceDefense(4);
+            _effect.setMagicValue(1);
+            _effect.setResistanceDefense(1);
+            _effect.setManaValue(4);
             _effect.setEffectAmount(1);
             this.setEffect(_effect);
 

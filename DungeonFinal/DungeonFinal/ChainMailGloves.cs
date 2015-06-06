@@ -25,8 +25,9 @@ namespace DungeonFinal
             this.setIsGloves(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Chain mail gloves made of interlocking steel that increase strength by 6");
-            _effect.setPhysicalDefense(7);
-            _effect.setStrengthValue(6);
+            _effect.setStrengthValue(2);
+            _effect.setPhysicalDefense(2);
+            _effect.setManaValue(6);
             _effect.setEffectAmount(7);
             this.setEffect(_effect);
 

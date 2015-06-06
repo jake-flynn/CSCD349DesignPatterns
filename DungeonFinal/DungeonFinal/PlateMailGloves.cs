@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsGloves(true);
             this.setSocketAmount(2);
             _effect.setEffectName("Plate mail gloves that increase strength by 9");
-            _effect.setPhysicalDefense(10);
-            _effect.setStrengthValue(9);
-            _effect.setEffectAmount(10);
+            _effect.setPhysicalDefense(4);
+            _effect.setResistanceDefense(4);
+            _effect.setHealthValue(20);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

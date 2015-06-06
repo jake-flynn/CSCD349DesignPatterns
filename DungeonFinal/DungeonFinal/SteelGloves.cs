@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(3);
             _effect.setEffectName("Strong gloves made of an alloy of steel, increases health by 3");
-            _effect.setPhysicalDefense(10);
-            _effect.setResistanceDefense(10);
-            _effect.setHealthValue(3);
+            _effect.setPhysicalDefense(3);
+            _effect.setResistanceDefense(3);
+            _effect.setHealthValue(10);
             _effect.setEffectAmount(10);
             this.setEffect(_effect);
 

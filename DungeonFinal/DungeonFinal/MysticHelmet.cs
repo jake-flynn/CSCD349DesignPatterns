@@ -14,24 +14,25 @@ using System.Windows.Shapes;
 
 namespace DungeonFinal
 {
-    class MythicalGloves : Equipment
+    class MysticHelmet : Equipment
     {
         ItemsEffect _effect;
 
-        public MythicalGloves() : base()
+        public MysticHelmet() : base()
         {
             _effect = new ItemsEffect();
-            this.setItemName("Mythical Gloves");
-            this.setIsGloves(true);
-            this.setSocketAmount(4);
-            _effect.setEffectName("Mythical gloves that increase mana by 50");
-            _effect.setPhysicalDefense(7);
-            _effect.setManaValue(50);
-            _effect.setEffectAmount(7);
+            this.setItemName("Mystic Helmet");
+            this.setIsHelmet(true);
+            this.setSocketAmount(3);
+            _effect.setEffectName("A mystic helmet that increases mana by 20");
+            _effect.setMagicValue(5);
+            _effect.setResistanceDefense(3);
+            _effect.setManaValue(21);
+            _effect.setEffectAmount(9);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();
-            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/Marauder.png", UriKind.RelativeOrAbsolute));
+            BitmapImage image = new BitmapImage(new Uri(@"../../Images/Items/GodHelm.png", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
         }

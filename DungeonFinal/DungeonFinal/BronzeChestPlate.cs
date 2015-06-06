@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsTorso(true);
             this.setSocketAmount(6);
             _effect.setEffectName("A bronze chest plate that increases health by 5");
-            _effect.setPhysicalDefense(9);
-            _effect.setResistanceDefense(9);
-            _effect.setHealthValue(5);
+            _effect.setPhysicalDefense(2);
+            _effect.setResistanceDefense(1);
+            _effect.setHealthValue(10);
             _effect.setEffectAmount(9);
             this.setEffect(_effect);
 

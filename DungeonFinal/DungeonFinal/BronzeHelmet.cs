@@ -25,9 +25,9 @@ namespace DungeonFinal
             this.setIsHelmet(true);
             this.setSocketAmount(3);
             _effect.setEffectName("A bronze helmet that increases health by 4");
-            _effect.setPhysicalDefense(6);
-            _effect.setResistanceDefense(6);
-            _effect.setHealthValue(4);
+            _effect.setPhysicalDefense(2);
+            _effect.setResistanceDefense(2);
+            _effect.setHealthValue(15);
             _effect.setEffectAmount(6);
             this.setEffect(_effect);
 
