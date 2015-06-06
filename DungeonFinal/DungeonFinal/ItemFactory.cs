@@ -25,6 +25,13 @@ namespace DungeonFinal
                 randomNumber = new Random();
             }
             
+        //private Random _randomNumbery;
+        //RandomGenerator randGen;
+        //public ItemFactory()
+        //{
+
+        //    _randomNumber = randGen.Instance();            
+        //}
         }
 
         public Consumable createConsumable(int tierLevel)

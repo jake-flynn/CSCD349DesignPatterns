@@ -211,6 +211,7 @@
     <Compile Include="PotionOfResistance.cs" />
     <Compile Include="HealthRegeneration.cs" />
     <Compile Include="PowerBoost.cs" />
+    <Compile Include="RandomGenerator.cs" />
     <Compile Include="Rejuvenation.cs" />
     <Compile Include="ResistanceBoost.cs" />
     <Compile Include="Rogue.cs" />

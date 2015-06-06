@@ -189,7 +189,8 @@ namespace DungeonFinal
             _Paragraph.Inlines.Add(new LineBreak());
 
             updateVisuals();
-            checkForDefeatedUnit();            
+            checkForDefeatedUnit();
+            checkForDepletedMana();
         }
 
         private void useItem(Hero hero)
@@ -213,6 +214,8 @@ namespace DungeonFinal
             });
             _Paragraph.Inlines.Add(new LineBreak());
             _BattleInventory.removeFromConsumable(choiceFromConsumableWindow);
+            checkForDepletedMana();
+            updateVisuals();
 
         }
 
@@ -318,6 +321,50 @@ namespace DungeonFinal
             }
         }
 
+        public void checkForDepletedMana()
+        {
+            if (_theHeroes[0].getCurMana() < 15)
+            {
+                rBtn_Hero1Special.IsEnabled = false;
+                rBtn_Hero1Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero1Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (_theHeroes[1].getCurMana() < 15)
+            {
+                rBtn_Hero2Special.IsEnabled = false;
+                rBtn_Hero2Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero2Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (_theHeroes[2].getCurMana() < 15)
+            {
+                rBtn_Hero3Special.IsEnabled = false;
+                rBtn_Hero3Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero3Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (_theHeroes[3].getCurMana() < 15)
+            {
+                rBtn_Hero4Special.IsEnabled = false;
+                rBtn_Hero4Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero4Special.IsEnabled = true;
+            }
+            checkReady();
+        }
+
 
         //End Methods
 
@@ -327,6 +374,7 @@ namespace DungeonFinal
 
         private async void btn_Ready_Click(object sender, RoutedEventArgs e) 
         {
+            btn_Ready.IsEnabled = false;
             if (_monster.getCurHealth() > 0 && _theHeroes[0].getCurHealth() > 0)
             {
                 if (rBtn_Hero1Attack.IsChecked == true) //I don't like how I am doing this. Or maybe I need more things interacting with character death...
@@ -453,14 +501,21 @@ namespace DungeonFinal
                     else
                         cur = cur.Next;
                 }
+                if (effectString.Equals("\r\n"))
+                {
 
+                }
+                else
+                {
                     _Paragraph.Inlines.Add(new Bold(new Run(effectString))
                     {
                         Foreground = Brushes.Fuchsia
-                    });
-                _Paragraph.Inlines.Add(new LineBreak());
+                    });                    
+                }
                 updateVisuals();
+                checkForDepletedMana();
             }
+            btn_Ready.IsEnabled = true;
         }
 
         private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)

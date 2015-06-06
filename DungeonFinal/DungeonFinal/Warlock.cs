@@ -83,14 +83,17 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAllHeroes();
 
+            int damageWithCalculations = 0;
+
             foreach (Monster mon in monsters)
             {
-                mon.setCurHealth(mon.getCurHealth() - (mon.getModResistance() - getModMagic()));
+                damageWithCalculations =(getModMagic() - mon.getModResistance());
+                mon.setCurHealth(mon.getCurHealth() - damageWithCalculations);
             }
 
             setCurMana(getCurMana() - 15);
 
-            return (getName() + " performed Firestorm for " + (monsters[0].getModResistance() - getModMagic()) + " damage across all monsters!");
+            return (getName() + " performed Firestorm for " + damageWithCalculations + " damage across all monsters!");
         }
 
         /*Battle - Defend*/

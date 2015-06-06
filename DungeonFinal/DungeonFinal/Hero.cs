@@ -327,21 +327,13 @@ namespace DungeonFinal
         public string Notify()
         {
             string retString = "";
-
             int ctr = 0;
 
-            foreach (StatusEffect e in _EffectList)//THIS CODE IS UNDER CONSTRUCTION. FUNKY STUFF IS GOING DOWN.
-            {
-                //MessageBox.Show("Number off effects: " + ctr);
+            foreach (StatusEffect e in _EffectList)
+            {                
                 retString += e.Modify();
                 ctr++;
-
-              //  if (e.getDuration() == 0)
-               // {
-               //     Unsubscribe(e);
-               // }
             }
-
             return retString;
         }
 

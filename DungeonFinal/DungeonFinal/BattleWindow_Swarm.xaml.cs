@@ -135,7 +135,7 @@ namespace DungeonFinal
         {
             if (_TheSwarm[0].getIsDefeated() && _TheSwarm[1].getIsDefeated() && _TheSwarm[2].getIsDefeated() && _TheSwarm[3].getIsDefeated() && _TheSwarm[4].getIsDefeated() && _TheSwarm[5].getIsDefeated())
             {
-                MessageBox.Show("The " + _TheSwarm[0].getName() + " swarm was defeated!!!");
+                MessageBox.Show("The " + _PrototypeMonster.getName() + " swarm was defeated!!!");
                 _IsSwarmDefeated = true;
                 this.Close();
             }
@@ -572,8 +572,7 @@ namespace DungeonFinal
                 _Paragraph.Inlines.Add(new Bold(new Run(effectString))
                 {
                     Foreground = Brushes.Fuchsia
-                });
-                _Paragraph.Inlines.Add(new LineBreak());
+                });                
                 updateVisuals();
                 checkForDepletedMana();
             }
