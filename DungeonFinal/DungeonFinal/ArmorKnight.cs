@@ -24,12 +24,13 @@ namespace DungeonFinal
             setName("Armor Knight");
 
            //Stats
+            setMaxHealth(275);
             setBaseHealth(275);
             setCurHealth(275);
-            setMaxHealth(275);
+            setMaxMana(70);
             setBaseMana(70);
             setCurMana(70);
-            setMaxMana(70);
+            
 
             setBaseStrength(10);
             setModStrength(10);

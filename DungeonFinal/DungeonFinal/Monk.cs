@@ -24,12 +24,13 @@ namespace DungeonFinal
             setName("Monk");
 
            //Stats
+            setMaxHealth(200);
             setBaseHealth(200);
             setCurHealth(200);
-            setMaxHealth(200);
+            setMaxMana(200);
             setBaseMana(200);
             setCurMana(200);
-            setMaxMana(200);
+            
 
             setBaseStrength(0);
             setModStrength(0);
