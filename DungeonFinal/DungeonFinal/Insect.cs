@@ -18,7 +18,7 @@ namespace DungeonFinal
     class Insect : Monster
     {
         //this is a Insect monster, it is a tier 1 level, there are 30 points assigned to main stats
-
+        Random _randomNumber;
        //DVC - Level 1
         public Insect()
         {
@@ -63,6 +63,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Insect.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -85,8 +86,8 @@ namespace DungeonFinal
             int damage = 0;
 
           //Attack 1
-            int randomHero = new Random().Next(party.Length);
-            int chance = new Random().Next(3);
+            int randomHero = _randomNumber.Next(party.Length);
+            int chance = _randomNumber.Next(3);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
@@ -109,8 +110,8 @@ namespace DungeonFinal
             Thread.Sleep(500);
 
           //Attack 2
-            randomHero = new Random().Next(party.Length);
-            chance = new Random().Next(3);
+            randomHero = _randomNumber.Next(party.Length);
+            chance = _randomNumber.Next(3);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
@@ -138,7 +139,7 @@ namespace DungeonFinal
         {
             Hero[] party = p.getAliveHeroes();
 
-            int randomHero = new Random().Next(1, party.Length);
+            int randomHero = _randomNumber.Next(1, party.Length);
             Hero target = party[randomHero];
 
             return target;

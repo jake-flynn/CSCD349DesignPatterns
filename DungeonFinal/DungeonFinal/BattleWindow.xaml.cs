@@ -25,6 +25,7 @@ namespace DungeonFinal
         Hero[] _theHeroes;
         Paragraph _Paragraph;
         Inventory _BattleInventory;
+        Random _randomNumber;
 
         public BattleWindow()
         {
@@ -34,7 +35,7 @@ namespace DungeonFinal
         public BattleWindow(Monster mon, Party heros)
         {
             InitializeComponent();
-
+            _randomNumber = RandomGenerator.Instance;
             _theParty = heros;
             _theHeroes = _theParty.getAllHeroes();
             _monster = mon;
@@ -225,8 +226,8 @@ namespace DungeonFinal
             Hero hero = mon.FindTarget(_theParty);
             int monsterDamage;
 
-            var randomGeneratedNumber = new Random();
-            int randSpecial = randomGeneratedNumber.Next(10) + 1;
+            
+            int randSpecial = _randomNumber.Next(10) + 1;
 
             if (randSpecial <= mon.getSpecialAttackFrequency())
             {                

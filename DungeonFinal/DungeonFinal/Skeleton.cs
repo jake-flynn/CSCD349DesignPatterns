@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Skeleton : Monster
     {
-
+        Random _randomNumber;
        //DVC - Level 1
         public Skeleton()
         {
@@ -79,7 +79,7 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int chance = new Random().Next(party.Length);
+            int chance = _randomNumber.Next(party.Length);
             String message = mon.getName() + " threw its bonerang!\r\n";
             int damage = 0;
             int hit = (int)(mon.getModStrength() * .75);
@@ -127,7 +127,7 @@ namespace DungeonFinal
         {
             Hero[] party = p.getAliveHeroes();
 
-            int randomHero = new Random().Next(1, party.Length);
+            int randomHero = _randomNumber.Next(1, party.Length);
             Hero target = party[randomHero];
 
             return target;

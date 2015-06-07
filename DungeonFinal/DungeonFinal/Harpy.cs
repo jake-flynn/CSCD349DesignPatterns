@@ -17,7 +17,7 @@ namespace DungeonFinal
     class Harpy : Monster
     {
         //this is a Harpy monster, it is a tier 2 level, there are 50 points assigned to main stats
-
+        Random _randomNumber;
        //DVC - Level 2
         public Harpy()
         {
@@ -62,6 +62,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Harpy.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -84,7 +85,7 @@ namespace DungeonFinal
 
             foreach (Hero h in party)
             {
-                int chance = new Random().Next(3);
+                int chance = _randomNumber.Next(3);
                 damage = mon.getModMagic() - h.getModResistance();
                 h.setCurHealth(h.getCurHealth() - damage);
 

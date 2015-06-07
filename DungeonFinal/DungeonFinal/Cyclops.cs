@@ -17,7 +17,7 @@ namespace DungeonFinal
     class Cyclops : Monster
     {
         //this is a Cyclops monster, it is a tier 3 level, there are 70 points assigned to main stats
-
+        Random _randomNumber;
       //DVC - Level 3
         public Cyclops()
         {
@@ -62,6 +62,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Cyclops.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -80,8 +81,8 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(party.Length);
-            int chance = new Random().Next(3);
+            int randomHero = _randomNumber.Next(party.Length);
+            int chance = _randomNumber.Next(3);
             String message = "";
             int damage = mon.getModStrength() - party[randomHero].getModDefense();
 

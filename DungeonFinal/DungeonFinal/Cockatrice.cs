@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Cockatrice : Monster
     {
-
+        Random _randomNumber;
         //this is a Cockatrice monster, it is a tier 2 level, there are 50 points assigned to main stats
 
       //DVC - Level 2
@@ -56,6 +56,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Cockatrice.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -74,7 +75,7 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAllHeroes();
 
-            int rnd = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            int rnd = _randomNumber.Next(theParty.getCurrentPartyMembers() + 1);
 
             party[rnd].setCurHealth(0);
 

@@ -17,7 +17,7 @@ namespace DungeonFinal
     class DemonWarrior : Monster
     {
         //this is a Demon Warrior monster, it is a tier 3 level, there are 70 points assigned to main stats
-
+        Random _randomNumber;
       //DVC - Level 3
         public DemonWarrior()
         {
@@ -62,6 +62,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/DemonWarrior.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -80,7 +81,7 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(party.Length);
+            int randomHero = _randomNumber.Next(party.Length);
             party[randomHero].setModStrength(getModStrength() - 1);
             party[randomHero].setModMagic(getModStrength() - 1);
 

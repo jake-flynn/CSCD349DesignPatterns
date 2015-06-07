@@ -12,6 +12,12 @@ namespace DungeonFinal
         private int _dimension;
         private int _curRow, _curCol;
         private Room[,] _rooms;
+        Random _randomNumber;
+
+        public Maze()
+        {
+            _randomNumber = RandomGenerator.Instance;
+        }
 
         public int GetDimension()
         {
@@ -268,7 +274,7 @@ namespace DungeonFinal
 
         public void lockTwo(int i, int j)
         {
-            var randomGeneratedNumber = new Random();
+            var randomGeneratedNumber = _randomNumber;
             int randomNumber1 = randomGeneratedNumber.Next(5);
             int randomNumber2 = 0;
             do
@@ -333,7 +339,7 @@ namespace DungeonFinal
             }
 
 
-            var randomGen = new Random();
+            var randomGen = _randomNumber;
             int toLock;
             do
             {
