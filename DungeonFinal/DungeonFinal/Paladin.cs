@@ -61,6 +61,7 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
+            setDescription("Description: ");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Paladin.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
