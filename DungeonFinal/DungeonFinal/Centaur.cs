@@ -96,7 +96,7 @@ namespace DungeonFinal
             Thread.Sleep(500);
 
           //Attack 2
-            randomHero = _randomNumber.Next(theParty.getCurrentPartyMembers() + 1);
+            randomHero = _randomNumber.Next(theParty.getAliveHeroes().Length );
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);

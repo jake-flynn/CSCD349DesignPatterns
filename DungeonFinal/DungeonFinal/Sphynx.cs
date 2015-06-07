@@ -108,12 +108,12 @@ namespace DungeonFinal
             Hero[] party = p.getAllHeroes();
             Hero target = party[0];
 
-            if (p.getCurrentPartyMembers() == 1)
+            if (p.getAliveHeroes().Length == 1)
             {
                 return target;
             }
 
-            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            for (int i = 0; i < (p.getAliveHeroes().Length - 2); i++)
             {
                 if(party[i + 1].getCurHealth() < party[i].getCurHealth())
                 {

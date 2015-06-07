@@ -108,7 +108,7 @@ namespace DungeonFinal
             if(h < 0)
             {
                 _CurHealth = 0;
-                setIsDefeated(true);
+                //setIsDefeated(true);
                 _EffectList.Clear();
             }
 

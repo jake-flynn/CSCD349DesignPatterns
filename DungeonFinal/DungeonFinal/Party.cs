@@ -67,15 +67,13 @@ namespace DungeonFinal
                 }
             }
 
-            _AliveHeroes = new Hero[_numberOfHeroesAlive];
             int _nextAvailableIndex = 0;
-
-
 
             //If there is a hero(es) who is/are alive and taunting, make an array of that FIRST
             if(_numberOfHeroesTaunting > 0)
             {
-                for(int y = 0; y < 4; y++)
+                _AliveHeroes = new Hero[_numberOfHeroesTaunting];
+                for(int y = 0; y < _AliveHeroes.Length; y++)
                 {
                     if (!_dungeonParty[y].getIsDefeated() && _dungeonParty[y].getIsTaunting())
                     {
@@ -88,6 +86,7 @@ namespace DungeonFinal
             //If not, create an array of all alive hero(es)
             else
             {
+                _AliveHeroes = new Hero[_numberOfHeroesAlive];
                 for (int x = 0; x < 4; x++)
                 {
                     if (!_dungeonParty[x].getIsDefeated())
