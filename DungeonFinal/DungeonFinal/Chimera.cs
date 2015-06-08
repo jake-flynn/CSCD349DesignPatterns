@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Chimera : Monster
     {
-        
+        Random _randomNumber;
         //this is a chimera monster, it is a boss(tier4) level, there are 90 points assigned to main stats
 
       //DVC - Boss Level
@@ -63,6 +63,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Chimera.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -81,8 +82,8 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(party.Length);
-            int chance = new Random().Next(4);
+            int randomHero = _randomNumber.Next(party.Length);
+            int chance = _randomNumber.Next(4);
             String message = "";
             int damage = mon.getModMagic() - party[randomHero].getModResistance();
 
@@ -117,13 +118,13 @@ namespace DungeonFinal
         public override Hero FindTarget(Party p)
         {
             Hero[] party = p.getAliveHeroes();
-            int attackType = new Random().Next(1, 3);
+            int attackType = _randomNumber.Next(1, 3);
             Hero target = party[0];
 
             //Tier 1 FindTarget
             if (attackType == 1)
             {
-                int randomHero = new Random().Next(1, party.Length);
+                int randomHero = _randomNumber.Next(1, party.Length);
                 target = party[randomHero];
             }
 

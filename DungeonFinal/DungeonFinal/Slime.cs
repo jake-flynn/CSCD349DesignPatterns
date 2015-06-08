@@ -16,6 +16,7 @@ namespace DungeonFinal
 {
     class Slime : Monster
     {
+        Random _randomNumber;
 
        //DVC - Level 1
         public Slime()
@@ -61,6 +62,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Slime.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -79,8 +81,8 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(party.Length);
-            int chance = new Random().Next(4);
+            int randomHero = _randomNumber.Next(party.Length);
+            int chance = _randomNumber.Next(4);
             String message = mon.getName() + " slung toxic ooze at the party!\r\n";
             int damage = mon.getModMagic() - party[randomHero].getModResistance();
 
@@ -116,7 +118,7 @@ namespace DungeonFinal
         {
             Hero[] party = p.getAliveHeroes();
 
-            int randomHero = new Random().Next(1, party.Length);
+            int randomHero = _randomNumber.Next(1, party.Length);
             Hero target = party[randomHero];
 
             return target;

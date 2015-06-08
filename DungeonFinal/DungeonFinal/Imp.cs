@@ -18,7 +18,7 @@ namespace DungeonFinal
     class Imp : Monster
     {
         //this is a Imp monster, it is a tier 1 level, there are 30 points assigned to main stats
-
+        Random _randomNumber;
       //DVC - Level 1
         public Imp()
         {
@@ -63,6 +63,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Imp.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -87,7 +88,7 @@ namespace DungeonFinal
 
             for (int numStrikes = 3; numStrikes > 0; numStrikes--)
             {
-                randomHero = new Random().Next(party.Length);
+                randomHero = _randomNumber.Next(party.Length);
                 damage = party[randomHero].getModResistance() - hit;
                 party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
@@ -107,7 +108,7 @@ namespace DungeonFinal
         {
             Hero[] party = p.getAliveHeroes();
 
-            int randomHero = new Random().Next(1, party.Length);
+            int randomHero = _randomNumber.Next(1, party.Length);
             Hero target = party[randomHero];
 
             return target;

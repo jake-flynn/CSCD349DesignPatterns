@@ -17,9 +17,11 @@ namespace DungeonFinal
 {
     public class MonsterFactory
     {
+        Random _randomNumber;
+ 
        public MonsterFactory()
        {
-
+           _randomNumber = RandomGenerator.Instance;
        }
         
 	public Monster createMonster(int level) {
@@ -27,7 +29,7 @@ namespace DungeonFinal
         
 		if (level == 1) //Level one monster
         {
-            var randomGeneratedNumber1 = new Random();
+            var randomGeneratedNumber1 = _randomNumber;
             int rnd1 = randomGeneratedNumber1.Next(6)+1;
        
             
@@ -64,7 +66,7 @@ namespace DungeonFinal
 		}
         else if (level == 2) //Level two monster
         {
-            var randomGeneratedNumber = new Random();
+            var randomGeneratedNumber = _randomNumber;
             int rnd = randomGeneratedNumber.Next(6) + 1;
            
 			if (rnd == 1)
@@ -99,7 +101,7 @@ namespace DungeonFinal
 		}
         else if (level == 3) //Level three monster
         {
-            var randomGeneratedNumber = new Random();
+            var randomGeneratedNumber = _randomNumber;
             int rnd = randomGeneratedNumber.Next(3) + 1;
 
             if (rnd == 1)
@@ -119,7 +121,7 @@ namespace DungeonFinal
 		}
         else if (level == 4) //Level three monster
         {
-            var randomGeneratedNumber = new Random();
+            var randomGeneratedNumber = _randomNumber;
             int rnd = randomGeneratedNumber.Next(4) + 1;
             if (rnd == 1)
             {

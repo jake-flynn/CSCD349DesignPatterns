@@ -30,7 +30,7 @@ namespace DungeonFinal
         public int _RunDifficulty = 1;
         public Party _TheParty;
         private ItemFactory _ItemFactory;
-
+        Random _randomNumber;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,6 +42,7 @@ namespace DungeonFinal
             _ItemFactory = new ItemFactory();
             //newGame();
             //updateButtonsVisibility();
+            _randomNumber = RandomGenerator.Instance;
         }
 
         
@@ -106,6 +107,10 @@ namespace DungeonFinal
             lbl_Hero4_Stats.Content = _TheHeroes[3].getStats();
             lbl_Hero4_Health.Content = _TheHeroes[3].getCurHealth() + "/" + _TheHeroes[3].getMaxHealth();
             lbl_Hero4_Mana.Content = _TheHeroes[3].getCurMana() + "/" + _TheHeroes[3].getMaxMana();
+
+
+            //ToolTips
+            
             
         }
 
@@ -176,7 +181,7 @@ namespace DungeonFinal
 
         public async void populateMonsters()
         {
-            var randomGeneratedNumber = new Random();
+            var randomGeneratedNumber = _randomNumber;
             int randomNumber = randomGeneratedNumber.Next(10);
             Room[,] settingMonstersInRooms = _Maze.GetRooms();
             Monster monsterToAdd;
@@ -220,7 +225,7 @@ namespace DungeonFinal
         {
             if(monster.getIsSwarm())
             {
-                int rndSwarm = new Random().Next(3) + 1;
+                int rndSwarm = _randomNumber.Next(3) + 1;
                 if(rndSwarm == 1 || rndSwarm == 2)
                 {
                     SwarmBattle(monster, heros);
@@ -241,8 +246,8 @@ namespace DungeonFinal
             
             _TheParty.getInventory().addLastToEquipment(_ItemFactory.createEquipment(monster.getTierNumber()));
 
-            var randomNumberGenerator = new Random();
-            int randomNumber = randomNumberGenerator.Next(1000) + 1;
+            
+            int randomNumber = _randomNumber.Next(1000) + 1;
             
             if(randomNumber > 999)
             {

@@ -17,7 +17,7 @@ namespace DungeonFinal
     class Minotaur : Monster
     {
         //this is a Minotaur monster, it is a boss(tier4) level, there are 90 points assigned to main stats
-
+        Random _randomNumber;
       //DVC - Boss Level
         public Minotaur()
         {
@@ -62,6 +62,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Minotaur.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -80,8 +81,8 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(party.Length);
-            int chance = new Random().Next(3);
+            int randomHero = _randomNumber.Next(party.Length);
+            int chance = _randomNumber.Next(3);
             String message = "";
             int damage = (int)(mon.getModStrength() * 1.5) - party[randomHero].getModDefense();
 
@@ -108,13 +109,13 @@ namespace DungeonFinal
         public override Hero FindTarget(Party p)
         {
             Hero[] party = p.getAliveHeroes();
-            int attackType = new Random().Next(1, 3);
+            int attackType = _randomNumber.Next(1, 3);
             Hero target = party[0];
 
             //Tier 1 FindTarget
             if (attackType == 1)
             {
-                int randomHero = new Random().Next(1, party.Length);
+                int randomHero = _randomNumber.Next(1, party.Length);
                 target = party[randomHero];
             }
 

@@ -18,6 +18,7 @@ namespace DungeonFinal
     class Centaur : Monster
     {
         //this is a Centaur monster, it is a tier 3 level. there are 70 points assigned to main stats
+        Random _randomNumber;
 
        //DVC - Level 3
         public Centaur()
@@ -63,6 +64,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Centaur.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -84,7 +86,7 @@ namespace DungeonFinal
             int damage = 0;
 
           //Attack 1
-            int randomHero = new Random().Next(party.Length);
+            int randomHero = _randomNumber.Next(party.Length);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
@@ -94,7 +96,7 @@ namespace DungeonFinal
             Thread.Sleep(500);
 
           //Attack 2
-            randomHero = new Random().Next(theParty.getCurrentPartyMembers() + 1);
+            randomHero = _randomNumber.Next(theParty.getAliveHeroes().Length );
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);

@@ -17,22 +17,20 @@ namespace DungeonFinal
 {
     public class ItemFactory
     {
-        private static Random randomNumber;
+        private Random _randomNumber;
         public ItemFactory()
         {
-            if (randomNumber == null)
-            {
-                randomNumber = new Random();
-            }
-            
-        //private Random _randomNumbery;
-        //RandomGenerator randGen;
+            _randomNumber = RandomGenerator.Instance;
+        }
+
+        //-----------------------------//
         //public ItemFactory()
         //{
-
-        //    _randomNumber = randGen.Instance();            
+        //    if (randomNumber == null)
+        //    {
+        //        randomNumber = new Random();
+        //    }
         //}
-        }
 
         public Consumable createConsumable(int tierLevel)
         {
@@ -41,7 +39,7 @@ namespace DungeonFinal
             if(tierLevel == 1)
             {
                 
-                int choice = randomNumber.Next(9) + 1;
+                int choice = _randomNumber.Next(9) + 1;
 
                 if(choice == 1)
                 {
@@ -91,7 +89,7 @@ namespace DungeonFinal
 
             else if(tierLevel == 2)
             {
-                int choice = randomNumber.Next(9) + 1;
+                int choice = _randomNumber.Next(9) + 1;
 
                 if (choice == 1)
                 {
@@ -141,7 +139,7 @@ namespace DungeonFinal
 
             else if(tierLevel == 3)
             {                
-                int choice = randomNumber.Next(9) + 1;
+                int choice = _randomNumber.Next(9) + 1;
 
                 if (choice == 1)
                 {
@@ -198,7 +196,7 @@ namespace DungeonFinal
 
             if (tierLevel == 1)
             {                
-                int choice = randomNumber.Next(16) + 1;
+                int choice = _randomNumber.Next(16) + 1;
 
                 if (choice == 1)
                 {
@@ -305,7 +303,7 @@ namespace DungeonFinal
 
             else if (tierLevel == 2)
             {                
-                int choice = randomNumber.Next(16) + 1;
+                int choice = _randomNumber.Next(16) + 1;
 
                 if (choice == 1)
                 {
@@ -390,7 +388,7 @@ namespace DungeonFinal
 
             else if (tierLevel == 3)
             {                
-                int choice = randomNumber.Next(20) + 1;
+                int choice = _randomNumber.Next(20) + 1;
 
                 if(choice == 1)
                 {
@@ -495,7 +493,7 @@ namespace DungeonFinal
 
             else if (tierLevel == 4)
             {                
-                int choice = randomNumber.Next(1) + 1;
+                int choice = _randomNumber.Next(1) + 1;
 
                 if (choice == 1)
                 {

@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class Sphynx : Monster
     {
-
+        Random _randomNumber;
        //DVC - Level 2
         public Sphynx()
         {
@@ -61,6 +61,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Sphynx.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -79,8 +80,8 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(party.Length);
-            int chance = new Random().Next(5);
+            int randomHero = _randomNumber.Next(party.Length);
+            int chance = _randomNumber.Next(5);
             String message = mon.getName() + " asked " + party[randomHero].getName() + " a riddle!\r\n";
 
             //Riddle Solved (low chance)
@@ -107,12 +108,12 @@ namespace DungeonFinal
             Hero[] party = p.getAllHeroes();
             Hero target = party[0];
 
-            if (p.getCurrentPartyMembers() == 1)
+            if (p.getAliveHeroes().Length == 1)
             {
                 return target;
             }
 
-            for (int i = 0; i < (p.getCurrentPartyMembers() - 2); i++)
+            for (int i = 0; i < (p.getAliveHeroes().Length - 2); i++)
             {
                 if(party[i + 1].getCurHealth() < party[i].getCurHealth())
                 {

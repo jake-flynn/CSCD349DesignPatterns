@@ -17,7 +17,7 @@ namespace DungeonFinal
     class Shade : Monster
     {
         //this is a Shade monster, it is a tier 1 level, there are 30 points assigned to main stats
-
+        Random _randomNumber;
        //DVC - Level 1
         public Shade()
         {
@@ -62,7 +62,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Shade.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -83,7 +83,7 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(party.Length);
+            int randomHero = _randomNumber.Next(party.Length);
 
             party[randomHero].Subscribe(new Curse(party[randomHero]));
 
@@ -97,7 +97,7 @@ namespace DungeonFinal
         {
             Hero[] party = p.getAliveHeroes();
 
-            int randomHero = new Random().Next(1, party.Length);
+            int randomHero = _randomNumber.Next(1, party.Length);
             Hero target = party[randomHero];
 
             return target;

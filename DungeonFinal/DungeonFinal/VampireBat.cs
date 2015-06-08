@@ -16,7 +16,7 @@ namespace DungeonFinal
 {
     class VampireBat : Monster
     {
-
+        Random _randomNumber;
        //DVC - Level 1
         public VampireBat()
         {
@@ -61,6 +61,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/VampBat.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -79,7 +80,7 @@ namespace DungeonFinal
         {
             Hero[] party = theParty.getAliveHeroes();
 
-            int randomHero = new Random().Next(party.Length);
+            int randomHero = _randomNumber.Next(party.Length);
             int damage = mon.getModStrength() - party[randomHero].getModDefense();
 
             //Set Damage
@@ -98,7 +99,7 @@ namespace DungeonFinal
         {
             Hero[] party = p.getAliveHeroes();
 
-            int randomHero = new Random().Next(1, party.Length);
+            int randomHero = _randomNumber.Next(1, party.Length);
             Hero target = party[randomHero];
 
             return target;

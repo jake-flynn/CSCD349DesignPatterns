@@ -18,7 +18,7 @@ namespace DungeonFinal
     {
 
         //this is a Dragon monster, it is a boss(tier4) level, there are 90 points assigned to main stats
-
+        Random _randomNumber;
       //DVC - Boss Level
         public Dragon()
         {
@@ -63,6 +63,7 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Dragon.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
+            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -85,7 +86,7 @@ namespace DungeonFinal
 
             foreach (Hero h in party)
             {
-                int chance = new Random().Next(4);
+                int chance = _randomNumber.Next(4);
                 damage = mon.getModMagic() - h.getModResistance();
                 h.setCurHealth(h.getCurHealth() - damage);
 
@@ -119,13 +120,13 @@ namespace DungeonFinal
         public override Hero FindTarget(Party p)
         {
             Hero[] party = p.getAliveHeroes();
-            int attackType = new Random().Next(1, 3);
+            int attackType = _randomNumber.Next(1, 3);
             Hero target = party[0];
 
             //Tier 1 FindTarget
             if (attackType == 1)
             {
-                int randomHero = new Random().Next(1, party.Length);
+                int randomHero = _randomNumber.Next(1, party.Length);
                 target = party[randomHero];
             }
 

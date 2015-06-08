@@ -27,7 +27,7 @@ namespace DungeonFinal
         Boolean _IsSwarmDefeated;
         Paragraph _Paragraph;
         Inventory _BattleInventory;
-
+        Random _randomNumber;
         //In the swarm
 
         public BattleWindow_Swarm()
@@ -38,6 +38,7 @@ namespace DungeonFinal
         public BattleWindow_Swarm(Monster mon, Party heros)
         {
             InitializeComponent();
+            _randomNumber = RandomGenerator.Instance;
             _theParty = heros;
             _theHeroes = _theParty.getAllHeroes();
             _TheSwarm = new Monster[6];
@@ -257,8 +258,8 @@ namespace DungeonFinal
             Hero hero = mon.FindTarget(_theParty);
             int monsterDamage;
 
-            var randomGeneratedNumber = new Random();
-            int randSpecial = randomGeneratedNumber.Next(10) + 1;
+            
+            int randSpecial = _randomNumber.Next(10) + 1;
 
             if (randSpecial <= mon.getSpecialAttackFrequency())
             {

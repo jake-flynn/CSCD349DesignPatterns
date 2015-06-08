@@ -27,11 +27,11 @@
             
         </Menu>-->
 
-        <Button x:Name="btn_newGame" Content="New Game" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="83" Click="btn_newGame_Click" Height="22" />
-        <Button x:Name="btn_moveNorth" Content="Go North" HorizontalAlignment="Left" Margin="382,30,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_moveNorth_Click" />
-        <Button x:Name="btn_moveSouth" Content="Go South" HorizontalAlignment="Left" Margin="382,92,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_moveSouth_Click" />
-        <Button x:Name="btn_moveEast" Content="Go East" HorizontalAlignment="Left" Margin="426,63,0,0" VerticalAlignment="Top" Width="74" IsEnabled="False" Click="btn_moveEast_Click" />
-        <Button x:Name="btn_moveWest" Content="Go West" HorizontalAlignment="Left" Margin="333,63,0,0" VerticalAlignment="Top" Width="76" IsEnabled="False" Click="btn_moveWest_Click" />
+        <Button x:Name="btn_newGame" Content="New Game" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="83" Click="btn_newGame_Click" Height="22" ToolTip="ToolTip" />
+        <Button x:Name="btn_moveNorth" Content="Go North" HorizontalAlignment="Left" Margin="382,30,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_moveNorth_Click" ToolTip="ToolTip" />
+        <Button x:Name="btn_moveSouth" Content="Go South" HorizontalAlignment="Left" Margin="382,92,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_moveSouth_Click" ToolTip="ToolTip" />
+        <Button x:Name="btn_moveEast" Content="Go East" HorizontalAlignment="Left" Margin="426,63,0,0" VerticalAlignment="Top" Width="74" IsEnabled="False" Click="btn_moveEast_Click" ToolTip="ToolTip" />
+        <Button x:Name="btn_moveWest" Content="Go West" HorizontalAlignment="Left" Margin="333,63,0,0" VerticalAlignment="Top" Width="76" IsEnabled="False" Click="btn_moveWest_Click" ToolTip="ToolTip" />
 
         <TextBox x:Name="tb_currentCol" HorizontalAlignment="Left" Height="23" Margin="660,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <TextBox x:Name="tb_currentRow" HorizontalAlignment="Left" Height="23" Margin="660,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
@@ -41,12 +41,12 @@
         <Label x:Name="lbl_curRow" Content="Current Row:" HorizontalAlignment="Left" Margin="580,67,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="lbl_MonstersSeen" Content="Monsters Encountered" HorizontalAlignment="Left" Margin="522,106,0,0" VerticalAlignment="Top"/>
 
-        <Button x:Name="btn_viewMap" Content="View Map" HorizontalAlignment="Left" Margin="25,99,0,0" VerticalAlignment="Top" Width="83" IsEnabled="False" Click="btn_viewMap_Click" Height="30"/>
-        <Button x:Name="btn_equipmentSelect" Content="Equipment Select" HorizontalAlignment="Left" Margin="151,98,0,0" VerticalAlignment="Top" Width="110" IsEnabled="False" Click="btn_equipmentSelect_Click" Height="31" />
+        <Button x:Name="btn_viewMap" Content="View Map" HorizontalAlignment="Left" Margin="25,99,0,0" VerticalAlignment="Top" Width="83" IsEnabled="False" Click="btn_viewMap_Click" Height="30" ToolTip="ToolTip"/>
+        <Button x:Name="btn_equipmentSelect" Content="Equipment Select" HorizontalAlignment="Left" Margin="151,98,0,0" VerticalAlignment="Top" Width="110" IsEnabled="False" Click="btn_equipmentSelect_Click" Height="31" ToolTip="ToolTip" />
         <Button x:Name="btn_newGameNoSelect" Content="New Game no char select" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="154" Height="25" Visibility="Visible" Click="btn_newGameNoSelect_Click" />
 
 
-        <Rectangle x:Name="rect_Hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="25,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle x:Name="rect_Hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="25,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" ToolTip="ToolTip"/>
         <ProgressBar x:Name="prgBar_Hero1_Health" HorizontalAlignment="Left" Height="10" Margin="25,279,0,0" VerticalAlignment="Top" Width="100"/>
         <ProgressBar x:Name="prgBar_Hero1_Mana" HorizontalAlignment="Left" Height="10" Margin="25,307,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="lbl_Hero1_Stats" Content="Stats" HorizontalAlignment="Left" Margin="25,326,0,0" VerticalAlignment="Top"/>
@@ -54,7 +54,7 @@
         <Label x:Name="lbl_Hero1_Mana" Content="Mana" HorizontalAlignment="Left" Margin="130,299,0,0" VerticalAlignment="Top"/>
 
 
-        <Rectangle x:Name="rect_Hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="218,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle x:Name="rect_Hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="218,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" ToolTip="ToolTip"/>
         <ProgressBar x:Name="prgBar_Hero2_Health" HorizontalAlignment="Left" Height="10" Margin="218,279,0,0" VerticalAlignment="Top" Width="100"/>
         <ProgressBar x:Name="prgBar_Hero2_Mana" HorizontalAlignment="Left" Height="10" Margin="218,307,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="lbl_Hero2_Stats" Content="Stats" HorizontalAlignment="Left" Margin="218,326,0,0" VerticalAlignment="Top"/>
@@ -62,7 +62,7 @@
         <Label x:Name="lbl_Hero2_Mana" Content="Mana" HorizontalAlignment="Left" Margin="323,299,0,0" VerticalAlignment="Top"/>
 
 
-        <Rectangle x:Name="rect_Hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="426,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle x:Name="rect_Hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="426,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" ToolTip="ToolTip"/>
         <ProgressBar x:Name="prgBar_Hero3_Health" HorizontalAlignment="Left" Height="10" Margin="426,279,0,0" VerticalAlignment="Top" Width="100"/>
         <ProgressBar x:Name="prgBar_Hero3_Mana" HorizontalAlignment="Left" Height="10" Margin="426,307,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="lbl_Hero3_Stats" Content="Stats" HorizontalAlignment="Left" Margin="426,326,0,0" VerticalAlignment="Top"/>
@@ -70,7 +70,7 @@
         <Label x:Name="lbl_Hero3_Mana" Content="Mana" HorizontalAlignment="Left" Margin="531,299,0,0" VerticalAlignment="Top"/>
 
 
-        <Rectangle x:Name="rect_Hero4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="612,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+        <Rectangle x:Name="rect_Hero4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="612,157,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" ToolTip="ToolTip"/>
         <ProgressBar x:Name="prgBar_Hero4_Health" HorizontalAlignment="Left" Height="10" Margin="612,279,0,0" VerticalAlignment="Top" Width="100"/>
         <ProgressBar x:Name="prgBar_Hero4_Mana" HorizontalAlignment="Left" Height="10" Margin="612,307,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="lbl_Hero4_Stats" Content="Stats" HorizontalAlignment="Left" Margin="612,326,0,0" VerticalAlignment="Top"/>

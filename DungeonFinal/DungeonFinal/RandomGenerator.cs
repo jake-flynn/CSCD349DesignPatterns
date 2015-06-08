@@ -16,15 +16,18 @@ namespace DungeonFinal
             //_randomNumber = new Random();
         }
 
-        public Random Instance()
+        public static Random Instance
         {
-            if (_instance == null)
-            {
-                _instance = new Random();
+            get
+            {                
+                if (_instance == null)
+                {
+                    _instance = new Random();
+                }
+                return _instance;
             }
-            return _instance;
         }
-
+        
         private Random getRandomNumber()
         {
             return _instance;
