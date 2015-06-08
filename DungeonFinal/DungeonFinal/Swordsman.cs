@@ -61,7 +61,10 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
-            setDescription("Description: ");
+            setDescription("The Swordsman is the epitome of a balanced warrior, excelling in dealing physical damage,\r\n"
+                            + "as well as being able to resist any kind in return.\r\n"
+                            + "His special ability is a Rallying Strike, that deals damage to his foe,\r\n"
+                            + "as well as increasing his offense and defense");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Swordsman.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

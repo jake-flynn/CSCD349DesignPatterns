@@ -62,7 +62,10 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
-            setDescription("Description: ");
+            setDescription("The reclusive Monk is a solitary individual, preferring to spend her days\r\n"
+                            + "meditating away from the distractions of mundane daily actions.\r\n"
+                            + "The Monks rigourous mediation allows the her to achieve a state of zen,\r\n"
+                            + "bringing balance to her stats, and even allowing her to balance the impurities in the bodies of her allies");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Monk.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

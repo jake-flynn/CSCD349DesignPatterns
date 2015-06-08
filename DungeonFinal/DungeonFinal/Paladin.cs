@@ -61,7 +61,10 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
-            setDescription("Description: ");
+            setDescription("The Paladin, a righteous warrior, has been extensively trained in both offense and defense\r\n"
+                            + "Wielding a heavy axe, and defensive augmentations,\r\n"
+                            + "she fights to the death in defense of her allies.\r\n"
+                            + "Her special ability allows her to raise the defense and magic resistance of her allies.");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Paladin.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

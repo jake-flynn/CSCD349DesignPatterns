@@ -62,7 +62,10 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
-            setDescription("Description: ");
+            setDescription("The Armor Knight hails from the Barren Northern Lands,\r\n"
+                            +"Known for producing the most battle hardened warriors.\r\n"
+                            +"Capable of withstanding the most inhuman attacks.\r\n"
+                            +"His specialty is taunting monsters, drawing attention away form his allies.");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/ArmorKnight.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

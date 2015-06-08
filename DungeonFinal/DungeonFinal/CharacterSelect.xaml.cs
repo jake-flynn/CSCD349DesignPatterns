@@ -37,6 +37,36 @@ namespace DungeonFinal
 
             btn_PartyReady.IsEnabled = true;
 
+
+            Hero[] HeroChoices = new Hero[8];
+            HeroChoices[0] = new ArmorKnight();
+            HeroChoices[1] = new Cleric();
+            HeroChoices[2] = new Monk();
+            HeroChoices[3] = new Paladin();
+            HeroChoices[4] = new Rogue();
+            HeroChoices[5] = new Sorceress();
+            HeroChoices[6] = new Swordsman();
+            HeroChoices[7] = new Warlock();
+
+            rect_HeroChoice1.Fill = HeroChoices[0].getImageBrush();
+            rect_HeroChoice2.Fill = HeroChoices[1].getImageBrush();
+            rect_HeroChoice3.Fill = HeroChoices[2].getImageBrush();
+            rect_HeroChoice4.Fill = HeroChoices[3].getImageBrush();
+            rect_HeroChoice5.Fill = HeroChoices[4].getImageBrush();
+            rect_HeroChoice6.Fill = HeroChoices[5].getImageBrush();
+            rect_HeroChoice7.Fill = HeroChoices[6].getImageBrush();
+            rect_HeroChoice8.Fill = HeroChoices[7].getImageBrush();
+
+            rect_HeroChoice1.ToolTip = HeroChoices[0].getDescription();
+            rect_HeroChoice2.ToolTip = HeroChoices[1].getDescription();
+            rect_HeroChoice3.ToolTip = HeroChoices[2].getDescription();
+            rect_HeroChoice4.ToolTip = HeroChoices[3].getDescription();
+            rect_HeroChoice5.ToolTip = HeroChoices[4].getDescription();
+            rect_HeroChoice6.ToolTip = HeroChoices[5].getDescription();
+            rect_HeroChoice7.ToolTip = HeroChoices[6].getDescription();
+            rect_HeroChoice8.ToolTip = HeroChoices[7].getDescription();
+
+
             
 
         }
@@ -120,6 +150,7 @@ namespace DungeonFinal
             
             
             rect_Hero1.Fill = _TheHeroes[0].getImageBrush();
+            rect_Hero1.ToolTip = _TheHeroes[0].getDescription();
         }
 
         private void cmbBox_Hero2_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -158,6 +189,7 @@ namespace DungeonFinal
             }
 
             rect_Hero2.Fill = _TheHeroes[1].getImageBrush();
+            rect_Hero2.ToolTip = _TheHeroes[1].getDescription();
         }
 
         private void cmbBox_Hero3_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -197,6 +229,7 @@ namespace DungeonFinal
             }
 
             rect_Hero3.Fill = _TheHeroes[2].getImageBrush();
+            rect_Hero3.ToolTip = _TheHeroes[2].getDescription();
         }
 
         private void cmbBox_Hero4_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -235,6 +268,7 @@ namespace DungeonFinal
             }
 
             rect_Hero4.Fill = _TheHeroes[3].getImageBrush();
+            rect_Hero4.ToolTip = _TheHeroes[3].getDescription();
         }
     }
 }

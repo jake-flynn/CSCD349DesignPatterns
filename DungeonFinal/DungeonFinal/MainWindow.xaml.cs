@@ -110,7 +110,19 @@ namespace DungeonFinal
 
 
             //ToolTips
-            
+            rect_Hero1.ToolTip = _TheHeroes[0].getDescription();
+            rect_Hero2.ToolTip = _TheHeroes[1].getDescription();
+            rect_Hero3.ToolTip = _TheHeroes[2].getDescription();
+            rect_Hero4.ToolTip = _TheHeroes[3].getDescription();
+
+            btn_moveNorth.ToolTip = "Click to move North in the maze";
+            btn_moveEast.ToolTip = "Click to move East in the maze";
+            btn_moveWest.ToolTip = "Click to move West in the maze";
+            btn_moveSouth.ToolTip = "Click to move South in the maze";
+            btn_equipmentSelect.ToolTip = "Click to change party members equipment";
+            btn_viewMap.ToolTip = "Click to view the map of the maze";
+            btn_newGame.ToolTip = "Click to start a new game";
+
             
         }
 

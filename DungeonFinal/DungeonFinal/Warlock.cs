@@ -61,7 +61,10 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
-            setDescription("Description: ");
+            setDescription("The Warlock is a demonic mage, who has tapped into the forbidden arts,\r\n"
+                            + "awakending magics that might be better off left alone.\r\n"
+                            + "His sepcialty is summoning great firestorms that bring devastation to his enemies,\r\n"
+                            + "especially as they grow in number.");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Warlock.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

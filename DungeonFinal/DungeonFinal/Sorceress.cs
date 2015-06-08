@@ -61,7 +61,9 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
-            setDescription("Description: ");
+            setDescription("The Mysterious Sorceress has mastered the arcane arts, in many of the various branches.\r\n"
+                            + "As a result, she is unparalleled in weilding spells that cause untold quantities\r\n"
+                            + "of magic damage to a single target.");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Sorceress.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

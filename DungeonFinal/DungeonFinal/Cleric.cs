@@ -61,7 +61,9 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
-            setDescription("Description: ");
+            setDescription("The Cleric is a gentle scholar, trained extensively in the healing arts,\r\n"
+                            + "not known for ferocity in battle, but capable of healing the gravest of injuries.\r\n"
+                            + "His specialty is healing large groups of allies simultaniously");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Cleric.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

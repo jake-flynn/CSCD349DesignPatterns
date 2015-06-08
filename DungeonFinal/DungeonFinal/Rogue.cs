@@ -60,7 +60,10 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
-            setDescription("Description: ");
+            setDescription("The Rogue, thief by trade, bandit by nature,\r\n"
+                            + "not able to withstand any kind of damage, but second to none in dishing it out.\r\n"
+                            + "His specialty of throwing deadly knives allows him to penetrate the toughest of armors,\r\n"
+                            + "dealing high amounts of physical damage.");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Rogue.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

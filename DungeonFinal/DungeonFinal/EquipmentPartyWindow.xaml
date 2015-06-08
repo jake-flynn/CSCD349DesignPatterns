@@ -12,11 +12,11 @@
         <Label x:Name="lbl_Hero1_Weapon" Content="Weapon" HorizontalAlignment="Left" Margin="92,445,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="lbl_Hero1_Gloves" Content="Gloves" HorizontalAlignment="Left" Margin="92,337,0,0" VerticalAlignment="Top" Width="85"/>
 
-        <Rectangle x:Name="rect_Hero1_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="19,258,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero1_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="18,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero1_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="18,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero1_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="92,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero1_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="92,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Hero1_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="19,258,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero1_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="18,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero1_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="18,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero1_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="92,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero1_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="92,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
 
         <Button x:Name="btn_Hero1_Helm" Content="Change" HorizontalAlignment="Left" Margin="19,316,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero1_Helm_Click"/>
         <Button x:Name="btn_Hero1_Body" Content="Change" HorizontalAlignment="Left" Margin="19,421,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero1_Body_Click"/>
@@ -24,7 +24,7 @@
         <Button x:Name="btn_Hero1_Weapon" Content="Change" HorizontalAlignment="Left" Margin="92,529,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero1_Weapon_Click"/>
         <Button x:Name="btn_Hero1_Gloves" Content="Change" HorizontalAlignment="Left" Margin="92,421,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero1_Gloves_Click"/>
 
-        <Rectangle x:Name="rect_Hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="10,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>  
+        <Rectangle x:Name="rect_Hero1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="10,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="150" ToolTip="ToolTip"/>  
         <Label x:Name="lbl_Hero1_Stats" Content="Label" HorizontalAlignment="Left" Margin="92,240,0,0" VerticalAlignment="Top"/>
   
         
@@ -34,11 +34,11 @@
         <Label x:Name="lbl_Hero2_Weapon" Content="Weapon" HorizontalAlignment="Left" Margin="364,445,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="lbl_Hero2_Gloves" Content="Gloves" HorizontalAlignment="Left" Margin="364,337,0,0" VerticalAlignment="Top" Width="85"/>
 
-        <Rectangle x:Name="rect_Hero2_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="291,258,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero2_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="290,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero2_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="290,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero2_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="364,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero2_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="364,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Hero2_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="291,258,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero2_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="290,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero2_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="290,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero2_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="364,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero2_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="364,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
 
         <Button x:Name="btn_Hero2_Helm" Content="Change" HorizontalAlignment="Left" Margin="291,316,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero2_Helm_Click" />
         <Button x:Name="btn_Hero2_Body" Content="Change" HorizontalAlignment="Left" Margin="291,421,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero2_Body_Click" />
@@ -46,7 +46,7 @@
         <Button x:Name="btn_Hero2_Weapon" Content="Change" HorizontalAlignment="Left" Margin="364,529,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero2_Weapon_Click" />
         <Button x:Name="btn_Hero2_Gloves" Content="Change" HorizontalAlignment="Left" Margin="364,421,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero2_Gloves_Click" />
        
-        <Rectangle x:Name="rect_Hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="282,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>        
+        <Rectangle x:Name="rect_Hero2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="282,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="150" ToolTip="ToolTip"/>        
         <Label x:Name="lbl_Hero2_Stats" Content="Label" HorizontalAlignment="Left" Margin="364,240,0,0" VerticalAlignment="Top"/>
         
         
@@ -56,11 +56,11 @@
         <Label x:Name="lbl_Hero3_Weapon" Content="Weapon" HorizontalAlignment="Left" Margin="657,445,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="lbl_Hero3_Gloves" Content="Gloves" HorizontalAlignment="Left" Margin="657,337,0,0" VerticalAlignment="Top" Width="85"/>
 
-        <Rectangle x:Name="rect_Hero3_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="584,258,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero3_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="583,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero3_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="583,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero3_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="657,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero3_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="657,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Hero3_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="584,258,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero3_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="583,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero3_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="583,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero3_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="657,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero3_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="657,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
 
         <Button x:Name="btn_Hero3_Helm" Content="Change" HorizontalAlignment="Left" Margin="584,316,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero3_Helm_Click" />
         <Button x:Name="btn_Hero3_Body" Content="Change" HorizontalAlignment="Left" Margin="584,421,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero3_Body_Click" />
@@ -68,7 +68,7 @@
         <Button x:Name="btn_Hero3_Weapon" Content="Change" HorizontalAlignment="Left" Margin="657,529,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero3_Weapon_Click" />
         <Button x:Name="btn_Hero3_Gloves" Content="Change" HorizontalAlignment="Left" Margin="657,421,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero3_Gloves_Click" />
 
-        <Rectangle x:Name="rect_Hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="575,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>
+        <Rectangle x:Name="rect_Hero3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="575,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="150" ToolTip="ToolTip"/>
         <Label x:Name="lbl_Hero3_Stats" Content="Label" HorizontalAlignment="Left" Margin="657,240,0,0" VerticalAlignment="Top"/>
         
         
@@ -78,11 +78,11 @@
         <Label x:Name="lbl_Hero4_Weapon" Content="Weapon" HorizontalAlignment="Left" Margin="943,445,0,0" VerticalAlignment="Top" Width="87"/>
         <Label x:Name="lbl_Hero4_Gloves" Content="Gloves" HorizontalAlignment="Left" Margin="943,337,0,0" VerticalAlignment="Top" Width="85"/>
 
-        <Rectangle x:Name="rect_Hero4_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="870,258,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero4_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="869,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero4_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="869,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero4_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="943,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
-        <Rectangle x:Name="rect_Hero4_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="943,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53"/>
+        <Rectangle x:Name="rect_Hero4_Helm" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="870,258,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero4_Body" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="869,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero4_Footwear" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="869,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero4_Weapon" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="943,471,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
+        <Rectangle x:Name="rect_Hero4_Gloves" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="53" Margin="943,363,0,0" Stroke="Black" VerticalAlignment="Top" Width="53" ToolTip="ToolTip"/>
 
         <Button x:Name="btn_Hero4_Helm" Content="Change" HorizontalAlignment="Left" Margin="870,316,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero4_Helm_Click" />
         <Button x:Name="btn_Hero4_Body" Content="Change" HorizontalAlignment="Left" Margin="870,421,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero4_Body_Click" />
@@ -90,7 +90,7 @@
         <Button x:Name="btn_Hero4_Weapon" Content="Change" HorizontalAlignment="Left" Margin="943,529,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero4_Weapon_Click" />
         <Button x:Name="btn_Hero4_Gloves" Content="Change" HorizontalAlignment="Left" Margin="943,421,0,0" VerticalAlignment="Top" Width="53" Height="24" Click="btn_Hero4_Gloves_Click" />
         
-        <Rectangle x:Name="rect_Hero4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="861,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>        
+        <Rectangle x:Name="rect_Hero4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="200" Margin="861,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="150" ToolTip="ToolTip"/>        
         <Label x:Name="lbl_Hero4_Stats" Content="Label" HorizontalAlignment="Left" Margin="943,240,0,0" VerticalAlignment="Top"/>
 
     </Grid>
