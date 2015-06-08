@@ -19,7 +19,7 @@ namespace DungeonFinal
         public Poison(Hero h)
         {
             setHero(h);
-            setDuration(10);
+            setDuration(4);
         }
 
         public override String Modify()

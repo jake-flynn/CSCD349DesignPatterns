@@ -254,9 +254,12 @@ namespace DungeonFinal
             _MonstersSeen++;
             updateButtonsVisibility();
             //upgradeStats(heros);
-            _TheParty.getInventory().addLastToConsumable(_ItemFactory.createConsumable(monster.getTierNumber()));
+            Consumable consumableDrop = _ItemFactory.createConsumable(monster.getTierNumber());
+            Equipment equipmentDrop = _ItemFactory.createEquipment(monster.getTierNumber());
+            MessageBox.Show("Your party finds a " + consumableDrop.getItemName() + " and " + equipmentDrop.getItemName() + "!");
             
-            _TheParty.getInventory().addLastToEquipment(_ItemFactory.createEquipment(monster.getTierNumber()));
+            _TheParty.getInventory().addLastToConsumable(consumableDrop);
+            _TheParty.getInventory().addLastToEquipment(equipmentDrop);
 
             
             int randomNumber = _randomNumber.Next(1000) + 1;

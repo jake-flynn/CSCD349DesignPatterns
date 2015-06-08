@@ -101,7 +101,7 @@ namespace DungeonFinal
                 party[randomHero].Subscribe(new Bleed(party[randomHero]));
             }
 
-            //Muli-hit
+            //Critical-hit
             else
             {
                 damage = damage * 3;

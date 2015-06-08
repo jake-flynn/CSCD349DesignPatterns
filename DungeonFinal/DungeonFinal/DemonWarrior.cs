@@ -82,12 +82,12 @@ namespace DungeonFinal
             Hero[] party = theParty.getAliveHeroes();
 
             int randomHero = _randomNumber.Next(party.Length);
-            party[randomHero].setModStrength(getModStrength() - 1);
-            party[randomHero].setModMagic(getModStrength() - 1);
+            party[randomHero].setModStrength(getModStrength() - 7);
+            party[randomHero].setModMagic(getModStrength() - 7);
 
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return (getName() + " cast a curse on " + party[randomHero].getName() + " for -1 Strength and Magic!/r/n");
+            return (getName() + " cast a curse on " + party[randomHero].getName() + " for -7 Strength and Magic!/r/n");
         }
 
         /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/

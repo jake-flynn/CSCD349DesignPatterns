@@ -100,7 +100,7 @@ namespace DungeonFinal
                 //Silence Successful
                 else if(chance == 2)
                 {
-                    message += "Hellfire affected " + h.getName() + " for " + damage + " damage and they were silenced!\r\n";
+                    message += "Dragon roars at " + h.getName() + " for " + damage + " damage and they were silenced!\r\n";
                     h.Subscribe(new Silence(h));
                 }
 

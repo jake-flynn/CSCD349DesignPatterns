@@ -86,14 +86,14 @@ namespace DungeonFinal
             String message = "";
             int damage = (int)(mon.getModStrength() * 1.5) - party[randomHero].getModDefense();
 
-            //Burn Successful
+            //Stun Successful
             if (chance == 1)
             {
                 message += mon.getName() + " hit " + party[randomHero].getName() + " with its axe for " + damage + " damage and caused paralyzation!\r\n";
                 party[randomHero].Subscribe(new Stun(party[randomHero]));
             }
 
-            //Burn Unsuccessful
+            //Stun Unsuccessful
             else
             {
                 message += mon.getName() + " hit " + party[randomHero].getName() + " with its axe and caused " + damage + " damage!\r\n";
