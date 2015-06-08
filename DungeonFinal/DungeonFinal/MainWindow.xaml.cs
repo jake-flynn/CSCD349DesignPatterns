@@ -445,8 +445,8 @@ namespace DungeonFinal
         {
 
             Party party = new Party();
-            party.addHero(new Swordsman());
-            party.addHero(new Paladin());
+            party.addHero(new ArmorKnight());
+            party.addHero(new Sorceress());
             party.addHero(new Rogue());
             party.addHero(new Cleric());
             _TheParty = party;

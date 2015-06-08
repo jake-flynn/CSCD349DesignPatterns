@@ -19,7 +19,7 @@ namespace DungeonFinal
         public Burn(Hero h)
         {
             setHero(h);
-            setDuration(5);
+            setDuration(4);
         }
 
         public override String Modify()

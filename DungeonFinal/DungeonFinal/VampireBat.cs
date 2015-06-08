@@ -99,7 +99,7 @@ namespace DungeonFinal
         {
             Hero[] party = p.getAliveHeroes();
 
-            int randomHero = _randomNumber.Next(1, party.Length);
+            int randomHero = _randomNumber.Next(party.Length);
             Hero target = party[randomHero];
 
             return target;

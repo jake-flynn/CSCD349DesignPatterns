@@ -24,15 +24,17 @@ namespace DungeonFinal
 
         public override String Modify()
         {
-            setDuration(getDuration() - 1);
+            
 
             if(getDuration() > 1)
             {
+                setDuration(getDuration() - 1);
                 return (getHero().getName() + " is currently taunting the enemy monsters. This will last " + getDuration() + " more turn(s)!\r\n");
             }
 
             else
             {
+                setDuration(getDuration() - 1);             
                 getHero().setIsTaunting(false);
                 return (getHero().getName() + " taunt has ended!\r\n");
             }
