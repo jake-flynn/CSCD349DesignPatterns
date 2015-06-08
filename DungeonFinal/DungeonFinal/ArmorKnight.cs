@@ -62,6 +62,7 @@ namespace DungeonFinal
             setWeapon(new NullItemEquipment());
 
            //Identity
+            setDescription("Description: ");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/ArmorKnight.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;

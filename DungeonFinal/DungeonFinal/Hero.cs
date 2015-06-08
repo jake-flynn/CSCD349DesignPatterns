@@ -65,6 +65,7 @@ namespace DungeonFinal
 
        //Identity
         private String _Stats;
+        private String _Description;
         private ImageBrush _ImageBrush;
 
         public Hero(){}
@@ -422,6 +423,16 @@ namespace DungeonFinal
         public void setStats(String s)
         {
             _Stats = s;
+        }
+
+        public String getDescription()
+        {
+            return _Description;
+        }
+
+        public void setDescription(String d)
+        {
+            _Description = d;
         }
 
         public void setImageBrush(ImageBrush i)
