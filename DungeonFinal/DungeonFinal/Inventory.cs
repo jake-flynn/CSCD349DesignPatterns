@@ -42,15 +42,17 @@ namespace DungeonFinal
 
         public void initialInventoryPopulate()
         {
+
+
+            addLastToConsumable(new PotionOfHealth()); 
+            addLastToConsumable(new PotionOfMana());
+            addLastToConsumable(new PotionOfHealthRegeneration());
             addLastToConsumable(new LesserPotionOfPower());
             addLastToConsumable(new LesserPotionOfDefense());
-            addLastToConsumable(new LesserPotionOfHealth());
-            addLastToConsumable(new PotionOfHealth());
-            addLastToConsumable(new PotionOfHealthRegeneration());
 
             
 
-            for (int x = 0; x < 15; x++)
+            for (int x = 0; x < 5; x++)
             {
                 addLastToEquipment(_ItemFactory.createEquipment(1));                
             }

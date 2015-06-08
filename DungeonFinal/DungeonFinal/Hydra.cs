@@ -88,13 +88,13 @@ namespace DungeonFinal
             int randomHero = 0;
 
             //3 Attacks
-            if(mon.getCurHealth() > (mon.getMaxHealth() / 2))
+            if(mon.getCurHealth() > (mon.getMaxHealth() * .75))
             {
                 numStrikes = 3;
             }
 
             //6 Attacks
-            else if (mon.getCurHealth() <= (mon.getMaxHealth() / 2) && mon.getCurHealth() < (mon.getMaxHealth() / 10))
+            else if (mon.getCurHealth() <= (mon.getMaxHealth() / 2) && mon.getCurHealth() > (mon.getMaxHealth() *.4))
             {
                 numStrikes = 6;
             }
@@ -108,7 +108,7 @@ namespace DungeonFinal
             for(; numStrikes > 0; numStrikes--)
             {
                 randomHero = _randomNumber.Next(party.Length);
-                damage = party[randomHero].getModDefense() - hit;
+                damage = hit - party[randomHero].getModDefense();
                 party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
                 message += mon.getName() + " bit " + party[randomHero].getName() + " for " + damage + " damage!\r\n";

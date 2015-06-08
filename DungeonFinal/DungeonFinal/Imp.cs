@@ -89,13 +89,10 @@ namespace DungeonFinal
             for (int numStrikes = 3; numStrikes > 0; numStrikes--)
             {
                 randomHero = _randomNumber.Next(party.Length);
-                damage = party[randomHero].getModResistance() - hit;
+                damage = hit - party[randomHero].getModResistance();
                 party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
-                message += mon.getName() + " stabbed " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
-                
-                //Add Delay for random number generation
-                Thread.Sleep(500);
+                message += mon.getName() + " stabbed " + party[randomHero].getName() + " for " + damage + " damage!\r\n";                                
             }
 
             mon.setCurMana(mon.getCurMana() - 10);

@@ -77,7 +77,7 @@ namespace DungeonFinal
         //Howl - Increases strength by 50% (can stack)
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
-            int strInc = mon.getModStrength() * 2;
+            int strInc = mon.getModStrength() + 40;
             mon.setModStrength(strInc);
 
             mon.setCurMana(mon.getCurMana() - 10);

@@ -81,7 +81,7 @@ namespace DungeonFinal
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getAliveHeroes();
-            int damage = 15;
+            int damage = 40;
 
             foreach (Hero h in party)
             {
@@ -90,7 +90,7 @@ namespace DungeonFinal
 
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return ("Stubeast gave the whole party homework, it's due tomorrow! Did " + damage + " across whole party!\r\n");
+            return ("Stu gave you a 40% on your last exam! Did " + damage + " across whole party!\r\n");
         }
 
 
