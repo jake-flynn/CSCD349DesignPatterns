@@ -151,6 +151,7 @@ namespace DungeonFinal
             
             rect_Hero1.Fill = _TheHeroes[0].getImageBrush();
             rect_Hero1.ToolTip = _TheHeroes[0].getDescription();
+            lbl_Hero1_Stats.Content = _TheHeroes[0].getStats();
         }
 
         private void cmbBox_Hero2_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -190,6 +191,7 @@ namespace DungeonFinal
 
             rect_Hero2.Fill = _TheHeroes[1].getImageBrush();
             rect_Hero2.ToolTip = _TheHeroes[1].getDescription();
+            lbl_Hero2_Stats.Content = _TheHeroes[1].getStats();
         }
 
         private void cmbBox_Hero3_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -230,6 +232,7 @@ namespace DungeonFinal
 
             rect_Hero3.Fill = _TheHeroes[2].getImageBrush();
             rect_Hero3.ToolTip = _TheHeroes[2].getDescription();
+            lbl_Hero3_Stats.Content = _TheHeroes[2].getStats();
         }
 
         private void cmbBox_Hero4_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -269,6 +272,7 @@ namespace DungeonFinal
 
             rect_Hero4.Fill = _TheHeroes[3].getImageBrush();
             rect_Hero4.ToolTip = _TheHeroes[3].getDescription();
+            lbl_Hero4_Stats.Content = _TheHeroes[3].getStats();
         }
     }
 }
