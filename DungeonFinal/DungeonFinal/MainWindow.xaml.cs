@@ -446,7 +446,7 @@ namespace DungeonFinal
 
             Party party = new Party();
             party.addHero(new ArmorKnight());
-            party.addHero(new Sorceress());
+            party.addHero(new Warlock());
             party.addHero(new Rogue());
             party.addHero(new Cleric());
             _TheParty = party;
