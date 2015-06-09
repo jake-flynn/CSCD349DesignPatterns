@@ -17,27 +17,29 @@ namespace DungeonFinal
     class VampireBat : Monster
     {
         Random _randomNumber;
+
        //DVC - Level 1
         public VampireBat()
         {
             setName("Vampire Bat");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
+            setBaseHealth(105);
+            setCurHealth(105);
+            setMaxHealth(105);
             setBaseMana(100);
             setCurMana(100);
             setMaxMana(100);
 
-            setBaseStrength(25);
-            setModStrength(25);
+            setBaseStrength(21);
+            setModStrength(21);
             setBaseMagic(0);
             setModMagic(0);
-            setBaseDefense(3);
-            setModDefense(3);
-            setBaseResistance(2);
-            setModResistance(2);
+            setBaseDefense(11);
+            setModDefense(11);
+            setBaseResistance(10);
+            setModResistance(10);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -45,6 +47,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier1Behavior());
 
            //Defend
             setIsDefending(false);
@@ -61,7 +64,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/VampBat.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -92,17 +94,6 @@ namespace DungeonFinal
             mon.setCurMana(mon.getCurMana() - 10);
 
             return (getName() + " sucked " + party[randomHero].getName() + "'s blood for " + damage + " and healed itself!\r\n");
-        }
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-
-            int randomHero = _randomNumber.Next(party.Length);
-            Hero target = party[randomHero];
-
-            return target;
         }
 
        /*Battle - Defend*/

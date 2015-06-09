@@ -17,27 +17,29 @@ namespace DungeonFinal
     class Sphynx : Monster
     {
         Random _randomNumber;
+
        //DVC - Level 2
         public Sphynx()
         {
             setName("Sphynx");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(200);
-            setCurHealth(200);
-            setMaxHealth(200);
+            setBaseHealth(230);
+            setCurHealth(230);
+            setMaxHealth(230);
             setBaseMana(200);
             setCurMana(200);
             setMaxMana(200);
 
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(20);
-            setModMagic(20);
-            setBaseDefense(15);
-            setModDefense(15);
-            setBaseResistance(15);
-            setModResistance(15);
+            setBaseMagic(36);
+            setModMagic(36);
+            setBaseDefense(4);
+            setModDefense(4);
+            setBaseResistance(12);
+            setModResistance(12);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -45,6 +47,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier2Behavior());
 
            //Defend
             setIsDefending(false);
@@ -61,7 +64,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Sphynx.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -100,28 +102,6 @@ namespace DungeonFinal
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;
-        }
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAllHeroes();
-            Hero target = party[0];
-
-            if (p.getAliveHeroes().Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (p.getAliveHeroes().Length - 2); i++)
-            {
-                if(party[i + 1].getCurHealth() < party[i].getCurHealth())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
         }
 
        /*Battle - Defend*/

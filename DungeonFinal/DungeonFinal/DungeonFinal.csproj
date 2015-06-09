@@ -117,6 +117,10 @@
     <Compile Include="EquipmentChoiceWindow.xaml.cs">
       <DependentUpon>EquipmentChoiceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FindTarget_Tier1Behavior.cs" />
+    <Compile Include="FindTarget_Tier2Behavior.cs" />
+    <Compile Include="FindTarget_Tier3Behavior.cs" />
+    <Compile Include="FindTarget_Tier4Behavior.cs" />
     <Compile Include="FullGuard.cs" />
     <Compile Include="GreaterDefenseBoost.cs" />
     <Compile Include="GreaterHealthRegeneration.cs" />
@@ -139,6 +143,7 @@
     <Compile Include="Hellhound.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Hydra.cs" />
+    <Compile Include="IFindTarget.cs" />
     <Compile Include="Imp.cs" />
     <Compile Include="Insect.cs" />
     <Compile Include="Inventory.cs" />

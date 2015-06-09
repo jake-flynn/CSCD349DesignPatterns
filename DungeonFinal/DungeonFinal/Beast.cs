@@ -24,21 +24,21 @@ namespace DungeonFinal
             setName("Stu, the OS Abomination");
 
            //Stats
-            setBaseHealth(200);
-            setCurHealth(200);
-            setMaxHealth(200);
+            setBaseHealth(280);
+            setCurHealth(280);
+            setMaxHealth(280);
             setBaseMana(200);
             setCurMana(200);
             setMaxMana(200);
 
-            setBaseStrength(20);
-            setModStrength(20);
+            setBaseStrength(30);
+            setModStrength(30);
             setBaseMagic(0);
             setModMagic(0);
-            setBaseDefense(15);
-            setModDefense(15);
-            setBaseResistance(15);
-            setModResistance(15);
+            setBaseDefense(12);
+            setModDefense(12);
+            setBaseResistance(11);
+            setModResistance(11);
          
            //Special Attack
             setSpecialAttackFrequency(4);
@@ -46,6 +46,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier2Behavior());
 
            //Defend
             setIsDefending(false);
@@ -91,29 +92,6 @@ namespace DungeonFinal
             mon.setCurMana(mon.getCurMana() - 10);
 
             return ("Stu gave you a 40% on your last exam! Did " + damage + " across whole party!\r\n");
-        }
-
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            Hero target = party[0];
-
-            if (party.Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (party.Length - 2); i++)
-            {
-                if (party[i + 1].getCurHealth() < party[i].getCurHealth())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
         }
 
        /*Battle - Defend*/

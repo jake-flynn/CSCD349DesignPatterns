@@ -22,23 +22,24 @@ namespace DungeonFinal
         public Slime()
         {
             setName("Slime");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
+            setBaseHealth(110);
+            setCurHealth(110);
+            setMaxHealth(110);
             setBaseMana(100);
             setCurMana(100);
             setMaxMana(100);
 
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(14);
-            setModMagic(14);
-            setBaseDefense(8);
-            setModDefense(8);
-            setBaseResistance(8);
-            setModResistance(8);
+            setBaseMagic(21);
+            setModMagic(21);
+            setBaseDefense(14);
+            setModDefense(14);
+            setBaseResistance(14);
+            setModResistance(14);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -46,6 +47,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier1Behavior());
 
            //Defend
             setIsDefending(false);
@@ -62,7 +64,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Slime.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -111,17 +112,6 @@ namespace DungeonFinal
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;
-        }
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-
-            int randomHero = _randomNumber.Next(1, party.Length);
-            Hero target = party[randomHero];
-
-            return target;
         }
 
        /*Battle - Defend*/

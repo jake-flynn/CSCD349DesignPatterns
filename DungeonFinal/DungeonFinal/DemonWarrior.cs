@@ -22,11 +22,12 @@ namespace DungeonFinal
         public DemonWarrior()
         {
             setName("Demon Warrior");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(300);
-            setCurHealth(300);
-            setMaxHealth(300);
+            setBaseHealth(340);
+            setCurHealth(340);
+            setMaxHealth(340);
             setBaseMana(300);
             setCurMana(300);
             setMaxMana(300);
@@ -35,10 +36,10 @@ namespace DungeonFinal
             setModStrength(0);
             setBaseMagic(45);
             setModMagic(45);
-            setBaseDefense(10);
-            setModDefense(10);
-            setBaseResistance(15);
-            setModResistance(15);
+            setBaseDefense(6);
+            setModDefense(6);
+            setBaseResistance(18);
+            setModResistance(18);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -46,6 +47,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier3Behavior());
 
            //Defend
             setIsDefending(false);
@@ -62,7 +64,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/DemonWarrior.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -80,36 +81,30 @@ namespace DungeonFinal
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster mon)
         {
             Hero[] party = theParty.getAliveHeroes();
+            int randomHeroPossession = _randomNumber.Next(party.Length);
+            int randomHeroTarget;
+            int damage;
 
-            int randomHero = _randomNumber.Next(party.Length);
-            party[randomHero].setModStrength(getModStrength() - 7);
-            party[randomHero].setModMagic(getModStrength() - 7);
+            //Target must not be the same as the possessed hero
+            do
+            {
+                randomHeroTarget = _randomNumber.Next(party.Length);
+            } while (randomHeroTarget == randomHeroPossession);
+            
+            //Determine attack type/defense type of heroes
+            if(party[randomHeroPossession].getIsPhysical() == true)
+            {
+                damage = party[randomHeroPossession].getModStrength() - party[randomHeroTarget].getModDefense();
+            }
 
+            else
+            {
+                damage = party[randomHeroPossession].getModMagic() - party[randomHeroTarget].getModResistance();
+            }
+            
             mon.setCurMana(mon.getCurMana() - 10);
 
-            return (getName() + " cast a curse on " + party[randomHero].getName() + " for -7 Strength and Magic!/r/n");
-        }
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            Hero target = party[0];
-
-            if (party.Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (party.Length - 2); i++)
-            {
-                if (party[i + 1].getModResistance() < party[i].getModResistance())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
+            return (getName() + " possessed " + party[randomHeroPossession].getName() + " and in their thrall they attacked " + party[randomHeroTarget].getName() + " for " + damage + " damage!/r/n");
         }
 
        /*Battle - Defend*/
@@ -130,14 +125,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-FTexFDrdCJA/VV7tsSE9HTI/AAAAAAAAA70/1Yj6DCXT3fM/w506-h620/DemonWarrior.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

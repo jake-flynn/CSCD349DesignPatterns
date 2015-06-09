@@ -25,21 +25,21 @@ namespace DungeonFinal
             setName("Chimera");
 
            //Stats
-            setBaseHealth(400);
-            setCurHealth(400);
-            setMaxHealth(400);
+            setBaseHealth(435);
+            setCurHealth(435);
+            setMaxHealth(435);
             setBaseMana(400);
             setCurMana(400);
             setMaxMana(400);
 
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(50);
-            setModMagic(50);
-            setBaseDefense(15);
-            setModDefense(15);
-            setBaseResistance(25);
-            setModResistance(25);
+            setBaseMagic(58);
+            setModMagic(58);
+            setBaseDefense(14);
+            setModDefense(14);
+            setBaseResistance(23);
+            setModResistance(23);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -47,6 +47,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier4Behavior());
 
            //Defend
             setIsDefending(false);
@@ -114,56 +115,6 @@ namespace DungeonFinal
             return message;
         }
 
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            int attackType = _randomNumber.Next(1, 3);
-            Hero target = party[0];
-
-            //Tier 1 FindTarget
-            if (attackType == 1)
-            {
-                int randomHero = _randomNumber.Next(1, party.Length);
-                target = party[randomHero];
-            }
-
-           //Tier 2 FindTarget
-            else if (attackType == 2)
-            {
-                if (party.Length == 1)
-                {
-                    return target;
-                }
-
-                for (int i = 0; i < (party.Length - 2); i++)
-                {
-                    if (party[i + 1].getCurHealth() < party[i].getCurHealth())
-                    {
-                        target = party[i + 1];
-                    }
-                }
-            }
-
-           //Tier 3 FindTarget
-            else if (attackType == 3)
-            {
-                if (party.Length == 1)
-                {
-                    return target;
-                }
-
-                for (int i = 0; i < (party.Length - 2); i++)
-                {
-                    if (party[i + 1].getModDefense() < party[i].getModDefense())
-                    {
-                        target = party[i + 1];
-                    }
-                }
-            }
-
-            return target;
-        }
 
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
@@ -183,14 +134,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-XRLJnocoYoo/VV7phpd8YyI/AAAAAAAAAwM/shtg5O-nCZU/w506-h378/Chimera.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {
