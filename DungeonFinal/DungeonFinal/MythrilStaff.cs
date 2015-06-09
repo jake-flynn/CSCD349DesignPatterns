@@ -25,9 +25,8 @@ namespace DungeonFinal
             this.setIsWeapon(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A legendary staff made of mythril, increases mana by 40");
-            _effect.setMagicValue(16);
-            _effect.setEffectAmount(16);
-            _effect.setManaValue(40);
+            _effect.setMagicValue(25);
+            _effect.setManaValue(112);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

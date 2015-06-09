@@ -24,11 +24,12 @@ namespace DungeonFinal
             this.setItemName("Ultima");
             this.setIsWeapon(true);
             this.setSocketAmount(15);
-            _effect.setEffectName("FEAR NO STUBEAST");
-            _effect.setStrengthValue(100);
+            _effect.setEffectName("The Ultimate weapon, guaranteed to increase the power of any warrior or mage");
             _effect.setHealthValue(100);
-            //_effect.setManaValue(-5);
-            _effect.setEffectAmount(100);
+            _effect.setStrengthValue(40);
+            _effect.setMagicValue(40);
+            _effect.setPhysicalDefense(14);
+            _effect.setResistanceDefense(14);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

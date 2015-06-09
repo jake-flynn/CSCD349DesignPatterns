@@ -25,9 +25,10 @@ namespace DungeonFinal
             this.setIsWeapon(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A legendary great axe made of mythril, increases health by 20");
-            _effect.setStrengthValue(23);
-            _effect.setEffectAmount(23);
-            _effect.setHealthValue(20);
+            _effect.setHealthValue(120);
+            _effect.setStrengthValue(15);
+            _effect.setPhysicalDefense(11);
+        
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

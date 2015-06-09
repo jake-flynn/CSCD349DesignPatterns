@@ -25,9 +25,8 @@ namespace DungeonFinal
             this.setIsWeapon(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A magnificent staff made of high quality steel, increases mana by 30");
-            _effect.setMagicValue(12);
-            _effect.setEffectAmount(12);
-            _effect.setManaValue(30);
+            _effect.setMagicValue(18);
+            _effect.setManaValue(75);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

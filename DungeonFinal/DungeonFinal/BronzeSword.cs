@@ -25,9 +25,11 @@ namespace DungeonFinal
             this.setIsWeapon(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A well balanced sword made of copper and tin, increases mana by 10");
-            _effect.setStrengthValue(11);
-            _effect.setEffectAmount(11);
-            _effect.setManaValue(10);
+            _effect.setHealthValue(20);
+            _effect.setStrengthValue(4);
+            _effect.setMagicValue(4);
+            _effect.setPhysicalDefense(2);
+            _effect.setResistanceDefense(2);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

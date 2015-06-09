@@ -25,9 +25,11 @@ namespace DungeonFinal
             this.setIsWeapon(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A legendary sword made of mythril, increases mana by 20");
-            _effect.setStrengthValue(25);
-            _effect.setManaValue(20);
-            _effect.setEffectAmount(25);
+            _effect.setHealthValue(60);
+            _effect.setStrengthValue(12);
+            _effect.setMagicValue(10);
+            _effect.setPhysicalDefense(7);
+            _effect.setResistanceDefense(7);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

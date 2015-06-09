@@ -25,9 +25,11 @@ namespace DungeonFinal
             this.setIsWeapon(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A razor sharp sword made of folded steel, increases mana by 15");
-            _effect.setStrengthValue(18);
-            _effect.setEffectAmount(18);
-            _effect.setManaValue(15);
+            _effect.setHealthValue(30);
+            _effect.setStrengthValue(7);
+            _effect.setMagicValue(6);
+            _effect.setPhysicalDefense(4);
+            _effect.setResistanceDefense(4);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();

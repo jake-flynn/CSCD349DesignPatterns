@@ -25,9 +25,7 @@ namespace DungeonFinal
             this.setIsWeapon(true);
             this.setSocketAmount(5);
             _effect.setEffectName("A legendary dagger made of mythril, increases magic resistance by 12");
-            _effect.setStrengthValue(27);
-            _effect.setResistanceDefense(12);
-            _effect.setEffectAmount(27);
+            _effect.setStrengthValue(30);
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();
