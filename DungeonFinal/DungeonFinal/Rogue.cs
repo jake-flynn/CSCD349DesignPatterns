@@ -125,7 +125,7 @@ namespace DungeonFinal
 
         public override Brush getTextColor()
         {
-            return Brushes.Gray;
+            return Brushes.DarkSlateGray;
         }
     }
 }
