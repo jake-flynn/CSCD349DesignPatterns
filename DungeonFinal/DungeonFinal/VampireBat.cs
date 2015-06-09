@@ -85,6 +85,11 @@ namespace DungeonFinal
             int randomHero = _randomNumber.Next(party.Length);
             int damage = mon.getModStrength() - party[randomHero].getModDefense();
 
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             //Set Damage
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 

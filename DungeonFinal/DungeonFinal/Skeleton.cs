@@ -115,6 +115,12 @@ namespace DungeonFinal
             for (; numStrikes >= 0; numStrikes--)
             {
                 damage = hit - party[numStrikes].getModDefense();
+
+                if (damage < 0)
+                {
+                    damage = 0;
+                }
+
                 party[numStrikes].setCurHealth(party[numStrikes].getCurHealth() - damage);
 
                 message += "The bonerang hit " + party[numStrikes].getName() + " for " + damage + " damage!\r\n";

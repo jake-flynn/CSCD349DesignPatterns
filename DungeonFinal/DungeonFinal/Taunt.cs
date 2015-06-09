@@ -24,8 +24,6 @@ namespace DungeonFinal
 
         public override String Modify()
         {
-            
-
             if(getDuration() > 1)
             {
                 setDuration(getDuration() - 1);

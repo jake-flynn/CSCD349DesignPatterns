@@ -111,6 +111,12 @@ namespace DungeonFinal
             {
                 randomHero = _randomNumber.Next(party.Length);
                 damage = hit - party[randomHero].getModDefense();
+
+                if (damage < 0)
+                {
+                    damage = 0;
+                }
+
                 party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
                 message += mon.getName() + " bit " + party[randomHero].getName() + " for " + damage + " damage!\r\n";

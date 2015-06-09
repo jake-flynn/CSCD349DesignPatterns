@@ -92,6 +92,12 @@ namespace DungeonFinal
             int chance = _randomNumber.Next(3);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
+
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             
             //Poison Successful
@@ -116,6 +122,12 @@ namespace DungeonFinal
             chance = _randomNumber.Next(3);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
+
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
             //Poison Successful

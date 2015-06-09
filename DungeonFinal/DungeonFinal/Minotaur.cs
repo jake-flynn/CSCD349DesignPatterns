@@ -88,6 +88,11 @@ namespace DungeonFinal
             String message = "";
             int damage = (int)(mon.getModStrength() * 1.5) - party[randomHero].getModDefense();
 
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             //Stun Successful
             if (chance == 1)
             {

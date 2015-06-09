@@ -90,6 +90,12 @@ namespace DungeonFinal
             int randomHero = _randomNumber.Next(party.Length);
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
+
+            if(damage < 0)
+            {
+                damage = 0;
+            }
+
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             message += mon.getName() + " trampled " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
 
@@ -98,6 +104,12 @@ namespace DungeonFinal
             randomHero = _randomNumber.Next(theParty.getAliveHeroes().Length );
 
             damage = mon.getModStrength() - party[randomHero].getModDefense();
+
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             message += mon.getName() + " trampled " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
 

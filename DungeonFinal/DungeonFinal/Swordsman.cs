@@ -87,8 +87,8 @@ namespace DungeonFinal
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
             //Buff Strength and Defense
-            setModDefense(getModDefense() + 5);
-            setModStrength(getModStrength() + 5);
+            setModDefense(getModDefense() + 1);
+            setModStrength(getModStrength() + 1);
 
             //Damage Monster
             int dmg = (int)(getModStrength() * 1.5);
@@ -105,7 +105,7 @@ namespace DungeonFinal
             monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - dmg);
             setCurMana(getCurMana() - 15);
 
-            return(getName() + " buffed own defense and strength by 5! Performed a Blade Slash for " + dmg + " damage!");
+            return(getName() + " buffed own defense and strength by 1! Performed a Blade Slash for " + dmg + " damage!");
         }
 
        /*Battle - Defend*/

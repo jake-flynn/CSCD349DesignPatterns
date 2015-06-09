@@ -88,6 +88,11 @@ namespace DungeonFinal
             String message = "";
             int damage = mon.getModStrength() - party[randomHero].getModDefense();
 
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             //Burn Successful
             if (chance == 1)
             {
