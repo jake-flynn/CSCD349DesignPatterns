@@ -598,8 +598,7 @@ namespace DungeonFinal
                 
                 if(!h.getIsDefeated())
                     effectString = h.Notify();
-                
-                checkForDefeatedUnit();
+                                
 
                 for (int x = 0; x < h.getEffectList().Count; x++ )
                 {

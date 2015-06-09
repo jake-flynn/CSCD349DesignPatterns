@@ -650,8 +650,7 @@ namespace DungeonFinal
                     checkForDefeatedUnit();
                 }
             }
-            incrementEffects();
-            checkForDefeatedUnit();
+            incrementEffects();                        
             foreach (Hero h in _theHeroes)
             {
                 await Task.Delay(400);
