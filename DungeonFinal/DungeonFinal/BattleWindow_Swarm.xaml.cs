@@ -424,6 +424,106 @@ namespace DungeonFinal
             }
             checkReady();
         }
+        public void checkForStunned()
+        {
+            if (!_theHeroes[0].getCanAttack())
+            {
+                rBtn_Hero1Attack.IsEnabled = false;
+                rBtn_Hero1Attack.IsChecked = false;
+                rBtn_Hero1Special.IsEnabled = false;
+                rBtn_Hero1Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero1Attack.IsEnabled = true;
+                rBtn_Hero1Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (!_theHeroes[1].getCanAttack())
+            {
+                rBtn_Hero2Attack.IsEnabled = false;
+                rBtn_Hero2Attack.IsChecked = false;
+                rBtn_Hero2Special.IsEnabled = false;
+                rBtn_Hero2Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero2Attack.IsEnabled = true;
+                rBtn_Hero2Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (!_theHeroes[2].getCanAttack())
+            {
+                rBtn_Hero3Attack.IsEnabled = false;
+                rBtn_Hero3Attack.IsChecked = false;
+                rBtn_Hero3Special.IsEnabled = false;
+                rBtn_Hero3Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero3Attack.IsEnabled = true;
+                rBtn_Hero3Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (!_theHeroes[3].getCanAttack())
+            {
+                rBtn_Hero4Attack.IsEnabled = false;
+                rBtn_Hero4Attack.IsChecked = false;
+                rBtn_Hero4Special.IsEnabled = false;
+                rBtn_Hero4Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero4Attack.IsEnabled = true;
+                rBtn_Hero4Special.IsEnabled = true;
+            }
+            checkReady();
+        }
+
+        public void checkForSilenced()
+        {
+            
+            if (!_theHeroes[0].getCanSpecialAttack())
+            {
+                rBtn_Hero1Special.IsEnabled = false;
+                rBtn_Hero1Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero1Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (!_theHeroes[1].getCanSpecialAttack())
+            {
+                rBtn_Hero2Special.IsEnabled = false;
+                rBtn_Hero2Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero2Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (!_theHeroes[2].getCanSpecialAttack())
+            {
+                rBtn_Hero3Special.IsEnabled = false;
+                rBtn_Hero3Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero3Special.IsEnabled = true;
+            }
+            //----------------------------------------//
+            if (!_theHeroes[3].getCanSpecialAttack())
+            {
+                rBtn_Hero4Special.IsEnabled = false;
+                rBtn_Hero4Special.IsChecked = false;
+            }
+            else
+            {
+                rBtn_Hero4Special.IsEnabled = true;
+            }
+            checkReady();
+        }
 
         //==========================================================================================================//
         //Start Event Handlers

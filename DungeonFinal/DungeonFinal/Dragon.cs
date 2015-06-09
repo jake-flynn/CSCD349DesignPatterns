@@ -126,7 +126,7 @@ namespace DungeonFinal
             //Tier 1 FindTarget
             if (attackType == 1)
             {
-                int randomHero = _randomNumber.Next(1, party.Length);
+                int randomHero = _randomNumber.Next(party.Length);
                 target = party[randomHero];
             }
 
