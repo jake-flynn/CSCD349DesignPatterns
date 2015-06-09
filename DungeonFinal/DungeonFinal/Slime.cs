@@ -87,6 +87,11 @@ namespace DungeonFinal
             String message = mon.getName() + " slung toxic ooze at the party!\r\n";
             int damage = mon.getModMagic() - party[randomHero].getModResistance();
 
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             //Poison
             if (chance == 1)
             {

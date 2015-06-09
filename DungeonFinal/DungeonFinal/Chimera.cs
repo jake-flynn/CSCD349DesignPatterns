@@ -88,6 +88,11 @@ namespace DungeonFinal
             String message = "";
             int damage = mon.getModMagic() - party[randomHero].getModResistance();
 
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             //Poison
             if(chance == 1)
             {

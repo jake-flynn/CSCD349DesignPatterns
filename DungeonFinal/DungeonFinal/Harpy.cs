@@ -89,6 +89,12 @@ namespace DungeonFinal
             {
                 int chance = _randomNumber.Next(3);
                 damage = mon.getModMagic() - h.getModResistance();
+
+                if (damage < 0)
+                {
+                    damage = 0;
+                }
+
                 h.setCurHealth(h.getCurHealth() - damage);
 
                 //Paralyze Successful

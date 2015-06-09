@@ -91,7 +91,7 @@ namespace DungeonFinal
 
             foreach (Monster mon in monsters)
             {
-                damageWithCalculations =(getModMagic() - mon.getModResistance());
+                damageWithCalculations =((int)(getModMagic() * 1.75) - mon.getModResistance());
                 mon.setCurHealth(mon.getCurHealth() - damageWithCalculations);
             }
 

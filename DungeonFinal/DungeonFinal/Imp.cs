@@ -92,6 +92,12 @@ namespace DungeonFinal
             {
                 randomHero = _randomNumber.Next(party.Length);
                 damage = hit - party[randomHero].getModResistance();
+
+                if (damage < 0)
+                {
+                    damage = 0;
+                }
+
                 party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
 
                 message += mon.getName() + " stabbed " + party[randomHero].getName() + " for " + damage + " damage!\r\n";                                

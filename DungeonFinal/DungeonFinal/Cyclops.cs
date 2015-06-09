@@ -87,6 +87,11 @@ namespace DungeonFinal
             String message = "";
             int damage = mon.getModStrength() - party[randomHero].getModDefense();
 
+            if (damage < 0)
+            {
+                damage = 0;
+            }
+
             //Paralyze successful
             if(chance == 1)
             {

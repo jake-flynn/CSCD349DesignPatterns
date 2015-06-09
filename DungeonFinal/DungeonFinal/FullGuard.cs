@@ -24,12 +24,21 @@ namespace DungeonFinal
 
         public override String Modify()
         {
-            getHero().setModDefense(getHero().getModDefense() + 5);
-            getHero().setModResistance(getHero().getModResistance() + 5);
+            if (getDuration() > 1)
+            {
+                setDuration(getDuration() - 1);
+                getHero().setModDefense(getHero().getModDefense() + 5);
+                getHero().setModResistance(getHero().getModResistance() + 5);
+                return (getHero().getName() + " is under Full Guard. This will last " + getDuration() + " more turn(s)!\r\n");
+            }
 
-            setDuration(getDuration() - 1);
-
-            return ("");
+            else
+            {
+                setDuration(getDuration() - 1);
+                getHero().setModDefense(getHero().getModDefense() - 5);
+                getHero().setModResistance(getHero().getModResistance() - 5);
+                return (getHero().getName() + "'s Full Guard has ended!\r\n");
+            }
         }
     }
 }
