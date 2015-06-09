@@ -25,9 +25,10 @@ namespace DungeonFinal
             this.setIsWeapon(true);
             this.setSocketAmount(4);
             _effect.setEffectName("A great two handed axe made of copper and tin, increases health by 10");
-            _effect.setStrengthValue(9);
-            _effect.setEffectAmount(9);
-            _effect.setHealthValue(10);
+            _effect.setHealthValue(50);
+            _effect.setStrengthValue(8);
+            _effect.setPhysicalDefense(4);
+
             this.setEffect(_effect);
 
             ImageBrush imgBrush = new ImageBrush();
