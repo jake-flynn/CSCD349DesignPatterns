@@ -383,7 +383,7 @@ namespace DungeonFinal
 
         public void checkForDepletedMana()
         {
-            if(_theHeroes[0].getCurMana() < 15)
+            if (_theHeroes[0].getCurMana() < 15 || !_theHeroes[0].getCanSpecialAttack())
             {
                 rBtn_Hero1Special.IsEnabled = false;
                 rBtn_Hero1Special.IsChecked = false;
@@ -393,7 +393,7 @@ namespace DungeonFinal
                 rBtn_Hero1Special.IsEnabled = true;
             }
             //----------------------------------------//
-            if (_theHeroes[1].getCurMana() < 15)
+            if (_theHeroes[1].getCurMana() < 15 || !_theHeroes[1].getCanSpecialAttack())
             {
                 rBtn_Hero2Special.IsEnabled = false;
                 rBtn_Hero2Special.IsChecked = false;
@@ -403,7 +403,7 @@ namespace DungeonFinal
                 rBtn_Hero2Special.IsEnabled = true;
             }
             //----------------------------------------//
-            if (_theHeroes[2].getCurMana() < 15)
+            if (_theHeroes[2].getCurMana() < 15 || !_theHeroes[2].getCanSpecialAttack())
             {
                 rBtn_Hero3Special.IsEnabled = false;
                 rBtn_Hero3Special.IsChecked = false;
@@ -413,7 +413,7 @@ namespace DungeonFinal
                 rBtn_Hero3Special.IsEnabled = true;
             }
             //----------------------------------------//
-            if (_theHeroes[3].getCurMana() < 15)
+            if (_theHeroes[3].getCurMana() < 15 || !_theHeroes[3].getCanSpecialAttack())
             {
                 rBtn_Hero4Special.IsEnabled = false;
                 rBtn_Hero4Special.IsChecked = false;
@@ -422,8 +422,8 @@ namespace DungeonFinal
             {
                 rBtn_Hero4Special.IsEnabled = true;
             }
-            checkReady();
         }
+
         public void checkForStunned()
         {
             if (!_theHeroes[0].getCanAttack())
@@ -436,7 +436,8 @@ namespace DungeonFinal
             else
             {
                 rBtn_Hero1Attack.IsEnabled = true;
-                rBtn_Hero1Special.IsEnabled = true;
+                if (_theHeroes[0].getCanSpecialAttack())
+                    rBtn_Hero1Special.IsEnabled = true;
             }
             //----------------------------------------//
             if (!_theHeroes[1].getCanAttack())
@@ -449,7 +450,8 @@ namespace DungeonFinal
             else
             {
                 rBtn_Hero2Attack.IsEnabled = true;
-                rBtn_Hero2Special.IsEnabled = true;
+                if (_theHeroes[1].getCanSpecialAttack())
+                    rBtn_Hero2Special.IsEnabled = true;
             }
             //----------------------------------------//
             if (!_theHeroes[2].getCanAttack())
@@ -462,7 +464,8 @@ namespace DungeonFinal
             else
             {
                 rBtn_Hero3Attack.IsEnabled = true;
-                rBtn_Hero3Special.IsEnabled = true;
+                if (_theHeroes[2].getCanSpecialAttack())
+                    rBtn_Hero3Special.IsEnabled = true;
             }
             //----------------------------------------//
             if (!_theHeroes[3].getCanAttack())
@@ -475,9 +478,9 @@ namespace DungeonFinal
             else
             {
                 rBtn_Hero4Attack.IsEnabled = true;
-                rBtn_Hero4Special.IsEnabled = true;
+                if (_theHeroes[3].getCanSpecialAttack())
+                    rBtn_Hero4Special.IsEnabled = true;
             }
-            checkReady();
         }
 
         public void checkForSilenced()
@@ -521,8 +524,7 @@ namespace DungeonFinal
             else
             {
                 rBtn_Hero4Special.IsEnabled = true;
-            }
-            checkReady();
+            }            
         }
 
         //==========================================================================================================//
@@ -649,12 +651,14 @@ namespace DungeonFinal
                 }
             }
             incrementEffects();
-
+            checkForDefeatedUnit();
             foreach (Hero h in _theHeroes)
             {
                 await Task.Delay(400);
                 String effectString = "";
-                effectString = h.Notify();
+
+                if (!h.getIsDefeated())
+                    effectString = h.Notify();
 
                 for (int x = 0; x < h.getEffectList().Count; x++)
                 {
@@ -675,9 +679,14 @@ namespace DungeonFinal
                     Foreground = Brushes.Fuchsia
                 });                
                 updateVisuals();
-                checkForDepletedMana();
+                
             }
+            checkForDepletedMana();
+            checkForSilenced();
+            checkForStunned();
             btn_Ready.IsEnabled = true;
+            checkReady();
+            _Paragraph.Inlines.Add(new LineBreak());
         }
 
         private void rBtn_Hero1Attack_Click(object sender, RoutedEventArgs e)

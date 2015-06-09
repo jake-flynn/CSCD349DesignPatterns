@@ -23,9 +23,9 @@ namespace DungeonFinal
             setName("Werewolf");
 
            //Stats
-            setBaseHealth(200);
-            setCurHealth(200);
-            setMaxHealth(200);
+            setBaseHealth(255);
+            setCurHealth(255);
+            setMaxHealth(255);
             setBaseMana(200);
             setCurMana(200);
             setMaxMana(200);
@@ -34,10 +34,10 @@ namespace DungeonFinal
             setModStrength(40);
             setBaseMagic(0);
             setModMagic(0);
-            setBaseDefense(10);
-            setModDefense(10);
-            setBaseResistance(0);
-            setModResistance(0);
+            setBaseDefense(18);
+            setModDefense(18);
+            setBaseResistance(6);
+            setModResistance(6);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -45,6 +45,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier2Behavior());
 
            //Defend
             setIsDefending(false);
@@ -83,28 +84,6 @@ namespace DungeonFinal
             mon.setCurMana(mon.getCurMana() - 10);
 
             return (mon.getName() + " howled at the moon and increased its strength to " + strInc + "!\r\n");
-        }
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            Hero target = party[0];
-
-            if (party.Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (party.Length - 2); i++)
-            {
-                if (party[i + 1].getCurHealth() < party[i].getCurHealth())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
         }
 
        /*Battle - Defend*/

@@ -24,21 +24,21 @@ namespace DungeonFinal
             setName("Cyclops");
 
            //Stats
-            setBaseHealth(300);
-            setCurHealth(300);
-            setMaxHealth(300);
+            setBaseHealth(360);
+            setCurHealth(360);
+            setMaxHealth(360);
             setBaseMana(300);
             setCurMana(300);
             setMaxMana(300);
 
-            setBaseStrength(35);
-            setModStrength(35);
+            setBaseStrength(42);
+            setModStrength(42);
             setBaseMagic(0);
             setModMagic(0);
-            setBaseDefense(25);
-            setModDefense(25);
-            setBaseResistance(10);
-            setModResistance(10);
+            setBaseDefense(9);
+            setModDefense(9);
+            setBaseResistance(9);
+            setModResistance(9);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -46,6 +46,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier3Behavior());
 
            //Defend
             setIsDefending(false);
@@ -89,42 +90,20 @@ namespace DungeonFinal
             //Paralyze successful
             if(chance == 1)
             {
-                message += mon.getName() + " threw Zeus' thunderbolt at " + party[randomHero].getName() + " for " + damage + " damage caused paralyzation!\r\n";
+                message += mon.getName() + " threw a thunderbolt at " + party[randomHero].getName() + " for " + damage + " damage caused paralyzation!\r\n";
                 party[randomHero].Subscribe(new Stun(party[randomHero]));
             }
 
             //Paralyze unsuccessful
             else
             {
-                message += mon.getName() + " threw Zeus' thunderbolt at " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
+                message += mon.getName() + " threw a thunderbolt at " + party[randomHero].getName() + " for " + damage + " damage!\r\n";
             }
 
             party[randomHero].setCurHealth(party[randomHero].getCurHealth() - damage);
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;
-        }
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            Hero target = party[0];
-
-            if (party.Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (party.Length - 2); i++)
-            {
-                if (party[i + 1].getModResistance() < party[i].getModResistance())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
         }
 
        /*Battle - Defend*/
@@ -145,14 +124,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-uGzhj6YzaeE/VV7pxURiutI/AAAAAAAAAx4/20ls6ETfz-Y/w506-h657/Cyclops.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

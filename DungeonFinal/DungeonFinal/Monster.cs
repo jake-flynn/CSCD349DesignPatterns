@@ -45,6 +45,7 @@ namespace DungeonFinal
        //Attack
         private Boolean _IsPhysical;
         private Boolean _IsDefeated;
+        private IFindTarget _FindTargetBehavior;
 
        //Defend
         private Boolean _IsDefending;
@@ -270,6 +271,21 @@ namespace DungeonFinal
             _IsDefeated = iD;
         }
 
+        public IFindTarget getFindTargetBahvior()
+        {
+            return _FindTargetBehavior;
+        }
+        public void setFindTargetBahvior(IFindTarget fTB)
+        {
+            _FindTargetBehavior = fTB;
+        }
+
+        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
+        public Hero FindTarget(Party p)
+        {
+            return _FindTargetBehavior.FindTarget(p);
+        }
+
 
         //------------------------------- Defend Methods -------------------------------
         public Boolean getIsDefending()
@@ -370,7 +386,7 @@ namespace DungeonFinal
         //------------------------------- Abstract Methods -------------------------------
         public abstract int BasicAttack();
         public abstract String PerformSpecialAttack(Party theParty, int whichHero, Monster mon);
-        public abstract Hero FindTarget(Party p);
+        //public abstract Hero FindTarget(Party p);
         public abstract int getDefendingDefense();
         public abstract int getDefendingResistance();
         public abstract Object Clone(int count);

@@ -18,27 +18,29 @@ namespace DungeonFinal
     {
         //this is a Shade monster, it is a tier 1 level, there are 30 points assigned to main stats
         Random _randomNumber;
+
        //DVC - Level 1
         public Shade()
         {
             setName("Shade");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
+            setBaseHealth(165);
+            setCurHealth(165);
+            setMaxHealth(165);
             setBaseMana(100);
             setCurMana(100);
             setMaxMana(100);
 
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(20);
-            setModMagic(20);
-            setBaseDefense(0);
-            setModDefense(0);
-            setBaseResistance(10);
-            setModResistance(10);
+            setBaseMagic(25);
+            setModMagic(25);
+            setBaseDefense(8);
+            setModDefense(8);
+            setBaseResistance(12);
+            setModResistance(12);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -46,6 +48,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier1Behavior());
 
            //Defend
             setIsDefending(false);
@@ -62,7 +65,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Shade.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -92,17 +94,6 @@ namespace DungeonFinal
             return (getName() + " cast a curse on " + party[randomHero].getName() + " reducing their strength and magic stats!");
         }
 
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-
-            int randomHero = _randomNumber.Next(party.Length);
-            Hero target = party[randomHero];
-
-            return target;
-        }
-
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
@@ -125,14 +116,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-EKQKgVnW8YE/VV7rA5Vn4pI/AAAAAAAAA2k/kosHQJsMjYs/w506-h571/shade.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

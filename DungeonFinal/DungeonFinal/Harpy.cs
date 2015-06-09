@@ -18,27 +18,29 @@ namespace DungeonFinal
     {
         //this is a Harpy monster, it is a tier 2 level, there are 50 points assigned to main stats
         Random _randomNumber;
+
        //DVC - Level 2
         public Harpy()
         {
             setName("Harpy");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(200);
-            setCurHealth(200);
-            setMaxHealth(200);
+            setBaseHealth(240);
+            setCurHealth(240);
+            setMaxHealth(240);
             setBaseMana(200);
             setCurMana(200);
             setMaxMana(200);
 
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(30);
-            setModMagic(30);
-            setBaseDefense(0);
-            setModDefense(0);
-            setBaseResistance(20);
-            setModResistance(20);
+            setBaseMagic(35);
+            setModMagic(35);
+            setBaseDefense(9);
+            setModDefense(9);
+            setBaseResistance(16);
+            setModResistance(16);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -46,6 +48,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier2Behavior());
 
            //Defend
             setIsDefending(false);
@@ -62,7 +65,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Harpy.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -113,29 +115,7 @@ namespace DungeonFinal
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;
-        }
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            Hero target = party[0];
-
-            if (party.Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (party.Length - 2); i++)
-            {
-                if(party[i + 1].getCurHealth() < party[i].getCurHealth())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
-        }
+        }   
 
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
@@ -155,14 +135,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-_lLgljBYD58/VV7rxuXdfTI/AAAAAAAAA4Q/YUClzq2q4b8/w506-h716/Harpy.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

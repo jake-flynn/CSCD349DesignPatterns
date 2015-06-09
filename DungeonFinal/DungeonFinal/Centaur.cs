@@ -26,9 +26,9 @@ namespace DungeonFinal
             setName("Centaur");
 
            //Stats
-            setBaseHealth(300);
-            setCurHealth(300);
-            setMaxHealth(300);
+            setBaseHealth(325);
+            setCurHealth(325);
+            setMaxHealth(325);
             setBaseMana(300);
             setCurMana(300);
             setMaxMana(300);
@@ -37,10 +37,10 @@ namespace DungeonFinal
             setModStrength(40);
             setBaseMagic(0);
             setModMagic(0);
-            setBaseDefense(15);
-            setModDefense(15);
-            setBaseResistance(15);
-            setModResistance(15);
+            setBaseDefense(18);
+            setModDefense(18);
+            setBaseResistance(6);
+            setModResistance(6);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -48,6 +48,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier3Behavior());
 
            //Defend
             setIsDefending(false);
@@ -105,28 +106,6 @@ namespace DungeonFinal
             return message;
         }
 
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            Hero target = party[0];
-
-            if (party.Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (party.Length - 2); i++)
-            {
-                if (party[i + 1].getModResistance() < party[i].getModResistance())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
-        }
-
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
@@ -145,14 +124,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-XVplx0kyrLU/VV7slSv3AGI/AAAAAAAAA6M/PEHwBRJdp48/w506-h610/Centaure.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

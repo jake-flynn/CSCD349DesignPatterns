@@ -19,27 +19,29 @@ namespace DungeonFinal
     {
         //this is a Imp monster, it is a tier 1 level, there are 30 points assigned to main stats
         Random _randomNumber;
+
       //DVC - Level 1
         public Imp()
         {
             setName("Imp");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
+            setBaseHealth(150);
+            setCurHealth(150);
+            setMaxHealth(150);
             setBaseMana(100);
             setCurMana(100);
             setMaxMana(100);
 
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(20);
-            setModMagic(20);
-            setBaseDefense(10);
-            setModDefense(10);
-            setBaseResistance(0);
-            setModResistance(0);
+            setBaseMagic(30);
+            setModMagic(30);
+            setBaseDefense(7);
+            setModDefense(7);
+            setBaseResistance(9);
+            setModResistance(9);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -47,6 +49,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier1Behavior());
 
            //Defend
             setIsDefending(false);
@@ -63,7 +66,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Imp.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -100,17 +102,6 @@ namespace DungeonFinal
             return message;
         }
 
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-
-            int randomHero = _randomNumber.Next(1, party.Length);
-            Hero target = party[randomHero];
-
-            return target;
-        }
-
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
@@ -128,15 +119,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-7jcsUJBVQYg/VV7tvx6tHeI/AAAAAAAAA8Y/4T5z5QnuLfM/w506-h501/Imp.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

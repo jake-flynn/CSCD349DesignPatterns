@@ -18,27 +18,29 @@ namespace DungeonFinal
     {
         //this is a Minotaur monster, it is a boss(tier4) level, there are 90 points assigned to main stats
         Random _randomNumber;
+
       //DVC - Boss Level
         public Minotaur()
         {
             setName("Minotaur");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(400);
-            setCurHealth(400);
-            setMaxHealth(400);
+            setBaseHealth(440);
+            setCurHealth(440);
+            setMaxHealth(440);
             setBaseMana(400);
             setCurMana(400);
             setMaxMana(400);
 
-            setBaseStrength(65);
-            setModStrength(65);
+            setBaseStrength(72);
+            setModStrength(72);
             setBaseMagic(0);
             setModMagic(0);
-            setBaseDefense(20);
-            setModDefense(20);
-            setBaseResistance(5);
-            setModResistance(5);
+            setBaseDefense(23);
+            setModDefense(23);
+            setBaseResistance(14);
+            setModResistance(14);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -46,6 +48,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier4Behavior());
 
            //Defend
             setIsDefending(false);
@@ -62,7 +65,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Minotaur.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -105,57 +107,6 @@ namespace DungeonFinal
             return message;
         }
 
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            int attackType = _randomNumber.Next(1, 3);
-            Hero target = party[0];
-
-            //Tier 1 FindTarget
-            if (attackType == 1)
-            {
-                int randomHero = _randomNumber.Next(1, party.Length);
-                target = party[randomHero];
-            }
-
-           //Tier 2 FindTarget
-            else if (attackType == 2)
-            {
-                if (party.Length == 1)
-                {
-                    return target;
-                }
-
-                for (int i = 0; i < (party.Length - 2); i++)
-                {
-                    if (party[i + 1].getCurHealth() < party[i].getCurHealth())
-                    {
-                        target = party[i + 1];
-                    }
-                }
-            }
-
-           //Tier 3 FindTarget
-            else if (attackType == 3)
-            {
-                if (party.Length == 1)
-                {
-                    return target;
-                }
-
-                for (int i = 0; i < (party.Length - 2); i++)
-                {
-                    if (party[i + 1].getModDefense() < party[i].getModDefense())
-                    {
-                        target = party[i + 1];
-                    }
-                }
-            }
-
-            return target;
-        }
-
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
@@ -165,6 +116,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -173,15 +125,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-xdHsXsukV-g/VV7p65aPyoI/AAAAAAAAAy8/0J8MmC77890/w506-h606/Minotar.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

@@ -23,40 +23,48 @@ namespace DungeonFinal
         public Cockatrice()
         {
             setName("Cockatrice");
-            setBaseHealth(200);
-            setCurHealth(200);
-            setMaxHealth(200);
+            _randomNumber = RandomGenerator.Instance;
+
+           //Stats
+            setBaseHealth(205);
+            setCurHealth(205);
+            setMaxHealth(205);
             setBaseMana(200);
             setCurMana(200);
             setMaxMana(200);
 
-            //Main stats are out of 50 points
             setBaseStrength(0);
             setModStrength(0);
-            setBaseMagic(26);
-            setModMagic(26);
-            setBaseDefense(12);
-            setModDefense(12);
-            setBaseResistance(12);
-            setModResistance(12);
+            setBaseMagic(32);
+            setModMagic(32);
+            setBaseDefense(3);
+            setModDefense(3);
+            setBaseResistance(7);
+            setModResistance(7);
 
+           //Special Attack
             setSpecialAttackFrequency(1);
 
-            setLore("");
-
+           //Attack
             setIsPhysical(false);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier2Behavior());
+
+           //Defend
             setIsDefending(false);
-            setIsSwarm(false);
             setDefendingDefense(getDefendingDefense());
             setDefendingResistance(getDefendingResistance());
 
+           //Swarm
+            setIsSwarm(false);
 
+           //Identity
+            setTierNumber(2);
+            setLore("");
             ImageBrush imgBrush = new ImageBrush();
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Cockatrice.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -84,28 +92,6 @@ namespace DungeonFinal
             return (mon.getName() + " caught " + party[rnd].getName() + "'s gaze. " + party[rnd].getName() + " was instantly killed!\r\n");
         }
 
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAllHeroes();
-            Hero target = party[0];
-
-            if (p.getAliveHeroes().Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (p.getAliveHeroes().Length - 2); i++)
-            {
-                if(party[i + 1].getCurHealth() < party[i].getCurHealth())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
-        }
-
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
@@ -115,6 +101,7 @@ namespace DungeonFinal
 
             return dd;
         }
+
         /*getDefendingResistance returns adjusted resistance value when in the defensive stance*/
         public override int getDefendingResistance()
         {
@@ -123,15 +110,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-QTJvB8uO_vo/VV7pr-N5OsI/AAAAAAAAAxQ/mpLVToH-R2I/w506-h416/Cockatrice.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

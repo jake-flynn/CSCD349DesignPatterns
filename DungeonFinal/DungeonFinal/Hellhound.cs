@@ -18,27 +18,29 @@ namespace DungeonFinal
     {
         //this is a Hellhound monster, it is a tier 2 level, there are 50 points assigned to main stats
         Random _randomNumber;
+
        //DVC - Level 2
         public Hellhound()
         {
             setName("Hellhound");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(200);
-            setCurHealth(200);
+            setBaseHealth(220);
+            setCurHealth(220);
             setMaxHealth(200);
             setBaseMana(200);
             setCurMana(200);
             setMaxMana(200);
 
-            setBaseStrength(35);
-            setModStrength(35);
+            setBaseStrength(42);
+            setModStrength(42);
             setBaseMagic(0);
             setModMagic(0);
-            setBaseDefense(10);
-            setModDefense(10);
-            setBaseResistance(5);
-            setModResistance(5);
+            setBaseDefense(12);
+            setModDefense(12);
+            setBaseResistance(12);
+            setModResistance(12);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -46,6 +48,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier2Behavior());
 
            //Defend
             setIsDefending(false);
@@ -62,7 +65,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Hellhound.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -105,28 +107,6 @@ namespace DungeonFinal
             return message;
         }
 
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-            Hero target = party[0];
-
-            if (party.Length == 1)
-            {
-                return target;
-            }
-
-            for (int i = 0; i < (party.Length - 2); i++)
-            {
-                if(party[i + 1].getCurHealth() < party[i].getCurHealth())
-                {
-                    target = party[i + 1];
-                }
-            }
-
-            return target;
-        }
-
        /*Battle - Defend*/
         /*getDefendingDefense returns adjusted defense value when in the defensive stance*/
         public override int getDefendingDefense()
@@ -145,14 +125,6 @@ namespace DungeonFinal
 
             return dr;
         }
-
-        //public override ImageBrush getBrush()
-        //{
-        //    ImageBrush imgBrush = new ImageBrush();
-        //    BitmapImage image = new BitmapImage(new Uri(@"https://lh3.googleusercontent.com/-VE9mF5_fgt4/VV7rvGU76XI/AAAAAAAAA3o/HIMeg3vKuaM/w506-h354/Hellhound.jpg"));
-        //    imgBrush.ImageSource = image;
-        //    return imgBrush;
-        //}
 
         public override Object Clone(int count)
         {

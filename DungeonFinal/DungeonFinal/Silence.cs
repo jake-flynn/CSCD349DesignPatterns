@@ -16,18 +16,26 @@ namespace DungeonFinal
 
         public override String Modify()
         {            
-            if (getDuration() == 2)
+            if (getDuration() == 3)
             {
                 getHero().setCanSpecialAttack(false);
             }
 
-            else if(getDuration() == 1)
+            
+            if (getDuration() > 1)
             {
-                getHero().setCanSpecialAttack(true);
+                setDuration(getDuration() - 1);
+                return (getHero().getName() + " has been silenced, they cannot use their special attack for " + getDuration() + " more turn(s)!\r\n");
             }
-            setDuration(getDuration() - 1);
 
-            return (getHero().getName() + " has been silenced, they cannot use thier special attack for " + getDuration() + " more turn(s)!\r\n");
+            else
+            {
+                setDuration(getDuration() - 1);
+                getHero().setCanSpecialAttack(true);
+                return (getHero().getName() + " taunt has ended!\r\n");
+            }
+
+            
         }
 
     }

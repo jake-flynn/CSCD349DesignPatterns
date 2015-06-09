@@ -17,27 +17,29 @@ namespace DungeonFinal
     class Skeleton : Monster
     {
         Random _randomNumber;
+
        //DVC - Level 1
         public Skeleton()
         {
             setName("Skeleton");
+            _randomNumber = RandomGenerator.Instance;
 
            //Stats
-            setBaseHealth(100);
-            setCurHealth(100);
-            setMaxHealth(100);
+            setBaseHealth(120);
+            setCurHealth(120);
+            setMaxHealth(120);
             setBaseMana(100);
             setCurMana(100);
             setMaxMana(100);
 
-            setBaseStrength(8);
-            setModStrength(8);
+            setBaseStrength(24);
+            setModStrength(24);
             setBaseMagic(0);
             setModMagic(0);
             setBaseDefense(10);
             setModDefense(10);
-            setBaseResistance(2);
-            setModResistance(2);
+            setBaseResistance(4);
+            setModResistance(4);
 
            //Special Attack
             setSpecialAttackFrequency(3);
@@ -45,6 +47,7 @@ namespace DungeonFinal
            //Attack
             setIsPhysical(true);
             setIsDefeated(false);
+            setFindTargetBahvior(new FindTarget_Tier1Behavior());
 
            //Defend
             setIsDefending(false);
@@ -61,7 +64,6 @@ namespace DungeonFinal
             BitmapImage image = new BitmapImage(new Uri(@"../../Images/Skeleton.jpg", UriKind.RelativeOrAbsolute));
             imgBrush.ImageSource = image;
             setImageBrush(imgBrush);
-            _randomNumber = RandomGenerator.Instance;
         }
 
 
@@ -121,17 +123,6 @@ namespace DungeonFinal
             mon.setCurMana(mon.getCurMana() - 10);
 
             return message;
-        }
-
-        /*FindTarget receives a party of type GameCharacter and chooses the hero to attack.*/
-        public override Hero FindTarget(Party p)
-        {
-            Hero[] party = p.getAliveHeroes();
-
-            int randomHero = _randomNumber.Next(party.Length);
-            Hero target = party[randomHero];
-
-            return target;
         }
 
        /*Battle - Defend*/
