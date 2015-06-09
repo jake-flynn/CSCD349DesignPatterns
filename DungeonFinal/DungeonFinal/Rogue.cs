@@ -86,10 +86,15 @@ namespace DungeonFinal
         public override String PerformSpecialAttack(Party theParty, int whichHero, Monster[] monsters)
         {
             int damage = (int)(getModStrength() * 2.5);
-            var cWindow = new ChoiceWindow(monsters);
+            int monsterToAttack = 0;
 
-            cWindow.ShowDialog();
-            int monsterToAttack = cWindow.getChoiceFromSelect();
+            if(monsters.Length > 1)
+            {
+                var cWindow = new ChoiceWindow(monsters);
+
+                cWindow.ShowDialog();
+                monsterToAttack = cWindow.getChoiceFromSelect();
+            }
 
              int damageWithCalculations  = damage - monsters[monsterToAttack].getModDefense(); 
 

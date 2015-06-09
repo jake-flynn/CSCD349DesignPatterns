@@ -92,10 +92,15 @@ namespace DungeonFinal
 
             //Damage Monster
             int dmg = (int)(getModStrength() * 1.5);
-            var cWindow = new ChoiceWindow(monsters);
+            int monsterToAttack = 0;
 
-            cWindow.ShowDialog();
-            int monsterToAttack = cWindow.getChoiceFromSelect();
+            if (monsters.Length > 1)
+            {
+                var cWindow = new ChoiceWindow(monsters);
+
+                cWindow.ShowDialog();
+                monsterToAttack = cWindow.getChoiceFromSelect();
+            }
 
             monsters[monsterToAttack].setCurHealth(monsters[monsterToAttack].getCurHealth() - dmg);
             setCurMana(getCurMana() - 15);
